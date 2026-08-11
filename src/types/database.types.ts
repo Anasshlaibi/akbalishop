@@ -25,6 +25,7 @@ export interface Database {
           is_new: boolean
           is_occasion: boolean
           is_rental: boolean
+          is_active: boolean | null
           rental_price_per_day: number | null
           image: string
           gallery: Json
@@ -50,6 +51,7 @@ export interface Database {
           is_new?: boolean
           is_occasion?: boolean
           is_rental?: boolean
+          is_active?: boolean | null
           rental_price_per_day?: number | null
           image: string
           gallery?: Json
@@ -75,6 +77,7 @@ export interface Database {
           is_new?: boolean
           is_occasion?: boolean
           is_rental?: boolean
+          is_active?: boolean | null
           rental_price_per_day?: number | null
           image?: string
           gallery?: Json

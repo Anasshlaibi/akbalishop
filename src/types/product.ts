@@ -22,6 +22,7 @@ export interface Product {
   reviewCount: number;
   inStock: boolean;
   stockCount?: number;
+  isActive?: boolean;
   
   // Structured product classification
   condition?: ProductCondition;

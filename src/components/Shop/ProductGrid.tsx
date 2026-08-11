@@ -1,12 +1,12 @@
 import React from 'react';
 import { useShop, SortOption } from '../../context/ShopContext';
-import { PRODUCTS } from '../../data/products';
 import { ProductCard } from '../ProductCard';
 import { CATEGORIES } from '../../data/categories';
 import { Grid, List, SlidersHorizontal, ArrowUpDown, SearchX } from 'lucide-react';
 
 export const ProductGrid: React.FC = () => {
   const {
+    products,
     selectedCategory,
     selectedBrand,
     conditionFilter,
@@ -19,21 +19,24 @@ export const ProductGrid: React.FC = () => {
     resetFilters
   } = useShop();
 
+  // Public storefront products (excluding soft-deactivated is_active === false)
+  const activeProducts = products.filter(p => p.isActive !== false);
+
   // Filter products based on search, category, brand, condition
-  const filteredProducts = PRODUCTS.filter(product => {
+  const filteredProducts = activeProducts.filter(product => {
     // Search query filter
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       const matchName = product.name.toLowerCase().includes(q);
       const matchBrand = product.brand.toLowerCase().includes(q);
       const matchCat = product.category.toLowerCase().includes(q);
-      const matchDesc = product.description.toLowerCase().includes(q);
+      const matchDesc = product.shortDescription?.toLowerCase().includes(q) || false;
       if (!matchName && !matchBrand && !matchCat && !matchDesc) return false;
     }
 
     // Category filter
     if (selectedCategory) {
-      if (product.category !== selectedCategory) return false;
+      if (product.category.toLowerCase() !== selectedCategory.toLowerCase()) return false;
     }
 
     // Brand filter
@@ -42,9 +45,9 @@ export const ProductGrid: React.FC = () => {
     }
 
     // Condition filter
-    if (conditionFilter === 'neuf' && !product.isNew) return false;
-    if (conditionFilter === 'occasion' && !product.isOccasion) return false;
-    if (conditionFilter === 'location' && !product.isRental) return false;
+    if (conditionFilter === 'neuf' && !product.isNew && product.condition !== 'new') return false;
+    if (conditionFilter === 'occasion' && !product.isOccasion && product.condition !== 'used') return false;
+    if (conditionFilter === 'location' && !product.isRental && product.commercialMode !== 'rental' && product.commercialMode !== 'both') return false;
 
     return true;
   });
@@ -159,9 +162,9 @@ export const ProductGrid: React.FC = () => {
             <SearchX className="w-7 h-7" />
           </div>
           <div>
-            <h3 className="text-lg font-bold text-slate-900">Aucun produit ne correspond à vos filtres</h3>
+            <h3 className="text-lg font-bold text-slate-900">Aucun produit disponible dans le catalogue Supabase</h3>
             <p className="text-xs text-slate-500 max-w-sm mx-auto mt-1 font-medium">
-              Essayez de modifier votre recherche ou d'effacer les filtres actifs.
+              Les produits sont synchronisés en direct depuis la base de données Supabase.
             </p>
           </div>
           <button

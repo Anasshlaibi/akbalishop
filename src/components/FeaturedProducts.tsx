@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import { PRODUCTS } from '../data/products';
 import { ProductCard } from './ProductCard';
 import { useShop } from '../context/ShopContext';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
 export const FeaturedProducts: React.FC = () => {
-  const { setActiveTab, resetFilters } = useShop();
+  const { products, setActiveTab, resetFilters } = useShop();
   const [filterTab, setFilterTab] = useState<'all' | 'cameras' | 'objectifs' | 'occasions' | 'location'>('all');
 
-  const filteredProducts = PRODUCTS.filter(p => {
-    if (filterTab === 'cameras') return p.category === 'cameras';
-    if (filterTab === 'objectifs') return p.category === 'objectifs';
-    if (filterTab === 'occasions') return p.isOccasion === true;
-    if (filterTab === 'location') return p.isRental === true;
+  const activeProducts = products.filter(p => p.isActive !== false);
+
+  const filteredProducts = activeProducts.filter(p => {
+    if (filterTab === 'cameras') return p.category.toLowerCase() === 'cameras';
+    if (filterTab === 'objectifs') return p.category.toLowerCase() === 'objectifs' || p.category.toLowerCase() === 'lenses';
+    if (filterTab === 'occasions') return p.isOccasion === true || p.condition === 'used';
+    if (filterTab === 'location') return p.isRental === true || p.commercialMode === 'rental' || p.commercialMode === 'both';
     return true;
   });
 
@@ -69,7 +70,7 @@ export const FeaturedProducts: React.FC = () => {
             onClick={() => { resetFilters(); setActiveTab('shop'); }}
             className="px-8 py-3.5 rounded-xl bg-white border border-gray-300 text-slate-900 hover:border-amber-500 font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition-all inline-flex items-center space-x-2"
           >
-            <span>Voir tout le catalogue ({PRODUCTS.length} produits)</span>
+            <span>Voir tout le catalogue ({activeProducts.length} produits)</span>
             <ArrowRight className="w-4 h-4 text-amber-600" />
           </button>
         </div>

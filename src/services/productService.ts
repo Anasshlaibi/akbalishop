@@ -13,7 +13,7 @@ class ProductService {
   /**
    * Map raw Supabase database record to domain Product interface
    */
-  private mapRowToProduct(row: Database['public']['Tables']['products']['Row']): Product {
+  public mapRowToProduct(row: Database['public']['Tables']['products']['Row']): Product {
     return {
       id: row.id,
       slug: row.slug || row.id,
@@ -26,6 +26,7 @@ class ProductService {
       reviewCount: Number(row.review_count || 0),
       inStock: Boolean(row.in_stock),
       stockCount: row.stock_count ? Number(row.stock_count) : undefined,
+      isActive: row.is_active !== false,
       isNew: Boolean(row.is_new),
       isOccasion: Boolean(row.is_occasion),
       isRental: Boolean(row.is_rental),
@@ -44,7 +45,7 @@ class ProductService {
   /**
    * Map domain Product interface to raw database columns
    */
-  private mapProductToRow(product: Product): Database['public']['Tables']['products']['Insert'] {
+  public mapProductToRow(product: Product): Database['public']['Tables']['products']['Insert'] {
     return {
       id: product.id,
       slug: product.slug || product.id,
@@ -57,6 +58,7 @@ class ProductService {
       review_count: product.reviewCount,
       in_stock: product.inStock,
       stock_count: product.stockCount || null,
+      is_active: product.isActive ?? true,
       is_new: product.isNew || false,
       is_occasion: product.isOccasion || false,
       is_rental: product.isRental || false,
@@ -71,7 +73,9 @@ class ProductService {
   }
 
   /**
-   * Fetch all products from Supabase (falling back to SEED_PRODUCTS if not configured)
+   * Fetch all products from Supabase.
+   * SUPABASE IS THE ONLY PRODUCTION SOURCE OF TRUTH.
+   * If Supabase returns 0 products, return [] (empty list). Do NOT fall back to static seed data.
    */
   async getProducts(): Promise<Product[]> {
     if (!isSupabaseConfigured || !supabase) {
@@ -80,12 +84,16 @@ class ProductService {
 
     try {
       const { data, error } = await supabase.from('products').select('*');
-      if (error) throw error;
-      if (!data || data.length === 0) {
-        return SEED_PRODUCTS;
+      if (error) {
+        console.error('productService.getProducts Supabase error:', error);
+        return [];
       }
 
-      // Deduplicate strictly by product ID
+      if (!data) {
+        return [];
+      }
+
+      // Map Supabase rows to Product models
       const map = new Map<string, Product>();
       data.forEach(row => {
         const prod = this.mapRowToProduct(row as Database['public']['Tables']['products']['Row']);
@@ -94,21 +102,27 @@ class ProductService {
 
       return Array.from(map.values());
     } catch (err) {
-      console.error('productService.getProducts error:', err);
-      return SEED_PRODUCTS;
+      console.error('productService.getProducts exception:', err);
+      return [];
     }
   }
 
   /**
-   * Fetch single product by ID
+   * Fetch single product by ID or Slug directly from Supabase
    */
   async getProductById(id: string): Promise<Product | null> {
     if (!isSupabaseConfigured || !supabase) {
-      return SEED_PRODUCTS.find(p => p.id === id) || null;
+      return SEED_PRODUCTS.find(p => p.id === id || p.slug === id) || null;
     }
 
     try {
-      const { data, error } = await supabase.from('products').select('*').eq('id', id).single();
+      const { data, error } = await supabase
+        .from('products')
+        .select('*')
+        .or(`id.eq.${id},slug.eq.${id}`)
+        .limit(1)
+        .maybeSingle();
+
       if (error || !data) return null;
       return this.mapRowToProduct(data as Database['public']['Tables']['products']['Row']);
     } catch {
@@ -117,7 +131,14 @@ class ProductService {
   }
 
   /**
-   * Non-Optimistic Create: Mutation executes against DB first, returning explicit status
+   * Fetch single product by Slug
+   */
+  async getProductBySlug(slug: string): Promise<Product | null> {
+    return this.getProductById(slug);
+  }
+
+  /**
+   * Non-Optimistic Create: Mutation executes against DB first
    */
   async createProduct(product: Product): Promise<MutationResult<Product>> {
     if (isSupabaseConfigured && supabase) {
@@ -147,7 +168,21 @@ class ProductService {
   }
 
   /**
-   * Non-Optimistic Delete: Mutation executes against DB first
+   * Soft Deactivate: Sets is_active = false
+   */
+  async deactivateProduct(id: string): Promise<MutationResult<string>> {
+    if (isSupabaseConfigured && supabase) {
+      const { error } = await supabase.from('products').update({ is_active: false }).eq('id', id);
+      if (error) {
+        console.error('productService.deactivateProduct database error:', error);
+        return { success: false, error: error.message };
+      }
+    }
+    return { success: true, data: id };
+  }
+
+  /**
+   * Hard Delete: Removes product record from Supabase
    */
   async deleteProduct(id: string): Promise<MutationResult<string>> {
     if (isSupabaseConfigured && supabase) {

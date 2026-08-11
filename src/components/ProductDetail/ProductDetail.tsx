@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Product, PRODUCTS } from '../../data/products';
+import { Product } from '../../types';
 import { useCart } from '../../context/CartContext';
 import { useShop } from '../../context/ShopContext';
 import { ProductCard } from '../ProductCard';
@@ -27,7 +27,7 @@ interface ProductDetailProps {
 
 export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   const { addToCart, toggleWishlist, isInWishlist } = useCart();
-  const { setActiveTab, setSelectedProduct } = useShop();
+  const { products, setActiveTab } = useShop();
 
   const [activeImage, setActiveImage] = useState(product.image);
   const [quantity, setQuantity] = useState(1);
@@ -36,9 +36,10 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
 
   const isLiked = isInWishlist(product.id);
 
-  // Filter related products from same category or brand
-  const relatedProducts = PRODUCTS.filter(
-    p => p.id !== product.id && (p.category === product.category || p.brand === product.brand)
+  // Filter related active products from Supabase catalog
+  const activeProducts = products.filter(p => p.isActive !== false);
+  const relatedProducts = activeProducts.filter(
+    p => p.id !== product.id && (p.category.toLowerCase() === product.category.toLowerCase() || p.brand.toLowerCase() === product.brand.toLowerCase())
   ).slice(0, 4);
 
   const handleWhatsAppOrder = () => {
@@ -100,13 +101,13 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
 
               {/* Badges */}
               <div className="absolute top-4 left-4 flex flex-col gap-1.5">
-                {product.isOccasion && (
+                {(product.isOccasion || product.condition === 'used') && (
                   <span className="px-3 py-1 rounded-lg bg-amber-500 text-white text-xs font-extrabold shadow flex items-center space-x-1">
                     <RefreshCw className="w-3.5 h-3.5" />
                     <span>Occasion Certifiée</span>
                   </span>
                 )}
-                {product.isRental && (
+                {(product.isRental || product.commercialMode === 'rental' || product.commercialMode === 'both') && (
                   <span className="px-3 py-1 rounded-lg bg-emerald-600 text-white text-xs font-extrabold shadow flex items-center space-x-1">
                     <Calendar className="w-3.5 h-3.5" />
                     <span>Disponible en Location</span>

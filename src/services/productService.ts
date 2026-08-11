@@ -138,30 +138,62 @@ class ProductService {
   }
 
   /**
-   * Non-Optimistic Create: Mutation executes against DB first
+   * Non-Optimistic Create/Upsert: Mutation executes against DB first
    */
   async createProduct(product: Product): Promise<MutationResult<Product>> {
     if (isSupabaseConfigured && supabase) {
       const row = this.mapProductToRow(product);
-      const { error } = await supabase.from('products').insert([row]);
+      const { data, error } = await supabase.from('products').upsert([row]).select();
       if (error) {
         console.error('productService.createProduct database error:', error);
         return { success: false, error: error.message };
+      }
+      if (data && data.length > 0) {
+        const newProd = this.mapRowToProduct(data[0] as Database['public']['Tables']['products']['Row']);
+        return { success: true, data: newProd };
       }
     }
     return { success: true, data: product };
   }
 
   /**
-   * Non-Optimistic Update: Mutation executes against DB first
+   * Non-Optimistic Update: Mutation executes against DB first using select & upsert fallback
    */
   async updateProduct(product: Product): Promise<MutationResult<Product>> {
     if (isSupabaseConfigured && supabase) {
       const row = this.mapProductToRow(product);
-      const { error } = await supabase.from('products').update(row).eq('id', product.id);
+
+      // Attempt update by matching ID or Slug
+      const { data, error } = await supabase
+        .from('products')
+        .update(row)
+        .or(`id.eq.${product.id},slug.eq.${product.id}`)
+        .select();
+
       if (error) {
         console.error('productService.updateProduct database error:', error);
         return { success: false, error: error.message };
+      }
+
+      // If update matched 0 rows, fallback to upsert
+      if (!data || data.length === 0) {
+        const { data: upsertData, error: upsertError } = await supabase
+          .from('products')
+          .upsert([row])
+          .select();
+
+        if (upsertError) {
+          console.error('productService.updateProduct upsert error:', upsertError);
+          return { success: false, error: upsertError.message };
+        }
+
+        if (upsertData && upsertData.length > 0) {
+          const updatedProd = this.mapRowToProduct(upsertData[0] as Database['public']['Tables']['products']['Row']);
+          return { success: true, data: updatedProd };
+        }
+      } else {
+        const updatedProd = this.mapRowToProduct(data[0] as Database['public']['Tables']['products']['Row']);
+        return { success: true, data: updatedProd };
       }
     }
     return { success: true, data: product };
@@ -172,7 +204,11 @@ class ProductService {
    */
   async deactivateProduct(id: string): Promise<MutationResult<string>> {
     if (isSupabaseConfigured && supabase) {
-      const { error } = await supabase.from('products').update({ is_active: false }).eq('id', id);
+      const { error } = await supabase
+        .from('products')
+        .update({ is_active: false })
+        .or(`id.eq.${id},slug.eq.${id}`);
+
       if (error) {
         console.error('productService.deactivateProduct database error:', error);
         return { success: false, error: error.message };
@@ -186,7 +222,11 @@ class ProductService {
    */
   async deleteProduct(id: string): Promise<MutationResult<string>> {
     if (isSupabaseConfigured && supabase) {
-      const { error } = await supabase.from('products').delete().eq('id', id);
+      const { error } = await supabase
+        .from('products')
+        .delete()
+        .or(`id.eq.${id},slug.eq.${id}`);
+
       if (error) {
         console.error('productService.deleteProduct database error:', error);
         return { success: false, error: error.message };

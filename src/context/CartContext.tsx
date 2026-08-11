@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Product } from '../data/products';
+import { Product } from '../types';
+import { useShop } from './ShopContext';
 
 export interface CartItem {
   product: Product;
@@ -26,6 +27,8 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { products } = useShop();
+
   const [cart, setCart] = useState<CartItem[]>(() => {
     const saved = localStorage.getItem('akabli_cart');
     return saved ? JSON.parse(saved) : [];
@@ -38,6 +41,24 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [isCartOpen, setIsCartOpen] = useState(false);
 
+  // Synchronize cart item product details with live Supabase products state
+  useEffect(() => {
+    if (products && products.length > 0 && cart.length > 0) {
+      setCart(prevCart => {
+        let hasChanges = false;
+        const updated = prevCart.map(item => {
+          const liveProd = products.find(p => p.id === item.product.id);
+          if (liveProd && (liveProd.price !== item.product.price || liveProd.name !== item.product.name || liveProd.image !== item.product.image)) {
+            hasChanges = true;
+            return { ...item, product: liveProd };
+          }
+          return item;
+        });
+        return hasChanges ? updated : prevCart;
+      });
+    }
+  }, [products]);
+
   useEffect(() => {
     localStorage.setItem('akabli_cart', JSON.stringify(cart));
   }, [cart]);
@@ -47,14 +68,16 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [wishlist]);
 
   const addToCart = (product: Product, quantity = 1) => {
+    const liveProduct = products.find(p => p.id === product.id) || product;
     setCart(prev => {
-      const existingIndex = prev.findIndex(item => item.product.id === product.id);
+      const existingIndex = prev.findIndex(item => item.product.id === liveProduct.id);
       if (existingIndex > -1) {
         const updated = [...prev];
         updated[existingIndex].quantity += quantity;
+        updated[existingIndex].product = liveProduct;
         return updated;
       }
-      return [...prev, { product, quantity }];
+      return [...prev, { product: liveProduct, quantity }];
     });
     setIsCartOpen(true);
   };

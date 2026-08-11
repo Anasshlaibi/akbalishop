@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useMemo } from 'react';
 import { Product, ConditionFilter, SortOption, Order, OrderStatus } from '../types';
 import { useProducts } from '../hooks/useProducts';
 import { useOrders } from '../hooks/useOrders';
@@ -22,10 +22,13 @@ interface ShopContextType {
   setSortBy: (sort: SortOption) => void;
   viewMode: 'grid' | 'list';
   setViewMode: (mode: 'grid' | 'list') => void;
+  
+  // Single Source of Truth for Selected & QuickView Products
   selectedProduct: Product | null;
-  setSelectedProduct: (prod: Product | null) => void;
+  setSelectedProduct: (prod: Product | string | null) => void;
   quickViewProduct: Product | null;
-  setQuickViewProduct: (prod: Product | null) => void;
+  setQuickViewProduct: (prod: Product | string | null) => void;
+
   isCheckoutOpen: boolean;
   setIsCheckoutOpen: (open: boolean) => void;
   isSearchModalOpen: boolean;
@@ -56,12 +59,47 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [activeTab, setActiveTab] = useState<ActiveTab>('home');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+  
+  // Store target IDs to ensure selected & quickView products always resolve dynamically from productState.products
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+  const [quickViewProductId, setQuickViewProductId] = useState<string | null>(null);
+
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
+
+  // Derived selected product from synchronized products state
+  const selectedProduct = useMemo(() => {
+    if (!selectedProductId) return null;
+    return productState.products.find(p => p.id === selectedProductId || p.slug === selectedProductId) || null;
+  }, [selectedProductId, productState.products]);
+
+  const setSelectedProduct = (prod: Product | string | null) => {
+    if (!prod) {
+      setSelectedProductId(null);
+    } else if (typeof prod === 'string') {
+      setSelectedProductId(prod);
+    } else {
+      setSelectedProductId(prod.id);
+    }
+  };
+
+  // Derived quickView product from synchronized products state
+  const quickViewProduct = useMemo(() => {
+    if (!quickViewProductId) return null;
+    return productState.products.find(p => p.id === quickViewProductId || p.slug === quickViewProductId) || null;
+  }, [quickViewProductId, productState.products]);
+
+  const setQuickViewProduct = (prod: Product | string | null) => {
+    if (!prod) {
+      setQuickViewProductId(null);
+    } else if (typeof prod === 'string') {
+      setQuickViewProductId(prod);
+    } else {
+      setQuickViewProductId(prod.id);
+    }
+  };
 
   const addOrder = (orderData: Omit<Order, 'id' | 'createdAt' | 'status'>): string => {
     const tempId = `AKABLI-${Math.floor(100000 + Math.random() * 900000)}`;

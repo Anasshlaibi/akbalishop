@@ -3,7 +3,20 @@ import { useShop } from '../context/ShopContext';
 import { ShoppingBag, Sparkles, ShieldCheck, Truck, ArrowRight, Video, Camera, Award } from 'lucide-react';
 
 export const Hero: React.FC = () => {
-  const { setActiveTab, resetFilters } = useShop();
+  const { products, setActiveTab, setSelectedProduct, resetFilters } = useShop();
+
+  // Find Sony FX6 camera dynamically from synchronized products
+  const fx6Product = products.find(p => p.id === 'sony-fx6-cinema' || p.slug === 'sony-fx6-cinema') || products[0];
+
+  const handleHeroProductClick = () => {
+    if (fx6Product) {
+      setSelectedProduct(fx6Product.id);
+      setActiveTab('product');
+    } else {
+      resetFilters();
+      setActiveTab('shop');
+    }
+  };
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-dark-bg via-dark-surface to-dark-bg border-b border-white/5 py-12 lg:py-20">
@@ -101,9 +114,12 @@ export const Hero: React.FC = () => {
               <div className="relative rounded-3xl glass-panel p-4 border border-white/15 overflow-hidden shadow-2xl">
                 
                 {/* Hero Main Camera Image */}
-                <div className="relative aspect-[4/3] rounded-2xl bg-dark-bg overflow-hidden flex items-center justify-center p-4">
+                <div 
+                  onClick={handleHeroProductClick}
+                  className="relative aspect-[4/3] rounded-2xl bg-dark-bg overflow-hidden flex items-center justify-center p-4 cursor-pointer"
+                >
                   <img 
-                    src="/wp-content/uploads/AkabliShop-Head.webp" 
+                    src={fx6Product?.image || "/wp-content/uploads/AkabliShop-Head.webp"} 
                     alt="AKABLISHOP Audiovisual Equipment" 
                     className="w-full h-full object-contain filter drop-shadow-2xl hover:scale-105 transition-transform duration-500"
                   />
@@ -115,31 +131,40 @@ export const Hero: React.FC = () => {
 
                   <div className="absolute bottom-3 right-3 bg-dark-card/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10 text-right">
                     <span className="block text-[9px] uppercase tracking-wider text-gray-400">Caméra Cinéma Vedette</span>
-                    <span className="text-xs font-bold text-white">Sony FX6 / FX3 Cinema Line</span>
+                    <span className="text-xs font-bold text-white">{fx6Product?.name || "Sony FX6 / FX3 Cinema Line"}</span>
                   </div>
                 </div>
 
                 {/* Floating Product Highlight Banner */}
-                <div className="mt-4 p-3.5 rounded-xl bg-dark-surface/80 border border-white/10 flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <img 
-                      src="/wp-content/uploads/SONY-FX6-jpg-300x300.webp" 
-                      alt="Sony FX6" 
-                      className="w-12 h-12 rounded-lg object-cover bg-dark-bg p-1 border border-white/10"
-                    />
-                    <div>
-                      <h4 className="text-xs font-bold text-white">Sony FX6 – Caméra Cinéma</h4>
-                      <p className="text-[11px] text-brand-amber font-semibold">73.000 DH <span className="text-gray-500 line-through text-[10px] ml-1">76.500 DH</span></p>
+                {fx6Product && (
+                  <div className="mt-4 p-3.5 rounded-xl bg-dark-surface/80 border border-white/10 flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <img 
+                        src={fx6Product.image} 
+                        alt={fx6Product.name} 
+                        className="w-12 h-12 rounded-lg object-cover bg-dark-bg p-1 border border-white/10"
+                      />
+                      <div>
+                        <h4 className="text-xs font-bold text-white">{fx6Product.name}</h4>
+                        <p className="text-[11px] text-brand-amber font-semibold">
+                          {fx6Product.price.toLocaleString('fr-FR')} DH
+                          {fx6Product.oldPrice && (
+                            <span className="text-gray-500 line-through text-[10px] ml-1">
+                              {fx6Product.oldPrice.toLocaleString('fr-FR')} DH
+                            </span>
+                          )}
+                        </p>
+                      </div>
                     </div>
-                  </div>
 
-                  <button
-                    onClick={() => { resetFilters(); setActiveTab('shop'); }}
-                    className="px-3 py-1.5 rounded-lg bg-brand-amber/20 hover:bg-brand-amber text-brand-amber hover:text-dark-bg text-xs font-bold transition-all"
-                  >
-                    Voir
-                  </button>
-                </div>
+                    <button
+                      onClick={handleHeroProductClick}
+                      className="px-3 py-1.5 rounded-lg bg-brand-amber/20 hover:bg-brand-amber text-brand-amber hover:text-dark-bg text-xs font-bold transition-all"
+                    >
+                      Voir
+                    </button>
+                  </div>
+                )}
 
               </div>
 

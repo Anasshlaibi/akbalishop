@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useShop } from '../../context/ShopContext';
-import { PRODUCTS } from '../../data/products';
 import { Search, X, ArrowRight, Tag } from 'lucide-react';
 
 export const SearchModal: React.FC = () => {
-  const { isSearchModalOpen, setIsSearchModalOpen, setSelectedProduct, setActiveTab, setSearchQuery } = useShop();
+  const { products, isSearchModalOpen, setIsSearchModalOpen, setSelectedProduct, setActiveTab, setSearchQuery } = useShop();
   const [searchTerm, setSearchTerm] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -18,20 +17,24 @@ export const SearchModal: React.FC = () => {
 
   if (!isSearchModalOpen) return null;
 
+  // Filter active products from synchronized Supabase products
+  const activeProducts = products.filter(p => p.isActive !== false);
+
   const results = searchTerm.trim() 
-    ? PRODUCTS.filter(p => {
+    ? activeProducts.filter(p => {
         const q = searchTerm.toLowerCase();
         return (
           p.name.toLowerCase().includes(q) ||
           p.brand.toLowerCase().includes(q) ||
           p.category.toLowerCase().includes(q) ||
-          p.description.toLowerCase().includes(q)
+          (p.shortDescription && p.shortDescription.toLowerCase().includes(q)) ||
+          (p.description && p.description.toLowerCase().includes(q))
         );
       })
     : [];
 
   const handleProductSelect = (product: any) => {
-    setSelectedProduct(product);
+    setSelectedProduct(product.id);
     setActiveTab('product');
     setIsSearchModalOpen(false);
   };
@@ -115,7 +118,7 @@ export const SearchModal: React.FC = () => {
                       <div className="text-xs font-extrabold text-slate-900">
                         {p.price.toLocaleString('fr-FR')} <span className="text-[10px] text-amber-700">DH</span>
                       </div>
-                      {p.isOccasion && <span className="text-[9px] text-amber-600 font-semibold">Occasion</span>}
+                      {(p.isOccasion || p.condition === 'used') && <span className="text-[9px] text-amber-600 font-semibold">Occasion</span>}
                     </div>
                   </div>
                 ))}

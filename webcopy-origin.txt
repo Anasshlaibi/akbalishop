@@ -1,0 +1,548 @@
+Uri: https://akablishop.ma/
+File Name: C:\Downloaded Web Sites\akablishop.ma\index.htm
+Content Type: text/html
+
+Uri: https://akablishop.ma/index.php/comments/feed/
+File Name: C:\Downloaded Web Sites\akablishop.ma\index.php\comments\feed\index.htm
+Content Type: application/rss+xml
+
+Uri: https://akablishop.ma/index.php/feed/
+File Name: C:\Downloaded Web Sites\akablishop.ma\index.php\feed\index.htm
+Content Type: application/rss+xml
+
+Uri: https://akablishop.ma/index.php/wp-json/
+File Name: C:\Downloaded Web Sites\akablishop.ma\index.php\wp-json\index.htm
+Content Type: application/json
+
+Uri: https://akablishop.ma/index.php/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fakablishop.ma%2F
+File Name: C:\Downloaded Web Sites\akablishop.ma\index.php\wp-json\oembed\1.0\embed
+Content Type: application/json
+
+Uri: https://akablishop.ma/index.php/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fakablishop.ma%2F&format=xml
+File Name: C:\Downloaded Web Sites\akablishop.ma\index.php\wp-json\oembed\1.0\embed-1
+Content Type: text/xml
+
+Uri: https://akablishop.ma/wp-content/et-cache/68/et-divi-dynamic-tb-96-68-late.css?ver=1767727867
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\et-cache\68\et-divi-dynamic-tb-96-68-late.css
+Content Type: text/css
+
+Uri: https://akablishop.ma/wp-content/et-cache/68/et-divi-dynamic-tb-96-68.css?ver=1767727867
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\et-cache\68\et-divi-dynamic-tb-96-68.css
+Content Type: text/css
+
+Uri: https://akablishop.ma/wp-content/plugins/woocommerce-menu-bar-cart/assets/css/wpmenucart-icons.min.css?ver=2.14.12
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\plugins\woocommerce-menu-bar-cart\assets\css\wpmenucart-icons.min.css
+Content Type: text/css
+
+Uri: https://akablishop.ma/wp-content/plugins/woocommerce-menu-bar-cart/assets/css/wpmenucart-main.min.css?ver=2.14.12
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\plugins\woocommerce-menu-bar-cart\assets\css\wpmenucart-main.min.css
+Content Type: text/css
+
+Uri: https://akablishop.ma/wp-content/plugins/woocommerce-menu-bar-cart/assets/fonts/WPMenuCart.eot
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\plugins\woocommerce-menu-bar-cart\assets\fonts\WPMenuCart.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://akablishop.ma/wp-content/plugins/woocommerce-menu-bar-cart/assets/fonts/WPMenuCart.eot?
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\plugins\woocommerce-menu-bar-cart\assets\fonts\WPMenuCart-1.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://akablishop.ma/wp-content/plugins/woocommerce-menu-bar-cart/assets/fonts/WPMenuCart.svg
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\plugins\woocommerce-menu-bar-cart\assets\fonts\WPMenuCart.svg
+Content Type: image/svg+xml
+
+Uri: https://akablishop.ma/wp-content/plugins/woocommerce-menu-bar-cart/assets/fonts/WPMenuCart.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\plugins\woocommerce-menu-bar-cart\assets\fonts\WPMenuCart.ttf
+Content Type: application/x-font-ttf
+
+Uri: https://akablishop.ma/wp-content/plugins/woocommerce-menu-bar-cart/assets/fonts/WPMenuCart.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\plugins\woocommerce-menu-bar-cart\assets\fonts\WPMenuCart.woff
+Content Type: application/font-woff
+
+Uri: https://akablishop.ma/wp-content/plugins/woocommerce-menu-bar-cart/assets/fonts/WPMenuCart.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\plugins\woocommerce-menu-bar-cart\assets\fonts\WPMenuCart.woff2
+Content Type: font/woff2
+
+Uri: https://akablishop.ma/wp-content/plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.min.css?ver=10.4.4
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\plugins\woocommerce\assets\css\photoswipe\default-skin\default-skin.min.css
+Content Type: text/css
+
+Uri: https://akablishop.ma/wp-content/plugins/woocommerce/assets/css/photoswipe/photoswipe.min.css?ver=10.4.4
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\plugins\woocommerce\assets\css\photoswipe\photoswipe.min.css
+Content Type: text/css
+
+Uri: https://akablishop.ma/wp-content/plugins/woocommerce/assets/css/select2.css?ver=10.4.4
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\plugins\woocommerce\assets\css\select2.css
+Content Type: text/css
+
+Uri: https://akablishop.ma/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=10.4.4
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\plugins\woocommerce\assets\css\woocommerce-layout.css
+Content Type: text/css
+
+Uri: https://akablishop.ma/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=10.4.4
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\plugins\woocommerce\assets\css\woocommerce-smallscreen.css
+Content Type: text/css
+
+Uri: https://akablishop.ma/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=10.4.4
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\plugins\woocommerce\assets\css\woocommerce.css
+Content Type: text/css
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-brands-400.eot
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-brands-400.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-brands-400.eot?
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-brands-400-1.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-brands-400.svg
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-brands-400.svg
+Content Type: image/svg+xml
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-brands-400.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-brands-400.ttf
+Content Type: application/x-font-ttf
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-brands-400.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-brands-400.woff
+Content Type: application/font-woff
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-brands-400.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-brands-400.woff2
+Content Type: font/woff2
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-regular-400.eot
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-regular-400.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-regular-400.eot?
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-regular-400-1.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-regular-400.svg
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-regular-400.svg
+Content Type: image/svg+xml
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-regular-400.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-regular-400.ttf
+Content Type: application/x-font-ttf
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-regular-400.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-regular-400.woff
+Content Type: application/font-woff
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-regular-400.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-regular-400.woff2
+Content Type: font/woff2
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-solid-900.eot
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-solid-900.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-solid-900.eot?
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-solid-900-1.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-solid-900.svg
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-solid-900.svg
+Content Type: image/svg+xml
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-solid-900.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-solid-900.ttf
+Content Type: application/x-font-ttf
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-solid-900.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-solid-900.woff
+Content Type: application/font-woff
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/fontawesome/fa-solid-900.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\fontawesome\fa-solid-900.woff2
+Content Type: font/woff2
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/modules/social/modules.eot
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\modules\social\modules.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/modules/social/modules.eot?
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\modules\social\modules-1.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/modules/social/modules.svg
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\modules\social\modules.svg
+Content Type: image/svg+xml
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/modules/social/modules.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\modules\social\modules.ttf
+Content Type: application/x-font-ttf
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/core/admin/fonts/modules/social/modules.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\core\admin\fonts\modules\social\modules.woff
+Content Type: application/font-woff
+
+Uri: https://akablishop.ma/wp-content/themes/Divi/includes/builder/styles/images/preloader.gif
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\themes\Divi\includes\builder\styles\images\preloader.gif
+Content Type: image/gif
+
+Uri: https://akablishop.ma/wp-content/uploads/2025/03/electronics-store-83.jpg
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\uploads\2025\03\electronics-store-83.jpg
+Content Type: image/jpeg
+
+Uri: https://akablishop.ma/wp-content/uploads/2025/03/electronics-store-85.png
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\uploads\2025\03\electronics-store-85.png
+Content Type: image/png
+
+Uri: https://akablishop.ma/wp-content/uploads/2025/03/electronics-store-86.png
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\uploads\2025\03\electronics-store-86.png
+Content Type: image/png
+
+Uri: https://akablishop.ma/wp-content/uploads/2025/03/QkqbliShop-icone-B-100x100.png
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\uploads\2025\03\QkqbliShop-icone-B-100x100.png
+Content Type: image/png
+
+Uri: https://akablishop.ma/wp-content/uploads/2025/04/AkabliShop-Godox.webp
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\uploads\2025\04\AkabliShop-Godox.webp
+Content Type: image/webp
+
+Uri: https://akablishop.ma/wp-content/uploads/2025/04/AkabliShop-Head.webp
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\uploads\2025\04\AkabliShop-Head.webp
+Content Type: image/webp
+
+Uri: https://akablishop.ma/wp-content/uploads/2025/07/Sony-a7S-III-–-Boitier-nu-Bon-etat-300x300.png
+File Name: C:\Downloaded Web Sites\akablishop.ma\wp-content\uploads\2025\07\Sony-a7S-III-–-Boitier-nu-Bon-etat-300x300.png
+Content Type: image/png
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq0N6WXZ0oA.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq0N6WXZ0oA.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq0N6WXZ0ow.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq0N6WXZ0ow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq0N6WXZ0pg.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq0N6WXZ0pg.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq3p6WXZ0oA.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq3p6WXZ0oA.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq3p6WXZ0ow.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq3p6WXZ0ow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq3p6WXZ0pg.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq3p6WXZ0pg.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq5Z9WXZ0oA.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq5Z9WXZ0oA.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq5Z9WXZ0ow.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq5Z9WXZ0ow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq5Z9WXZ0pg.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq5Z9WXZ0pg.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq6R8WXZ0oA.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq6R8WXZ0oA.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq6R8WXZ0ow.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq6R8WXZ0ow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq6R8WXZ0pg.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq6R8WXZ0pg.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq6R9WXZ0oA.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq6R9WXZ0oA.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq6R9WXZ0ow.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq6R9WXZ0ow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq6R9WXZ0pg.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq6R9WXZ0pg.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqw16WXZ0oA.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqw16WXZ0oA.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqw16WXZ0ow.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqw16WXZ0ow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqw16WXZ0pg.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqw16WXZ0pg.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqyR6WXZ0oA.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqyR6WXZ0oA.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqyR6WXZ0ow.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqyR6WXZ0ow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqyR6WXZ0pg.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqyR6WXZ0pg.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqyR9WXZ0oA.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqyR9WXZ0oA.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqyR9WXZ0ow.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqyR9WXZ0ow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqyR9WXZ0pg.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqyR9WXZ0pg.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq_p9WXZ0oA.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq_p9WXZ0oA.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq_p9WXZ0ow.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq_p9WXZ0ow.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq_p9WXZ0pg.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq_p9WXZ0pg.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw3aX8.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw3aX8.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw3aXo.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw3aXo.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw3aXw.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw3aXw.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw3aX8.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw3aX8.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw3aXo.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw3aXo.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw3aXw.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw3aXw.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Xw3aX8.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Xw3aX8.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Xw3aXo.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Xw3aXo.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Xw3aXw.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Xw3aXw.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtZ6Hw3aX8.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtZ6Hw3aX8.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtZ6Hw3aXo.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtZ6Hw3aXo.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtZ6Hw3aXw.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtZ6Hw3aXw.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu173w3aX8.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu173w3aX8.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu173w3aXo.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu173w3aXo.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu173w3aXw.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu173w3aXw.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM73w3aX8.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM73w3aX8.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM73w3aXo.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM73w3aXo.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM73w3aXw.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM73w3aXw.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvC73w3aX8.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvC73w3aX8.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvC73w3aXo.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvC73w3aXo.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvC73w3aXw.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvC73w3aXw.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr6Hw3aX8.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr6Hw3aX8.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr6Hw3aXo.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr6Hw3aXo.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr6Hw3aXw.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr6Hw3aXw.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr73w3aX8.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr73w3aX8.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr73w3aXo.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr73w3aXo.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr73w3aXw.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\montserrat\v31\JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr73w3aXw.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk0ZjWV4ewA.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk0ZjWV4ewA.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk0ZjWV4exg.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk0ZjWV4exg.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk0ZjWV4exQ.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk0ZjWV4exQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk5hkWV4ewA.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk5hkWV4ewA.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk5hkWV4exg.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk5hkWV4exg.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk5hkWV4exQ.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk5hkWV4exQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4ewA.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4ewA.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4exg.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4exg.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4exQ.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4exQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWV4ewA.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWV4ewA.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWV4exg.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWV4exg.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWV4exQ.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWV4exQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkyFjWV4ewA.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkyFjWV4ewA.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkyFjWV4exg.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkyFjWV4exg.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkyFjWV4exQ.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkyFjWV4exQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVc.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVc.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVI.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVI.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVQ.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVQ.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVc.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVc.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVI.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVI.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVQ.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVQ.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgshZ1x4uaVc.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgshZ1x4uaVc.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgshZ1x4uaVI.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgshZ1x4uaVI.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgshZ1x4uaVQ.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgshZ1x4uaVQ.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVc.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVc.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVI.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVI.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVQ.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVQ.woff
+Content Type: font/woff
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVc.ttf
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVc.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVI.woff2
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVI.woff2
+Content Type: font/woff2
+
+Uri: https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVQ.woff
+File Name: C:\Downloaded Web Sites\akablishop.ma\s\opensans\v44\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVQ.woff
+Content Type: font/woff
+

@@ -85,7 +85,7 @@ class ProductService {
   }
 
   /**
-   * Map domain Product interface to database columns (handling JSON stringification for Supabase schema)
+   * Map domain Product interface strictly to existing Supabase table columns
    */
   public mapProductToRow(product: Product): any {
     const galleryVal = Array.isArray(product.gallery) && product.gallery.length > 0 
@@ -112,7 +112,6 @@ class ProductService {
       review_count: Number(product.reviewCount || 0),
       in_stock: Boolean(product.inStock),
       stock_count: product.stockCount ? Number(product.stockCount) : 1,
-      is_active: product.isActive ?? true,
       is_new: Boolean(product.isNew),
       is_occasion: Boolean(product.isOccasion),
       is_rental: Boolean(product.isRental),
@@ -138,7 +137,7 @@ class ProductService {
     try {
       const { data, error } = await supabase.from('products').select('*');
       if (error) {
-        console.error('productService.getProducts Supabase error:', error);
+        console.error('productService.getProducts Supabase error:', error.message || error);
         return [];
       }
 
@@ -202,8 +201,9 @@ class ProductService {
         .maybeSingle();
 
       if (error) {
-        console.error('productService.createProduct database error:', error);
-        return { success: false, error: error.message };
+        const msg = error.message || JSON.stringify(error);
+        console.error('productService.createProduct database error:', msg);
+        return { success: false, error: msg };
       }
 
       if (!data) {
@@ -232,8 +232,9 @@ class ProductService {
         .maybeSingle();
 
       if (error) {
-        console.error('productService.updateProduct database error:', error);
-        return { success: false, error: error.message };
+        const msg = error.message || JSON.stringify(error);
+        console.error('productService.updateProduct database error:', msg);
+        return { success: false, error: msg };
       }
 
       if (!data) {
@@ -246,8 +247,9 @@ class ProductService {
           .maybeSingle();
 
         if (slugError) {
-          console.error('productService.updateProduct slug error:', slugError);
-          return { success: false, error: slugError.message };
+          const msg = slugError.message || JSON.stringify(slugError);
+          console.error('productService.updateProduct slug error:', msg);
+          return { success: false, error: msg };
         }
 
         if (!slugData) {
@@ -265,18 +267,19 @@ class ProductService {
   }
 
   /**
-   * Soft Deactivate: Sets is_active = false in Supabase
+   * Soft Deactivate: Sets in_stock = false in Supabase
    */
   async deactivateProduct(id: string): Promise<MutationResult<string>> {
     if (isSupabaseConfigured && supabase) {
       const { error } = await supabase
         .from('products')
-        .update({ is_active: false })
+        .update({ in_stock: false })
         .eq('id', id);
 
       if (error) {
-        console.error('productService.deactivateProduct database error:', error);
-        return { success: false, error: error.message };
+        const msg = error.message || JSON.stringify(error);
+        console.error('productService.deactivateProduct database error:', msg);
+        return { success: false, error: msg };
       }
     }
     return { success: true, data: id };
@@ -293,8 +296,9 @@ class ProductService {
         .eq('id', id);
 
       if (error) {
-        console.error('productService.deleteProduct database error:', error);
-        return { success: false, error: error.message };
+        const msg = error.message || JSON.stringify(error);
+        console.error('productService.deleteProduct database error:', msg);
+        return { success: false, error: msg };
       }
     }
     return { success: true, data: id };

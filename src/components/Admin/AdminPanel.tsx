@@ -18,7 +18,10 @@ import {
 } from 'lucide-react';
 
 export const AdminPanel: React.FC = () => {
-  const { products, addProduct, updateProduct, deleteProduct } = useShop();
+  const { products, addProduct, updateProduct, deleteProduct, isAdminOpen, setIsAdminOpen } = useShop();
+
+  // Don't render at all when closed
+  if (!isAdminOpen) return null;
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [authError, setAuthError] = useState(false);
@@ -72,7 +75,14 @@ export const AdminPanel: React.FC = () => {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-slate-900 flex items-center justify-center p-4">
+      <div className="fixed inset-0 z-50 bg-slate-900 flex items-center justify-center p-4">
+        <button
+          onClick={() => setIsAdminOpen(false)}
+          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white bg-slate-800 rounded-xl border border-slate-700"
+          title="Fermer"
+        >
+          <XCircle className="w-5 h-5" />
+        </button>
         <div className="bg-slate-800 border border-slate-700 rounded-3xl p-8 max-w-md w-full shadow-2xl text-center">
           <div className="w-16 h-16 bg-amber-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-amber-500">
             <Lock className="w-8 h-8" />
@@ -88,6 +98,7 @@ export const AdminPanel: React.FC = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 text-sm font-semibold"
+                autoFocus
               />
               {authError && (
                 <p className="text-rose-500 text-xs font-semibold mt-2 text-left">Mot de passe incorrect</p>
@@ -106,8 +117,8 @@ export const AdminPanel: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 p-6 font-sans">
-      <div className="max-w-7xl mx-auto space-y-6">
+    <div className="fixed inset-0 z-50 bg-slate-950 text-slate-100 overflow-y-auto font-sans">
+      <div className="max-w-7xl mx-auto p-6 space-y-6">
         
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">

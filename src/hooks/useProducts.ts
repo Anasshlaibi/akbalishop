@@ -71,10 +71,14 @@ export function useProducts() {
     };
   }, []);
 
+  // Database-First Mutations: Send directly to Supabase via productService
   const addProduct = async (product: Product): Promise<MutationResult<Product>> => {
     const res = await productService.createProduct(product);
     if (res.success && res.data) {
-      setProducts(prev => [res.data!, ...prev]);
+      setProducts(prev => {
+        const exists = prev.some(p => p.id === res.data!.id);
+        return exists ? prev.map(p => (p.id === res.data!.id ? res.data! : p)) : [res.data!, ...prev];
+      });
     }
     return res;
   };

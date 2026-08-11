@@ -190,76 +190,89 @@ class ProductService {
   }
 
   /**
-   * Create/Upsert product in Supabase
+   * Database-first Create: Inserts into Supabase and returns single verified row
    */
   async createProduct(product: Product): Promise<MutationResult<Product>> {
     if (isSupabaseConfigured && supabase) {
       const row = this.mapProductToRow(product);
-      const { data, error } = await supabase.from('products').upsert([row]).select();
+      const { data, error } = await supabase
+        .from('products')
+        .upsert([row])
+        .select()
+        .maybeSingle();
+
       if (error) {
         console.error('productService.createProduct database error:', error);
         return { success: false, error: error.message };
       }
-      if (data && data.length > 0) {
-        const newProd = this.mapRowToProduct(data[0]);
-        return { success: true, data: newProd };
+
+      if (!data) {
+        return { success: false, error: 'Database insert failed: No record returned.' };
       }
+
+      const newProd = this.mapRowToProduct(data);
+      return { success: true, data: newProd };
     }
     return { success: true, data: product };
   }
 
   /**
-   * Update product in Supabase using ID/slug matching and upsert fallback
+   * Database-first Update: Executes Supabase UPDATE with .eq('id', product.id).select().maybeSingle()
    */
   async updateProduct(product: Product): Promise<MutationResult<Product>> {
     if (isSupabaseConfigured && supabase) {
       const row = this.mapProductToRow(product);
 
-      // Attempt update by matching ID or Slug
+      // 1. Attempt update by exact ID match
       const { data, error } = await supabase
         .from('products')
         .update(row)
-        .or(`id.eq.${product.id},slug.eq.${product.id}`)
-        .select();
+        .eq('id', product.id)
+        .select()
+        .maybeSingle();
 
       if (error) {
         console.error('productService.updateProduct database error:', error);
         return { success: false, error: error.message };
       }
 
-      // If update matched 0 rows, fallback to upsert
-      if (!data || data.length === 0) {
-        const { data: upsertData, error: upsertError } = await supabase
+      if (!data) {
+        // 2. Fallback attempt update by slug match
+        const { data: slugData, error: slugError } = await supabase
           .from('products')
-          .upsert([row])
-          .select();
+          .update(row)
+          .eq('slug', product.id)
+          .select()
+          .maybeSingle();
 
-        if (upsertError) {
-          console.error('productService.updateProduct upsert error:', upsertError);
-          return { success: false, error: upsertError.message };
+        if (slugError) {
+          console.error('productService.updateProduct slug error:', slugError);
+          return { success: false, error: slugError.message };
         }
 
-        if (upsertData && upsertData.length > 0) {
-          const updatedProd = this.mapRowToProduct(upsertData[0]);
-          return { success: true, data: updatedProd };
+        if (!slugData) {
+          return { success: false, error: `Product with ID '${product.id}' was not found in Supabase database.` };
         }
-      } else {
-        const updatedProd = this.mapRowToProduct(data[0]);
+
+        const updatedProd = this.mapRowToProduct(slugData);
         return { success: true, data: updatedProd };
       }
+
+      const updatedProd = this.mapRowToProduct(data);
+      return { success: true, data: updatedProd };
     }
     return { success: true, data: product };
   }
 
   /**
-   * Soft Deactivate: Sets is_active = false
+   * Soft Deactivate: Sets is_active = false in Supabase
    */
   async deactivateProduct(id: string): Promise<MutationResult<string>> {
     if (isSupabaseConfigured && supabase) {
       const { error } = await supabase
         .from('products')
         .update({ is_active: false })
-        .or(`id.eq.${id},slug.eq.${id}`);
+        .eq('id', id);
 
       if (error) {
         console.error('productService.deactivateProduct database error:', error);
@@ -277,7 +290,7 @@ class ProductService {
       const { error } = await supabase
         .from('products')
         .delete()
-        .or(`id.eq.${id},slug.eq.${id}`);
+        .eq('id', id);
 
       if (error) {
         console.error('productService.deleteProduct database error:', error);

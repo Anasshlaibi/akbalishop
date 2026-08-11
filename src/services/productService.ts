@@ -11,71 +11,124 @@ export interface MutationResult<T> {
 
 class ProductService {
   /**
-   * Map raw Supabase database record to domain Product interface
+   * Robust mapping from raw Supabase database record (handling stringified JSON, numbers, and strings)
    */
-  public mapRowToProduct(row: Database['public']['Tables']['products']['Row']): Product {
+  public mapRowToProduct(row: any): Product {
+    // Parse gallery (handles array, JSON string, or single image fallback)
+    let gallery: string[] = [];
+    if (Array.isArray(row.gallery)) {
+      gallery = row.gallery;
+    } else if (typeof row.gallery === 'string' && row.gallery.trim()) {
+      try {
+        const parsed = JSON.parse(row.gallery);
+        if (Array.isArray(parsed)) gallery = parsed;
+      } catch {
+        gallery = [row.image];
+      }
+    }
+    if (gallery.length === 0 && row.image) {
+      gallery = [row.image];
+    }
+
+    // Parse specs (handles object, JSON string, or empty object)
+    let specs: Record<string, string> = {};
+    if (typeof row.specs === 'object' && row.specs !== null && !Array.isArray(row.specs)) {
+      specs = row.specs;
+    } else if (typeof row.specs === 'string' && row.specs.trim()) {
+      try {
+        const parsed = JSON.parse(row.specs);
+        if (typeof parsed === 'object' && parsed !== null) specs = parsed;
+      } catch {
+        specs = {};
+      }
+    }
+
+    // Parse whats_in_the_box (handles array, JSON string, or empty array)
+    let whatsInTheBox: string[] = [];
+    if (Array.isArray(row.whats_in_the_box)) {
+      whatsInTheBox = row.whats_in_the_box;
+    } else if (typeof row.whats_in_the_box === 'string' && row.whats_in_the_box.trim()) {
+      try {
+        const parsed = JSON.parse(row.whats_in_the_box);
+        if (Array.isArray(parsed)) whatsInTheBox = parsed;
+      } catch {
+        whatsInTheBox = [];
+      }
+    }
+
     return {
-      id: row.id,
-      slug: row.slug || row.id,
-      name: row.name,
-      brand: row.brand,
-      category: row.category,
-      price: Number(row.price),
-      oldPrice: row.old_price ? Number(row.old_price) : undefined,
+      id: String(row.id),
+      slug: row.slug ? String(row.slug) : String(row.id),
+      name: String(row.name || ''),
+      brand: String(row.brand || 'AKABLISHOP'),
+      category: String(row.category || 'cameras'),
+      price: Number(row.price || 0),
+      oldPrice: row.old_price !== null && row.old_price !== undefined ? Number(row.old_price) : undefined,
       rating: Number(row.rating || 5),
       reviewCount: Number(row.review_count || 0),
-      inStock: Boolean(row.in_stock),
-      stockCount: row.stock_count ? Number(row.stock_count) : undefined,
-      isActive: row.is_active !== false,
+      inStock: row.in_stock !== false && row.in_stock !== 'false',
+      stockCount: row.stock_count !== null && row.stock_count !== undefined ? Number(row.stock_count) : 1,
+      isActive: row.is_active !== false && row.is_active !== 'false',
       isNew: Boolean(row.is_new),
       isOccasion: Boolean(row.is_occasion),
       isRental: Boolean(row.is_rental),
-      rentalPricePerDay: row.rental_price_per_day ? Number(row.rental_price_per_day) : undefined,
-      image: row.image,
-      gallery: Array.isArray(row.gallery) && (row.gallery as string[]).length > 0 ? (row.gallery as string[]) : [row.image],
-      shortDescription: row.short_description || '',
-      description: row.description || '',
-      specs: (row.specs as Record<string, string>) || {},
-      whatsInTheBox: Array.isArray(row.whats_in_the_box) ? (row.whats_in_the_box as string[]) : [],
+      rentalPricePerDay: row.rental_price_per_day !== null && row.rental_price_per_day !== undefined ? Number(row.rental_price_per_day) : undefined,
+      image: String(row.image || '/wp-content/uploads/electronics-store-55.png'),
+      gallery,
+      shortDescription: String(row.short_description || ''),
+      description: String(row.description || ''),
+      specs,
+      whatsInTheBox,
       createdAt: row.created_at,
       updatedAt: row.updated_at
     };
   }
 
   /**
-   * Map domain Product interface to raw database columns
+   * Map domain Product interface to database columns (handling JSON stringification for Supabase schema)
    */
-  public mapProductToRow(product: Product): Database['public']['Tables']['products']['Insert'] {
+  public mapProductToRow(product: Product): any {
+    const galleryVal = Array.isArray(product.gallery) && product.gallery.length > 0 
+      ? JSON.stringify(product.gallery) 
+      : JSON.stringify([product.image]);
+
+    const specsVal = typeof product.specs === 'object' && product.specs !== null 
+      ? JSON.stringify(product.specs) 
+      : JSON.stringify({});
+
+    const boxVal = Array.isArray(product.whatsInTheBox) 
+      ? JSON.stringify(product.whatsInTheBox) 
+      : JSON.stringify([]);
+
     return {
       id: product.id,
       slug: product.slug || product.id,
       name: product.name,
       brand: product.brand,
       category: product.category,
-      price: product.price,
-      old_price: product.oldPrice || null,
-      rating: product.rating,
-      review_count: product.reviewCount,
-      in_stock: product.inStock,
-      stock_count: product.stockCount || null,
+      price: Number(product.price),
+      old_price: product.oldPrice ? Number(product.oldPrice) : null,
+      rating: Number(product.rating || 5),
+      review_count: Number(product.reviewCount || 0),
+      in_stock: Boolean(product.inStock),
+      stock_count: product.stockCount ? Number(product.stockCount) : 1,
       is_active: product.isActive ?? true,
-      is_new: product.isNew || false,
-      is_occasion: product.isOccasion || false,
-      is_rental: product.isRental || false,
-      rental_price_per_day: product.rentalPricePerDay || null,
+      is_new: Boolean(product.isNew),
+      is_occasion: Boolean(product.isOccasion),
+      is_rental: Boolean(product.isRental),
+      rental_price_per_day: product.rentalPricePerDay ? Number(product.rentalPricePerDay) : null,
       image: product.image,
-      gallery: product.gallery,
-      short_description: product.shortDescription,
-      description: product.description,
-      specs: product.specs,
-      whats_in_the_box: product.whatsInTheBox
+      gallery: galleryVal,
+      short_description: product.shortDescription || '',
+      description: product.description || '',
+      specs: specsVal,
+      whats_in_the_box: boxVal
     };
   }
 
   /**
    * Fetch all products from Supabase.
    * SUPABASE IS THE ONLY PRODUCTION SOURCE OF TRUTH.
-   * If Supabase returns 0 products, return [] (empty list). Do NOT fall back to static seed data.
    */
   async getProducts(): Promise<Product[]> {
     if (!isSupabaseConfigured || !supabase) {
@@ -93,10 +146,9 @@ class ProductService {
         return [];
       }
 
-      // Map Supabase rows to Product models
       const map = new Map<string, Product>();
       data.forEach(row => {
-        const prod = this.mapRowToProduct(row as Database['public']['Tables']['products']['Row']);
+        const prod = this.mapRowToProduct(row);
         map.set(prod.id, prod);
       });
 
@@ -124,7 +176,7 @@ class ProductService {
         .maybeSingle();
 
       if (error || !data) return null;
-      return this.mapRowToProduct(data as Database['public']['Tables']['products']['Row']);
+      return this.mapRowToProduct(data);
     } catch {
       return null;
     }
@@ -138,7 +190,7 @@ class ProductService {
   }
 
   /**
-   * Non-Optimistic Create/Upsert: Mutation executes against DB first
+   * Create/Upsert product in Supabase
    */
   async createProduct(product: Product): Promise<MutationResult<Product>> {
     if (isSupabaseConfigured && supabase) {
@@ -149,7 +201,7 @@ class ProductService {
         return { success: false, error: error.message };
       }
       if (data && data.length > 0) {
-        const newProd = this.mapRowToProduct(data[0] as Database['public']['Tables']['products']['Row']);
+        const newProd = this.mapRowToProduct(data[0]);
         return { success: true, data: newProd };
       }
     }
@@ -157,7 +209,7 @@ class ProductService {
   }
 
   /**
-   * Non-Optimistic Update: Mutation executes against DB first using select & upsert fallback
+   * Update product in Supabase using ID/slug matching and upsert fallback
    */
   async updateProduct(product: Product): Promise<MutationResult<Product>> {
     if (isSupabaseConfigured && supabase) {
@@ -188,11 +240,11 @@ class ProductService {
         }
 
         if (upsertData && upsertData.length > 0) {
-          const updatedProd = this.mapRowToProduct(upsertData[0] as Database['public']['Tables']['products']['Row']);
+          const updatedProd = this.mapRowToProduct(upsertData[0]);
           return { success: true, data: updatedProd };
         }
       } else {
-        const updatedProd = this.mapRowToProduct(data[0] as Database['public']['Tables']['products']['Row']);
+        const updatedProd = this.mapRowToProduct(data[0]);
         return { success: true, data: updatedProd };
       }
     }

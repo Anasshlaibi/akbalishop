@@ -55,7 +55,7 @@ export const CheckoutModal: React.FC = () => {
       `*Total:* ${subtotal.toLocaleString('fr-FR')} DH\n` +
       `*Mode de paiement:* ${paymentMethod === 'cod' ? 'Paiement à la livraison' : paymentMethod === 'bank' ? 'Virement bancaire' : 'Retrait Showroom Marrakech'}`
     );
-    window.open(`https://wa.me/+212695252921?text=${message}`, '_blank');
+    window.open(`https://wa.me/212701986033?text=${message}`, '_blank');
     clearCart();
     setIsCheckoutOpen(false);
     setIsOrderComplete(false);

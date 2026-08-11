@@ -46,7 +46,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
     const message = encodeURIComponent(
       `Bonjour AKABLISHOP, je souhaite commander le produit suivant :\n\n*${product.name}*\nPrix : ${product.price.toLocaleString('fr-FR')} DH\nQuantité : ${quantity}\n\nMerci de me donner les détails de livraison.`
     );
-    window.open(`https://wa.me/+212695252921?text=${message}`, '_blank');
+    window.open(`https://wa.me/212701986033?text=${message}`, '_blank');
   };
 
   const handleShare = () => {

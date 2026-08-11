@@ -100,9 +100,10 @@ class ProductService {
       ? JSON.stringify(product.whatsInTheBox) 
       : JSON.stringify([]);
 
+    // ONLY include columns that actually exist in the Supabase products table
+    // (verified from products_rows.json export — NO slug, NO stock_count, NO is_active)
     return {
       id: product.id,
-      slug: product.slug || product.id,
       name: product.name,
       brand: product.brand,
       category: product.category,
@@ -111,7 +112,6 @@ class ProductService {
       rating: Number(product.rating || 5),
       review_count: Number(product.reviewCount || 0),
       in_stock: Boolean(product.inStock),
-      stock_count: product.stockCount ? Number(product.stockCount) : 1,
       is_new: Boolean(product.isNew),
       is_occasion: Boolean(product.isOccasion),
       is_rental: Boolean(product.isRental),

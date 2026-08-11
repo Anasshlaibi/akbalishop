@@ -2,6 +2,10 @@ export type ConditionFilter = 'all' | 'neuf' | 'occasion' | 'location';
 export type SortOption = 'featured' | 'price-asc' | 'price-desc' | 'rating' | 'newest';
 export type ViewMode = 'grid' | 'list';
 
+export type ProductCondition = 'new' | 'used' | 'refurbished';
+export type CommercialMode = 'sale' | 'rental' | 'both';
+export type ProductBadge = 'new' | 'featured' | 'promo' | 'bestseller';
+
 export interface ProductSpecs {
   [key: string]: string;
 }
@@ -18,10 +22,18 @@ export interface Product {
   reviewCount: number;
   inStock: boolean;
   stockCount?: number;
+  
+  // Structured product classification
+  condition?: ProductCondition;
+  commercialMode?: CommercialMode;
+  badges?: ProductBadge[];
+
+  // Legacy compatibility flags
   isNew?: boolean;
   isOccasion?: boolean;
   isRental?: boolean;
   rentalPricePerDay?: number;
+
   image: string;
   gallery: string[];
   shortDescription: string;

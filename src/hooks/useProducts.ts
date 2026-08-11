@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Product, ConditionFilter, SortOption } from '../types';
-import { productService } from '../services/productService';
+import { productService, MutationResult } from '../services/productService';
 
 export function useProducts() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -27,19 +27,28 @@ export function useProducts() {
     refreshProducts();
   }, []);
 
-  const addProduct = async (product: Product) => {
-    const created = await productService.createProduct(product);
-    setProducts(prev => [created, ...prev]);
+  const addProduct = async (product: Product): Promise<MutationResult<Product>> => {
+    const res = await productService.createProduct(product);
+    if (res.success && res.data) {
+      setProducts(prev => [res.data!, ...prev]);
+    }
+    return res;
   };
 
-  const updateProduct = async (product: Product) => {
-    const updated = await productService.updateProduct(product);
-    setProducts(prev => prev.map(p => (p.id === updated.id ? updated : p)));
+  const updateProduct = async (product: Product): Promise<MutationResult<Product>> => {
+    const res = await productService.updateProduct(product);
+    if (res.success && res.data) {
+      setProducts(prev => prev.map(p => (p.id === res.data!.id ? res.data! : p)));
+    }
+    return res;
   };
 
-  const deleteProduct = async (id: string) => {
-    await productService.deleteProduct(id);
-    setProducts(prev => prev.filter(p => p.id !== id));
+  const deleteProduct = async (id: string): Promise<MutationResult<string>> => {
+    const res = await productService.deleteProduct(id);
+    if (res.success) {
+      setProducts(prev => prev.filter(p => p.id !== id));
+    }
+    return res;
   };
 
   const filteredProducts = useMemo(() => {
@@ -50,9 +59,9 @@ export function useProducts() {
       if (selectedBrand && p.brand.toLowerCase() !== selectedBrand.toLowerCase()) {
         return false;
       }
-      if (conditionFilter === 'neuf' && !p.isNew) return false;
-      if (conditionFilter === 'occasion' && !p.isOccasion) return false;
-      if (conditionFilter === 'location' && !p.isRental) return false;
+      if (conditionFilter === 'neuf' && !p.isNew && p.condition !== 'new') return false;
+      if (conditionFilter === 'occasion' && !p.isOccasion && p.condition !== 'used') return false;
+      if (conditionFilter === 'location' && !p.isRental && p.commercialMode !== 'rental' && p.commercialMode !== 'both') return false;
 
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();

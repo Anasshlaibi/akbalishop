@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Product } from '../../types';
 import { X, Save, Sparkles } from 'lucide-react';
 
@@ -16,32 +16,56 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
   onSave
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState<Partial<Product>>(() => {
-    if (product) return { ...product };
-    return {
-      name: '',
-      brand: 'Sony',
-      category: 'cameras',
-      price: 10000,
-      oldPrice: undefined,
-      inStock: true,
-      condition: 'new',
-      commercialMode: 'sale',
-      isNew: true,
-      isOccasion: false,
-      isRental: false,
-      rentalPricePerDay: undefined,
-      image: '/public/placeholder-gear.jpg',
-      shortDescription: '',
-      description: ''
-    };
+  const [formData, setFormData] = useState<Partial<Product>>({
+    name: '',
+    brand: 'Sony',
+    category: 'cameras',
+    price: 10000,
+    oldPrice: undefined,
+    inStock: true,
+    condition: 'new',
+    commercialMode: 'sale',
+    isNew: true,
+    isOccasion: false,
+    isRental: false,
+    rentalPricePerDay: undefined,
+    image: '/public/placeholder-gear.jpg',
+    shortDescription: '',
+    description: ''
   });
+
+  // Synchronize form state whenever target product or modal visibility changes
+  useEffect(() => {
+    if (isOpen) {
+      if (product) {
+        setFormData({ ...product });
+      } else {
+        setFormData({
+          name: '',
+          brand: 'Sony',
+          category: 'cameras',
+          price: 10000,
+          oldPrice: undefined,
+          inStock: true,
+          condition: 'new',
+          commercialMode: 'sale',
+          isNew: true,
+          isOccasion: false,
+          isRental: false,
+          rentalPricePerDay: undefined,
+          image: '/public/placeholder-gear.jpg',
+          shortDescription: '',
+          description: ''
+        });
+      }
+    }
+  }, [product, isOpen]);
 
   if (!isOpen) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.price) return;
+    if (!formData.name || formData.price === undefined) return;
     setIsSubmitting(true);
 
     try {
@@ -63,7 +87,7 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
         isRental: formData.isRental ?? false,
         rentalPricePerDay: formData.rentalPricePerDay ? Number(formData.rentalPricePerDay) : undefined,
         image: formData.image || '/public/placeholder-gear.jpg',
-        gallery: [formData.image || '/public/placeholder-gear.jpg'],
+        gallery: formData.gallery && formData.gallery.length > 0 ? formData.gallery : [formData.image || '/public/placeholder-gear.jpg'],
         shortDescription: formData.shortDescription || '',
         description: formData.description || '',
         specs: formData.specs || { 'Garantie': 'AKABLISHOP 1 An' },
@@ -88,7 +112,7 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
           <div className="flex items-center space-x-2">
             <Sparkles className="w-5 h-5 text-amber-500" />
             <h3 className="text-base font-bold font-display">
-              {product ? 'Éditer le Produit' : 'Nouveau Produit AKABLISHOP'}
+              {product ? `Éditer: ${product.name}` : 'Nouveau Produit AKABLISHOP'}
             </h3>
           </div>
           <button onClick={onClose} className="p-2 text-slate-400 hover:text-slate-900">
@@ -105,41 +129,33 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
               placeholder="Ex: Sony FX3 Cinema Line"
               value={formData.name || ''}
               onChange={e => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none"
+              className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none font-semibold"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1">Marque</label>
-              <select
-                value={formData.brand || 'Sony'}
+              <input
+                type="text"
+                required
+                placeholder="Ex: Sony, Canon, Nikon"
+                value={formData.brand || ''}
                 onChange={e => setFormData({ ...formData, brand: e.target.value })}
-                className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none"
-              >
-                <option value="Sony">Sony</option>
-                <option value="Canon">Canon</option>
-                <option value="Nikon">Nikon</option>
-                <option value="DJI">DJI</option>
-                <option value="Godox">Godox</option>
-                <option value="Rode">Rode</option>
-                <option value="Blackmagic">Blackmagic</option>
-              </select>
+                className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none font-semibold"
+              />
             </div>
 
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1">Catégorie</label>
-              <select
-                value={formData.category || 'cameras'}
+              <input
+                type="text"
+                required
+                placeholder="Ex: cameras, lenses, audio"
+                value={formData.category || ''}
                 onChange={e => setFormData({ ...formData, category: e.target.value })}
-                className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none"
-              >
-                <option value="cameras">Boîtiers Caméras</option>
-                <option value="lenses">Objectifs & Optiques</option>
-                <option value="lighting">Éclairage Studio</option>
-                <option value="audio">Microphones & Audio</option>
-                <option value="stabilizers">Gimbals & Stabilisateurs</option>
-              </select>
+                className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none font-semibold"
+              />
             </div>
           </div>
 
@@ -151,9 +167,9 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
                 required
                 min={0}
                 placeholder="69900"
-                value={formData.price || ''}
+                value={formData.price !== undefined ? formData.price : ''}
                 onChange={e => setFormData({ ...formData, price: Number(e.target.value) })}
-                className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none"
+                className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none font-semibold"
               />
             </div>
 
@@ -163,9 +179,9 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
                 type="number"
                 min={0}
                 placeholder="1200"
-                value={formData.rentalPricePerDay || ''}
+                value={formData.rentalPricePerDay !== undefined && formData.rentalPricePerDay !== null ? formData.rentalPricePerDay : ''}
                 onChange={e => setFormData({ ...formData, rentalPricePerDay: e.target.value ? Number(e.target.value) : undefined })}
-                className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none"
+                className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none font-semibold"
               />
             </div>
           </div>
@@ -188,6 +204,17 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
               placeholder="Aperçu des caractéristiques principales..."
               value={formData.shortDescription || ''}
               onChange={e => setFormData({ ...formData, shortDescription: e.target.value })}
+              className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-slate-700 mb-1">Description Complète</label>
+            <textarea
+              rows={4}
+              placeholder="Description détaillée de l'équipement..."
+              value={formData.description || ''}
+              onChange={e => setFormData({ ...formData, description: e.target.value })}
               className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none"
             />
           </div>

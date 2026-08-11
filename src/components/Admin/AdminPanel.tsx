@@ -22,6 +22,8 @@ import {
   ExternalLink
 } from 'lucide-react';
 
+import { authService } from '../../services/authService';
+
 export const AdminPanel: React.FC = () => {
   const { 
     products, 
@@ -34,11 +36,9 @@ export const AdminPanel: React.FC = () => {
     updateOrderStatus 
   } = useShop();
 
-  const [activeTab, setActiveTab] = useState<'products' | 'orders' | 'supabase'>('products');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [copiedSql, setCopiedSql] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => authService.isAuthenticated());
+  const [passwordInput, setPasswordInput] = useState('');
+  const [authError, setAuthError] = useState(false);
 
   // New Product Form State
   const [newProduct, setNewProduct] = useState<Partial<Product>>({
@@ -56,7 +56,77 @@ export const AdminPanel: React.FC = () => {
     description: ''
   });
 
+
+  const [activeTab, setActiveTab] = useState<'products' | 'orders' | 'supabase'>('products');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [copiedSql, setCopiedSql] = useState(false);
+
   if (!isAdminOpen) return null;
+
+  const handleAdminLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const success = await authService.login(passwordInput);
+    if (success) {
+      setIsAuthenticated(true);
+      setAuthError(false);
+      setPasswordInput('');
+    } else {
+      setAuthError(true);
+    }
+  };
+
+  const handleAdminLogout = () => {
+    authService.logout();
+    setIsAuthenticated(false);
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="fixed inset-0 z-50 overflow-y-auto p-4 flex items-center justify-center">
+        <div className="fixed inset-0 bg-slate-900/80 backdrop-blur-md" onClick={() => setIsAdminOpen(false)} />
+        <div className="relative w-full max-w-md bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl z-50 text-white">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center space-x-3">
+              <div className="p-2.5 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                <Database className="w-5 h-5" />
+              </div>
+              <h3 className="text-lg font-bold">Connexion Admin AKABLISHOP</h3>
+            </div>
+            <button onClick={() => setIsAdminOpen(false)} className="p-2 text-slate-400 hover:text-white">
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          <form onSubmit={handleAdminLogin} className="space-y-4">
+            <div>
+              <label className="block text-xs font-medium text-slate-400 mb-1">Mot de passe Administrateur</label>
+              <input
+                type="password"
+                required
+                placeholder="Entrez le mot de passe..."
+                value={passwordInput}
+                onChange={e => { setPasswordInput(e.target.value); setAuthError(false); }}
+                className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm focus:border-amber-500 focus:outline-none"
+              />
+              {authError && (
+                <p className="text-xs text-rose-400 mt-1">Mot de passe incorrect. Veuillez réessayer.</p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 font-bold text-slate-950 text-sm transition-all shadow-lg shadow-amber-500/20"
+            >
+              Déverrouiller le CMS Admin
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
 
   const filteredProducts = products.filter(p => 
     p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||

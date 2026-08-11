@@ -1,25 +1,7 @@
-export interface Product {
-  id: string;
-  name: string;
-  brand: string;
-  category: string;
-  price: number; // In DH / MAD
-  oldPrice?: number;
-  rating: number;
-  reviewCount: number;
-  inStock: boolean;
-  stockCount?: number;
-  isNew?: boolean;
-  isOccasion?: boolean;
-  isRental?: boolean;
-  rentalPricePerDay?: number;
-  image: string;
-  gallery: string[];
-  shortDescription: string;
-  description: string;
-  specs: Record<string, string>;
-  whatsInTheBox: string[];
-}
+import { Product } from '../types';
+
+export type { Product };
+
 
 export const PRODUCTS: Product[] = [
   // --- CAMÉRAS PRINCIPALES ---

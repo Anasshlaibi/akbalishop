@@ -312,7 +312,7 @@ export const ContactSection: React.FC = () => {
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
               <iframe
                 title="AKABLISHOP Showroom Marrakech"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.9461186523595!2d-7.981100000000001!3d31.629400000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafee8b5f24c7d1%3A0x0!2sAKABLISHOP!5e0!3m2!1sfr!2sma!4v1723376000000!5m2!1sfr!2sma"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.644645410812!2d-8.114818722926973!3d31.643578641041906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafe9003898617d%3A0x8f046b20c42b2805!2sAkabli%20Shop!5e0!3m2!1sfr!2sma!4v1786457585338!5m2!1sfr!2sma"
                 width="100%"
                 height="240"
                 style={{ border: 0 }}

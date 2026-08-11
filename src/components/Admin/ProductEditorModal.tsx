@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Product } from '../../types';
-import { X, Save, Sparkles } from 'lucide-react';
+import { MutationResult } from '../../services/productService';
+import { X, Save, Sparkles, AlertCircle } from 'lucide-react';
 
 interface ProductEditorModalProps {
   product?: Product | null;
   isOpen: boolean;
   onClose: () => void;
-  onSave: (productData: Product) => Promise<void>;
+  onSave: (productData: Product) => Promise<MutationResult<Product> | void>;
 }
 
 export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
@@ -16,6 +17,8 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
   onSave
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
   const [formData, setFormData] = useState<Partial<Product>>({
     name: '',
     brand: 'Sony',
@@ -36,6 +39,7 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
 
   // Synchronize form state whenever target product or modal visibility changes
   useEffect(() => {
+    setErrorMessage(null);
     if (isOpen) {
       if (product) {
         setFormData({ ...product });
@@ -67,6 +71,7 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
     e.preventDefault();
     if (!formData.name || formData.price === undefined) return;
     setIsSubmitting(true);
+    setErrorMessage(null);
 
     try {
       const p: Product = {
@@ -94,10 +99,15 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
         whatsInTheBox: formData.whatsInTheBox || ['Matériel principal', 'Accessoires inclus']
       };
 
-      await onSave(p);
-      onClose();
-    } catch (err) {
+      const res: any = await onSave(p);
+      if (res && res.error) {
+        setErrorMessage(res.error);
+      } else {
+        onClose();
+      }
+    } catch (err: any) {
       console.error('Save product error:', err);
+      setErrorMessage(err?.message || 'Erreur de connexion à Supabase');
     } finally {
       setIsSubmitting(false);
     }
@@ -119,6 +129,13 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
             <X className="w-5 h-5" />
           </button>
         </div>
+
+        {errorMessage && (
+          <div className="p-3 mb-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold flex items-center space-x-2">
+            <AlertCircle className="w-4 h-4 flex-shrink-0" />
+            <span>Erreur Supabase : {errorMessage}</span>
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-4 max-h-[75vh] overflow-y-auto pr-1">
           <div>
@@ -234,7 +251,7 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
               className="px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 font-bold text-slate-950 text-xs flex items-center space-x-1.5 shadow-md disabled:opacity-50"
             >
               <Save className="w-4 h-4" />
-              <span>{isSubmitting ? 'Enregistrement...' : 'Enregistrer'}</span>
+              <span>{isSubmitting ? 'Enregistrement...' : 'Enregistrer dans Supabase'}</span>
             </button>
           </div>
         </form>

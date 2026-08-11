@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useMemo } from 'react';
 import { Product, ConditionFilter, SortOption, Order, OrderStatus } from '../types';
 import { useProducts } from '../hooks/useProducts';
 import { useOrders } from '../hooks/useOrders';
+import { MutationResult } from '../services/productService';
 
 export type { ConditionFilter, SortOption, Product, Order };
 export type ActiveTab = 'home' | 'shop' | 'product' | 'contact' | 'about' | 'rental';
@@ -38,10 +39,10 @@ interface ShopContextType {
   isAdminOpen: boolean;
   setIsAdminOpen: (open: boolean) => void;
 
-  // Product CRUD
-  addProduct: (product: Product) => void;
-  updateProduct: (product: Product) => void;
-  deleteProduct: (id: string) => void;
+  // Product CRUD (return Supabase MutationResult so callers can display errors)
+  addProduct: (product: Product) => Promise<MutationResult<Product>>;
+  updateProduct: (product: Product) => Promise<MutationResult<Product>>;
+  deleteProduct: (id: string) => Promise<MutationResult<string>>;
 
   // Order Management
   orders: Order[];

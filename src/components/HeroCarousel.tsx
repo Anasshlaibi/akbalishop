@@ -9,9 +9,9 @@ export const HeroCarousel: React.FC = () => {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Find dynamic products from Supabase/ShopContext
-  const fx6Product = products.find(p => p.id === 'sony-fx6-cinema') || products[0];
-  const nikonProduct = products.find(p => p.id === 'nikon-z7-mark-ii') || products[1];
-  const a7sProduct = products.find(p => p.id === 'sony-a7s-iii-occasion') || products[2];
+  const fx6Product = products && products.length > 0 ? (products.find(p => p.id === 'sony-fx6-cinema') || products[0]) : null;
+  const nikonProduct = products && products.length > 0 ? (products.find(p => p.id === 'nikon-z7-mark-ii') || products[1] || products[0]) : null;
+  const a7sProduct = products && products.length > 0 ? (products.find(p => p.id === 'sony-a7s-iii-occasion') || products[2] || products[0]) : null;
 
   const mainSlides = [
     {
@@ -50,9 +50,9 @@ export const HeroCarousel: React.FC = () => {
   ];
 
   // Secondary dynamic banners
-  const lensProduct = products.find(p => p.id === 'sony-fe-24-70mm-f28-gm-ii') || products[4];
-  const godoxProduct = products.find(p => p.id === 'godox-sl60w-led-light') || products[5];
-  const rodeProduct = products.find(p => p.id === 'rode-wireless-pro') || products[6];
+  const lensProduct = products && products.length > 0 ? (products.find(p => p.id === 'sony-fe-24-70mm-f28-gm-ii') || products[3] || products[0]) : null;
+  const godoxProduct = products && products.length > 0 ? (products.find(p => p.id === 'godox-sl60w-led-light') || products[4] || products[0]) : null;
+  const rodeProduct = products && products.length > 0 ? (products.find(p => p.id === 'rode-wireless-pro') || products[5] || products[0]) : null;
 
   const secondaryBanners = [
     {
@@ -99,8 +99,8 @@ export const HeroCarousel: React.FC = () => {
   }, [isPaused, currentIndex, mainSlides.length]);
 
   const handleProductClick = (productObj: any) => {
-    if (productObj) {
-      setSelectedProduct(productObj);
+    if (productObj && productObj.id) {
+      setSelectedProduct(productObj.id);
       setActiveTab('product');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -109,8 +109,8 @@ export const HeroCarousel: React.FC = () => {
     }
   };
 
-  const currentSlide = mainSlides[currentIndex];
-  const secondaryBanner = secondaryBanners[currentIndex];
+  const currentSlide = mainSlides[currentIndex] || mainSlides[0];
+  const secondaryBanner = secondaryBanners[currentIndex] || secondaryBanners[0];
 
   return (
     <section 
@@ -130,66 +130,68 @@ export const HeroCarousel: React.FC = () => {
             <div className="absolute -top-20 -left-20 w-60 h-60 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
             {/* Slide Body Content */}
-            <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center relative z-10 my-auto">
-              
-              {/* Text Area */}
-              <div className="sm:col-span-7 space-y-3.5 text-left">
-                <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full badge-amber text-[10px] font-extrabold tracking-wider">
-                  <Sparkles className="w-3 h-3 text-amber-600 animate-pulse" />
-                  <span>{currentSlide.badge}</span>
-                </div>
+            {currentSlide && (
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center relative z-10 my-auto">
+                
+                {/* Text Area */}
+                <div className="sm:col-span-7 space-y-3.5 text-left">
+                  <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full badge-amber text-[10px] font-extrabold tracking-wider">
+                    <Sparkles className="w-3 h-3 text-amber-600 animate-pulse" />
+                    <span>{currentSlide.badge}</span>
+                  </div>
 
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold font-display text-slate-900 leading-snug">
-                  {currentSlide.title}
-                </h2>
+                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold font-display text-slate-900 leading-snug">
+                    {currentSlide.title}
+                  </h2>
 
-                <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                  {currentSlide.subtitle}
-                </p>
+                  <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                    {currentSlide.subtitle}
+                  </p>
 
-                {/* Price Display */}
-                <div className="flex items-baseline space-x-3 pt-1">
-                  <span className="text-2xl font-extrabold text-slate-900">
-                    {currentSlide.price}
-                  </span>
-                  {currentSlide.oldPrice && (
-                    <span className="text-xs text-slate-400 line-through">
-                      {currentSlide.oldPrice}
+                  {/* Price Display */}
+                  <div className="flex items-baseline space-x-3 pt-1">
+                    <span className="text-2xl font-extrabold text-slate-900">
+                      {currentSlide.price}
                     </span>
-                  )}
+                    {currentSlide.oldPrice && (
+                      <span className="text-xs text-slate-400 line-through">
+                        {currentSlide.oldPrice}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Action CTA Button */}
+                  <div className="pt-2">
+                    <button
+                      onClick={() => handleProductClick(currentSlide.product)}
+                      className="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-white font-extrabold text-xs tracking-wide shadow-md hover:brightness-110 active:scale-95 transition-all inline-flex items-center space-x-2"
+                    >
+                      <ShoppingBag className="w-4 h-4" />
+                      <span>{currentSlide.ctaText}</span>
+                      <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                    </button>
+                  </div>
                 </div>
 
-                {/* Action CTA Button */}
-                <div className="pt-2">
-                  <button
+                {/* Product Artwork Image */}
+                <div className="sm:col-span-5 flex items-center justify-center">
+                  <div 
                     onClick={() => handleProductClick(currentSlide.product)}
-                    className="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-white font-extrabold text-xs tracking-wide shadow-md hover:brightness-110 active:scale-95 transition-all inline-flex items-center space-x-2"
+                    className="relative aspect-square w-48 sm:w-full max-w-[240px] rounded-2xl bg-slate-50 p-4 border border-gray-200 flex items-center justify-center cursor-pointer group shadow-inner"
                   >
-                    <ShoppingBag className="w-4 h-4" />
-                    <span>{currentSlide.ctaText}</span>
-                    <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                  </button>
+                    <img 
+                      src={currentSlide.image} 
+                      alt={currentSlide.title}
+                      className="w-full h-full object-contain group-hover:scale-108 transition-transform duration-500"
+                    />
+                    <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded-md bg-white border border-gray-200 text-[9px] text-amber-700 font-bold shadow-sm">
+                      Stock Marrakech
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              {/* Product Artwork Image */}
-              <div className="sm:col-span-5 flex items-center justify-center">
-                <div 
-                  onClick={() => handleProductClick(currentSlide.product)}
-                  className="relative aspect-square w-48 sm:w-full max-w-[240px] rounded-2xl bg-slate-50 p-4 border border-gray-200 flex items-center justify-center cursor-pointer group shadow-inner"
-                >
-                  <img 
-                    src={currentSlide.image} 
-                    alt={currentSlide.title}
-                    className="w-full h-full object-contain group-hover:scale-108 transition-transform duration-500"
-                  />
-                  <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded-md bg-white border border-gray-200 text-[9px] text-amber-700 font-bold shadow-sm">
-                    Stock Marrakech
-                  </span>
-                </div>
               </div>
-
-            </div>
+            )}
 
             {/* Slider Navigation Arrows & Dot Indicators */}
             <div className="pt-4 border-t border-gray-100 flex items-center justify-between relative z-10">
@@ -234,42 +236,44 @@ export const HeroCarousel: React.FC = () => {
           </div>
 
           {/* Secondary Promotional Banner (30% width) */}
-          <div 
-            onClick={() => handleProductClick(secondaryBanner.product)}
-            className="lg:col-span-4 rounded-3xl bg-white border border-gray-200 p-6 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition-all cursor-pointer relative overflow-hidden group min-h-[360px] sm:min-h-[420px]"
-          >
-            <div className="space-y-2 relative z-10">
-              <span className="inline-block px-2.5 py-0.5 rounded-md bg-amber-50 border border-amber-200 text-amber-700 text-[10px] font-extrabold uppercase">
-                {secondaryBanner.badge}
-              </span>
-              <h3 className="text-lg font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
-                {secondaryBanner.title}
-              </h3>
-              <div className="flex items-baseline space-x-2 pt-1">
-                <span className="text-xl font-extrabold text-slate-900">{secondaryBanner.price}</span>
-                {secondaryBanner.oldPrice && (
-                  <span className="text-xs text-slate-400 line-through">{secondaryBanner.oldPrice}</span>
-                )}
+          {secondaryBanner && (
+            <div 
+              onClick={() => handleProductClick(secondaryBanner.product)}
+              className="lg:col-span-4 rounded-3xl bg-white border border-gray-200 p-6 flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition-all cursor-pointer relative overflow-hidden group min-h-[360px] sm:min-h-[420px]"
+            >
+              <div className="space-y-2 relative z-10">
+                <span className="inline-block px-2.5 py-0.5 rounded-md bg-amber-50 border border-amber-200 text-amber-700 text-[10px] font-extrabold uppercase">
+                  {secondaryBanner.badge}
+                </span>
+                <h3 className="text-lg font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
+                  {secondaryBanner.title}
+                </h3>
+                <div className="flex items-baseline space-x-2 pt-1">
+                  <span className="text-xl font-extrabold text-slate-900">{secondaryBanner.price}</span>
+                  {secondaryBanner.oldPrice && (
+                    <span className="text-xs text-slate-400 line-through">{secondaryBanner.oldPrice}</span>
+                  )}
+                </div>
+              </div>
+
+              {/* Artwork Image */}
+              <div className="my-auto py-4 flex items-center justify-center relative z-10">
+                <div className="w-44 h-44 rounded-2xl bg-slate-50 p-3 border border-gray-100 flex items-center justify-center">
+                  <img 
+                    src={secondaryBanner.image} 
+                    alt={secondaryBanner.title}
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+
+              {/* Bottom Link Action */}
+              <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-amber-700 relative z-10">
+                <span>Profiter de l'offre</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
-
-            {/* Artwork Image */}
-            <div className="my-auto py-4 flex items-center justify-center relative z-10">
-              <div className="w-44 h-44 rounded-2xl bg-slate-50 p-3 border border-gray-100 flex items-center justify-center">
-                <img 
-                  src={secondaryBanner.image} 
-                  alt={secondaryBanner.title}
-                  className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-            </div>
-
-            {/* Bottom Link Action */}
-            <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-amber-700 relative z-10">
-              <span>Profiter de l'offre</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </div>
+          )}
 
         </div>
 

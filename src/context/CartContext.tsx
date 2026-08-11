@@ -30,13 +30,28 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const { products } = useShop();
 
   const [cart, setCart] = useState<CartItem[]>(() => {
-    const saved = localStorage.getItem('akabli_cart');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem('akabli_cart');
+      if (!saved) return [];
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed)) {
+        return parsed.filter(item => item && item.product && typeof item.product.id === 'string' && typeof item.product.price === 'number');
+      }
+      return [];
+    } catch {
+      return [];
+    }
   });
 
   const [wishlist, setWishlist] = useState<string[]>(() => {
-    const saved = localStorage.getItem('akabli_wishlist');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem('akabli_wishlist');
+      if (!saved) return [];
+      const parsed = JSON.parse(saved);
+      return Array.isArray(parsed) ? parsed.filter(id => typeof id === 'string') : [];
+    } catch {
+      return [];
+    }
   });
 
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -46,44 +61,52 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (products && products.length > 0 && cart.length > 0) {
       setCart(prevCart => {
         let hasChanges = false;
-        const updated = prevCart.map(item => {
-          const liveProd = products.find(p => p.id === item.product.id);
-          if (liveProd && (liveProd.price !== item.product.price || liveProd.name !== item.product.name || liveProd.image !== item.product.image)) {
-            hasChanges = true;
-            return { ...item, product: liveProd };
-          }
-          return item;
-        });
+        const updated = prevCart
+          .filter(item => item && item.product && item.product.id)
+          .map(item => {
+            const liveProd = products.find(p => p.id === item.product.id);
+            if (liveProd && (liveProd.price !== item.product.price || liveProd.name !== item.product.name || liveProd.image !== item.product.image)) {
+              hasChanges = true;
+              return { ...item, product: liveProd };
+            }
+            return item;
+          });
         return hasChanges ? updated : prevCart;
       });
     }
   }, [products]);
 
   useEffect(() => {
-    localStorage.setItem('akabli_cart', JSON.stringify(cart));
+    try {
+      localStorage.setItem('akabli_cart', JSON.stringify(cart));
+    } catch {}
   }, [cart]);
 
   useEffect(() => {
-    localStorage.setItem('akabli_wishlist', JSON.stringify(wishlist));
+    try {
+      localStorage.setItem('akabli_wishlist', JSON.stringify(wishlist));
+    } catch {}
   }, [wishlist]);
 
   const addToCart = (product: Product, quantity = 1) => {
-    const liveProduct = products.find(p => p.id === product.id) || product;
+    if (!product || !product.id) return;
+    const liveProduct = (products && products.find(p => p.id === product.id)) || product;
     setCart(prev => {
-      const existingIndex = prev.findIndex(item => item.product.id === liveProduct.id);
+      const validPrev = prev.filter(item => item && item.product && item.product.id);
+      const existingIndex = validPrev.findIndex(item => item.product.id === liveProduct.id);
       if (existingIndex > -1) {
-        const updated = [...prev];
+        const updated = [...validPrev];
         updated[existingIndex].quantity += quantity;
         updated[existingIndex].product = liveProduct;
         return updated;
       }
-      return [...prev, { product: liveProduct, quantity }];
+      return [...validPrev, { product: liveProduct, quantity }];
     });
     setIsCartOpen(true);
   };
 
   const removeFromCart = (productId: string) => {
-    setCart(prev => prev.filter(item => item.product.id !== productId));
+    setCart(prev => prev.filter(item => item && item.product && item.product.id !== productId));
   };
 
   const updateQuantity = (productId: string, quantity: number) => {
@@ -91,7 +114,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       removeFromCart(productId);
       return;
     }
-    setCart(prev => prev.map(item => item.product.id === productId ? { ...item, quantity } : item));
+    setCart(prev => prev.map(item => (item && item.product && item.product.id === productId) ? { ...item, quantity } : item));
   };
 
   const clearCart = () => {
@@ -99,6 +122,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const toggleWishlist = (productId: string) => {
+    if (!productId) return;
     setWishlist(prev => 
       prev.includes(productId) 
         ? prev.filter(id => id !== productId)
@@ -106,10 +130,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     );
   };
 
-  const isInWishlist = (productId: string) => wishlist.includes(productId);
+  const isInWishlist = (productId: string) => Boolean(productId && wishlist.includes(productId));
 
-  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-  const subtotal = cart.reduce((acc, item) => acc + (item.product.price * item.quantity), 0);
+  const totalItems = cart.reduce((acc, item) => acc + (item && item.quantity ? item.quantity : 0), 0);
+  const subtotal = cart.reduce((acc, item) => acc + (item && item.product && typeof item.product.price === 'number' ? item.product.price * (item.quantity || 1) : 0), 0);
   const freeShippingThreshold = 2000; // Free delivery in Morocco for orders > 2000 DH
 
   return (

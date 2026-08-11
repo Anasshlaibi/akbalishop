@@ -63,7 +63,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-center space-x-3">
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 p-0.5 shadow-md">
                 <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center p-1">
-                  <img src="/wp-content/uploads/Akablishop-Logo-N.png" alt="AKABLISHOP" className="w-full h-full object-contain" />
+                  <img src="/logo.png" alt="AKABLISHOP" className="w-full h-full object-contain" />
                 </div>
               </div>
               <span className="font-display font-extrabold text-xl text-white">AKABLI<span className="text-amber-500">SHOP</span></span>
@@ -168,7 +168,7 @@ export const Footer: React.FC = () => {
       {/* Bottom Copyright */}
       <div className="border-t border-slate-800 py-6 bg-slate-950/80 text-center text-[11px] text-slate-500">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <span>akablishop.ma – 2026 – Tous droits réservés</span>
+          <span>akablishop.ma – {new Date().getFullYear()} – Tous droits réservés</span>
           <span>Matériel Audiovisuel Professionnel au Maroc</span>
         </div>
       </div>

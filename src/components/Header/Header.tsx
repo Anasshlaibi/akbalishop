@@ -62,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 p-0.5 shadow-md">
                 <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center p-1 sm:p-1.5">
                   <img 
-                    src="/wp-content/uploads/Akablishop-Logo-N.png" 
+                    src="/logo.png" 
                     alt="AKABLISHOP" 
                     className="w-full h-full object-contain filter drop-shadow"
                   />
@@ -150,6 +150,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
               className="px-2 py-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-700 hover:bg-emerald-50 rounded-lg transition-all"
             >
               Location
+            </button>
+
+            <button
+              onClick={() => { setActiveTab('contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className={`px-2 py-1.5 text-[11px] font-bold uppercase tracking-wider rounded-lg transition-all ${
+                activeTab === 'contact'
+                  ? 'text-amber-600 bg-amber-50 border border-amber-200'
+                  : 'text-slate-700 hover:text-amber-600 hover:bg-slate-100'
+              }`}
+            >
+              Contact & Devis
             </button>
           </nav>
 

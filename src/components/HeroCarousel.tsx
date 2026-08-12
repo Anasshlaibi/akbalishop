@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useShop } from '../context/ShopContext';
-import { ShoppingBag, Sparkles, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ShoppingBag, Zap, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const HeroCarousel: React.FC = () => {
   const { products, setActiveTab, setSelectedProduct, resetFilters } = useShop();
@@ -136,7 +136,7 @@ export const HeroCarousel: React.FC = () => {
                 {/* Text Area */}
                 <div className="sm:col-span-7 space-y-3.5 text-left">
                   <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full badge-amber text-[10px] font-extrabold tracking-wider">
-                    <Sparkles className="w-3 h-3 text-amber-600 animate-pulse" />
+                    <Zap className="w-3 h-3 text-slate-900" />
                     <span>{currentSlide.badge}</span>
                   </div>
 

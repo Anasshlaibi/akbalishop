@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Product } from '../../types';
 import { MutationResult } from '../../services/productService';
 import { uploadProductImage } from '../../services/storageService';
-import { X, Save, Sparkles, AlertCircle, Upload, Image as ImageIcon, CheckCircle, RefreshCw, Link as LinkIcon, Zap } from 'lucide-react';
+import { X, Save, Settings, AlertCircle, Upload, Image as ImageIcon, CheckCircle, RefreshCw, Link as LinkIcon, Zap } from 'lucide-react';
 
 interface ProductEditorModalProps {
   product?: Product | null;
@@ -180,7 +180,7 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
         
         <div className="flex items-center justify-between pb-4 mb-4 border-b border-gray-200">
           <div className="flex items-center space-x-2">
-            <Sparkles className="w-5 h-5 text-amber-500" />
+            <Settings className="w-5 h-5 text-amber-500" />
             <h3 className="text-base font-bold font-display">
               {product ? `Éditer: ${product.name}` : 'Nouveau Produit AKABLISHOP'}
             </h3>

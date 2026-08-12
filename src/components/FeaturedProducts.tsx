@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ProductCard } from './ProductCard';
 import { useShop } from '../context/ShopContext';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Award } from 'lucide-react';
 
 export const FeaturedProducts: React.FC = () => {
   const { products, setActiveTab, resetFilters } = useShop();
@@ -25,7 +25,7 @@ export const FeaturedProducts: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-10 gap-4">
           <div>
             <div className="inline-flex items-center space-x-1.5 text-xs uppercase font-bold tracking-widest text-amber-700 mb-1">
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <Award className="w-3.5 h-3.5 text-amber-600" />
               <span>Sélection d'Excellence</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-slate-900">

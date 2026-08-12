@@ -23,6 +23,8 @@ import { AdminPanel } from './components/Admin/AdminPanel';
 import { Footer } from './components/Footer/Footer';
 import { MobileBottomBar } from './components/MobileBottomBar';
 
+import { MetaManager } from './components/SEO/MetaManager';
+
 const AppContent: React.FC = () => {
   const { activeTab, selectedProduct } = useShop();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -30,6 +32,9 @@ const AppContent: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-amber-500 selection:text-white pb-16 sm:pb-0">
       
+      {/* Dynamic SEO Meta Manager */}
+      <MetaManager />
+
       {/* Header Bar */}
       <Header onOpenMobileMenu={() => setIsMobileMenuOpen(true)} />
       <MobileNavDrawer isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />

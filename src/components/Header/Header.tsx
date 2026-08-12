@@ -3,20 +3,21 @@ import { useShop, ActiveTab } from '../../context/ShopContext';
 import { useCart } from '../../context/CartContext';
 import { Search, ShoppingBag, Heart, Menu, Database } from 'lucide-react';
 import { AnnouncementBar } from './AnnouncementBar';
+import CategoryMenu from './CategoryMenu'; // <-- NEW IMPORT
 
 interface HeaderProps {
   onOpenMobileMenu: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
-  const { 
-    activeTab, 
-    setActiveTab, 
-    setSelectedCategory, 
+  const {
+    activeTab,
+    setActiveTab,
+    setSelectedCategory,
     setConditionFilter,
     setIsSearchModalOpen,
     setIsAdminOpen,
-    resetFilters 
+    resetFilters
   } = useShop();
   const { totalItems, subtotal, setIsCartOpen, wishlist } = useCart();
 
@@ -27,23 +28,23 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
     } else {
       setSelectedCategory(null);
     }
-    
+
     if (condition) {
       setConditionFilter(condition);
     } else if (tab !== 'shop') {
       setConditionFilter('all');
     }
-    
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm overflow-hidden">
       <AnnouncementBar />
-      
+
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20 gap-2 sm:gap-3">
-          
+
           {/* Mobile Menu Trigger & AKABLISHOP Logo */}
           <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
             <button
@@ -55,15 +56,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
             </button>
 
             {/* AKABLISHOP Logo */}
-            <button 
+            <button
               onClick={() => { resetFilters(); setActiveTab('home'); }}
               className="flex items-center space-x-2.5 group text-left flex-shrink-0"
             >
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 p-0.5 shadow-md">
                 <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center p-1 sm:p-1.5">
-                  <img 
-                    src="/logo.png" 
-                    alt="AKABLISHOP" 
+                  <img
+                    src="/logo.png"
+                    alt="AKABLISHOP"
                     className="w-full h-full object-contain filter drop-shadow"
                   />
                 </div>
@@ -79,90 +80,58 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
             </button>
           </div>
 
-          {/* Desktop Navigation Links (Responsive for 1366px PC screens) */}
-          <nav className="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
-            <button
-              onClick={() => { resetFilters(); setActiveTab('home'); }}
-              className={`px-2 py-1.5 text-[11px] font-bold uppercase tracking-wider rounded-lg transition-all ${
-                activeTab === 'home' 
-                  ? 'text-amber-600 bg-amber-50 border border-amber-200' 
-                  : 'text-slate-700 hover:text-amber-600 hover:bg-slate-100'
-              }`}
-            >
-              Accueil
-            </button>
+          {/* Desktop Navigation Links WITH NEW CATEGORY MENU */}
+          <div className="hidden lg:flex items-center gap-4 xl:gap-8">
+            {/* The New Burger Menu */}
+            <CategoryMenu />
 
-            <button
-              onClick={() => { resetFilters(); setActiveTab('shop'); }}
-              className={`px-2 py-1.5 text-[11px] font-bold uppercase tracking-wider rounded-lg transition-all ${
-                activeTab === 'shop'
-                  ? 'text-amber-600 bg-amber-50 border border-amber-200' 
-                  : 'text-slate-700 hover:text-amber-600 hover:bg-slate-100'
-              }`}
-            >
-              Boutique
-            </button>
+            {/* High-level links (Removed the individual camera/lens buttons) */}
+            <nav className="flex items-center space-x-1 xl:space-x-2">
+              <button
+                onClick={() => { resetFilters(); setActiveTab('home'); }}
+                className={`px-3 py-2 text-[12px] font-bold uppercase tracking-wider rounded-lg transition-all ${activeTab === 'home'
+                    ? 'text-amber-600 bg-amber-50 border border-amber-200'
+                    : 'text-slate-700 hover:text-amber-600 hover:bg-slate-100'
+                  }`}
+              >
+                Accueil
+              </button>
 
-            <button
-              onClick={() => handleNavClick('shop', 'cameras')}
-              className="px-2 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-700 hover:text-amber-600 hover:bg-slate-100 rounded-lg transition-all"
-            >
-              Caméras
-            </button>
+              <button
+                onClick={() => { resetFilters(); setActiveTab('shop'); }}
+                className={`px-3 py-2 text-[12px] font-bold uppercase tracking-wider rounded-lg transition-all ${activeTab === 'shop'
+                    ? 'text-amber-600 bg-amber-50 border border-amber-200'
+                    : 'text-slate-700 hover:text-amber-600 hover:bg-slate-100'
+                  }`}
+              >
+                Boutique
+              </button>
 
-            <button
-              onClick={() => handleNavClick('shop', 'objectifs')}
-              className="px-2 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-700 hover:text-amber-600 hover:bg-slate-100 rounded-lg transition-all"
-            >
-              Objectifs
-            </button>
+              <button
+                onClick={() => handleNavClick('shop', undefined, 'occasion')}
+                className="px-3 py-2 text-[12px] font-bold uppercase tracking-wider text-amber-700 hover:bg-amber-50 rounded-lg transition-all"
+              >
+                Occasions
+              </button>
 
-            <button
-              onClick={() => handleNavClick('shop', 'eclairage')}
-              className="px-2 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-700 hover:text-amber-600 hover:bg-slate-100 rounded-lg transition-all"
-            >
-              Éclairage
-            </button>
+              <button
+                onClick={() => handleNavClick('shop', undefined, 'location')}
+                className="px-3 py-2 text-[12px] font-bold uppercase tracking-wider text-emerald-700 hover:bg-emerald-50 rounded-lg transition-all"
+              >
+                Location
+              </button>
 
-            <button
-              onClick={() => handleNavClick('shop', 'audio')}
-              className="px-2 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-700 hover:text-amber-600 hover:bg-slate-100 rounded-lg transition-all"
-            >
-              Son
-            </button>
-
-            <button
-              onClick={() => handleNavClick('shop', 'stabilisateurs')}
-              className="px-2 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-700 hover:text-amber-600 hover:bg-slate-100 rounded-lg transition-all"
-            >
-              Stabilisateurs
-            </button>
-
-            <button
-              onClick={() => handleNavClick('shop', undefined, 'occasion')}
-              className="px-2 py-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-700 hover:bg-amber-50 rounded-lg transition-all"
-            >
-              Occasions
-            </button>
-
-            <button
-              onClick={() => handleNavClick('shop', undefined, 'location')}
-              className="px-2 py-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-700 hover:bg-emerald-50 rounded-lg transition-all"
-            >
-              Location
-            </button>
-
-            <button
-              onClick={() => { setActiveTab('contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className={`px-2 py-1.5 text-[11px] font-bold uppercase tracking-wider rounded-lg transition-all ${
-                activeTab === 'contact'
-                  ? 'text-amber-600 bg-amber-50 border border-amber-200'
-                  : 'text-slate-700 hover:text-amber-600 hover:bg-slate-100'
-              }`}
-            >
-              Contact & Devis
-            </button>
-          </nav>
+              <button
+                onClick={() => { setActiveTab('contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                className={`px-3 py-2 text-[12px] font-bold uppercase tracking-wider rounded-lg transition-all ${activeTab === 'contact'
+                    ? 'text-amber-600 bg-amber-50 border border-amber-200'
+                    : 'text-slate-700 hover:text-amber-600 hover:bg-slate-100'
+                  }`}
+              >
+                Contact & Devis
+              </button>
+            </nav>
+          </div>
 
           {/* Right Controls (Search, Admin CMS, Wishlist, Cart) */}
           <div className="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0">

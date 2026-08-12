@@ -25,14 +25,14 @@ export const AnnouncementBar: React.FC = () => {
         {/* Right: WhatsApp always visible, phone on md+ */}
         <div className="flex items-center gap-3 flex-shrink-0">
           <a
-            href="tel:+212695252921"
+            href="tel:+212701986033"
             className="hidden md:flex items-center gap-1 text-slate-300 hover:text-amber-400 transition-colors"
           >
-            <span>+212 695252921</span>
+            <span>+212 701986033</span>
           </a>
 
           <a
-            href="https://wa.me/+212695252921?text=Bonjour AKABLISHOP"
+            href="https://wa.me/+212701986033?text=Bonjour AKABLISHOP"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1 text-emerald-400 font-bold hover:text-emerald-300 transition-colors"

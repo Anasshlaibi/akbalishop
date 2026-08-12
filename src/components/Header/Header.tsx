@@ -1,8 +1,7 @@
 import React from 'react';
 import { useShop, ActiveTab } from '../../context/ShopContext';
 import { useCart } from '../../context/CartContext';
-import { Search, ShoppingBag, Heart, Menu, Database } from 'lucide-react';
-import { AnnouncementBar } from './AnnouncementBar';
+import { Search, ShoppingBag, Heart, Menu, Database, Phone, Truck, User } from 'lucide-react';
 import CategoryMenu from './CategoryMenu';
 
 interface HeaderProps {
@@ -39,15 +38,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white shadow-md border-b border-gray-200">
-      {/* Top Announcement Bar: White background + Black Text */}
-      <AnnouncementBar />
-
-      {/* Main Middle Row: Logo, Large Search Bar, Admin & Cart Actions */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+    <header className="sticky top-0 z-40 w-full bg-white shadow-sm border-b border-gray-100">
+      
+      {/* Row 1: Brand Logo, Wide Pill Search Bar, & Business Contact Info */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
         <div className="flex items-center justify-between gap-4">
 
-          {/* Left: Mobile Menu Trigger & AKABLISHOP Logo */}
+          {/* Left: Mobile Menu Trigger & Official AKABLISHOP Brand Logo */}
           <div className="flex items-center space-x-3 flex-shrink-0">
             <button
               onClick={onOpenMobileMenu}
@@ -57,22 +54,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
               <Menu className="w-5 h-5" />
             </button>
 
-            {/* Official AKABLISHOP Brand Logo */}
             <button
               onClick={() => { resetFilters(); setActiveTab('home'); }}
               className="flex items-center space-x-3 group text-left flex-shrink-0"
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-400 to-amber-500 p-0.5 shadow-md flex-shrink-0">
-                <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center p-1 overflow-hidden">
-                  <img
-                    src="/wp-content/uploads/Akablishop-Logo-N.png"
-                    alt="AKABLISHOP Logo"
-                    className="w-full h-full object-contain"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/logo.png';
-                    }}
-                  />
-                </div>
+              {/* Clean White Container Logo */}
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white border border-gray-200 p-1 shadow-sm flex items-center justify-center flex-shrink-0 overflow-hidden">
+                <img
+                  src="/wp-content/uploads/Akablishop-Logo-N.png"
+                  alt="AKABLISHOP Logo"
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/logo.png';
+                  }}
+                />
               </div>
 
               <div className="flex flex-col">
@@ -86,61 +81,152 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
             </button>
           </div>
 
-          {/* Middle: Prominent Search Bar */}
-          <div className="hidden md:flex flex-1 max-w-lg mx-4">
-            <button
+          {/* Center: Wide Pill-Shaped Search Bar (Yahyaoui Style) */}
+          <div className="hidden md:flex flex-1 max-w-xl mx-4">
+            <div
               onClick={() => setIsSearchModalOpen(true)}
-              className="w-full flex items-center justify-between px-4 py-2.5 rounded-2xl bg-slate-50 border border-gray-300 text-slate-400 hover:border-amber-500 hover:bg-white transition-all shadow-inner text-xs font-semibold"
+              className="w-full flex items-center justify-between bg-slate-50 border border-gray-200 rounded-full p-1 pl-5 shadow-inner cursor-pointer hover:bg-white hover:border-amber-400 transition-all"
             >
-              <span className="flex items-center space-x-2 truncate">
-                <Search className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                <span>Rechercher matériel (Sony, Canon, Godox, DJI...)</span>
+              <span className="text-slate-400 text-xs font-semibold truncate pr-2">
+                Rechercher du matériel (Sony, Canon, Godox, DJI...)
               </span>
-              <span className="px-2 py-0.5 rounded-lg bg-amber-100 text-amber-800 text-[10px] font-extrabold ml-2">
-                RECHERCHER
-              </span>
-            </button>
+              <button
+                type="button"
+                className="w-9 h-9 rounded-full bg-amber-500 hover:bg-amber-600 text-slate-950 flex items-center justify-center flex-shrink-0 shadow-sm transition-colors"
+                title="Rechercher"
+              >
+                <Search className="w-4 h-4 stroke-[2.5]" />
+              </button>
+            </div>
           </div>
 
-          {/* Right: Controls (Admin CMS, Wishlist, Shopping Cart) */}
-          <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
-            {/* Admin CMS Trigger (No AI icons) */}
-            <button
-              onClick={() => setIsAdminOpen(true)}
-              className="flex items-center space-x-1.5 px-3 py-2 rounded-xl bg-slate-900 text-amber-400 hover:bg-slate-800 transition-all text-xs font-black shadow-sm"
-              title="Ouvrir le panneau d'administration CMS"
+          {/* Right: Contact Details (Bureau & Livraison) */}
+          <div className="hidden xl:flex items-center space-x-6 text-xs font-semibold flex-shrink-0">
+            <a
+              href="tel:+212695252921"
+              className="flex items-center space-x-2.5 text-slate-700 hover:text-amber-600 transition-colors"
             >
-              <Database className="w-4 h-4 text-amber-400" />
-              <span className="hidden sm:inline-block">Admin CMS</span>
+              <div className="w-9 h-9 rounded-full bg-amber-50 flex items-center justify-center text-amber-600">
+                <Phone className="w-4 h-4" />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-[10px] text-slate-400 font-bold uppercase leading-tight">Bureau</span>
+                <span className="font-extrabold text-slate-900">+212 695 252 921</span>
+              </div>
+            </a>
+
+            <div className="flex items-center space-x-2.5 text-slate-700">
+              <div className="w-9 h-9 rounded-full bg-amber-50 flex items-center justify-center text-amber-600">
+                <Truck className="w-4 h-4" />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-[10px] text-slate-400 font-bold uppercase leading-tight">Livraison Disponible</span>
+                <span className="font-extrabold text-amber-600">Partout au Maroc</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Row 2: Soft, Smooth Pastel Tint Navigation Accent Bar */}
+      <div className="bg-amber-50/70 border-t border-b border-amber-200/60 shadow-sm py-2 px-4 sm:px-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+
+          {/* Left: Solid Rounded "Nos Catégories" Button */}
+          <div className="flex items-center space-x-4">
+            <CategoryMenu />
+          </div>
+
+          {/* Middle: Clean Smooth Navigation Links */}
+          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-3">
+            <button
+              onClick={() => { resetFilters(); setActiveTab('home'); }}
+              className={`px-3.5 py-1.5 text-xs font-extrabold uppercase tracking-wider rounded-xl transition-all ${
+                activeTab === 'home'
+                  ? 'text-amber-700 bg-amber-100/80 border border-amber-300/60 font-black'
+                  : 'text-slate-700 hover:text-amber-700 hover:bg-amber-100/40'
+              }`}
+            >
+              Accueil
             </button>
 
-            {/* Search Trigger for Mobile */}
+            <button
+              onClick={() => { resetFilters(); setActiveTab('shop'); }}
+              className={`px-3.5 py-1.5 text-xs font-extrabold uppercase tracking-wider rounded-xl transition-all ${
+                activeTab === 'shop'
+                  ? 'text-amber-700 bg-amber-100/80 border border-amber-300/60 font-black'
+                  : 'text-slate-700 hover:text-amber-700 hover:bg-amber-100/40'
+              }`}
+            >
+              Boutique
+            </button>
+
+            <button
+              onClick={() => handleNavClick('shop', undefined, 'occasion')}
+              className="px-3.5 py-1.5 text-xs font-extrabold uppercase tracking-wider text-amber-800 hover:bg-amber-100/60 rounded-xl transition-all"
+            >
+              Occasions
+            </button>
+
+            <button
+              onClick={() => handleNavClick('shop', undefined, 'location')}
+              className="px-3.5 py-1.5 text-xs font-extrabold uppercase tracking-wider text-emerald-800 hover:bg-emerald-100/60 rounded-xl transition-all"
+            >
+              Location
+            </button>
+
+            <button
+              onClick={() => { setActiveTab('contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className={`px-3.5 py-1.5 text-xs font-extrabold uppercase tracking-wider rounded-xl transition-all ${
+                activeTab === 'contact'
+                  ? 'text-amber-700 bg-amber-100/80 border border-amber-300/60 font-black'
+                  : 'text-slate-700 hover:text-amber-700 hover:bg-amber-100/40'
+              }`}
+            >
+              Contact & Devis
+            </button>
+          </nav>
+
+          {/* Right: Circular Action Buttons (Admin CMS, Wishlist, Cart) */}
+          <div className="flex items-center space-x-2.5 flex-shrink-0">
+            {/* Search Button for Mobile */}
             <button
               onClick={() => setIsSearchModalOpen(true)}
-              className="md:hidden p-2.5 rounded-xl bg-slate-100 border border-gray-200 text-slate-700 hover:text-amber-600 transition-all"
+              className="md:hidden p-2 rounded-full bg-white border border-gray-200 text-slate-700 hover:text-amber-600 transition-all"
               title="Rechercher"
             >
               <Search className="w-4 h-4 text-amber-600" />
             </button>
 
-            {/* Wishlist Button */}
+            {/* Admin CMS Pill */}
+            <button
+              onClick={() => setIsAdminOpen(true)}
+              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-amber-400 hover:bg-slate-800 transition-all text-xs font-extrabold shadow-sm"
+              title="Ouvrir le panneau d'administration CMS"
+            >
+              <Database className="w-3.5 h-3.5 text-amber-400" />
+              <span className="hidden sm:inline-block">Admin CMS</span>
+            </button>
+
+            {/* Wishlist Circular Button */}
             <button
               onClick={() => { setActiveTab('shop'); }}
-              className="relative p-2.5 rounded-xl bg-slate-100 border border-gray-200 text-slate-700 hover:text-rose-600 hover:border-rose-300 transition-all"
+              className="relative w-9 h-9 rounded-full bg-white border border-gray-200 text-slate-700 hover:text-rose-600 hover:border-rose-300 flex items-center justify-center transition-all shadow-sm"
               title="Liste de souhaits"
             >
               <Heart className="w-4 h-4" />
               {wishlist.length > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-600 text-white text-[10px] font-bold flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-600 text-white text-[10px] font-black flex items-center justify-center">
                   {wishlist.length}
                 </span>
               )}
             </button>
 
-            {/* Shopping Cart Button */}
+            {/* Cart Button */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center space-x-2.5 px-3 sm:px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-black transition-all shadow-md"
+              className="flex items-center space-x-2 bg-amber-500 hover:bg-amber-600 text-slate-950 px-4 py-1.5 rounded-full font-black text-xs shadow-sm transition-all"
             >
               <div className="relative">
                 <ShoppingBag className="w-4 h-4 text-slate-950" />
@@ -150,74 +236,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
                   </span>
                 )}
               </div>
-              <div className="hidden sm:flex flex-col text-left">
-                <span className="text-[9px] text-slate-900 uppercase font-black tracking-wider leading-tight">Mon Panier</span>
-                <span className="text-xs font-black text-slate-950">{subtotal.toLocaleString('fr-FR')} DH</span>
-              </div>
+              <span className="hidden sm:inline-block font-black">{subtotal.toLocaleString('fr-FR')} DH</span>
             </button>
           </div>
-
-        </div>
-      </div>
-
-      {/* Row 2: Golden Yellow Navigation Accent Bar */}
-      <div className="bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 border-t border-amber-400 shadow-sm py-1 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-
-          {/* Left: Category Mega Dropdown Menu */}
-          <div className="py-0.5">
-            <CategoryMenu />
-          </div>
-
-          {/* Right: Main Navigation Bar Links */}
-          <nav className="hidden lg:flex items-center space-x-1.5 xl:space-x-3">
-            <button
-              onClick={() => { resetFilters(); setActiveTab('home'); }}
-              className={`px-3.5 py-1.5 text-xs font-black uppercase tracking-wider rounded-xl transition-all ${
-                activeTab === 'home'
-                  ? 'bg-slate-900 text-amber-400 shadow-sm'
-                  : 'text-slate-950 hover:bg-amber-600/30'
-              }`}
-            >
-              Accueil
-            </button>
-
-            <button
-              onClick={() => { resetFilters(); setActiveTab('shop'); }}
-              className={`px-3.5 py-1.5 text-xs font-black uppercase tracking-wider rounded-xl transition-all ${
-                activeTab === 'shop'
-                  ? 'bg-slate-900 text-amber-400 shadow-sm'
-                  : 'text-slate-950 hover:bg-amber-600/30'
-              }`}
-            >
-              Boutique
-            </button>
-
-            <button
-              onClick={() => handleNavClick('shop', undefined, 'occasion')}
-              className="px-3.5 py-1.5 text-xs font-black uppercase tracking-wider text-slate-950 bg-amber-200/60 hover:bg-slate-900 hover:text-amber-400 rounded-xl transition-all"
-            >
-              Occasions
-            </button>
-
-            <button
-              onClick={() => handleNavClick('shop', undefined, 'location')}
-              className="px-3.5 py-1.5 text-xs font-black uppercase tracking-wider text-emerald-950 bg-emerald-300/60 hover:bg-slate-900 hover:text-emerald-400 rounded-xl transition-all"
-            >
-              Location
-            </button>
-
-            <button
-              onClick={() => { setActiveTab('contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className={`px-3.5 py-1.5 text-xs font-black uppercase tracking-wider rounded-xl transition-all ${
-                activeTab === 'contact'
-                  ? 'bg-slate-900 text-amber-400 shadow-sm'
-                  : 'text-slate-950 hover:bg-amber-600/30'
-              }`}
-            >
-              Contact & Devis
-            </button>
-          </nav>
 
         </div>
       </div>

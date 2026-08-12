@@ -50,11 +50,11 @@ export const CategoryMenu: React.FC = () => {
     <div className="relative" ref={menuRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2.5 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 font-extrabold text-xs shadow-md transition-all border border-amber-500/30"
+        className="flex items-center space-x-2 px-4 py-2 rounded-2xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-xs shadow-sm transition-all"
       >
-        <Menu className="w-4 h-4 text-amber-400" />
-        <span className="uppercase tracking-wide">Toutes les Catégories</span>
-        <ChevronDown className={`w-3.5 h-3.5 text-amber-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <Menu className="w-4 h-4 text-slate-950" />
+        <span>Nos Catégories</span>
+        <ChevronDown className={`w-3.5 h-3.5 text-slate-950 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       {isOpen && (

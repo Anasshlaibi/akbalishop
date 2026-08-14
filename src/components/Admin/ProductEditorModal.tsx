@@ -1,8 +1,40 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Product } from '../../types';
-import { MutationResult } from '../../services/productService';
+import { productService, MutationResult } from '../../services/productService';
 import { uploadProductImage } from '../../services/storageService';
-import { X, Save, Settings, AlertCircle, Upload, Image as ImageIcon, CheckCircle, RefreshCw, Link as LinkIcon, Zap } from 'lucide-react';
+import { X, Save, Settings, AlertCircle, Upload, Image as ImageIcon, CheckCircle, RefreshCw, Link as LinkIcon, Zap, ChevronDown, Plus } from 'lucide-react';
+
+const DEFAULT_BRANDS = [
+  '7Artisans',
+  'AKABLISHOP',
+  'Canon',
+  'DJI',
+  'Fujifilm',
+  'Godox',
+  'GoPro',
+  'Hollyland',
+  'Insta360',
+  'K&F Concept',
+  'Lexar',
+  'Nikon',
+  'Røde',
+  'Sony',
+  'Ulanzi'
+];
+
+const DEFAULT_CATEGORIES = [
+  'accessoires',
+  'appareils-photo',
+  'audio',
+  'cameras',
+  'eclairage',
+  'lenses',
+  'location',
+  'objectifs',
+  'occasions',
+  'stabilisateurs',
+  'Son'
+];
 
 interface ProductEditorModalProps {
   product?: Product | null;
@@ -19,6 +51,12 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  // Dynamic Brands & Categories state with instant default options
+  const [brandsOptions, setBrandsOptions] = useState<string[]>(DEFAULT_BRANDS);
+  const [categoriesOptions, setCategoriesOptions] = useState<string[]>(DEFAULT_CATEGORIES);
+  const [isCustomBrand, setIsCustomBrand] = useState<boolean>(false);
+  const [isCustomCategory, setIsCustomCategory] = useState<boolean>(false);
 
   // Image Upload state
   const [isUploading, setIsUploading] = useState(false);
@@ -55,7 +93,13 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
     setErrorMessage(null);
     setUploadNotice(null);
     setUploadStats(null);
+    setIsCustomBrand(false);
+    setIsCustomCategory(false);
+
     if (isOpen) {
+      const currentBrand = product?.brand || 'Sony';
+      const currentCategory = product?.category || 'cameras';
+
       if (product) {
         setFormData({ ...product });
       } else {
@@ -77,6 +121,45 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
           description: ''
         });
       }
+
+      // Immediately initialize options including current product values
+      setBrandsOptions(prev => {
+        const set = new Set([...DEFAULT_BRANDS, ...prev]);
+        if (currentBrand) set.add(currentBrand);
+        return Array.from(set).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+      });
+
+      setCategoriesOptions(prev => {
+        const set = new Set([...DEFAULT_CATEGORIES, ...prev]);
+        if (currentCategory) set.add(currentCategory);
+        return Array.from(set).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+      });
+
+      // Fetch dynamic unique brands and categories from Supabase products table
+      const loadDynamicOptions = async () => {
+        try {
+          const [fetchedBrands, fetchedCategories] = await Promise.all([
+            productService.getUniqueBrands(),
+            productService.getUniqueCategories()
+          ]);
+
+          setBrandsOptions(prev => {
+            const set = new Set([...DEFAULT_BRANDS, ...fetchedBrands, ...prev]);
+            if (currentBrand) set.add(currentBrand);
+            return Array.from(set).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+          });
+
+          setCategoriesOptions(prev => {
+            const set = new Set([...DEFAULT_CATEGORIES, ...fetchedCategories, ...prev]);
+            if (currentCategory) set.add(currentCategory);
+            return Array.from(set).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+          });
+        } catch (err) {
+          console.error('Failed to load dynamic options from Supabase:', err);
+        }
+      };
+
+      loadDynamicOptions();
     }
   }, [product, isOpen]);
 
@@ -133,7 +216,7 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
       const p: Product = {
         id: product?.id || `prod-${Date.now()}`,
         name: formData.name,
-        brand: formData.brand || 'Sony',
+        brand: productService.normalizeBrand(formData.brand || 'Sony'),
         category: formData.category || 'cameras',
         price: Number(formData.price),
         oldPrice: formData.oldPrice ? Number(formData.oldPrice) : undefined,
@@ -211,28 +294,130 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
           </div>
 
           <div className="grid grid-cols-2 gap-4">
+            {/* MARQUE SELECTOR / DROPDOWN */}
             <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">Marque</label>
-              <input
-                type="text"
-                required
-                placeholder="Ex: Sony, Canon, Nikon"
-                value={formData.brand || ''}
-                onChange={e => setFormData({ ...formData, brand: e.target.value })}
-                className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none font-semibold"
-              />
+              <div className="flex items-center justify-between mb-1">
+                <label className="block text-xs font-semibold text-slate-700">Marque</label>
+                {isCustomBrand && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsCustomBrand(false);
+                      setFormData(prev => ({ ...prev, brand: brandsOptions[0] || 'Sony' }));
+                    }}
+                    className="text-[10px] text-amber-600 font-bold hover:underline"
+                  >
+                    Choisir de la liste
+                  </button>
+                )}
+              </div>
+
+              {!isCustomBrand ? (
+                <div className="relative">
+                  <select
+                    required
+                    value={brandsOptions.includes(formData.brand || '') ? formData.brand : (formData.brand ? formData.brand : (brandsOptions[0] || 'Sony'))}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      if (val === '__NEW_BRAND__') {
+                        setIsCustomBrand(true);
+                        setFormData(prev => ({ ...prev, brand: '' }));
+                      } else {
+                        setFormData(prev => ({ ...prev, brand: val }));
+                      }
+                    }}
+                    className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none font-semibold appearance-none cursor-pointer pr-8"
+                  >
+                    {formData.brand && !brandsOptions.includes(formData.brand) && (
+                      <option value={formData.brand}>{formData.brand}</option>
+                    )}
+                    {brandsOptions.map(b => (
+                      <option key={b} value={b}>
+                        {b}
+                      </option>
+                    ))}
+                    <option value="__NEW_BRAND__" className="font-extrabold text-amber-600 bg-amber-50">
+                      + Ajouter une nouvelle marque...
+                    </option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </div>
+              ) : (
+                <input
+                  type="text"
+                  required
+                  autoFocus
+                  placeholder="Saisir nouvelle marque..."
+                  value={formData.brand || ''}
+                  onChange={e => setFormData({ ...formData, brand: e.target.value })}
+                  className="w-full px-3.5 py-2 rounded-xl bg-amber-50/50 border border-amber-400 text-xs text-slate-900 focus:border-amber-500 focus:outline-none font-semibold"
+                />
+              )}
             </div>
 
+            {/* CATÉGORIE SELECTOR / DROPDOWN */}
             <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">Catégorie</label>
-              <input
-                type="text"
-                required
-                placeholder="Ex: cameras, lenses, audio"
-                value={formData.category || ''}
-                onChange={e => setFormData({ ...formData, category: e.target.value })}
-                className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none font-semibold"
-              />
+              <div className="flex items-center justify-between mb-1">
+                <label className="block text-xs font-semibold text-slate-700">Catégorie</label>
+                {isCustomCategory && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsCustomCategory(false);
+                      setFormData(prev => ({ ...prev, category: categoriesOptions[0] || 'cameras' }));
+                    }}
+                    className="text-[10px] text-amber-600 font-bold hover:underline"
+                  >
+                    Choisir de la liste
+                  </button>
+                )}
+              </div>
+
+              {!isCustomCategory ? (
+                <div className="relative">
+                  <select
+                    required
+                    value={categoriesOptions.includes(formData.category || '') ? formData.category : (formData.category ? formData.category : (categoriesOptions[0] || 'cameras'))}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      if (val === '__NEW_CATEGORY__') {
+                        setIsCustomCategory(true);
+                        setFormData(prev => ({ ...prev, category: '' }));
+                      } else {
+                        setFormData(prev => ({ ...prev, category: val }));
+                      }
+                    }}
+                    className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs text-slate-900 focus:border-amber-500 focus:outline-none font-semibold appearance-none cursor-pointer pr-8"
+                  >
+                    {formData.category && !categoriesOptions.includes(formData.category) && (
+                      <option value={formData.category}>{formData.category}</option>
+                    )}
+                    {categoriesOptions.map(c => (
+                      <option key={c} value={c}>
+                        {c}
+                      </option>
+                    ))}
+                    <option value="__NEW_CATEGORY__" className="font-extrabold text-amber-600 bg-amber-50">
+                      + Ajouter une nouvelle catégorie...
+                    </option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </div>
+              ) : (
+                <input
+                  type="text"
+                  required
+                  autoFocus
+                  placeholder="Saisir nouvelle catégorie..."
+                  value={formData.category || ''}
+                  onChange={e => setFormData({ ...formData, category: e.target.value })}
+                  className="w-full px-3.5 py-2 rounded-xl bg-amber-50/50 border border-amber-400 text-xs text-slate-900 focus:border-amber-500 focus:outline-none font-semibold"
+                />
+              )}
             </div>
           </div>
 

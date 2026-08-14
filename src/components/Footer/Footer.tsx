@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
 
             <div className="flex items-center space-x-3 pt-2">
               <a
-                href="https://wa.me/+212695252921"
+                href="https://wa.me/+212701896033"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-xl bg-emerald-600/20 text-emerald-400 hover:bg-emerald-600 hover:text-white border border-emerald-500/30 transition-all"
@@ -84,7 +84,7 @@ export const Footer: React.FC = () => {
                 <MessageCircle className="w-4 h-4" />
               </a>
               <a
-                href="https://www.instagram.com/akablishop/"
+                href="https://www.instagram.com/akablishopmarrakech/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-pink-400 border border-slate-700 hover:border-pink-500/40 transition-all"
@@ -153,7 +153,7 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                <a href="tel:+212695252921" className="hover:text-white font-bold text-white">+212 695252921</a>
+                <a href="tel:+212701896033" className="hover:text-white font-bold text-white">+212 701896033</a>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-amber-500 flex-shrink-0" />

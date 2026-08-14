@@ -4,8 +4,8 @@ import autoTable from 'jspdf-autotable';
 import { Phone, Mail, MapPin, MessageCircle, Clock, Send, Check, FileText, Download, Loader2, Navigation } from 'lucide-react';
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
-const ORDERS_WA  = '212701986033';
-const CONTACT_WA = '212695252921';
+const ORDERS_WA  = '212701896033';
+const CONTACT_WA = '212701896033';
 const SHEET_WEBHOOK_URL = ''; // paste your Google Apps Script URL here
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -128,7 +128,7 @@ export const ContactSection: React.FC = () => {
         <div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-3">
 
           {/* Call */}
-          <a href="tel:+212701986033"
+          <a href="tel:+212701896033"
             className="group flex flex-col items-center gap-2 p-4 rounded-2xl border-2 border-gray-200 hover:border-amber-400 hover:bg-amber-50 transition-all cursor-pointer"
           >
             <div className="w-12 h-12 rounded-2xl bg-amber-100 group-hover:bg-amber-500 text-amber-600 group-hover:text-white flex items-center justify-center transition-all shadow-sm">

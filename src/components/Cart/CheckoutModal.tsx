@@ -55,7 +55,7 @@ export const CheckoutModal: React.FC = () => {
       `*Total:* ${subtotal.toLocaleString('fr-FR')} DH\n` +
       `*Mode de paiement:* ${paymentMethod === 'cod' ? 'Paiement à la livraison' : paymentMethod === 'bank' ? 'Virement bancaire' : 'Retrait Showroom Marrakech'}`
     );
-    window.open(`https://wa.me/212701986033?text=${message}`, '_blank');
+    window.open(`https://wa.me/212701896033?text=${message}`, '_blank');
     clearCart();
     setIsCheckoutOpen(false);
     setIsOrderComplete(false);
@@ -146,7 +146,7 @@ export const CheckoutModal: React.FC = () => {
                     <input
                       type="tel"
                       required
-                      placeholder="Ex: 0695252921"
+                      placeholder="Ex: 0701896033"
                       value={formData.phone}
                       onChange={e => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-gray-200 text-slate-900 text-xs focus:border-amber-500 focus:outline-none"

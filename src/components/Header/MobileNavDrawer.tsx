@@ -130,7 +130,7 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({ isOpen, onClos
         {/* Footer Contact Info */}
         <div className="pt-6 border-t border-gray-200 space-y-3">
           <a
-            href="https://wa.me/+212695252921"
+            href="https://wa.me/+212701896033"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center space-x-2 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs shadow-md transition-colors"
@@ -142,7 +142,7 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({ isOpen, onClos
           <div className="text-[11px] text-slate-600 space-y-1.5 pt-2">
             <div className="flex items-center space-x-2">
               <Phone className="w-3.5 h-3.5 text-amber-600" />
-              <span>+212 695252921</span>
+              <span>+212 701896033</span>
             </div>
             <div className="flex items-center space-x-2">
               <MapPin className="w-3.5 h-3.5 text-amber-600" />

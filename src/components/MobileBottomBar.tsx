@@ -8,7 +8,7 @@ export const MobileBottomBar: React.FC = () => {
   const { activeTab, setActiveTab, resetFilters, setIsSearchModalOpen } = useShop();
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/+212695252921?text=Bonjour AKABLISHOP, je voudrais des informations sur vos produits.', '_blank');
+    window.open('https://wa.me/+212701896033?text=Bonjour AKABLISHOP, je voudrais des informations sur vos produits.', '_blank');
   };
 
   return (

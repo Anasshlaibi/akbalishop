@@ -103,7 +103,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
           {/* Right: Contact Details (Bureau & Livraison) */}
           <div className="hidden xl:flex items-center space-x-6 text-xs font-semibold flex-shrink-0">
             <a
-              href="tel:+212695252921"
+              href="tel:+212701896033"
               className="flex items-center space-x-2.5 text-slate-700 hover:text-amber-600 transition-colors"
             >
               <div className="w-9 h-9 rounded-full bg-amber-50 flex items-center justify-center text-amber-600">

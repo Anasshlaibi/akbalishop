@@ -1,27 +1,689 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+          http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://akablishop.ma/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://akablishop.ma/?tab=shop</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?tab=rental</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?tab=contact</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?category=cameras</loc>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://akablishop.ma/?tab=rental</loc>
-    <lastmod>2026-08-11</lastmod>
+    <loc>https://akablishop.ma/?category=objectifs</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?category=lenses</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?category=eclairage</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?category=audio</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?category=stabilisateurs</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?category=accessoires</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?category=occasions</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?category=location</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?brand=sony</loc>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://akablishop.ma/?tab=contact</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://akablishop.ma/?brand=canon</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?brand=nikon</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?brand=godox</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?brand=dji</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?brand=rode</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?brand=7artisans</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?brand=gopro</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?brand=insta360</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=allbum-photo</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/album-photo-special-instax-mini-993658.webp</image:loc>
+      <image:title>Album Photo Spécial Instax Mini - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Album Photo Spécial Instax Mini (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=battery-canon-lp-e6</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/batterie-canon-lp-e6n-pour-boitiers-eos-812587.webp</image:loc>
+      <image:title>Batterie Canon LP-E6N pour Boîtiers EOS - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Batterie Canon LP-E6N pour Boîtiers EOS (Canon) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=battery-pd-to-fz100</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/adaptateur-alimentation-pd-vers-sony-np-fz100-902623.webp</image:loc>
+      <image:title>ZGCINE – USB-C PD to FZ100 Dummy Battery for SONY – PD-FZ100 For SONY - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer ZGCINE – USB-C PD to FZ100 Dummy Battery for SONY – PD-FZ100 For SONY (K&amp;F) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=battery-sony-fz100</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/batterie-originale-sony-np-fz100-pour-alpha-fx-965001.webp</image:loc>
+      <image:title>Batterie Originale Sony NP-FZ100 pour Alpha &amp; FX - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Batterie Originale Sony NP-FZ100 pour Alpha &amp; FX (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=battery-sony-np-f770</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/batterie-sony-np-f770-li-ion-pour-eclairage-moniteurs-763183.webp</image:loc>
+      <image:title>Batterie Sony NP-F770 Li-ion pour Éclairage &amp; Moniteurs - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Batterie Sony NP-F770 Li-ion pour Éclairage &amp; Moniteurs (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=battery-x4-insta360</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/batterie-rechargeable-d-origine-insta360-x4-084486.webp</image:loc>
+      <image:title>Insta360 Batterie Rechargeable X4 – 2290 mAh - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Insta360 Batterie Rechargeable X4 – 2290 mAh (Insta360) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=battons-de-nettoyage-capteur</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/batons-swabs-de-nettoyage-pour-capteur-plein-format-10-pcs-514222.webp</image:loc>
+      <image:title>Bâtons Swabs de Nettoyage pour Capteur Plein Format (10 pcs) - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Bâtons Swabs de Nettoyage pour Capteur Plein Format (10 pcs) (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=bouchonne-boitier-c</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/bouchon-de-boitier-canon-monture-ef-rf-030242.webp</image:loc>
+      <image:title>Bouchon de Boîtier Canon (Monture EF/RF) - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Bouchon de Boîtier Canon (Monture EF/RF) (Canon) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=bouchonne-boitier-n</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/bouchon-de-boitier-nikon-monture-f-z-068265.webp</image:loc>
+      <image:title>Bouchon de Boîtier Nikon (Monture F/Z) - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Bouchon de Boîtier Nikon (Monture F/Z) (Nikon) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=cable-hdmi-8k</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/cable-hdmi-2-1-ultra-high-speed-8k-60hz-4k-120hz-211437.webp</image:loc>
+      <image:title>Câble HDMI 2.1 Ultra High Speed 8K 60Hz / 4K 120Hz - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Câble HDMI 2.1 Ultra High Speed 8K 60Hz / 4K 120Hz (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=camera-dc8200</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/camera-numerique-compacte-mini-dc8200-120625.webp</image:loc>
+      <image:title>Caméra Numérique Compacte Mini DC8200 - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Caméra Numérique Compacte Mini DC8200 (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=camera-degital-c1</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/camera-numerique-mini-c1-rupture-271605.webp</image:loc>
+      <image:title>Caméra Numérique Mini C1 (Rupture) - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Caméra Numérique Mini C1 (Rupture) (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=camera-degital-dc5200</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/camera-numerique-mini-dc5200-rupture-188389.webp</image:loc>
+      <image:title>Caméra Numérique Mini DC5200 (Rupture) - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Caméra Numérique Mini DC5200 (Rupture) (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=camera-degital-dc9200</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/camera-numerique-compacte-mini-dc9200-001193.webp</image:loc>
+      <image:title>Caméra Numérique Compacte Mini DC9200 - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Caméra Numérique Compacte Mini DC9200 (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=cleaning-kit</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/kit-de-nettoyage-appareil-photo-156064.webp</image:loc>
+      <image:title>Kit de nettoyage appareil photo - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Kit de nettoyage appareil photo (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=fast-charge-x4</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/station-de-charge-rapide-quadruple-fast-charge-x4-018099.webp</image:loc>
+      <image:title>Station de Charge Rapide Quadruple Fast Charge x4 - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Station de Charge Rapide Quadruple Fast Charge x4 (insta360) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=fast-charge-x5</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/station-de-charge-rapide-quintuple-fast-charge-x5-361730.webp</image:loc>
+      <image:title>Station de Charge Rapide Quintuple Fast Charge x5 - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Station de Charge Rapide Quintuple Fast Charge x5 (Insta360) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=fond-papier</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/fond-papier-studio-roule-2-72m-x-11m-445452.webp</image:loc>
+      <image:title>Fond Papier Studio Roulé 2.72m x 11m - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Fond Papier Studio Roulé 2.72m x 11m (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=godox-sl60w-led-light</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/godox-sl60w-projecteur-led-studio-60w-616842.webp</image:loc>
+      <image:title>Godox SL60W Projecteur LED Studio 60W - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Godox SL60W Projecteur LED Studio 60W (Godox) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=lens-cap-insta360</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/insta360-capuchon-d-objectif-430076.webp</image:loc>
+      <image:title>Insta360 capuchon d’objectif - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Insta360 capuchon d’objectif (Insta360) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=lexar-128-v30</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/carte-memoire-lexar-128gb-255mb-s-v30-sdxc-111689.webp</image:loc>
+      <image:title>Carte Mémoire Lexar 128GB 205mb/s V30 SDXC - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Carte Mémoire Lexar 128GB 205mb/s V30 SDXC (Lexar) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=lexar-256-silver</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sandisk-extreme-pro-sd-256go-200mb-s-v30-u3-626016.webp</image:loc>
+      <image:title>SANDISK Extreme Pro SD 256Go-200MB/s V30 U3 - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer SANDISK Extreme Pro SD 256Go-200MB/s V30 U3 (Lexar) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=lexar-64-v30</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://yahyaouishop.com/wp-content/uploads/2026/08/Hollyland-Lark-A1-Combo-with-USB-C-RX-Lightning-RX-Charging-Case-yahyaoui-yahyaouishop.com-casablanca-maarif.avif</image:loc>
+      <image:title>Hollyland Lark A1 Combo with USB-C RX + Lightning RX + Charging Case - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Hollyland Lark A1 Combo with USB-C RX + Lightning RX + Charging Case (Hollyland) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=lexar-64-v60-gold</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/carte-memoire-lexar-professional-64gb-v60-gold-1800x-559717.webp</image:loc>
+      <image:title>Carte Mémoire Lexar Professional 64GB V60 GOLD 1800x - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Carte Mémoire Lexar Professional 64GB V60 GOLD 1800x (Lexar) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=mini-bras-magique</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/mini-bras-magique-articule-magic-arm-1-4-558137.webp</image:loc>
+      <image:title>Mini Bras Magique Articulé Magic Arm 1/4&quot; - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Mini Bras Magique Articulé Magic Arm 1/4&quot; (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=nd-filtre-sony-62mm</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-osmo-pocket-4-standard-combo-715230.webp</image:loc>
+      <image:title>DJI OSMO POCKET 4 STANDARD COMBO - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer DJI OSMO POCKET 4 STANDARD COMBO (DJI) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=nd-filtre-sony-77mm</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/insta360-mic-pro-duo-wireless-system-878629.webp</image:loc>
+      <image:title>Insta360 Mic Pro Duo Wireless System - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Insta360 Mic Pro Duo Wireless System (Insta360) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=nd-filtre-sony-82mm</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/kf-concept-filtre-variable-slim-nano-x-ndx-82mm-nd2-a-nd400-806312.webp</image:loc>
+      <image:title>KF CONCEPT filtre variable slim NANO-X NDX 82MM – ND2 À ND400 - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer KF CONCEPT filtre variable slim NANO-X NDX 82MM – ND2 À ND400 (K&amp;F Concept) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=nicefoto-softbox-70cm</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/softbox-parabolique-nicefoto-70cm-monture-bowens-823320.webp</image:loc>
+      <image:title>Softbox Parabolique NiceFoto 70cm Monture Bowens - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Softbox Parabolique NiceFoto 70cm Monture Bowens (Godox) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=papier-instax-mini</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>Pack de Films Fujifilm Instax Mini (10/20 Vues) - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Pack de Films Fujifilm Instax Mini (10/20 Vues) (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=pochette-carte-memoire</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/pochette-etui-de-protection-pour-cartes-memoire-sd-cfexpress-281826.webp</image:loc>
+      <image:title>Pochette Étui de Protection pour Cartes Mémoire SD &amp; CFexpress - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Pochette Étui de Protection pour Cartes Mémoire SD &amp; CFexpress (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786546021266</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/objectif-24-70-f4-zeiss-601535.webp</image:loc>
+      <image:title>objectif 24-70 f4 zeiss - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer objectif 24-70 f4 zeiss (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786577947999</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/pack-instax-mini-12-film-album-pochette-926827.webp</image:loc>
+      <image:title>Pack Instax Mini 12 + Film + Album + Pochette - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Pack Instax Mini 12 + Film + Album + Pochette (Pack Instax Mini 12 + Film + Album + Pochette) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786663825627</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-osmo-pocket-3-creator-combo-814790.webp</image:loc>
+      <image:title>DJI Osmo Pocket 3 Creator Combo - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer DJI Osmo Pocket 3 Creator Combo (DJI) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786663870450</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-alpha-7-iv-boitier-nu-neuf-868210.webp</image:loc>
+      <image:title>Sony alpha 7 IV – Boitier NU (Neuf) - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Sony alpha 7 IV – Boitier NU (Neuf) (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786663909701</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-alpha-7-mark-v-boitier-nu-899103.webp</image:loc>
+      <image:title>SONY ALPHA 7 MARK V – Bôitier Nu - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer SONY ALPHA 7 MARK V – Bôitier Nu (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786663946956</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-zv-e10-ii-943773.webp</image:loc>
+      <image:title>SONY ZV-E10 II - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer SONY ZV-E10 II (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786663983275</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-fx30-digital-cinema-camera-981504.webp</image:loc>
+      <image:title>Sony FX30 Digital Cinema Camera - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Sony FX30 Digital Cinema Camera (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786664025928</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-a7r-v-5-mirrorless-camera-023621.webp</image:loc>
+      <image:title>Sony a7R V (5) – Mirrorless Camera - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Sony a7R V (5) – Mirrorless Camera (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=rode-wireless-pro</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/r-de-wireless-pro-systeme-micro-hf-sans-fil-475329.webp</image:loc>
+      <image:title>RØDE Wireless GO II - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer RØDE Wireless GO II (Røde) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=sandisk-128</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/carte-memoire-sandisk-extreme-pro-128gb-sdxc-387059.webp</image:loc>
+      <image:title>Carte Mémoire SanDisk Extreme PRO 128GB SDXC - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Carte Mémoire SanDisk Extreme PRO 128GB SDXC (SanDisk) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=sandisk-64</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/carte-memoire-sandisk-extreme-64gb-sdxc-170mb-s-336237.webp</image:loc>
+      <image:title>Carte Mémoire SanDisk Extreme 64GB SDXC 170MB/s - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Carte Mémoire SanDisk Extreme 64GB SDXC 170MB/s (SanDisk) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=sony-a7s-iii-occasion</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/Sony-a7S-III-%E2%80%93-Boitier-nu-Bon-etat-300x300.png</image:loc>
+      <image:title>Sony a7S III – Boitier nu (Bon Occasion) - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Sony a7S III – Boitier nu (Bon Occasion) (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=sony-fe-24-70mm-f28-gm-ii</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-fe-24-70mm-f-2-8-gm-ii-069094.webp</image:loc>
+      <image:title>Sony FE 24-70mm f/2.8 GM II - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Sony FE 24-70mm f/2.8 GM II (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=sony-fx3-cinema</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/sony_ilme_fx3_fx3_cinema_camera_1624226-300x300.jpg</image:loc>
+      <image:title>Sony FX3 Caméra Cinéma - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Sony FX3 Caméra Cinéma (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=sony-fx6-cinema</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/SONY-FX6-jpg-300x300.webp</image:loc>
+      <image:title>Sony FX6 – Caméra Cinéma - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Sony FX6 – Caméra Cinéma (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=stand-camera-daction</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/manfrotto-pixi-mtpiximii-b-trepied-mini-324669.webp</image:loc>
+      <image:title>Manfrotto PIXI MTPIXIMII-B Trépied Mini - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Manfrotto PIXI MTPIXIMII-B Trépied Mini (GoPro) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=stand-rode</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/support-stand-de-bureau-pour-microphone-r-de-398794.webp</image:loc>
+      <image:title>Support Stand de Bureau pour Microphone Røde - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Support Stand de Bureau pour Microphone Røde (Røde) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=ulanzi-lce-rgb</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/ulanzi-vl110-rgb-tube-light-714244.webp</image:loc>
+      <image:title>ULANZI VL110 RGB TUBE LIGHT - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer ULANZI VL110 RGB TUBE LIGHT (Godox) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=ulanzi-vl49-rgb</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/mini-eclairage-led-studio-ulanzi-vl49-rgb-660468.webp</image:loc>
+      <image:title>Mini Éclairage LED Studio Ulanzi VL49 RGB - AKABLISHOP Marrakech Maroc</image:title>
+      <image:caption>Acheter ou louer Mini Éclairage LED Studio Ulanzi VL49 RGB (Godox) à Marrakech, Maroc au meilleur prix.</image:caption>
+    </image:image>
   </url>
 </urlset>

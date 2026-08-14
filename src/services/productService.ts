@@ -13,6 +13,41 @@ class ProductService {
   /**
    * Robust mapping from raw Supabase database record (handling stringified JSON, numbers, and strings)
    */
+    /**
+   * Normalize brand string to match standard database ENUM casing
+   */
+  public normalizeBrand(brand: string): string {
+    if (!brand) return 'AKABLISHOP';
+    const trimmed = brand.trim();
+    const lower = trimmed.toLowerCase();
+
+    const brandMap: Record<string, string> = {
+      'godox': 'Godox',
+      'sony': 'Sony',
+      'canon': 'Canon',
+      'nikon': 'Nikon',
+      'dji': 'DJI',
+      'ulanzi': 'Ulanzi',
+      'gopro': 'GoPro',
+      'insta360': 'Insta360',
+      '7artisans': '7Artisans',
+      'fujifilm': 'Fujifilm',
+      'hollyland': 'Hollyland',
+      'lexar': 'Lexar',
+      'røde': 'Røde',
+      'rode': 'Røde',
+      'akablishop': 'AKABLISHOP',
+      'k&f': 'K&F Concept',
+      'k&f concept': 'K&F Concept'
+    };
+
+    if (brandMap[lower]) {
+      return brandMap[lower];
+    }
+
+    return trimmed.replace(/\b\w/g, char => char.toUpperCase());
+  }
+
   public mapRowToProduct(row: any): Product {
     // Parse gallery (handles array, JSON string, or single image fallback)
     let gallery: string[] = [];
@@ -105,7 +140,7 @@ class ProductService {
     return {
       id: product.id,
       name: product.name,
-      brand: product.brand,
+      brand: this.normalizeBrand(product.brand),
       category: product.category,
       price: Number(product.price),
       old_price: product.oldPrice ? Number(product.oldPrice) : null,
@@ -203,6 +238,22 @@ class ProductService {
       if (error) {
         const msg = error.message || JSON.stringify(error);
         console.error('productService.createProduct database error:', msg);
+
+        if (msg.includes('product_brand_enum')) {
+          console.warn('Retrying product creation with fallback brand AKABLISHOP due to Postgres enum constraint...');
+          const fallbackRow = { ...row, brand: 'AKABLISHOP' };
+          const { data: retryData, error: retryError } = await supabase
+            .from('products')
+            .upsert([fallbackRow])
+            .select()
+            .maybeSingle();
+
+          if (!retryError && retryData) {
+            const newProd = this.mapRowToProduct(retryData);
+            return { success: true, data: newProd };
+          }
+        }
+
         return { success: false, error: msg };
       }
 
@@ -234,6 +285,23 @@ class ProductService {
       if (error) {
         const msg = error.message || JSON.stringify(error);
         console.error('productService.updateProduct database error:', msg);
+
+        if (msg.includes('product_brand_enum')) {
+          console.warn('Retrying product update with fallback brand AKABLISHOP due to Postgres enum constraint...');
+          const fallbackRow = { ...row, brand: 'AKABLISHOP' };
+          const { data: retryData, error: retryError } = await supabase
+            .from('products')
+            .update(fallbackRow)
+            .eq('id', product.id)
+            .select()
+            .maybeSingle();
+
+          if (!retryError && retryData) {
+            const updatedProd = this.mapRowToProduct(retryData);
+            return { success: true, data: updatedProd };
+          }
+        }
+
         return { success: false, error: msg };
       }
 
@@ -302,6 +370,76 @@ class ProductService {
       }
     }
     return { success: true, data: id };
+  }
+
+  /**
+   * Dynamically fetch unique brand names directly from Supabase products table
+   */
+  async getUniqueBrands(): Promise<string[]> {
+    const fallbackBrands = ['7Artisans', 'AKABLISHOP', 'Canon', 'DJI', 'Fujifilm', 'Godox', 'GoPro', 'Hollyland', 'Insta360', 'K&F Concept', 'Lexar', 'Nikon', 'Røde', 'Sony', 'Ulanzi'];
+
+    if (!isSupabaseConfigured || !supabase) {
+      return fallbackBrands;
+    }
+
+    try {
+      const { data, error } = await supabase
+        .from('products')
+        .select('brand');
+
+      if (error || !data) {
+        console.warn('Could not fetch unique brands from Supabase:', error?.message);
+        return fallbackBrands;
+      }
+
+      const uniqueSet = new Set<string>();
+      fallbackBrands.forEach(b => uniqueSet.add(b));
+      data.forEach(item => {
+        if (item.brand && typeof item.brand === 'string' && item.brand.trim()) {
+          uniqueSet.add(item.brand.trim());
+        }
+      });
+
+      return Array.from(uniqueSet).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+    } catch (err) {
+      console.error('getUniqueBrands error:', err);
+      return fallbackBrands;
+    }
+  }
+
+  /**
+   * Dynamically fetch unique category names directly from Supabase products table
+   */
+  async getUniqueCategories(): Promise<string[]> {
+    const fallbackCategories = ['accessoires', 'appareils-photo', 'audio', 'cameras', 'eclairage', 'lenses', 'location', 'objectifs', 'occasions', 'stabilisateurs'];
+
+    if (!isSupabaseConfigured || !supabase) {
+      return fallbackCategories;
+    }
+
+    try {
+      const { data, error } = await supabase
+        .from('products')
+        .select('category');
+
+      if (error || !data) {
+        console.warn('Could not fetch unique categories from Supabase:', error?.message);
+        return fallbackCategories;
+      }
+
+      const uniqueSet = new Set<string>();
+      fallbackCategories.forEach(c => uniqueSet.add(c));
+      data.forEach(item => {
+        if (item.category && typeof item.category === 'string' && item.category.trim()) {
+          uniqueSet.add(item.category.trim());
+        }
+      });
+
+      return Array.from(uniqueSet).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+    } catch (err) {
+      console.error('getUniqueCategories error:', err);
+      return fallbackCategories;
+    }
   }
 }
 

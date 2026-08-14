@@ -7,11 +7,11 @@ export const TopBar: React.FC = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
         <div className="flex items-center space-x-6">
           <a 
-            href="tel:+212695252921" 
+            href="tel:+212701896033" 
             className="flex items-center space-x-1.5 hover:text-brand-amber transition-colors"
           >
             <Phone className="w-3.5 h-3.5 text-brand-amber" />
-            <span>+212 695252921</span>
+            <span>+212 701896033</span>
           </a>
           <a 
             href="mailto:akablishop@gmail.com" 
@@ -30,7 +30,7 @@ export const TopBar: React.FC = () => {
           <span className="text-gray-400">Livraison partout au Maroc</span>
           <span className="text-gray-600">|</span>
           <a 
-            href="https://wa.me/+212695252921" 
+            href="https://wa.me/+212701896033" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center space-x-1 text-emerald-400 hover:text-emerald-300 font-medium transition-colors"
@@ -39,7 +39,7 @@ export const TopBar: React.FC = () => {
             <span>WhatsApp Direct</span>
           </a>
           <a 
-            href="https://www.instagram.com/akablishop/" 
+            href="https://www.instagram.com/akablishopmarrakech/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-pink-400 transition-colors"

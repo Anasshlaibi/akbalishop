@@ -16,6 +16,72 @@ class ProductService {
     /**
    * Normalize brand string to match standard database ENUM casing
    */
+  
+  public normalizeCategory(cat: string): string {
+    if (!cat) return 'cameras';
+    const trimmed = cat.trim();
+    const lower = trimmed.toLowerCase();
+
+    // Map known values to exact Postgres enum values
+    const catMap: Record<string, string> = {
+      'cameras': 'cameras',
+      'caméras': 'cameras',
+      'caméras & boîtiers': 'cameras',
+      'boîtiers': 'cameras',
+      'boitier': 'cameras',
+      'instax': 'cameras',
+      'instax fujifilm': 'cameras',
+      'fujifilm instax': 'cameras',
+      'appareils-photo': 'appareils-photo',
+      'appareils photo': 'cameras',
+      'objectifs': 'objectifs',
+      'lenses': 'lenses',
+      'audio': 'audio',
+      'audio & microphones': 'audio',
+      'son': 'Son',
+      'eclairage': 'eclairage',
+      'éclairage': 'eclairage',
+      'éclairage & studio': 'eclairage',
+      'stabilisateurs': 'stabilisateurs',
+      'stabilisateurs & gimbals': 'stabilisateurs',
+      'location': 'location',
+      'location de matériel': 'location',
+      'occasions': 'occasions',
+      'occasions / seconde main': 'occasions',
+      'accessoires': 'accessoires',
+      'accessoires & produits divers': 'accessoires'
+    };
+
+    if (catMap[lower]) {
+      return catMap[lower];
+    }
+
+    // Heuristics for custom inputs (e.g., INSTAX FUJIFILM)
+    if (lower.includes('camera') || lower.includes('caméra') || lower.includes('instax') || lower.includes('boitier') || lower.includes('boîtier')) {
+      return 'cameras';
+    }
+    if (lower.includes('obj') || lower.includes('lens')) {
+      return 'objectifs';
+    }
+    if (lower.includes('audio') || lower.includes('mic') || lower.includes('son')) {
+      return 'audio';
+    }
+    if (lower.includes('eclair') || lower.includes('éclair') || lower.includes('light') || lower.includes('led') || lower.includes('flash')) {
+      return 'eclairage';
+    }
+    if (lower.includes('stabilis') || lower.includes('gimbal') || lower.includes('ronin')) {
+      return 'stabilisateurs';
+    }
+    if (lower.includes('locat') || lower.includes('rent')) {
+      return 'location';
+    }
+    if (lower.includes('occas') || lower.includes('used')) {
+      return 'occasions';
+    }
+
+    return 'accessoires';
+  }
+
   public normalizeBrand(brand: string): string {
     if (!brand) return 'AKABLISHOP';
     const trimmed = brand.trim();
@@ -141,7 +207,7 @@ class ProductService {
       id: product.id,
       name: product.name,
       brand: this.normalizeBrand(product.brand),
-      category: product.category,
+      category: this.normalizeCategory(product.category),
       price: Number(product.price),
       old_price: product.oldPrice ? Number(product.oldPrice) : null,
       rating: Number(product.rating || 5),
@@ -238,6 +304,39 @@ class ProductService {
       if (error) {
         const msg = error.message || JSON.stringify(error);
         console.error('productService.createProduct database error:', msg);
+
+        
+        if (msg.includes('product_category_enum')) {
+          console.warn('Retrying product creation with fallback category cameras due to Postgres enum constraint...');
+          const fallbackRow = { ...row, category: 'cameras' };
+          const { data: retryData, error: retryError } = await supabase
+            .from('products')
+            .upsert([fallbackRow])
+            .select()
+            .maybeSingle();
+
+          if (!retryError && retryData) {
+            const newProd = this.mapRowToProduct(retryData);
+            return { success: true, data: newProd };
+          }
+        }
+
+        
+        if (msg.includes('product_category_enum')) {
+          console.warn('Retrying product update with fallback category cameras due to Postgres enum constraint...');
+          const fallbackRow = { ...row, category: 'cameras' };
+          const { data: retryData, error: retryError } = await supabase
+            .from('products')
+            .update(fallbackRow)
+            .eq('id', product.id)
+            .select()
+            .maybeSingle();
+
+          if (!retryError && retryData) {
+            const updatedProd = this.mapRowToProduct(retryData);
+            return { success: true, data: updatedProd };
+          }
+        }
 
         if (msg.includes('product_brand_enum')) {
           console.warn('Retrying product creation with fallback brand AKABLISHOP due to Postgres enum constraint...');

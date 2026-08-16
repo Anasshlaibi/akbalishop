@@ -30,7 +30,7 @@ function generatePDF(data: DevisData, ref: string) {
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(9); doc.setFont('helvetica', 'normal');
   doc.text('Matériel Audiovisuel Professionnel — Marrakech, Maroc', 14, 26);
-  doc.text('+212 701 986 033  |  akablishop@gmail.com  |  akablishop.ma', 14, 32);
+  doc.text('+212 701 896 033  |  akablishop@gmail.com  |  akablishop.ma', 14, 32);
   doc.setFillColor(251, 191, 36);
   doc.roundedRect(140, 8, 60, 22, 4, 4, 'F');
   doc.setTextColor(15, 23, 42);
@@ -136,7 +136,7 @@ export const ContactSection: React.FC = () => {
             </div>
             <div className="text-center">
               <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Appeler</span>
-              <span className="block text-xs font-extrabold text-slate-800 mt-0.5">+212 701 986 033</span>
+              <span className="block text-xs font-extrabold text-slate-800 mt-0.5">+212 701 896 033</span>
             </div>
           </a>
 
@@ -277,7 +277,7 @@ export const ContactSection: React.FC = () => {
                   {activeForm === 'devis' && (
                     <p className="text-[11px] text-slate-500 leading-relaxed">
                       ✅ PDF téléchargé<br />
-                      ✅ Envoyé sur WhatsApp +212 701 986 033<br />
+                      ✅ Envoyé sur WhatsApp +212 701 896 033<br />
                       {SHEET_WEBHOOK_URL && '✅ Enregistré dans Google Sheets'}
                     </p>
                   )}
@@ -340,7 +340,7 @@ export const ContactSection: React.FC = () => {
                         <Download className="w-3 h-3" /> PDF auto-généré
                       </span>
                       <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-bold">
-                        <MessageCircle className="w-3 h-3" /> WhatsApp +212 701 986 033
+                        <MessageCircle className="w-3 h-3" /> WhatsApp +212 701 896 033
                       </span>
                     </div>
                   </div>

@@ -27,15 +27,15 @@ export const AnnouncementBar: React.FC = () => {
         {/* Right: Phone & WhatsApp Direct */}
         <div className="flex items-center gap-4 flex-shrink-0">
           <a
-            href="tel:+212701986033"
+            href="tel:+212701896033"
             className="hidden md:flex items-center gap-1.5 text-slate-700 font-bold hover:text-amber-600 transition-colors"
           >
             <Phone className="w-3 h-3 text-slate-500" />
-            <span>+212 701986033</span>
+            <span>+212 701896033</span>
           </a>
 
           <a
-            href="https://wa.me/+212701986033?text=Bonjour AKABLISHOP"
+            href="https://wa.me/+212701896033?text=Bonjour AKABLISHOP"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-700 font-extrabold hover:bg-emerald-100 transition-colors text-[10px]"

@@ -111,7 +111,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
               </div>
               <div className="flex flex-col text-left">
                 <span className="text-[10px] text-slate-400 font-bold uppercase leading-tight">Bureau</span>
-                <span className="font-extrabold text-slate-900">+212 695 252 921</span>
+                <span className="font-extrabold text-slate-900">+212 701 896 033</span>
               </div>
             </a>
 

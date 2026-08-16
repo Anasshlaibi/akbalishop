@@ -30,6 +30,10 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   const { products, setActiveTab } = useShop();
 
   const [activeImage, setActiveImage] = useState(product.image);
+
+  React.useEffect(() => {
+    setActiveImage(product.image);
+  }, [product.id, product.image]);
   const [quantity, setQuantity] = useState(1);
   const [activeTabSection, setActiveTabSection] = useState<'desc' | 'specs' | 'box' | 'reviews'>('desc');
   const [copied, setCopied] = useState(false);
@@ -46,7 +50,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
     const message = encodeURIComponent(
       `Bonjour AKABLISHOP, je souhaite commander le produit suivant :\n\n*${product.name}*\nPrix : ${product.price.toLocaleString('fr-FR')} DH\nQuantité : ${quantity}\n\nMerci de me donner les détails de livraison.`
     );
-    window.open(`https://wa.me/212701986033?text=${message}`, '_blank');
+    window.open(`https://wa.me/212701896033?text=${message}`, '_blank');
   };
 
   const handleShare = () => {

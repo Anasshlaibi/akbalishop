@@ -62,9 +62,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center space-x-3">
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 p-0.5 shadow-md">
-                <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center p-1">
-                  <img src="/logo.png" alt="AKABLISHOP" className="w-full h-full object-contain" />
-                </div>
+                <div className="w-full h-full bg-white rounded-[9px] flex items-center justify-center p-1"><img src="/logo-icon.png" alt="AKABLISHOP" className="w-full h-full object-contain" /></div>
               </div>
               <span className="font-display font-extrabold text-xl text-white">AKABLI<span className="text-amber-500">SHOP</span></span>
             </div>
@@ -176,4 +174,5 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+
 

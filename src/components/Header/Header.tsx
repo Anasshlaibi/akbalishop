@@ -61,7 +61,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
               {/* Clean White Container Logo */}
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white border border-gray-200 p-1 shadow-sm flex items-center justify-center flex-shrink-0 overflow-hidden">
                 <img
-                  src="/wp-content/uploads/Akablishop-Logo-N.png"
+                  src="/logo-icon.png"
                   alt="AKABLISHOP Logo"
                   className="w-full h-full object-contain"
                   onError={(e) => {

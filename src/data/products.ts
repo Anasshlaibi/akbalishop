@@ -4,6 +4,496 @@ export type { Product };
 
 
 export const PRODUCTS: Product[] = [
+  {
+  "id": "7artisans-55mm-black-mist-1-8",
+  "name": "7Artisans Filtre Diffusion Black Mist 55mm (Densité 1/8)",
+  "brand": "7Artisans",
+  "category": "accessoires",
+  "price": 450,
+  "oldPrice": 550,
+  "rating": 4.8,
+  "reviewCount": 13,
+  "inStock": true,
+  "stockCount": 10,
+  "isNew": true,
+  "isRental": true,
+  "rentalPricePerDay": 25,
+  "image": "/wp-content/uploads/electronics-store-55.png",
+  "gallery": [
+    "/wp-content/uploads/electronics-store-55.png",
+    "/wp-content/uploads/electronics-store-85-300x266.png"
+  ],
+  "shortDescription": "Filtre de diffusion cinématographique 55mm 1/8 pour adoucir la peau, atténuer les hautes lumières et créer un look film vintage.",
+  "description": "Le filtre Black Mist 1/8 de 7Artisans apporte un rendu analogique et chaleureux à vos images numériques. Il adoucit les rides et imperfections tout en conservant la netteté globale du sujet.",
+  "specs": {
+    "Diamètre": "55mm",
+    "Densité Mist": "1/8 (Effet subtil et naturel)",
+    "Traitement": "Anti-rayures et anti-empreintes",
+    "Cadre": "Aluminium mince de précision"
+  },
+  "whatsInTheBox": [
+    "Filtre 7Artisans 55mm Black Mist 1/8",
+    "Boîtier de rangement"
+  ]
+},
+  {
+  "id": "7artisans-77mm-true-color-vnd",
+  "name": "7Artisans Filtre Variable ND True Color 77mm (VND 6 à 9 Stops)",
+  "brand": "7Artisans",
+  "category": "accessoires",
+  "price": 950,
+  "oldPrice": 1100,
+  "rating": 4.9,
+  "reviewCount": 19,
+  "inStock": true,
+  "stockCount": 8,
+  "isNew": true,
+  "isRental": true,
+  "rentalPricePerDay": 40,
+  "image": "/wp-content/uploads/electronics-store-55.png",
+  "gallery": [
+    "/wp-content/uploads/electronics-store-55.png",
+    "/wp-content/uploads/electronics-store-85-300x266.png"
+  ],
+  "shortDescription": "Filtre neutre variable 77mm haute définition (ND64 à ND512) sans dominante de couleur (True Color) et sans effet croix X.",
+  "description": "Le filtre 7Artisans True Color VND 77mm garantit un contrôle parfait de l'exposition en vidéo et longue exposition sous fort ensoleillement, sans la moindre dérive chromatique jaune/magenta.",
+  "specs": {
+    "Diamètre": "77mm",
+    "Plage de Densité": "ND64 à ND512 (6 à 9 Stops)",
+    "Verre Optique": "Schott HD multicouche hydrophobe",
+    "Structure": "Cadre ultra-fin en aluminium anti-vignettage"
+  },
+  "whatsInTheBox": [
+    "Filtre 7Artisans 77mm True Color VND 6-9",
+    "Étui de protection rigide",
+    "Chiffon microfibre"
+  ]
+},
+  {
+  "id": "7artisans-pl-4-in-1-adapter",
+  "name": "7Artisans Adaptateur Cinéma PL 4-en-1 (Montures Sony E / Leica L / Canon RF / Nikon Z)",
+  "brand": "7Artisans",
+  "category": "accessoires",
+  "price": 3200,
+  "oldPrice": 3600,
+  "rating": 5,
+  "reviewCount": 6,
+  "inStock": true,
+  "stockCount": 2,
+  "isNew": true,
+  "isRental": true,
+  "rentalPricePerDay": 150,
+  "image": "/wp-content/uploads/electronics-store-55.png",
+  "gallery": [
+    "/wp-content/uploads/electronics-store-55.png",
+    "/wp-content/uploads/SONY-FX6-jpg-300x300.webp"
+  ],
+  "shortDescription": "Adaptateur professionnel pour objectifs cinéma PL avec bagues interchangeables pour montures Sony E, Leica L, Canon RF et Nikon Z.",
+  "description": "Solution universelle pour les loueurs et chefs opérateurs. Montez n'importe quel objectif cinéma ARRI PL (ARRI, Cooke, RED, Zeiss, DZOFilm) sur 4 montures hybrides majeures avec calage optique précis.",
+  "specs": {
+    "Objectifs Compatibles": "ARRI PL Mount Cinema Lenses",
+    "Montures Boîtiers Included": "Sony E, Panasonic/Leica L, Canon RF, Nikon Z",
+    "Matériau": "Alliage d'aluminium de qualité aéronautique",
+    "Support Pied": "Filetage 1/4\" intégré"
+  },
+  "whatsInTheBox": [
+    "Module principal PL 7Artisans",
+    "4 Bagues de montures interchangeables (E, L, RF, Z)",
+    "Cales de réglage de tirage (Shims)",
+    "Valise étanche renforcée"
+  ]
+},
+  {
+  "id": "7artisans-af-adapter-ef-z",
+  "name": "7Artisans Bague d'Adaptation Autofocus Canon EF vers Nikon Z (EF-Z)",
+  "brand": "7Artisans",
+  "category": "accessoires",
+  "price": 2200,
+  "oldPrice": 2500,
+  "rating": 4.9,
+  "reviewCount": 7,
+  "inStock": true,
+  "stockCount": 5,
+  "isNew": true,
+  "isRental": true,
+  "rentalPricePerDay": 90,
+  "image": "/wp-content/uploads/electronics-store-55.png",
+  "gallery": [
+    "/wp-content/uploads/electronics-store-55.png",
+    "/wp-content/uploads/AkabliShop-Head.webp"
+  ],
+  "shortDescription": "Bague d'adaptation intelligente avec transmission Autofocus, commande d'ouverture et données EXIF pour objectifs Canon EF sur Nikon Z.",
+  "description": "Utilisez toute votre collection d'objectifs Canon EF & EF-S sur votre boîtier Nikon Z (Z9, Z8, Z6 III, Zf) sans aucune perte de performance AF, de stabilisation IS ou de métadonnées EXIF.",
+  "specs": {
+    "Compatibilité Objectifs": "Canon EF / EF-S",
+    "Compatibilité Boîtier": "Nikon Z-Mount (FX & DX)",
+    "Support AF & EXIF": "Oui, suivi AF rapide & mesure d'exposition",
+    "Port Firmware": "USB-C pour mises à jour",
+    "Finition": "Chassis métal anodisé"
+  },
+  "whatsInTheBox": [
+    "Bague d'adaptation 7Artisans EF-Z",
+    "Bouchons de protection avant et arrière",
+    "Câble USB-C"
+  ]
+},
+  {
+  "id": "7artisans-af-50mm-f18-nikon-z",
+  "name": "7Artisans AF 50mm F1.8 Plein Format (Monture Nikon Z)",
+  "brand": "7Artisans",
+  "category": "objectifs",
+  "price": 2900,
+  "oldPrice": 3200,
+  "rating": 4.9,
+  "reviewCount": 16,
+  "inStock": true,
+  "stockCount": 4,
+  "isNew": true,
+  "isRental": true,
+  "rentalPricePerDay": 120,
+  "image": "/wp-content/uploads/AkabliShop-Lens.webp",
+  "gallery": [
+    "/wp-content/uploads/AkabliShop-Lens.webp",
+    "/wp-content/uploads/electronics-store-85-300x266.png"
+  ],
+  "shortDescription": "L'incontournable 50mm F1.8 en version Autofocus haute vitesse pour tous les boîtiers Nikon Z.",
+  "description": "Le standard ultime pour tout photographe. Le 7Artisans AF 50mm F1.8 délivre une clarté optique saisissante avec une restitution des couleurs naturelle et un suivi Autofocus précis en vidéo.",
+  "specs": {
+    "Monture": "Nikon Z-Mount (Plein Format)",
+    "Focale": "50mm",
+    "Ouverture": "F/1.8 - F/16",
+    "Autofocus": "Moteur STM silencieux",
+    "Diamètre Filtre": "62mm",
+    "Poids": "350g"
+  },
+  "whatsInTheBox": [
+    "Objectif 7Artisans AF 50mm F1.8 Nikon Z",
+    "Pare-soleil",
+    "Bouchons de protection"
+  ]
+},
+  {
+  "id": "7artisans-af-24mm-f18-sony-e",
+  "name": "7Artisans AF 24mm F1.8 Grand Angle (Monture Sony E)",
+  "brand": "7Artisans",
+  "category": "objectifs",
+  "price": 3600,
+  "oldPrice": 3990,
+  "rating": 4.8,
+  "reviewCount": 10,
+  "inStock": true,
+  "stockCount": 2,
+  "isNew": true,
+  "isRental": true,
+  "rentalPricePerDay": 150,
+  "image": "/wp-content/uploads/AkabliShop-Lens.webp",
+  "gallery": [
+    "/wp-content/uploads/AkabliShop-Lens.webp",
+    "/wp-content/uploads/electronics-store-85-300x266.png"
+  ],
+  "shortDescription": "Grand angle Autofocus ultra-lumineux 24mm F1.8 Plein Format pour paysage, architecture, astrophotographie et vlogging sur Sony.",
+  "description": "Élargissez vos perspectives avec le 7Artisans AF 24mm F1.8. Son champ de vision étendu et sa distorsion minimale en font l'allié idéal pour la vidéo sur gimbal, le vlogging et la capture architecturale.",
+  "specs": {
+    "Monture": "Sony E-Mount (Plein Format)",
+    "Focale": "24mm",
+    "Ouverture": "F/1.8 - F/16",
+    "Angle de Vue": "84°",
+    "Moteur AF": "STM silencieux",
+    "Diamètre Filtre": "62mm",
+    "Poids": "380g"
+  },
+  "whatsInTheBox": [
+    "Objectif 7Artisans AF 24mm F1.8 Sony E",
+    "Pare-soleil tulipe",
+    "Bouchons de protection"
+  ]
+},
+  {
+  "id": "7artisans-35mm-f14-mk3-canon-rf",
+  "name": "7Artisans 35mm F1.4 Mark III Plein Format (Monture Canon RF)",
+  "brand": "7Artisans",
+  "category": "objectifs",
+  "price": 3200,
+  "oldPrice": 3600,
+  "rating": 4.8,
+  "reviewCount": 14,
+  "inStock": true,
+  "stockCount": 3,
+  "isNew": true,
+  "isRental": true,
+  "rentalPricePerDay": 130,
+  "image": "/wp-content/uploads/AkabliShop-Lens.webp",
+  "gallery": [
+    "/wp-content/uploads/AkabliShop-Lens.webp",
+    "/wp-content/uploads/electronics-store-55.png"
+  ],
+  "shortDescription": "Troisième génération du célèbre 35mm F1.4 pour hybrides Canon EOS-R, EOS-R5, R6, R8, R100.",
+  "description": "La version Mark III du 7Artisans 35mm F1.4 apporte un design optique renouvelé avec verres ED à faible dispersion. Son ouverture géante F1.4 permet des photos nocturnes magiques et des portraits cinématiques.",
+  "specs": {
+    "Monture": "Canon RF-Mount (Plein Format)",
+    "Focale": "35mm",
+    "Ouverture Maximale": "F/1.4",
+    "Construction Optique": "7 éléments en 5 groupes",
+    "Poids": "430g",
+    "Diamètre Filtre": "52mm"
+  },
+  "whatsInTheBox": [
+    "Objectif 7Artisans 35mm F1.4 Mark III Canon RF",
+    "Bouchon avant et arrière métalliques",
+    "Guide d'utilisation"
+  ]
+},
+  {
+  "id": "7artisans-af-35mm-f18-sony-e",
+  "name": "7Artisans AF 35mm F1.8 Plein Format (Monture Sony E)",
+  "brand": "7Artisans",
+  "category": "objectifs",
+  "price": 3400,
+  "oldPrice": 3800,
+  "rating": 4.9,
+  "reviewCount": 21,
+  "inStock": true,
+  "stockCount": 6,
+  "isNew": true,
+  "isRental": true,
+  "rentalPricePerDay": 140,
+  "image": "/wp-content/uploads/AkabliShop-Lens.webp",
+  "gallery": [
+    "/wp-content/uploads/AkabliShop-Lens.webp",
+    "/wp-content/uploads/electronics-store-85-300x266.png"
+  ],
+  "shortDescription": "Optique 35mm F1.8 Autofocus pour Sony E-Mount avec traitement multicouche haute résolution et bague de contrôle.",
+  "description": "Conçu pour tirer le meilleur des capteurs haute résolution Sony (A7 series, FX3, FX30), cet objectif 35mm F1.8 offre un piqué saisissant et un AF réactif en photo comme en vidéo.",
+  "specs": {
+    "Monture": "Sony E-Mount (Plein Format)",
+    "Focale": "35mm",
+    "Ouverture": "F/1.8 - F/16",
+    "Autofocus": "Moteur pas à pas STM",
+    "Diamètre Filtre": "58mm",
+    "Poids": "360g"
+  },
+  "whatsInTheBox": [
+    "Objectif 7Artisans AF 35mm F1.8 Sony E",
+    "Pare-soleil pétale",
+    "Bouchons de protection"
+  ]
+},
+  {
+  "id": "7artisans-af-35mm-f18-nikon-z",
+  "name": "7Artisans AF 35mm F1.8 Plein Format (Monture Nikon Z)",
+  "brand": "7Artisans",
+  "category": "objectifs",
+  "price": 3400,
+  "oldPrice": 3800,
+  "rating": 4.9,
+  "reviewCount": 18,
+  "inStock": true,
+  "stockCount": 4,
+  "isNew": true,
+  "isRental": true,
+  "rentalPricePerDay": 140,
+  "image": "/wp-content/uploads/AkabliShop-Lens.webp",
+  "gallery": [
+    "/wp-content/uploads/AkabliShop-Lens.webp",
+    "/wp-content/uploads/electronics-store-85-300x266.png"
+  ],
+  "shortDescription": "Objectif polyvalent 35mm F1.8 avec mise au point automatique rapide STM et port USB-C pour mises à jour firmware.",
+  "description": "La focale reine de 35mm dans sa déclinaison Autofocus ultra-performante par 7Artisans pour boîtiers Nikon Z (Z5, Z6, Z7, Z8, Zf). Idéal pour reportage, voyage, paysage et vidéo.",
+  "specs": {
+    "Monture": "Nikon Z-Mount (Plein Format)",
+    "Focale": "35mm",
+    "Ouverture": "F/1.8 - F/16",
+    "Autofocus": "Moteur STM avec détection oculaire",
+    "Mises à Jour": "Port USB-C intégré",
+    "Diamètre Filtre": "58mm",
+    "Poids": "360g"
+  },
+  "whatsInTheBox": [
+    "Objectif 7Artisans AF 35mm F1.8 Nikon Z",
+    "Pare-soleil",
+    "Bouchons de protection"
+  ]
+},
+  {
+  "id": "7artisans-af-40mm-f25-sony-e",
+  "name": "7Artisans AF 40mm F2.5 Compact Autofocus (Monture Sony E)",
+  "brand": "7Artisans",
+  "category": "objectifs",
+  "price": 2300,
+  "oldPrice": 2600,
+  "rating": 4.8,
+  "reviewCount": 11,
+  "inStock": true,
+  "stockCount": 3,
+  "isNew": true,
+  "isRental": true,
+  "rentalPricePerDay": 110,
+  "image": "/wp-content/uploads/AkabliShop-Lens.webp",
+  "gallery": [
+    "/wp-content/uploads/AkabliShop-Lens.webp",
+    "/wp-content/uploads/electronics-store-55.png"
+  ],
+  "shortDescription": "Objectif Autofocus ultra-compact et léger 40mm F2.5 Plein Format pour street photography et vlogging Sony E-Mount.",
+  "description": "Conçu pour la mobilité extrême, le 7Artisans AF 40mm F2.5 associe un format pancake hyper discret à un suivi Autofocus rapide avec Eye-AF sur boîtiers Sony Alpha (A7 IV, A7C, A6700, ZV-E1).",
+  "specs": {
+    "Monture": "Sony E-Mount (Plein Format)",
+    "Focale": "40mm",
+    "Ouverture": "F/2.5 - F/16",
+    "Autofocus": "Moteur pas-à-pas rapide compatible Eye-AF",
+    "Poids": "165g (Ultra-léger)",
+    "Diamètre Filtre": "52mm"
+  },
+  "whatsInTheBox": [
+    "Objectif 7Artisans AF 40mm F2.5 Sony E",
+    "Pare-soleil compact",
+    "Bouchons avant et arrière"
+  ]
+},
+  {
+  "id": "7artisans-50mm-f12-nikon-z",
+  "name": "7Artisans 50mm F1.2 Objectif Ultra-Lumineux (Monture Nikon Z)",
+  "brand": "7Artisans",
+  "category": "objectifs",
+  "price": 2200,
+  "oldPrice": 2500,
+  "rating": 4.7,
+  "reviewCount": 8,
+  "inStock": true,
+  "stockCount": 5,
+  "isNew": true,
+  "isRental": false,
+  "rentalPricePerDay": 100,
+  "image": "/wp-content/uploads/AkabliShop-Lens.webp",
+  "gallery": [
+    "/wp-content/uploads/AkabliShop-Lens.webp",
+    "/wp-content/uploads/electronics-store-55.png"
+  ],
+  "shortDescription": "Objectif focal fixe 50mm avec ouverture extrême F1.2 pour photographie en faible luminosité et portraits artistiques sur Nikon Z.",
+  "description": "Le 50mm F1.2 de 7Artisans repousse les limites de la capture en basse lumière. Son ouverture record F1.2 isole le sujet avec une clarté optique fantastique et un flou d'arrière-plan envoûtant.",
+  "specs": {
+    "Monture": "Nikon Z-Mount",
+    "Focale": "50mm",
+    "Ouverture Maximale": "F/1.2",
+    "Ouverture Minimale": "F/16",
+    "Mise au Point": "Manuelle haute précision",
+    "Diamètre Filtre": "52mm",
+    "Poids": "336g"
+  },
+  "whatsInTheBox": [
+    "Objectif 7Artisans 50mm F1.2 Nikon Z",
+    "Bouchons avant et arrière",
+    "Manuel d'utilisation"
+  ]
+},
+  {
+  "id": "7artisans-spectrum-50mm-t20-sony-e",
+  "name": "7Artisans Spectrum 50mm T2.0 Objectif Cinéma (Monture Sony E)",
+  "brand": "7Artisans",
+  "category": "objectifs",
+  "price": 4800,
+  "oldPrice": 5200,
+  "rating": 4.9,
+  "reviewCount": 15,
+  "inStock": true,
+  "stockCount": 4,
+  "isNew": true,
+  "isRental": true,
+  "rentalPricePerDay": 200,
+  "image": "/wp-content/uploads/electronics-store-85-300x266.png",
+  "gallery": [
+    "/wp-content/uploads/electronics-store-85-300x266.png",
+    "/wp-content/uploads/AkabliShop-Lens.webp"
+  ],
+  "shortDescription": "Objectif cinéma 50mm T2.0 Plein Format pour caméras Sony FX3, FX6, FX30 et hybrides Sony Alpha E-Mount.",
+  "description": "Le 7Artisans Spectrum 50mm T2.0 pour Sony E-Mount est conçu pour les directeurs de la photographie et créateurs vidéo exigeants. Son corps en métal ultra-robuste et son iris à 12 lames procurent des flous de profondeur doux et cinématiques.",
+  "specs": {
+    "Monture": "Sony E-Mount (Plein Format)",
+    "Focale": "50mm",
+    "Ouverture T-Stop": "T2.0 - T22",
+    "Lames de Diaphragme": "12 lames circulaires",
+    "Pas d'Engrenage": "0.8 MOD ciné",
+    "Poids": "680g"
+  },
+  "whatsInTheBox": [
+    "Objectif Cinéma 7Artisans Spectrum 50mm T2.0 Sony E",
+    "Bouchons de protection",
+    "Étui rembourré"
+  ]
+},
+  {
+  "id": "7artisans-spectrum-35mm-t20-nikon-z",
+  "name": "7Artisans Spectrum 35mm T2.0 Objectif Cinéma (Monture Nikon Z)",
+  "brand": "7Artisans",
+  "category": "objectifs",
+  "price": 4800,
+  "oldPrice": 5200,
+  "rating": 4.8,
+  "reviewCount": 9,
+  "inStock": true,
+  "stockCount": 2,
+  "isNew": true,
+  "isRental": true,
+  "rentalPricePerDay": 200,
+  "image": "/wp-content/uploads/electronics-store-85-300x266.png",
+  "gallery": [
+    "/wp-content/uploads/electronics-store-85-300x266.png",
+    "/wp-content/uploads/AkabliShop-Lens.webp"
+  ],
+  "shortDescription": "Objectif cinéma professionnel 35mm T2.0 de la série Spectrum avec engrenages 0.8 MOD pour Follow Focus sur Nikon Z.",
+  "description": "Faisant partie de la prestigieuse série Spectrum Cinéma, le 7Artisans 35mm T2.0 offre un rendu cinématographique organique, une respiration d'optique minimale (Focus Breathing) et des crans d'engrenage normalisés 0.8 MOD.",
+  "specs": {
+    "Monture": "Nikon Z-Mount (Plein Format)",
+    "Focale": "35mm",
+    "Ouverture T-Stop": "T2.0 - T22",
+    "Bague de Focus": "Rotation fluide 270°",
+    "Pas d'Engrenage": "Standard 0.8 MOD",
+    "Diamètre Filtre": "82mm",
+    "Poids": "670g"
+  },
+  "whatsInTheBox": [
+    "Objectif Cinéma 7Artisans Spectrum 35mm T2.0 Nikon Z",
+    "Bouchons avant et arrière métalliques",
+    "Mallette de transport"
+  ]
+},
+  {
+  "id": "7artisans-af-135mm-f18-nikon-z",
+  "name": "7Artisans AF 135mm F1.8 (Monture Nikon Z)",
+  "brand": "7Artisans",
+  "category": "objectifs",
+  "price": 6900,
+  "oldPrice": 7500,
+  "rating": 4.9,
+  "reviewCount": 12,
+  "inStock": true,
+  "stockCount": 3,
+  "isNew": true,
+  "isRental": true,
+  "rentalPricePerDay": 250,
+  "image": "/wp-content/uploads/AkabliShop-Lens.webp",
+  "gallery": [
+    "/wp-content/uploads/AkabliShop-Lens.webp",
+    "/wp-content/uploads/electronics-store-85-300x266.png"
+  ],
+  "shortDescription": "Objectif téléobjectif portrait ultra-lumineux F1.8 avec moteur Autofocus STM rapide et précis pour boîtiers Nikon Z Plein Format.",
+  "description": "Le 7Artisans AF 135mm F1.8 pour Nikon Z est un téléobjectif d'exception pour la photographie de portrait, d'événement et de sport. Sa très grande ouverture F1.8 offre un bokeh d'arrière-plan crémeux et spectaculaire avec une netteté remarquable dès la pleine ouverture.",
+  "specs": {
+    "Monture": "Nikon Z-Mount (Plein Format)",
+    "Focale": "135mm",
+    "Ouverture Maximale": "F/1.8",
+    "Ouverture Minimale": "F/16",
+    "Moteur Autofocus": "Moteur pas à pas STM ultra-silencieux",
+    "Diamètre Filtre": "82mm",
+    "Poids": "985g"
+  },
+  "whatsInTheBox": [
+    "Objectif 7Artisans AF 135mm F1.8 Nikon Z",
+    "Pare-soleil baïonnette",
+    "Bouchon avant 82mm",
+    "Bouchon arrière Nikon Z",
+    "Housse de protection"
+  ]
+},
   // --- CAMÉRAS PRINCIPALES ---
   {
     id: 'sony-fx6-cinema',

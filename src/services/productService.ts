@@ -1,7 +1,6 @@
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { Product } from '../types';
 import { SEED_PRODUCTS } from '../data/seed/seedData';
-import { Database } from '../types/database.types';
 
 export interface MutationResult<T> {
   success: boolean;
@@ -9,79 +8,21 @@ export interface MutationResult<T> {
   error?: string;
 }
 
+const VALID_POSTGRES_CATEGORIES = [
+  'accessoires',
+  'appareils-photo',
+  'audio',
+  'cameras',
+  'eclairage',
+  'lenses',
+  'location',
+  'objectifs',
+  'occasions',
+  'stabilisateurs',
+  'Son'
+];
+
 class ProductService {
-  /**
-   * Robust mapping from raw Supabase database record (handling stringified JSON, numbers, and strings)
-   */
-    /**
-   * Normalize brand string to match standard database ENUM casing
-   */
-  
-  public normalizeCategory(cat: string): string {
-    if (!cat) return 'cameras';
-    const trimmed = cat.trim();
-    const lower = trimmed.toLowerCase();
-
-    // Map known values to exact Postgres enum values
-    const catMap: Record<string, string> = {
-      'cameras': 'cameras',
-      'caméras': 'cameras',
-      'caméras & boîtiers': 'cameras',
-      'boîtiers': 'cameras',
-      'boitier': 'cameras',
-      'instax': 'cameras',
-      'instax fujifilm': 'cameras',
-      'fujifilm instax': 'cameras',
-      'appareils-photo': 'appareils-photo',
-      'appareils photo': 'cameras',
-      'objectifs': 'objectifs',
-      'lenses': 'lenses',
-      'audio': 'audio',
-      'audio & microphones': 'audio',
-      'son': 'Son',
-      'eclairage': 'eclairage',
-      'éclairage': 'eclairage',
-      'éclairage & studio': 'eclairage',
-      'stabilisateurs': 'stabilisateurs',
-      'stabilisateurs & gimbals': 'stabilisateurs',
-      'location': 'location',
-      'location de matériel': 'location',
-      'occasions': 'occasions',
-      'occasions / seconde main': 'occasions',
-      'accessoires': 'accessoires',
-      'accessoires & produits divers': 'accessoires'
-    };
-
-    if (catMap[lower]) {
-      return catMap[lower];
-    }
-
-    // Heuristics for custom inputs (e.g., INSTAX FUJIFILM)
-    if (lower.includes('camera') || lower.includes('caméra') || lower.includes('instax') || lower.includes('boitier') || lower.includes('boîtier')) {
-      return 'cameras';
-    }
-    if (lower.includes('obj') || lower.includes('lens')) {
-      return 'objectifs';
-    }
-    if (lower.includes('audio') || lower.includes('mic') || lower.includes('son')) {
-      return 'audio';
-    }
-    if (lower.includes('eclair') || lower.includes('éclair') || lower.includes('light') || lower.includes('led') || lower.includes('flash')) {
-      return 'eclairage';
-    }
-    if (lower.includes('stabilis') || lower.includes('gimbal') || lower.includes('ronin')) {
-      return 'stabilisateurs';
-    }
-    if (lower.includes('locat') || lower.includes('rent')) {
-      return 'location';
-    }
-    if (lower.includes('occas') || lower.includes('used')) {
-      return 'occasions';
-    }
-
-    return 'accessoires';
-  }
-
   public normalizeBrand(brand: string): string {
     if (!brand) return 'AKABLISHOP';
     const trimmed = brand.trim();
@@ -114,8 +55,44 @@ class ProductService {
     return trimmed.replace(/\b\w/g, char => char.toUpperCase());
   }
 
+  public toValidPostgresCategory(cat: string): string {
+    if (!cat) return 'cameras';
+    const trimmed = cat.trim();
+    
+    if (VALID_POSTGRES_CATEGORIES.includes(trimmed)) {
+      return trimmed;
+    }
+
+    const lower = trimmed.toLowerCase();
+    const match = VALID_POSTGRES_CATEGORIES.find(c => c.toLowerCase() === lower);
+    if (match) return match;
+
+    if (lower.includes('camera') || lower.includes('caméra') || lower.includes('instax') || lower.includes('boitier') || lower.includes('boîtier')) {
+      return 'cameras';
+    }
+    if (lower.includes('obj') || lower.includes('lens')) {
+      return 'objectifs';
+    }
+    if (lower.includes('audio') || lower.includes('mic') || lower.includes('son')) {
+      return 'audio';
+    }
+    if (lower.includes('eclair') || lower.includes('éclair') || lower.includes('light') || lower.includes('led') || lower.includes('flash')) {
+      return 'eclairage';
+    }
+    if (lower.includes('stabilis') || lower.includes('gimbal') || lower.includes('ronin')) {
+      return 'stabilisateurs';
+    }
+    if (lower.includes('locat') || lower.includes('rent')) {
+      return 'location';
+    }
+    if (lower.includes('occas') || lower.includes('used')) {
+      return 'occasions';
+    }
+
+    return 'accessoires';
+  }
+
   public mapRowToProduct(row: any): Product {
-    // Parse gallery (handles array, JSON string, or single image fallback)
     let gallery: string[] = [];
     if (Array.isArray(row.gallery)) {
       gallery = row.gallery;
@@ -131,7 +108,6 @@ class ProductService {
       gallery = [row.image];
     }
 
-    // Parse specs (handles object, JSON string, or empty object)
     let specs: Record<string, string> = {};
     if (typeof row.specs === 'object' && row.specs !== null && !Array.isArray(row.specs)) {
       specs = row.specs;
@@ -144,7 +120,6 @@ class ProductService {
       }
     }
 
-    // Parse whats_in_the_box (handles array, JSON string, or empty array)
     let whatsInTheBox: string[] = [];
     if (Array.isArray(row.whats_in_the_box)) {
       whatsInTheBox = row.whats_in_the_box;
@@ -157,12 +132,15 @@ class ProductService {
       }
     }
 
+    // Preserve custom category name if saved in specs
+    const displayCategory = specs.__custom_category || String(row.category || 'cameras');
+
     return {
       id: String(row.id),
       slug: row.slug ? String(row.slug) : String(row.id),
       name: String(row.name || ''),
       brand: String(row.brand || 'AKABLISHOP'),
-      category: String(row.category || 'cameras'),
+      category: displayCategory,
       price: Number(row.price || 0),
       oldPrice: row.old_price !== null && row.old_price !== undefined ? Number(row.old_price) : undefined,
       rating: Number(row.rating || 5),
@@ -185,29 +163,32 @@ class ProductService {
     };
   }
 
-  /**
-   * Map domain Product interface strictly to existing Supabase table columns
-   */
   public mapProductToRow(product: Product): any {
     const galleryVal = Array.isArray(product.gallery) && product.gallery.length > 0 
       ? JSON.stringify(product.gallery) 
       : JSON.stringify([product.image]);
 
-    const specsVal = typeof product.specs === 'object' && product.specs !== null 
-      ? JSON.stringify(product.specs) 
-      : JSON.stringify({});
+    let specsObj: Record<string, string> = {};
+    if (typeof product.specs === 'object' && product.specs !== null) {
+      specsObj = { ...product.specs };
+    }
+    
+    // Store exact custom category in specs if it's not a standard Postgres enum
+    if (!VALID_POSTGRES_CATEGORIES.includes(product.category)) {
+      specsObj.__custom_category = product.category;
+    }
+
+    const specsVal = JSON.stringify(specsObj);
 
     const boxVal = Array.isArray(product.whatsInTheBox) 
       ? JSON.stringify(product.whatsInTheBox) 
       : JSON.stringify([]);
 
-    // ONLY include columns that actually exist in the Supabase products table
-    // (verified from products_rows.json export — NO slug, NO stock_count, NO is_active)
     return {
       id: product.id,
       name: product.name,
       brand: this.normalizeBrand(product.brand),
-      category: this.normalizeCategory(product.category),
+      category: this.toValidPostgresCategory(product.category),
       price: Number(product.price),
       old_price: product.oldPrice ? Number(product.oldPrice) : null,
       rating: Number(product.rating || 5),
@@ -226,10 +207,6 @@ class ProductService {
     };
   }
 
-  /**
-   * Fetch all products from Supabase.
-   * SUPABASE IS THE ONLY PRODUCTION SOURCE OF TRUTH.
-   */
   async getProducts(): Promise<Product[]> {
     if (!isSupabaseConfigured || !supabase) {
       return SEED_PRODUCTS;
@@ -259,9 +236,6 @@ class ProductService {
     }
   }
 
-  /**
-   * Fetch single product by ID or Slug directly from Supabase
-   */
   async getProductById(id: string): Promise<Product | null> {
     if (!isSupabaseConfigured || !supabase) {
       return SEED_PRODUCTS.find(p => p.id === id || p.slug === id) || null;
@@ -282,16 +256,10 @@ class ProductService {
     }
   }
 
-  /**
-   * Fetch single product by Slug
-   */
   async getProductBySlug(slug: string): Promise<Product | null> {
     return this.getProductById(slug);
   }
 
-  /**
-   * Database-first Create: Inserts into Supabase and returns single verified row
-   */
   async createProduct(product: Product): Promise<MutationResult<Product>> {
     if (isSupabaseConfigured && supabase) {
       const row = this.mapProductToRow(product);
@@ -305,9 +273,8 @@ class ProductService {
         const msg = error.message || JSON.stringify(error);
         console.error('productService.createProduct database error:', msg);
 
-        
-        if (msg.includes('product_category_enum')) {
-          console.warn('Retrying product creation with fallback category cameras due to Postgres enum constraint...');
+        if (msg.includes('product_category_enum') || msg.includes('enum')) {
+          console.warn('Retrying product creation with fallback category cameras...');
           const fallbackRow = { ...row, category: 'cameras' };
           const { data: retryData, error: retryError } = await supabase
             .from('products')
@@ -321,25 +288,8 @@ class ProductService {
           }
         }
 
-        
-        if (msg.includes('product_category_enum')) {
-          console.warn('Retrying product update with fallback category cameras due to Postgres enum constraint...');
-          const fallbackRow = { ...row, category: 'cameras' };
-          const { data: retryData, error: retryError } = await supabase
-            .from('products')
-            .update(fallbackRow)
-            .eq('id', product.id)
-            .select()
-            .maybeSingle();
-
-          if (!retryError && retryData) {
-            const updatedProd = this.mapRowToProduct(retryData);
-            return { success: true, data: updatedProd };
-          }
-        }
-
         if (msg.includes('product_brand_enum')) {
-          console.warn('Retrying product creation with fallback brand AKABLISHOP due to Postgres enum constraint...');
+          console.warn('Retrying product creation with fallback brand AKABLISHOP...');
           const fallbackRow = { ...row, brand: 'AKABLISHOP' };
           const { data: retryData, error: retryError } = await supabase
             .from('products')
@@ -366,9 +316,6 @@ class ProductService {
     return { success: true, data: product };
   }
 
-  /**
-   * Database-first Update: Executes Supabase UPDATE with .eq('id', product.id).select().maybeSingle()
-   */
   async updateProduct(product: Product): Promise<MutationResult<Product>> {
     if (isSupabaseConfigured && supabase) {
       const row = this.mapProductToRow(product);
@@ -385,8 +332,24 @@ class ProductService {
         const msg = error.message || JSON.stringify(error);
         console.error('productService.updateProduct database error:', msg);
 
+        if (msg.includes('product_category_enum') || msg.includes('enum')) {
+          console.warn('Retrying product update with fallback category cameras...');
+          const fallbackRow = { ...row, category: 'cameras' };
+          const { data: retryData, error: retryError } = await supabase
+            .from('products')
+            .update(fallbackRow)
+            .eq('id', product.id)
+            .select()
+            .maybeSingle();
+
+          if (!retryError && retryData) {
+            const updatedProd = this.mapRowToProduct(retryData);
+            return { success: true, data: updatedProd };
+          }
+        }
+
         if (msg.includes('product_brand_enum')) {
-          console.warn('Retrying product update with fallback brand AKABLISHOP due to Postgres enum constraint...');
+          console.warn('Retrying product update with fallback brand AKABLISHOP...');
           const fallbackRow = { ...row, brand: 'AKABLISHOP' };
           const { data: retryData, error: retryError } = await supabase
             .from('products')
@@ -405,7 +368,6 @@ class ProductService {
       }
 
       if (!data) {
-        // 2. Fallback attempt update by slug match
         const { data: slugData, error: slugError } = await supabase
           .from('products')
           .update(row)
@@ -433,9 +395,6 @@ class ProductService {
     return { success: true, data: product };
   }
 
-  /**
-   * Soft Deactivate: Sets in_stock = false in Supabase
-   */
   async deactivateProduct(id: string): Promise<MutationResult<string>> {
     if (isSupabaseConfigured && supabase) {
       const { error } = await supabase
@@ -452,9 +411,6 @@ class ProductService {
     return { success: true, data: id };
   }
 
-  /**
-   * Hard Delete: Removes product record from Supabase
-   */
   async deleteProduct(id: string): Promise<MutationResult<string>> {
     if (isSupabaseConfigured && supabase) {
       const { error } = await supabase
@@ -471,9 +427,6 @@ class ProductService {
     return { success: true, data: id };
   }
 
-  /**
-   * Dynamically fetch unique brand names directly from Supabase products table
-   */
   async getUniqueBrands(): Promise<string[]> {
     const fallbackBrands = ['7Artisans', 'AKABLISHOP', 'Canon', 'DJI', 'Fujifilm', 'Godox', 'GoPro', 'Hollyland', 'Insta360', 'K&F Concept', 'Lexar', 'Nikon', 'Røde', 'Sony', 'Ulanzi'];
 
@@ -487,7 +440,6 @@ class ProductService {
         .select('brand');
 
       if (error || !data) {
-        console.warn('Could not fetch unique brands from Supabase:', error?.message);
         return fallbackBrands;
       }
 
@@ -500,15 +452,11 @@ class ProductService {
       });
 
       return Array.from(uniqueSet).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
-    } catch (err) {
-      console.error('getUniqueBrands error:', err);
+    } catch {
       return fallbackBrands;
     }
   }
 
-  /**
-   * Dynamically fetch unique category names directly from Supabase products table
-   */
   async getUniqueCategories(): Promise<string[]> {
     const fallbackCategories = ['accessoires', 'appareils-photo', 'audio', 'cameras', 'eclairage', 'lenses', 'location', 'objectifs', 'occasions', 'stabilisateurs'];
 
@@ -522,7 +470,6 @@ class ProductService {
         .select('category');
 
       if (error || !data) {
-        console.warn('Could not fetch unique categories from Supabase:', error?.message);
         return fallbackCategories;
       }
 
@@ -535,8 +482,7 @@ class ProductService {
       });
 
       return Array.from(uniqueSet).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
-    } catch (err) {
-      console.error('getUniqueCategories error:', err);
+    } catch {
       return fallbackCategories;
     }
   }

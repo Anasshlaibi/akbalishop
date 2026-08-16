@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useShop } from '../../context/ShopContext';
 import { Product } from '../../types';
 import { ProductEditorModal } from './ProductEditorModal';
+import { CategoryEditorModal } from './CategoryEditorModal';
+import { Category } from '../../data/categories';
 import { 
   Package, 
   Plus, 
@@ -18,7 +20,7 @@ import {
 } from 'lucide-react';
 
 export const AdminPanel: React.FC = () => {
-  const { products, addProduct, updateProduct, deleteProduct, isAdminOpen, setIsAdminOpen } = useShop();
+  const { products, addProduct, updateProduct, deleteProduct, categories, updateCategory, isAdminOpen, setIsAdminOpen } = useShop();
 
   // Don't render at all when closed
   if (!isAdminOpen) return null;
@@ -26,6 +28,9 @@ export const AdminPanel: React.FC = () => {
   const [password, setPassword] = useState('');
   const [authError, setAuthError] = useState(false);
   
+  const [adminTab, setAdminTab] = useState<'products' | 'categories'>('products');
+  const [editingCategory, setEditingCategory] = useState<Category | null>(null);
+  const [isCategoryEditorOpen, setIsCategoryEditorOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
   
@@ -130,7 +135,27 @@ export const AdminPanel: React.FC = () => {
               </span>
               <h1 className="text-2xl font-bold font-display text-white">Gestion du Catalogue Supabase</h1>
             </div>
-            <p className="text-xs text-slate-400 mt-1">Gérez vos équipements en direct dans PostgreSQL</p>
+            <p className="text-xs text-slate-400 mt-1">Gérez vos équipements & photos de catégories en direct</p>
+          </div>
+
+          <div className="flex items-center bg-slate-900 border border-slate-800 p-1 rounded-2xl text-xs font-bold">
+            <button
+              onClick={() => setAdminTab('products')}
+              className={`px-4 py-2 rounded-xl transition-all ${
+                adminTab === 'products' ? 'bg-amber-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              📦 Équipements ({products.length})
+            </button>
+            <button
+              id="btn-tab-categories"
+              onClick={() => setAdminTab('categories')}
+              className={`px-4 py-2 rounded-xl transition-all ${
+                adminTab === 'categories' ? 'bg-amber-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              🏷️ Catégories & Images ({categories ? categories.length : 8})
+            </button>
           </div>
 
           <div className="flex items-center space-x-3">
@@ -152,7 +177,49 @@ export const AdminPanel: React.FC = () => {
           </div>
         </div>
 
-        {/* Filters & Search */}
+        {/* CATEGORY MANAGEMENT GRID */}
+        {adminTab === 'categories' && (
+          <div className="space-y-6">
+            <div className="flex items-center justify-between bg-slate-900 border border-slate-800 rounded-2xl p-4">
+              <div>
+                <h3 className="text-sm font-bold text-white">Gestion des Images & Photos des Catégories</h3>
+                <p className="text-xs text-slate-400">
+                  Modifiez la photo affichée pour chaque catégorie sur le carrousel de la page d'accueil.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {(categories || []).map(cat => {
+                const count = products.filter(p => p.category.toLowerCase() === cat.slug.toLowerCase()).length;
+                return (
+                  <div key={cat.id} className="bg-slate-900 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center text-center space-y-3 transition-all shadow-lg group">
+                    <div className="w-24 h-24 rounded-2xl bg-slate-800 border border-slate-700 p-2 flex items-center justify-center overflow-hidden relative">
+                      <img src={cat.image} alt={cat.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform" />
+                    </div>
+                    <div className="min-w-0 w-full">
+                      <h4 className="font-bold text-white text-sm truncate">{cat.name}</h4>
+                      <p className="text-[10px] text-amber-400 font-semibold uppercase">{count} produits associés</p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setEditingCategory(cat);
+                        setIsCategoryEditorOpen(true);
+                      }}
+                      className="w-full py-2 px-3 bg-slate-800 hover:bg-amber-500 hover:text-slate-950 font-bold text-xs text-slate-200 rounded-xl transition-colors flex items-center justify-center space-x-1.5 border border-slate-700"
+                    >
+                      <Edit className="w-3.5 h-3.5" />
+                      <span>Changer l'Image</span>
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {adminTab === 'products' && (
+          <div className="space-y-6">
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="relative flex-1">
             <Search className="w-4 h-4 absolute left-3.5 top-3 text-slate-500" />
@@ -259,6 +326,15 @@ export const AdminPanel: React.FC = () => {
             </table>
           </div>
         </div>
+          </div>
+        )}
+
+        <CategoryEditorModal
+          isOpen={isCategoryEditorOpen}
+          category={editingCategory}
+          onClose={() => setIsCategoryEditorOpen(false)}
+          onSave={(updatedCat) => updateCategory(updatedCat.id, updatedCat)}
+        />
 
         <ProductEditorModal
           isOpen={isEditorOpen}

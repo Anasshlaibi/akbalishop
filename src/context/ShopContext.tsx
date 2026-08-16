@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useMemo } from 'react';
 import { Product, ConditionFilter, SortOption, Order, OrderStatus } from '../types';
+import { CATEGORIES, Category, getStoredCategories, saveStoredCategories } from '../data/categories';
 import { useProducts } from '../hooks/useProducts';
 import { useOrders } from '../hooks/useOrders';
 import { MutationResult } from '../services/productService';
@@ -8,6 +9,8 @@ export type { ConditionFilter, SortOption, Product, Order };
 export type ActiveTab = 'home' | 'shop' | 'product' | 'contact' | 'about' | 'rental';
 
 interface ShopContextType {
+  categories: Category[];
+  updateCategory: (id: string, updated: Partial<Category>) => void;
   products: Product[];
   activeTab: ActiveTab;
   setActiveTab: (tab: ActiveTab) => void;
@@ -55,6 +58,15 @@ interface ShopContextType {
 const ShopContext = createContext<ShopContextType | undefined>(undefined);
 
 export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [categories, setCategories] = useState<Category[]>(() => getStoredCategories());
+
+  const updateCategory = (id: string, updatedFields: Partial<Category>) => {
+    setCategories(prev => {
+      const next = prev.map(c => (c.id === id || c.slug === id ? { ...c, ...updatedFields } : c));
+      saveStoredCategories(next);
+      return next;
+    });
+  };
   const productState = useProducts();
   const orderState = useOrders(productState.products);
 
@@ -119,6 +131,8 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   return (
     <ShopContext.Provider value={{
+      categories,
+      updateCategory,
       products: productState.products,
       activeTab,
       setActiveTab,

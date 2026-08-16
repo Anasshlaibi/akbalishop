@@ -3,7 +3,7 @@ import { CATEGORIES, Category } from '../data/categories';
 import { useShop } from '../context/ShopContext';
 
 export const CategoryCarousel: React.FC = () => {
-  const { products, setActiveTab, setSelectedCategory, setConditionFilter, resetFilters } = useShop();
+  const { products, categories, setActiveTab, setSelectedCategory, setConditionFilter, resetFilters } = useShop();
 
   const activeProducts = products.filter(p => p.isActive !== false);
 
@@ -35,7 +35,7 @@ export const CategoryCarousel: React.FC = () => {
         
         {/* Horizontal Category Cards List */}
         <div className="flex items-center space-x-3 overflow-x-auto pb-3 pt-1 scrollbar-none">
-          {CATEGORIES.map((cat) => {
+          {(categories || CATEGORIES).map((cat) => {
             const count = getCategoryCount(cat.slug);
             return (
               <div

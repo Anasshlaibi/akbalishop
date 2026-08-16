@@ -82,3 +82,31 @@ export const CATEGORIES: Category[] = [
     iconName: 'Sliders'
   }
 ];
+
+const STORAGE_KEY = 'akabli_custom_categories_v1';
+
+export function getStoredCategories(): Category[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return CATEGORIES.map(def => {
+          const found = parsed.find((p: any) => p.id === def.id || p.slug === def.slug);
+          return found ? { ...def, ...found } : def;
+        });
+      }
+    }
+  } catch (err) {
+    console.error('Failed to parse categories from localStorage:', err);
+  }
+  return CATEGORIES;
+}
+
+export function saveStoredCategories(categories: Category[]): void {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(categories));
+  } catch (err) {
+    console.error('Failed to save categories to localStorage:', err);
+  }
+}

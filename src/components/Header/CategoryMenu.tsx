@@ -16,7 +16,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export const CategoryMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { setSelectedCategory, setConditionFilter, setActiveTab, resetFilters } = useShop();
+  const { categories, setSelectedCategory, setConditionFilter, setActiveTab, resetFilters } = useShop();
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -64,7 +64,7 @@ export const CategoryMenu: React.FC = () => {
           </div>
 
           <div className="py-1 max-h-[70vh] overflow-y-auto">
-            {CATEGORIES.map((cat) => (
+            {(categories || CATEGORIES).map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => handleSelectCategory(cat.id)}

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useShop } from '../../context/ShopContext';
 import { CATEGORIES } from '../../data/categories';
-import { Menu, ChevronDown, Camera, Aperture, Sun, Mic, Video, RefreshCw, Calendar, Sliders } from 'lucide-react';
+import { Menu, ChevronDown, Camera, Aperture, Sun, Mic, Video, RefreshCw, Calendar, Sliders, Package, Tag, Sparkles, Film, Star, Zap, Grid, Shield } from 'lucide-react';
 
 const iconMap: Record<string, React.ReactNode> = {
   Camera: <Camera className="w-4 h-4" />,
@@ -11,7 +11,15 @@ const iconMap: Record<string, React.ReactNode> = {
   Video: <Video className="w-4 h-4" />,
   RefreshCw: <RefreshCw className="w-4 h-4" />,
   Calendar: <Calendar className="w-4 h-4" />,
-  Sliders: <Sliders className="w-4 h-4" />
+  Sliders: <Sliders className="w-4 h-4" />,
+  Package: <Package className="w-4 h-4" />,
+  Tag: <Tag className="w-4 h-4" />,
+  Sparkles: <Sparkles className="w-4 h-4" />,
+  Film: <Film className="w-4 h-4" />,
+  Star: <Star className="w-4 h-4" />,
+  Zap: <Zap className="w-4 h-4" />,
+  Grid: <Grid className="w-4 h-4" />,
+  Shield: <Shield className="w-4 h-4" />
 };
 
 export const CategoryMenu: React.FC = () => {

@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Product } from '../../types';
 import { productService, MutationResult } from '../../services/productService';
 import { uploadProductImage } from '../../services/storageService';
+import { CategoryEditorModal } from './CategoryEditorModal';
+import { useShop } from '../../context/ShopContext';
 import { 
   X, 
   Save, 
@@ -72,6 +74,8 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
   const [categoriesOptions, setCategoriesOptions] = useState<string[]>(DEFAULT_CATEGORIES);
   const [isCustomBrand, setIsCustomBrand] = useState<boolean>(false);
   const [isCustomCategory, setIsCustomCategory] = useState<boolean>(false);
+  const [isNewCategoryModalOpen, setIsNewCategoryModalOpen] = useState<boolean>(false);
+  const { categories, addCategory } = useShop();
 
   // Image Upload state & Gallery manager
   const [isUploading, setIsUploading] = useState(false);
@@ -495,6 +499,7 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
                     onChange={(e) => {
                       const val = e.target.value;
                       if (val === '__NEW_CATEGORY__') {
+                        setIsNewCategoryModalOpen(true);
                         setIsCustomCategory(true);
                         setFormData(prev => ({ ...prev, category: '' }));
                       } else {
@@ -506,7 +511,7 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
                     {formData.category && !categoriesOptions.includes(formData.category) && (
                       <option value={formData.category}>{formData.category}</option>
                     )}
-                    {categoriesOptions.map(c => (
+                    {(categories ? categories.map(c => c.name) : categoriesOptions).map(c => (
                       <option key={c} value={c}>
                         {c}
                       </option>
@@ -795,6 +800,18 @@ export const ProductEditorModal: React.FC<ProductEditorModalProps> = ({
             </button>
           </div>
         </form>
+        <CategoryEditorModal
+          isOpen={isNewCategoryModalOpen}
+          category={null}
+          isCreateMode={true}
+          onClose={() => setIsNewCategoryModalOpen(false)}
+          onSave={(catData) => {
+            addCategory(catData);
+            if (catData.name) {
+              setFormData(prev => ({ ...prev, category: catData.name }));
+            }
+          }}
+        />
       </div>
     </div>
   );

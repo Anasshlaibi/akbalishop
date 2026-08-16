@@ -10,6 +10,7 @@ export type ActiveTab = 'home' | 'shop' | 'product' | 'contact' | 'about' | 'ren
 
 interface ShopContextType {
   categories: Category[];
+  addCategory: (categoryData: Partial<Category>) => void;
   updateCategory: (id: string, updated: Partial<Category>) => void;
   products: Product[];
   activeTab: ActiveTab;
@@ -59,6 +60,24 @@ const ShopContext = createContext<ShopContextType | undefined>(undefined);
 
 export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [categories, setCategories] = useState<Category[]>(() => getStoredCategories());
+
+  const addCategory = (categoryData: Partial<Category>) => {
+    setCategories(prev => {
+      const slug = (categoryData.slug || categoryData.name || "category").toLowerCase().trim().replace(/[^a-z0-9]+/g, "-");
+      const newCat: Category = {
+        id: slug || `cat-${Date.now()}`,
+        name: categoryData.name || "Nouvelle Catégorie",
+        slug: slug || "nouvelle-categorie",
+        description: categoryData.description || "",
+        itemCount: 0,
+        image: categoryData.image || "/wp-content/uploads/electronics-store-55.png",
+        iconName: categoryData.iconName || "Tag"
+      };
+      const next = [...prev.filter(c => c.id !== newCat.id), newCat];
+      saveStoredCategories(next);
+      return next;
+    });
+  };
 
   const updateCategory = (id: string, updatedFields: Partial<Category>) => {
     setCategories(prev => {
@@ -132,6 +151,7 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
   return (
     <ShopContext.Provider value={{
       categories,
+      addCategory,
       updateCategory,
       products: productState.products,
       activeTab,

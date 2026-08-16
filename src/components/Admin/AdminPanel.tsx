@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 
 export const AdminPanel: React.FC = () => {
-  const { products, addProduct, updateProduct, deleteProduct, categories, updateCategory, isAdminOpen, setIsAdminOpen } = useShop();
+  const { products, addProduct, updateProduct, deleteProduct, categories, addCategory, updateCategory, isAdminOpen, setIsAdminOpen } = useShop();
 
   // Don't render at all when closed
   if (!isAdminOpen) return null;
@@ -31,6 +31,7 @@ export const AdminPanel: React.FC = () => {
   const [adminTab, setAdminTab] = useState<'products' | 'categories'>('products');
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
   const [isCategoryEditorOpen, setIsCategoryEditorOpen] = useState(false);
+  const [isCreateCategoryMode, setIsCreateCategoryMode] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
   
@@ -182,7 +183,7 @@ export const AdminPanel: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center justify-between bg-slate-900 border border-slate-800 rounded-2xl p-4">
               <div>
-                <h3 className="text-sm font-bold text-white">Gestion des Images & Photos des Catégories</h3>
+                <div className="flex items-center justify-between w-full"><div><h3 className="text-sm font-bold text-white">Gestion des Catégories, Images & Icônes</h3><p className="text-xs text-slate-400">Modifiez les visuels de vos catégories ou ajoutez une nouvelle catégorie.</p></div><button onClick={() => { setEditingCategory(null); setIsCreateCategoryMode(true); setIsCategoryEditorOpen(true); }} className="px-4 py-2 bg-amber-500 hover:bg-amber-600 font-bold text-xs text-slate-950 rounded-xl flex items-center space-x-1.5 shadow-md"><Plus className="w-4 h-4" /><span>+ Nouvelle Catégorie</span></button></div>
                 <p className="text-xs text-slate-400">
                   Modifiez la photo affichée pour chaque catégorie sur le carrousel de la page d'accueil.
                 </p>
@@ -332,8 +333,15 @@ export const AdminPanel: React.FC = () => {
         <CategoryEditorModal
           isOpen={isCategoryEditorOpen}
           category={editingCategory}
+          isCreateMode={isCreateCategoryMode}
           onClose={() => setIsCategoryEditorOpen(false)}
-          onSave={(updatedCat) => updateCategory(updatedCat.id, updatedCat)}
+          onSave={(catData) => {
+            if (isCreateCategoryMode) {
+              addCategory(catData);
+            } else if (editingCategory) {
+              updateCategory(editingCategory.id, catData);
+            }
+          }}
         />
 
         <ProductEditorModal

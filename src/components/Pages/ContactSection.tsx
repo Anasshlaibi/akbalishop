@@ -67,7 +67,7 @@ function generatePDF(data: DevisData, ref: string) {
   doc.text(doc.splitTextToSize(data.project, 172), 19, afterDetails + 12);
   doc.setFillColor(15, 23, 42); doc.rect(0, 272, 210, 25, 'F');
   doc.setTextColor(148, 163, 184); doc.setFontSize(8); doc.setFont('helvetica', 'normal');
-  doc.text('AKABLISHOP — 1 Etage N°2, Résidence Alwifaq 126 Lotissement Al Massar, Marrakech, Maroc', 105, 281, { align: 'center' });
+  doc.text('AKABLISHOP — Lot Afaq 1 Saada, Marrakech, Maroc', 105, 281, { align: 'center' });
   doc.text('Lundi–Samedi : 09h00–19h30  |  akablishop.ma', 105, 288, { align: 'center' });
   doc.save(`Devis_AKABLISHOP_${ref}.pdf`);
 }
@@ -213,7 +213,7 @@ export const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Adresse</span>
-                    <span className="text-xs font-semibold text-slate-800 leading-snug">1 Etage N°2, Résidence Alwifaq 126 Lotissement Al Massar, Marrakech</span>
+                    <span className="text-xs font-semibold text-slate-800 leading-snug">Lot Afaq 1 Saada, Marrakech, Maroc</span>
                   </div>
                 </div>
 
@@ -421,3 +421,4 @@ export const ContactSection: React.FC = () => {
     </div>
   );
 };
+

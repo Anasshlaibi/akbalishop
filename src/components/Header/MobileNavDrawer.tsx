@@ -146,7 +146,7 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({ isOpen, onClos
             </div>
             <div className="flex items-center space-x-2">
               <MapPin className="w-3.5 h-3.5 text-amber-600" />
-              <span>Al Massar, Marrakech</span>
+              <span>Lot Afaq 1 Saada, Marrakech</span>
             </div>
           </div>
         </div>
@@ -154,3 +154,4 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({ isOpen, onClos
     </div>
   );
 };
+

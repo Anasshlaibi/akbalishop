@@ -149,7 +149,7 @@ export const Footer: React.FC = () => {
             <div className="space-y-2.5 text-slate-400">
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
-                <span>1 Etage N°2, Résidence Alwifaq 126 Lotissement Al Massar, Marrakech, Maroc</span>
+                <span>Lot Afaq 1 Saada, Marrakech, Maroc</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-amber-500 flex-shrink-0" />
@@ -176,3 +176,4 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+

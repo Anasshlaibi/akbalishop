@@ -34,6 +34,17 @@ export interface Database {
           specs: Json
           whats_in_the_box: Json
           created_at: string
+                    seo_title: string | null
+          seo_description: string | null
+          seo_keywords: string | null
+          seo_h1: string | null
+          seo_short_description: string | null
+          seo_alt_text: string | null
+          canonical_url: string | null
+          og_title: string | null
+          og_description: string | null
+          og_image: string | null
+          seo_noindex: boolean | null
           updated_at: string
         }
         Insert: {
@@ -60,6 +71,17 @@ export interface Database {
           specs?: Json
           whats_in_the_box?: Json
           created_at?: string
+                    seo_title?: string | null
+          seo_description?: string | null
+          seo_keywords?: string | null
+          seo_h1?: string | null
+          seo_short_description?: string | null
+          seo_alt_text?: string | null
+          canonical_url?: string | null
+          og_title?: string | null
+          og_description?: string | null
+          og_image?: string | null
+          seo_noindex?: boolean | null
           updated_at?: string
         }
         Update: {
@@ -86,6 +108,17 @@ export interface Database {
           specs?: Json
           whats_in_the_box?: Json
           created_at?: string
+                    seo_title?: string | null
+          seo_description?: string | null
+          seo_keywords?: string | null
+          seo_h1?: string | null
+          seo_short_description?: string | null
+          seo_alt_text?: string | null
+          canonical_url?: string | null
+          og_title?: string | null
+          og_description?: string | null
+          og_image?: string | null
+          seo_noindex?: boolean | null
           updated_at?: string
         }
       }
@@ -101,6 +134,17 @@ export interface Database {
           items: Json
           status: string
           created_at: string
+                    seo_title: string | null
+          seo_description: string | null
+          seo_keywords: string | null
+          seo_h1: string | null
+          seo_short_description: string | null
+          seo_alt_text: string | null
+          canonical_url: string | null
+          og_title: string | null
+          og_description: string | null
+          og_image: string | null
+          seo_noindex: boolean | null
           updated_at: string
         }
         Insert: {
@@ -114,6 +158,17 @@ export interface Database {
           items: Json
           status?: string
           created_at?: string
+                    seo_title?: string | null
+          seo_description?: string | null
+          seo_keywords?: string | null
+          seo_h1?: string | null
+          seo_short_description?: string | null
+          seo_alt_text?: string | null
+          canonical_url?: string | null
+          og_title?: string | null
+          og_description?: string | null
+          og_image?: string | null
+          seo_noindex?: boolean | null
           updated_at?: string
         }
         Update: {
@@ -127,6 +182,17 @@ export interface Database {
           items?: Json
           status?: string
           created_at?: string
+                    seo_title?: string | null
+          seo_description?: string | null
+          seo_keywords?: string | null
+          seo_h1?: string | null
+          seo_short_description?: string | null
+          seo_alt_text?: string | null
+          canonical_url?: string | null
+          og_title?: string | null
+          og_description?: string | null
+          og_image?: string | null
+          seo_noindex?: boolean | null
           updated_at?: string
         }
       }
@@ -136,6 +202,17 @@ export interface Database {
           stock_quantity: number
           reserved_quantity: number
           low_stock_threshold: number
+                    seo_title: string | null
+          seo_description: string | null
+          seo_keywords: string | null
+          seo_h1: string | null
+          seo_short_description: string | null
+          seo_alt_text: string | null
+          canonical_url: string | null
+          og_title: string | null
+          og_description: string | null
+          og_image: string | null
+          seo_noindex: boolean | null
           updated_at: string
         }
         Insert: {
@@ -143,6 +220,17 @@ export interface Database {
           stock_quantity?: number
           reserved_quantity?: number
           low_stock_threshold?: number
+                    seo_title?: string | null
+          seo_description?: string | null
+          seo_keywords?: string | null
+          seo_h1?: string | null
+          seo_short_description?: string | null
+          seo_alt_text?: string | null
+          canonical_url?: string | null
+          og_title?: string | null
+          og_description?: string | null
+          og_image?: string | null
+          seo_noindex?: boolean | null
           updated_at?: string
         }
         Update: {
@@ -150,9 +238,21 @@ export interface Database {
           stock_quantity?: number
           reserved_quantity?: number
           low_stock_threshold?: number
+                    seo_title?: string | null
+          seo_description?: string | null
+          seo_keywords?: string | null
+          seo_h1?: string | null
+          seo_short_description?: string | null
+          seo_alt_text?: string | null
+          canonical_url?: string | null
+          og_title?: string | null
+          og_description?: string | null
+          og_image?: string | null
+          seo_noindex?: boolean | null
           updated_at?: string
         }
       }
     }
   }
 }
+

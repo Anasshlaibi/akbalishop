@@ -1,3 +1,4 @@
+import { generateSeoAltText } from '../../utils/seoGenerator';
 import React, { useState } from 'react';
 import { Product } from '../../types';
 import { useCart } from '../../context/CartContext';
@@ -99,7 +100,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
             <div className="relative aspect-square w-full rounded-2xl bg-white border border-gray-200 p-6 flex items-center justify-center overflow-hidden shadow-sm">
               <img 
                 src={activeImage} 
-                alt={product.name} 
+                alt={product.seoAltText || generateSeoAltText(product, 0)} 
                 className="w-full h-full object-contain max-h-[450px]"
               />
 
@@ -133,7 +134,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                         : 'border-gray-200 hover:border-gray-300 opacity-70 hover:opacity-100'
                     }`}
                   >
-                    <img src={img} alt={`Vue ${idx+1}`} className="w-full h-full object-contain" />
+                    <img src={img} alt={generateSeoAltText(product, idx)} className="w-full h-full object-contain" />
                   </button>
                 ))}
               </div>
@@ -153,8 +154,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
               </div>
 
               <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 leading-tight">
-                {product.name}
-              </h1>
+                {product.seoH1 || product.name}</h1>
             </div>
 
             {/* Ratings & Stock Status */}
@@ -400,3 +400,4 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
     </div>
   );
 };
+

@@ -43,6 +43,18 @@ export interface Product {
   whatsInTheBox: string[];
   createdAt?: string;
   updatedAt?: string;
+  // Advanced Product SEO Metadata
+  seoTitle?: string;
+  seoDescription?: string;
+  seoKeywords?: string;
+  seoH1?: string;
+  seoShortDescription?: string;
+  seoAltText?: string;
+  canonicalUrl?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  seoNoindex?: boolean;
 }
 
 export interface Category {
@@ -51,6 +63,18 @@ export interface Category {
   slug: string;
   icon: string;
   itemCount: number;
+  // Advanced Product SEO Metadata
+  seoTitle?: string;
+  seoDescription?: string;
+  seoKeywords?: string;
+  seoH1?: string;
+  seoShortDescription?: string;
+  seoAltText?: string;
+  canonicalUrl?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  seoNoindex?: boolean;
 }
 
 export interface Brand {
@@ -58,4 +82,17 @@ export interface Brand {
   name: string;
   logo: string;
   productCount: number;
+  // Advanced Product SEO Metadata
+  seoTitle?: string;
+  seoDescription?: string;
+  seoKeywords?: string;
+  seoH1?: string;
+  seoShortDescription?: string;
+  seoAltText?: string;
+  canonicalUrl?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  seoNoindex?: boolean;
 }
+

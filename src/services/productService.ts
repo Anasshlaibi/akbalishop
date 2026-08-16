@@ -1,3 +1,4 @@
+import { enrichProductWithSeo } from '../utils/seoGenerator';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { Product } from '../types';
 import { SEED_PRODUCTS } from '../data/seed/seedData';
@@ -135,7 +136,7 @@ class ProductService {
     // Preserve custom category name if saved in specs
     const displayCategory = specs.__custom_category || String(row.category || 'cameras');
 
-    return {
+    const rawProduct: Product = {
       id: String(row.id),
       slug: row.slug ? String(row.slug) : String(row.id),
       name: String(row.name || ''),
@@ -159,8 +160,23 @@ class ProductService {
       specs,
       whatsInTheBox,
       createdAt: row.created_at,
-      updatedAt: row.updated_at
+      updatedAt: row.updated_at,
+
+      // SEO database fields
+      seoTitle: row.seo_title || undefined,
+      seoDescription: row.seo_description || undefined,
+      seoKeywords: row.seo_keywords || undefined,
+      seoH1: row.seo_h1 || undefined,
+      seoShortDescription: row.seo_short_description || undefined,
+      seoAltText: row.seo_alt_text || undefined,
+      canonicalUrl: row.canonical_url || undefined,
+      ogTitle: row.og_title || undefined,
+      ogDescription: row.og_description || undefined,
+      ogImage: row.og_image || undefined,
+      seoNoindex: Boolean(row.seo_noindex)
     };
+
+    return enrichProductWithSeo(rawProduct);
   }
 
   public mapProductToRow(product: Product): any {
@@ -186,6 +202,7 @@ class ProductService {
 
     return {
       id: product.id,
+      slug: product.slug || product.id,
       name: product.name,
       brand: this.normalizeBrand(product.brand),
       category: this.toValidPostgresCategory(product.category),
@@ -203,7 +220,21 @@ class ProductService {
       short_description: product.shortDescription || '',
       description: product.description || '',
       specs: specsVal,
-      whats_in_the_box: boxVal
+      whats_in_the_box: boxVal,
+      
+      // SEO DB Columns
+      seo_title: product.seoTitle || null,
+      seo_description: product.seoDescription || null,
+      seo_keywords: product.seoKeywords || null,
+      seo_h1: product.seoH1 || null,
+      seo_short_description: product.seoShortDescription || null,
+      seo_alt_text: product.seoAltText || null,
+      canonical_url: product.canonicalUrl || null,
+      og_title: product.ogTitle || null,
+      og_description: product.ogDescription || null,
+      og_image: product.ogImage || null,
+      seo_noindex: product.seoNoindex ?? false,
+      updated_at: new Date().toISOString()
     };
   }
 
@@ -489,3 +520,4 @@ class ProductService {
 }
 
 export const productService = new ProductService();
+

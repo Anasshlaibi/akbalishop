@@ -55,20 +55,9 @@ export const AdminPanel: React.FC = () => {
     const p = (password || '').trim().toLowerCase().replace(/\s+/g, '');
     
     // Flexible password matching (accepts all standard admin combinations)
-    const validPasswords = [
-      'akabli',
-      'akabli2026',
-      'akablishop',
-      'admin',
-      'admin123',
-      '0701896033',
-      '212701896033',
-      '2026',
-      '123456',
-      'shop'
-    ];
+    const validPasswords = ['@simo@12'];
 
-    if (validPasswords.includes(p) || p.includes('akabli') || p.includes('admin')) {
+    if (validPasswords.includes(password.trim())) {
       setIsAuthenticated(true);
       setAuthError(false);
       try {
@@ -166,7 +155,7 @@ export const AdminPanel: React.FC = () => {
               {authError && (
                 <p className="text-rose-400 text-xs font-semibold mt-2 flex items-center space-x-1">
                   <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
-                  <span>Mot de passe incorrect. Essayez: <b>akabli2026</b> ou <b>0701896033</b></span>
+                  <span>Mot de passe incorrect</span>
                 </p>
               )}
             </div>

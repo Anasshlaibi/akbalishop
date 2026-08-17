@@ -351,11 +351,10 @@ class ProductService {
     if (isSupabaseConfigured && supabase) {
       const row = this.mapProductToRow(product);
 
-      // 1. Attempt update by exact ID match
+      // 1. Attempt upsert (insert or update) by exact ID match
       const { data, error } = await supabase
         .from('products')
-        .update(row)
-        .eq('id', product.id)
+        .upsert(row)
         .select()
         .maybeSingle();
 

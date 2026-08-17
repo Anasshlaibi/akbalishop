@@ -26,7 +26,23 @@ import { MobileBottomBar } from './components/MobileBottomBar';
 import { MetaManager } from './components/SEO/MetaManager';
 
 const AppContent: React.FC = () => {
-  const { activeTab, selectedProduct } = useShop();
+  const { activeTab, selectedProduct, setIsAdminOpen } = useShop();
+
+  React.useEffect(() => {
+    const checkAdminAccess = () => {
+      const fullUrl = (window.location.pathname + window.location.search + window.location.hash).toLowerCase();
+      if (fullUrl.includes('admin')) {
+        setIsAdminOpen(true);
+      }
+    };
+    checkAdminAccess();
+    window.addEventListener('hashchange', checkAdminAccess);
+    window.addEventListener('popstate', checkAdminAccess);
+    return () => {
+      window.removeEventListener('hashchange', checkAdminAccess);
+      window.removeEventListener('popstate', checkAdminAccess);
+    };
+  }, [setIsAdminOpen]);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (

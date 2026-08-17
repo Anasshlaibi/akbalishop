@@ -90,14 +90,20 @@ export const Footer: React.FC = () => {
               >
                 <Instagram className="w-4 h-4" />
               </a>
-              <button
-                onClick={() => setIsAdminOpen(true)}
-                className="p-2.5 rounded-xl bg-slate-800 text-amber-400 hover:bg-amber-500 hover:text-white border border-amber-500/30 transition-all flex items-center space-x-1 font-bold text-xs"
-                title="Panneau de Gestion CMS"
-              >
-                <Database className="w-4 h-4" />
-                <span>Admin CMS</span>
-              </button>
+              {typeof window !== 'undefined' && (
+                window.location.pathname.toLowerCase().includes('/admin') ||
+                window.location.search.toLowerCase().includes('admin') ||
+                window.location.hash.toLowerCase().includes('admin')
+              ) && (
+                <button
+                  onClick={() => setIsAdminOpen(true)}
+                  className="p-2.5 rounded-xl bg-slate-800 text-amber-400 hover:bg-amber-500 hover:text-white border border-amber-500/30 transition-all flex items-center space-x-1 font-bold text-xs"
+                  title="Panneau de Gestion CMS"
+                >
+                  <Database className="w-4 h-4" />
+                  <span>Admin CMS</span>
+                </button>
+              )}
             </div>
           </div>
 

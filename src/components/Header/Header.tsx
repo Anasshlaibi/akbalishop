@@ -199,15 +199,21 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
               <Search className="w-4 h-4 text-amber-600" />
             </button>
 
-            {/* Admin CMS Pill */}
-            <button
-              onClick={() => setIsAdminOpen(true)}
-              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-amber-400 hover:bg-slate-800 transition-all text-xs font-extrabold shadow-sm"
-              title="Ouvrir le panneau d'administration CMS"
-            >
-              <Database className="w-3.5 h-3.5 text-amber-400" />
-              <span className="hidden sm:inline-block">Admin CMS</span>
-            </button>
+            {/* Admin CMS Pill - Hidden by default from regular shoppers */}
+            {typeof window !== 'undefined' && (
+              window.location.pathname.toLowerCase().includes('/admin') ||
+              window.location.search.toLowerCase().includes('admin') ||
+              window.location.hash.toLowerCase().includes('admin')
+            ) && (
+              <button
+                onClick={() => setIsAdminOpen(true)}
+                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-amber-400 hover:bg-slate-800 transition-all text-xs font-extrabold shadow-sm"
+                title="Ouvrir le panneau d'administration CMS"
+              >
+                <Database className="w-3.5 h-3.5 text-amber-400" />
+                <span className="hidden sm:inline-block">Admin CMS</span>
+              </button>
+            )}
 
             {/* Wishlist Circular Button */}
             <button

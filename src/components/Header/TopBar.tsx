@@ -14,11 +14,11 @@ export const TopBar: React.FC = () => {
             <span>+212 701896033</span>
           </a>
           <a 
-            href="mailto:akablishop@gmail.com" 
+            href="mailto:akablishopmarrakech@gmail.com" 
             className="hidden sm:flex items-center space-x-1.5 hover:text-brand-amber transition-colors"
           >
             <Mail className="w-3.5 h-3.5 text-brand-amber" />
-            <span>akablishop@gmail.com</span>
+            <span>akablishopmarrakech@gmail.com</span>
           </a>
           <span className="hidden lg:flex items-center space-x-1.5 text-gray-400">
             <MapPin className="w-3.5 h-3.5 text-brand-amber" />

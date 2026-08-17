@@ -30,7 +30,7 @@ function generatePDF(data: DevisData, ref: string) {
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(9); doc.setFont('helvetica', 'normal');
   doc.text('Matériel Audiovisuel Professionnel — Marrakech, Maroc', 14, 26);
-  doc.text('+212 701 896 033  |  akablishop@gmail.com  |  akablishop.ma', 14, 32);
+  doc.text('+212 701 896 033  |  akablishopmarrakech@gmail.com  |  akablishop.ma', 14, 32);
   doc.setFillColor(251, 191, 36);
   doc.roundedRect(140, 8, 60, 22, 4, 4, 'F');
   doc.setTextColor(15, 23, 42);
@@ -154,7 +154,7 @@ export const ContactSection: React.FC = () => {
           </a>
 
           {/* Email */}
-          <a href="mailto:akablishop@gmail.com"
+          <a href="mailto:akablishopmarrakech@gmail.com"
             className="group flex flex-col items-center gap-2 p-4 rounded-2xl border-2 border-gray-200 hover:border-blue-400 hover:bg-blue-50 transition-all cursor-pointer"
           >
             <div className="w-12 h-12 rounded-2xl bg-blue-100 group-hover:bg-blue-500 text-blue-600 group-hover:text-white flex items-center justify-center transition-all shadow-sm">
@@ -162,7 +162,7 @@ export const ContactSection: React.FC = () => {
             </div>
             <div className="text-center">
               <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Email</span>
-              <span className="block text-xs font-extrabold text-slate-800 mt-0.5">akablishop@gmail.com</span>
+              <span className="block text-xs font-extrabold text-slate-800 mt-0.5">akablishopmarrakech@gmail.com</span>
             </div>
           </a>
 

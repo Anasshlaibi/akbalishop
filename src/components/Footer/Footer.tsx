@@ -161,7 +161,7 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                <a href="mailto:akablishop@gmail.com" className="hover:text-white">akablishop@gmail.com</a>
+                <a href="mailto:akablishopmarrakech@gmail.com" className="hover:text-white">akablishopmarrakech@gmail.com</a>
               </div>
             </div>
           </div>

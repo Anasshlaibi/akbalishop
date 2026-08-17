@@ -6,6 +6,7 @@ export const HeroCarousel: React.FC = () => {
   const { products, setActiveTab, setSelectedProduct, resetFilters } = useShop();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Find dynamic products from Supabase/ShopContext
@@ -81,12 +82,19 @@ export const HeroCarousel: React.FC = () => {
     }
   ];
 
+  const handleSlideChange = (newIndex: number) => {
+    if (newIndex === currentIndex) return;
+    setIsAnimating(true);
+    setCurrentIndex(newIndex);
+    setTimeout(() => setIsAnimating(false), 400);
+  };
+
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % mainSlides.length);
+    handleSlideChange((currentIndex + 1) % mainSlides.length);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + mainSlides.length) % mainSlides.length);
+    handleSlideChange((currentIndex - 1 + mainSlides.length) % mainSlides.length);
   };
 
   useEffect(() => {
@@ -131,7 +139,9 @@ export const HeroCarousel: React.FC = () => {
 
             {/* Slide Body Content */}
             {currentSlide && (
-              <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center relative z-10 my-auto">
+              <div className={`grid grid-cols-1 sm:grid-cols-12 gap-6 items-center relative z-10 my-auto transition-all duration-500 ease-out ${
+                isAnimating ? 'opacity-0 scale-[0.98] translate-y-2' : 'opacity-100 scale-100 translate-y-0'
+              }`}>
                 
                 {/* Text Area */}
                 <div className="sm:col-span-7 space-y-3.5 text-left">
@@ -201,7 +211,7 @@ export const HeroCarousel: React.FC = () => {
                 {mainSlides.map((_, idx) => (
                   <button
                     key={idx}
-                    onClick={() => setCurrentIndex(idx)}
+                    onClick={() => handleSlideChange(idx)}
                     className={`h-2 rounded-full transition-all ${
                       currentIndex === idx 
                         ? 'w-6 bg-amber-600' 

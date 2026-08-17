@@ -197,7 +197,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
               title="Rechercher"
             >
               <Search className="w-4 h-4 text-amber-600" />
-            </button>}
+            </button>
 
             {/* Wishlist Circular Button */}
             <button

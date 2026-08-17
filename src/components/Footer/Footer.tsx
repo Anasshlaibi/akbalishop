@@ -90,13 +90,7 @@ export const Footer: React.FC = () => {
               >
                 <Instagram className="w-4 h-4" />
               </a>
-              {typeof window !== 'undefined' && (
-                window.location.pathname.toLowerCase().includes('/admin') ||
-                window.location.search.toLowerCase().includes('admin') ||
-                window.location.hash.toLowerCase().includes('admin')
-              ) && (
-                
-              )}
+
             </div>
           </div>
 

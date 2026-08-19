@@ -1,0 +1,137 @@
+[
+  {
+    "source": "/index.php",
+    "destination": "/",
+    "permanent": true
+  },
+  {
+    "source": "/index.php/softstore",
+    "destination": "/?tab=shop",
+    "permanent": true
+  },
+  {
+    "source": "/wp-content/uploads/category/:slug",
+    "destination": "/wp-content/uploads/categories/:slug",
+    "permanent": true
+  },
+  {
+    "source": "/category/cameras",
+    "destination": "/?category=cameras",
+    "permanent": true
+  },
+  {
+    "source": "/category/objectifs",
+    "destination": "/?category=objectifs",
+    "permanent": true
+  },
+  {
+    "source": "/category/lenses",
+    "destination": "/?category=objectifs",
+    "permanent": true
+  },
+  {
+    "source": "/category/eclairage",
+    "destination": "/?category=eclairage",
+    "permanent": true
+  },
+  {
+    "source": "/category/lighting",
+    "destination": "/?category=eclairage",
+    "permanent": true
+  },
+  {
+    "source": "/category/audio",
+    "destination": "/?tab=shop",
+    "permanent": true
+  },
+  {
+    "source": "/category/stabilisateurs",
+    "destination": "/?category=stabilisateurs",
+    "permanent": true
+  },
+  {
+    "source": "/category/stabilizers",
+    "destination": "/?category=stabilisateurs",
+    "permanent": true
+  },
+  {
+    "source": "/category/accessoires",
+    "destination": "/?category=accessoires",
+    "permanent": true
+  },
+  {
+    "source": "/category/accessories",
+    "destination": "/?category=accessoires",
+    "permanent": true
+  },
+  {
+    "source": "/category/occasions",
+    "destination": "/?category=occasions",
+    "permanent": true
+  },
+  {
+    "source": "/category/location",
+    "destination": "/?category=location",
+    "permanent": true
+  },
+  {
+    "source": "/brand/sony",
+    "destination": "/?brand=sony",
+    "permanent": true
+  },
+  {
+    "source": "/brand/canon",
+    "destination": "/?brand=canon",
+    "permanent": true
+  },
+  {
+    "source": "/brand/nikon",
+    "destination": "/?brand=nikon",
+    "permanent": true
+  },
+  {
+    "source": "/brand/godox",
+    "destination": "/?brand=godox",
+    "permanent": true
+  },
+  {
+    "source": "/brand/dji",
+    "destination": "/?brand=dji",
+    "permanent": true
+  },
+  {
+    "source": "/brand/rode",
+    "destination": "/?brand=rode",
+    "permanent": true
+  },
+  {
+    "source": "/brand/gopro",
+    "destination": "/?brand=gopro",
+    "permanent": true
+  },
+  {
+    "source": "/brand/kfconcept",
+    "destination": "/?brand=kfconcept",
+    "permanent": true
+  },
+  {
+    "source": "/contact-us",
+    "destination": "/?tab=contact",
+    "permanent": true
+  },
+  {
+    "source": "/contact",
+    "destination": "/?tab=contact",
+    "permanent": true
+  },
+  {
+    "source": "/boutique",
+    "destination": "/?tab=shop",
+    "permanent": true
+  },
+  {
+    "source": "/location-materiel",
+    "destination": "/?tab=rental",
+    "permanent": true
+  }
+]

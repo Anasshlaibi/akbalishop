@@ -1,0 +1,194 @@
+{
+  "proposed_deletions": [
+    {
+      "path": "index.php\\softstore\\analyze_desc.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\apply_updates.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\backup_db.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\check_135.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\check_mismatches.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\check_tables.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\CLIENT_PROPOSAL_AND_QUOTE.html",
+      "reason": "Legacy static HTML template duplicate"
+    },
+    {
+      "path": "index.php\\softstore\\extract_rich_desc.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\fetch_shopify_products.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\fix_from_csv.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\fix_galleries.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\fix_images.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\fix_images2.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\fix_invoice.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\fix_invoice_ids.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\fix_null_images.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\fix_relative_urls.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\fix_remaining.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\generate_report.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\generate_rich_desc.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\index.html",
+      "reason": "Legacy static HTML template duplicate"
+    },
+    {
+      "path": "index.php\\softstore\\insert_missing.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\inspect_columns.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\list_categories.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\MASTER_BLUEPRINT.html",
+      "reason": "Legacy static HTML template duplicate"
+    },
+    {
+      "path": "index.php\\softstore\\MEGA_MASTER_DOSSIER_AND_VALUATION.html",
+      "reason": "Legacy static HTML template duplicate"
+    },
+    {
+      "path": "index.php\\softstore\\revert_galleries.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\scan_db.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\scrape_all_images.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\scrape_info.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\scrape_live.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\scrape_local.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\scrape_sitemap.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\sync_galleries.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\test-supabase.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\test_image.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\test_url.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\VALUE_DEFENSE_AND_CLIENT_CONVICTION_STRATEGY.html",
+      "reason": "Legacy static HTML template duplicate"
+    },
+    {
+      "path": "index.php\\softstore\\public\\googlef500946794c8c9e8.html",
+      "reason": "Legacy static HTML template duplicate"
+    },
+    {
+      "path": "index.php\\softstore\\scripts\\ai_seo_optimizer.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\scripts\\convert_conviction_to_pdf.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\scripts\\convert_mega_to_pdf.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\scripts\\convert_proposal_to_pdf.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\scripts\\convert_to_pdf.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\scripts\\generate_merchant_feed.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\scripts\\generate_sitemap.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    },
+    {
+      "path": "index.php\\softstore\\scripts\\prerender.cjs",
+      "reason": "Legacy CJS helper / backup script"
+    }
+  ],
+  "count": 47,
+  "note": "DRY RUN ONLY - No files were modified or deleted"
+}

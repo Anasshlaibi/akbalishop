@@ -70,9 +70,8 @@ export class CategoryService {
         return CATEGORIES;
       }
 
-      // Automatically clean up 'audio' / 'son' row from Supabase if present
       if (data && data.length > 0) {
-        const audioRow = data.find(r => r.slug === 'audio' || r.id === 'audio' || r.slug === 'son' || r.id === 'son');
+        const audioRow = data.find((r: any) => r.slug === 'audio' || r.id === 'audio' || r.slug === 'son' || r.id === 'son');
         if (audioRow) {
           supabase.from('categories').delete().or('id.eq.audio,slug.eq.audio,id.eq.son,slug.eq.son').then(() => {
             console.log('Cleaned up audio/son category row from Supabase');
@@ -82,14 +81,13 @@ export class CategoryService {
 
       const canonicalMap = new Map<string, Category>();
 
-      // Seed default canonical categories
       CATEGORIES.forEach(cat => canonicalMap.set(cat.slug, cat));
 
       if (data && data.length > 0) {
-        data.forEach(row => {
+        data.forEach((row: any) => {
           const cat = this.mapRowToCategory(row as CategoryRow);
           const slug = cat.slug.toLowerCase();
-          if (slug === 'audio' || slug === 'son') return; // Skip audio category
+          if (slug === 'audio' || slug === 'son') return;
 
           let targetSlug = slug;
           if (slug === 'lens' || slug === 'lenses') targetSlug = 'objectifs';

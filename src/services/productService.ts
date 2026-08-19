@@ -255,7 +255,7 @@ class ProductService {
       }
 
       const map = new Map<string, Product>();
-      data.forEach(row => {
+      data.forEach((row: any) => {
         const prod = this.mapRowToProduct(row);
         map.set(prod.id, prod);
       });
@@ -475,7 +475,7 @@ class ProductService {
 
       const uniqueSet = new Set<string>();
       fallbackBrands.forEach(b => uniqueSet.add(b));
-      data.forEach(item => {
+      data.forEach((item: any) => {
         if (item.brand && typeof item.brand === 'string' && item.brand.trim()) {
           uniqueSet.add(item.brand.trim());
         }
@@ -505,7 +505,7 @@ class ProductService {
 
       const uniqueSet = new Set<string>();
       fallbackCategories.forEach(c => uniqueSet.add(c));
-      data.forEach(item => {
+      data.forEach((item: any) => {
         if (item.category && typeof item.category === 'string' && item.category.trim()) {
           uniqueSet.add(item.category.trim());
         }

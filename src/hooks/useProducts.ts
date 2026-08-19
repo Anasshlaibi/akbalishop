@@ -134,8 +134,29 @@ export function useProducts() {
 
   const filteredProducts = useMemo(() => {
     return activeProducts.filter(p => {
-      if (selectedCategory && p.category.toLowerCase() !== selectedCategory.toLowerCase()) {
-        return false;
+      if (selectedCategory) {
+        const sel = selectedCategory.toLowerCase();
+        const pCat = (p.category || '').toLowerCase();
+
+        if (sel === 'stabilisateurs' || sel === 'stabilizers') {
+          const isStab = pCat === 'stabilisateurs' || 
+                         pCat === 'stabilizers' || 
+                         pCat === 'gimbal' || 
+                         p.name.toLowerCase().includes('stabilisat') || 
+                         p.name.toLowerCase().includes('ronin') || 
+                         p.name.toLowerCase().includes('gimbal') || 
+                         (p.shortDescription || '').toLowerCase().includes('stabilisat') || 
+                         (p.shortDescription || '').toLowerCase().includes('gimbal');
+          if (!isStab) return false;
+        } else if (sel === 'objectifs' || sel === 'lenses' || sel === 'lens') {
+          const isLens = pCat === 'objectifs' || pCat === 'lenses' || pCat === 'lens' || p.name.toLowerCase().includes('objectif');
+          if (!isLens) return false;
+        } else if (sel === 'cameras' || sel === 'appareils-photo') {
+          const isCam = pCat === 'cameras' || pCat === 'appareils-photo' || p.name.toLowerCase().includes('caméra') || p.name.toLowerCase().includes('camera') || p.name.toLowerCase().includes('boîtier');
+          if (!isCam) return false;
+        } else if (pCat !== sel) {
+          return false;
+        }
       }
       if (selectedBrand && p.brand.toLowerCase() !== selectedBrand.toLowerCase()) {
         return false;

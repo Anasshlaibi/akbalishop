@@ -42,10 +42,11 @@ export class CategoryService {
   }
 
   public mapCategoryToRow(category: Category): Database['public']['Tables']['categories']['Insert'] {
+    const slug = (category.slug || category.id).toLowerCase().trim();
     return {
-      id: category.id,
+      id: category.id || slug,
       name: category.name,
-      slug: category.slug || category.id,
+      slug: slug,
       description: category.description || '',
       item_count: category.itemCount || 0,
       image: category.image,
@@ -89,7 +90,7 @@ export class CategoryService {
     if (!isSupabaseConfigured || !supabase) return;
     try {
       const rows = CATEGORIES.map(cat => this.mapCategoryToRow(cat));
-      const { error } = await supabase.from('categories').upsert(rows);
+      const { error } = await supabase.from('categories').upsert(rows, { onConflict: 'id' });
       if (error) {
         console.warn('Failed to seed categories:', error.message);
       }
@@ -105,11 +106,34 @@ export class CategoryService {
 
     try {
       const row = this.mapCategoryToRow(category);
-      const { error } = await supabase.from('categories').upsert([row]);
+      
+      // 1. Try upserting by ID
+      const { error } = await supabase.from('categories').upsert([row], { onConflict: 'id' });
+      
       if (error) {
-        console.error('categoryService.saveCategory error:', error.message);
-        return { success: false, error: error.message };
+        const msg = error.message || JSON.stringify(error);
+        console.warn('categoryService.saveCategory initial upsert failed, trying update by slug:', msg);
+
+        // 2. Fallback: Update by slug if slug already exists under a different primary key
+        const { error: updateError } = await supabase
+          .from('categories')
+          .update({
+            name: row.name,
+            description: row.description,
+            image: row.image,
+            icon_name: row.icon_name,
+            updated_at: row.updated_at
+          })
+          .eq('slug', row.slug);
+
+        if (!updateError) {
+          return { success: true };
+        }
+
+        console.error('categoryService.saveCategory fallback error:', updateError.message);
+        return { success: false, error: updateError.message };
       }
+
       return { success: true };
     } catch (err: any) {
       console.error('categoryService.saveCategory exception:', err);
@@ -123,7 +147,7 @@ export class CategoryService {
     }
 
     try {
-      const { error } = await supabase.from('categories').delete().eq('id', id);
+      const { error } = await supabase.from('categories').delete().or(`id.eq.${id},slug.eq.${id}`);
       if (error) {
         return { success: false, error: error.message };
       }

@@ -196,6 +196,41 @@ export interface Database {
           updated_at?: string
         }
       }
+      categories: {
+        Row: {
+          id: string
+          name: string
+          slug: string
+          description: string | null
+          item_count: number | null
+          image: string
+          icon_name: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id: string
+          name: string
+          slug: string
+          description?: string | null
+          item_count?: number | null
+          image: string
+          icon_name?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          slug?: string
+          description?: string | null
+          item_count?: number | null
+          image?: string
+          icon_name?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+      }
       inventory: {
         Row: {
           product_id: string

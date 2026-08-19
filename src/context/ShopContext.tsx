@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useMemo } from 'react';
 import { Product, ConditionFilter, SortOption, Order, OrderStatus } from '../types';
-import { CATEGORIES, Category, getStoredCategories, saveStoredCategories } from '../data/categories';
+import { CATEGORIES, Category } from '../data/categories';
+import { useCategories } from '../hooks/useCategories';
 import { useProducts } from '../hooks/useProducts';
 import { useOrders } from '../hooks/useOrders';
 import { MutationResult } from '../services/productService';
@@ -59,33 +60,7 @@ interface ShopContextType {
 const ShopContext = createContext<ShopContextType | undefined>(undefined);
 
 export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [categories, setCategories] = useState<Category[]>(() => getStoredCategories());
-
-  const addCategory = (categoryData: Partial<Category>) => {
-    setCategories(prev => {
-      const slug = (categoryData.slug || categoryData.name || "category").toLowerCase().trim().replace(/[^a-z0-9]+/g, "-");
-      const newCat: Category = {
-        id: slug || `cat-${Date.now()}`,
-        name: categoryData.name || "Nouvelle Catégorie",
-        slug: slug || "nouvelle-categorie",
-        description: categoryData.description || "",
-        itemCount: 0,
-        image: categoryData.image || "/wp-content/uploads/electronics-store-55.png",
-        iconName: categoryData.iconName || "Tag"
-      };
-      const next = [...prev.filter(c => c.id !== newCat.id), newCat];
-      saveStoredCategories(next);
-      return next;
-    });
-  };
-
-  const updateCategory = (id: string, updatedFields: Partial<Category>) => {
-    setCategories(prev => {
-      const next = prev.map(c => (c.id === id || c.slug === id ? { ...c, ...updatedFields } : c));
-      saveStoredCategories(next);
-      return next;
-    });
-  };
+  const { categories, addCategory, updateCategory } = useCategories();
   const productState = useProducts();
   const orderState = useOrders(productState.products);
 

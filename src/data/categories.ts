@@ -37,15 +37,6 @@ export const CATEGORIES: Category[] = [
     iconName: "Sun"
   },
   {
-    id: "audio",
-    name: "Audio & Microphones",
-    slug: "audio",
-    description: "Le son qui fait vibrer vos sens : micros HF, enregistreurs et microphones canon Røde.",
-    itemCount: 14,
-    image: "/wp-content/uploads/categories/audio.jpg",
-    iconName: "Mic"
-  },
-  {
     id: "stabilizers",
     name: "Stabilisateurs & Gimbals",
     slug: "stabilisateurs",

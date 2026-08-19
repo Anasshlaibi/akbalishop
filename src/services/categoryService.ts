@@ -11,7 +11,6 @@ const DEFAULT_CATEGORY_IMAGES: Record<string, string> = {
   lens: '/wp-content/uploads/categories/objectifs.jpg',
   eclairage: '/wp-content/uploads/categories/eclairage.jpg',
   lighting: '/wp-content/uploads/categories/eclairage.jpg',
-  audio: '/wp-content/uploads/categories/audio.jpg',
   stabilisateurs: '/wp-content/uploads/categories/stabilisateurs.webp',
   stabilizers: '/wp-content/uploads/categories/stabilisateurs.webp',
   occasions: '/wp-content/uploads/Sony-a7S-III-%E2%80%93-Boitier-nu-Bon-etat-300x300.png',
@@ -71,44 +70,37 @@ export class CategoryService {
         return CATEGORIES;
       }
 
-      if (!data || data.length === 0) {
-        this.seedDefaultCategories().catch(err => {
-          console.error('Failed to seed default categories:', err);
-        });
-        return CATEGORIES;
+      // Automatically clean up 'audio' / 'son' row from Supabase if present
+      if (data && data.length > 0) {
+        const audioRow = data.find(r => r.slug === 'audio' || r.id === 'audio' || r.slug === 'son' || r.id === 'son');
+        if (audioRow) {
+          supabase.from('categories').delete().or('id.eq.audio,slug.eq.audio,id.eq.son,slug.eq.son').then(() => {
+            console.log('Cleaned up audio/son category row from Supabase');
+          });
+        }
       }
 
-      // Merge and clean up duplicates / aliases (e.g., lens -> objectifs, appareils-photo -> cameras)
-      const duplicatesToDelete: string[] = [];
       const canonicalMap = new Map<string, Category>();
 
-      // Seed canonical categories first
+      // Seed default canonical categories
       CATEGORIES.forEach(cat => canonicalMap.set(cat.slug, cat));
 
-      data.forEach(row => {
-        const cat = this.mapRowToCategory(row as CategoryRow);
-        const slug = cat.slug.toLowerCase();
+      if (data && data.length > 0) {
+        data.forEach(row => {
+          const cat = this.mapRowToCategory(row as CategoryRow);
+          const slug = cat.slug.toLowerCase();
+          if (slug === 'audio' || slug === 'son') return; // Skip audio category
 
-        let targetSlug = slug;
-        if (slug === 'lens' || slug === 'lenses') targetSlug = 'objectifs';
-        else if (slug === 'appareils-photo') targetSlug = 'cameras';
-        else if (slug === 'lighting') targetSlug = 'eclairage';
-        else if (slug === 'stabilizers') targetSlug = 'stabilisateurs';
-        else if (slug === 'rental') targetSlug = 'location';
-        else if (slug === 'accessories') targetSlug = 'accessoires';
+          let targetSlug = slug;
+          if (slug === 'lens' || slug === 'lenses') targetSlug = 'objectifs';
+          else if (slug === 'appareils-photo') targetSlug = 'cameras';
+          else if (slug === 'lighting') targetSlug = 'eclairage';
+          else if (slug === 'stabilizers') targetSlug = 'stabilisateurs';
+          else if (slug === 'rental') targetSlug = 'location';
+          else if (slug === 'accessories') targetSlug = 'accessoires';
 
-        if (targetSlug !== slug) {
-          duplicatesToDelete.push(row.id);
-        } else {
           const existing = canonicalMap.get(targetSlug);
           canonicalMap.set(targetSlug, existing ? { ...existing, ...cat, slug: targetSlug } : cat);
-        }
-      });
-
-      // Asynchronously delete duplicate alias rows from Supabase
-      if (duplicatesToDelete.length > 0) {
-        supabase.from('categories').delete().in('id', duplicatesToDelete).then(() => {
-          console.log('Cleaned up duplicate category alias rows from Supabase:', duplicatesToDelete);
         });
       }
 

@@ -46,9 +46,12 @@ export const CategoryCarousel: React.FC = () => {
                 {/* Category Image Box */}
                 <div className="w-20 h-20 rounded-xl bg-slate-50 p-2 border border-gray-100 flex items-center justify-center overflow-hidden mb-2 group-hover:border-amber-300 transition-colors">
                   <img 
-                    src={cat.image} 
+                    src={cat.image && (cat.image.startsWith('/') || cat.image.startsWith('http') || cat.image.startsWith('data:')) ? cat.image : '/wp-content/uploads/electronics-store-55.png'} 
                     alt={cat.name} 
                     className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/wp-content/uploads/electronics-store-55.png';
+                    }}
                   />
                 </div>
 

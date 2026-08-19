@@ -4,15 +4,39 @@ import { Database } from '../types/database.types';
 
 export type CategoryRow = Database['public']['Tables']['categories']['Row'];
 
+const DEFAULT_CATEGORY_IMAGES: Record<string, string> = {
+  cameras: '/wp-content/uploads/AkabliShop-Head.webp',
+  objectifs: '/wp-content/uploads/AkabliShop-Lens.webp',
+  lenses: '/wp-content/uploads/AkabliShop-Lens.webp',
+  lens: '/wp-content/uploads/AkabliShop-Lens.webp',
+  eclairage: '/wp-content/uploads/electronics-store-85-300x266.png',
+  lighting: '/wp-content/uploads/electronics-store-85-300x266.png',
+  audio: '/wp-content/uploads/electronics-store-86-300x266.png',
+  stabilisateurs: '/wp-content/uploads/electronics-store-87.png',
+  stabilizers: '/wp-content/uploads/electronics-store-87.png',
+  occasions: '/wp-content/uploads/Sony-a7S-III-%E2%80%93-Boitier-nu-Bon-etat-300x300.png',
+  location: '/wp-content/uploads/SONY-FX6-jpg-300x300.webp',
+  rental: '/wp-content/uploads/SONY-FX6-jpg-300x300.webp',
+  accessoires: '/wp-content/uploads/electronics-store-55.png',
+  accessories: '/wp-content/uploads/electronics-store-55.png',
+  'appareils-photo': '/wp-content/uploads/AkabliShop-Head.webp',
+};
+
 export class CategoryService {
   public mapRowToCategory(row: CategoryRow): Category {
+    let img = (row.image || '').trim();
+    if (!img || (!img.startsWith('/') && !img.startsWith('http') && !img.startsWith('data:'))) {
+      const slugKey = (row.slug || row.id || '').toLowerCase();
+      img = DEFAULT_CATEGORY_IMAGES[slugKey] || '/wp-content/uploads/electronics-store-55.png';
+    }
+
     return {
       id: row.id,
       name: row.name,
       slug: row.slug,
       description: row.description || '',
       itemCount: row.item_count || 0,
-      image: row.image,
+      image: img,
       iconName: row.icon_name || 'Tag'
     };
   }

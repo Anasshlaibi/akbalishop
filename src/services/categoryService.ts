@@ -72,14 +72,47 @@ export class CategoryService {
       }
 
       if (!data || data.length === 0) {
-        // Seed default categories into Supabase if table is empty
         this.seedDefaultCategories().catch(err => {
           console.error('Failed to seed default categories:', err);
         });
         return CATEGORIES;
       }
 
-      return data.map(row => this.mapRowToCategory(row as CategoryRow));
+      // Merge and clean up duplicates / aliases (e.g., lens -> objectifs, appareils-photo -> cameras)
+      const duplicatesToDelete: string[] = [];
+      const canonicalMap = new Map<string, Category>();
+
+      // Seed canonical categories first
+      CATEGORIES.forEach(cat => canonicalMap.set(cat.slug, cat));
+
+      data.forEach(row => {
+        const cat = this.mapRowToCategory(row as CategoryRow);
+        const slug = cat.slug.toLowerCase();
+
+        let targetSlug = slug;
+        if (slug === 'lens' || slug === 'lenses') targetSlug = 'objectifs';
+        else if (slug === 'appareils-photo') targetSlug = 'cameras';
+        else if (slug === 'lighting') targetSlug = 'eclairage';
+        else if (slug === 'stabilizers') targetSlug = 'stabilisateurs';
+        else if (slug === 'rental') targetSlug = 'location';
+        else if (slug === 'accessories') targetSlug = 'accessoires';
+
+        if (targetSlug !== slug) {
+          duplicatesToDelete.push(row.id);
+        } else {
+          const existing = canonicalMap.get(targetSlug);
+          canonicalMap.set(targetSlug, existing ? { ...existing, ...cat, slug: targetSlug } : cat);
+        }
+      });
+
+      // Asynchronously delete duplicate alias rows from Supabase
+      if (duplicatesToDelete.length > 0) {
+        supabase.from('categories').delete().in('id', duplicatesToDelete).then(() => {
+          console.log('Cleaned up duplicate category alias rows from Supabase:', duplicatesToDelete);
+        });
+      }
+
+      return Array.from(canonicalMap.values());
     } catch (err) {
       console.error('categoryService.getCategories exception:', err);
       return CATEGORIES;
@@ -107,14 +140,12 @@ export class CategoryService {
     try {
       const row = this.mapCategoryToRow(category);
       
-      // 1. Try upserting by ID
       const { error } = await supabase.from('categories').upsert([row], { onConflict: 'id' });
       
       if (error) {
         const msg = error.message || JSON.stringify(error);
         console.warn('categoryService.saveCategory initial upsert failed, trying update by slug:', msg);
 
-        // 2. Fallback: Update by slug if slug already exists under a different primary key
         const { error: updateError } = await supabase
           .from('categories')
           .update({

@@ -26,7 +26,12 @@ export const CategoryCarousel: React.FC = () => {
     if (slug === 'location') {
       return activeProducts.filter(p => p.isRental || p.commercialMode === 'rental' || p.commercialMode === 'both').length;
     }
-    return activeProducts.filter(p => p.category.toLowerCase() === slug.toLowerCase()).length;
+    return activeProducts.filter(p => {
+      const pCat = p.category.toLowerCase();
+      if (slug === 'objectifs' && (pCat === 'objectifs' || pCat === 'lens' || pCat === 'lenses')) return true;
+      if (slug === 'cameras' && (pCat === 'cameras' || pCat === 'appareils-photo')) return true;
+      return pCat === slug.toLowerCase();
+    }).length;
   };
 
   return (

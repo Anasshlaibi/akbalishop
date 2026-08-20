@@ -1,3 +1,4 @@
+import { CATEGORIES, normalizeCategorySlug, getCategoryCount } from '../data/categories';
 import { useState, useEffect, useMemo } from 'react';
 import { Product, ConditionFilter, SortOption } from '../types';
 import { productService, MutationResult } from '../services/productService';
@@ -114,12 +115,10 @@ export function useProducts() {
 
   // Derived categories from active catalog
   const availableCategories = useMemo(() => {
-    const counts = new Map<string, number>();
-    activeProducts.forEach(p => {
-      const cat = p.category.toLowerCase();
-      counts.set(cat, (counts.get(cat) || 0) + 1);
-    });
-    return Array.from(counts.entries()).map(([category, count]) => ({ category, count }));
+    return CATEGORIES.map(cat => ({
+      category: cat.slug,
+      count: getCategoryCount(cat.slug, activeProducts)
+    }));
   }, [activeProducts]);
 
   // Derived brands from active catalog
@@ -135,31 +134,25 @@ export function useProducts() {
   const filteredProducts = useMemo(() => {
     return activeProducts.filter(p => {
       if (selectedCategory) {
-        const sel = selectedCategory.toLowerCase();
-        const pCat = (p.category || '').toLowerCase();
+        const normSel = normalizeCategorySlug(selectedCategory);
+        const normPCat = normalizeCategorySlug(p.category);
 
-        if (sel === 'stabilisateurs' || sel === 'stabilizers') {
-          const isStab = pCat === 'stabilisateurs' || 
-                         pCat === 'stabilizers' || 
-                         pCat === 'gimbal' || 
-                         p.name.toLowerCase().includes('stabilisat') || 
-                         p.name.toLowerCase().includes('ronin') || 
-                         p.name.toLowerCase().includes('gimbal') || 
-                         (p.shortDescription || '').toLowerCase().includes('stabilisat') || 
-                         (p.shortDescription || '').toLowerCase().includes('gimbal');
-          if (!isStab) return false;
-        } else if (sel === 'objectifs' || sel === 'lenses' || sel === 'lens') {
-          const isLens = pCat === 'objectifs' || pCat === 'lenses' || pCat === 'lens' || p.name.toLowerCase().includes('objectif');
-          if (!isLens) return false;
-        } else if (sel === 'cameras' || sel === 'appareils-photo') {
-          const isCam = pCat === 'cameras' || pCat === 'appareils-photo' || p.name.toLowerCase().includes('caméra') || p.name.toLowerCase().includes('camera') || p.name.toLowerCase().includes('boîtier');
-          if (!isCam) return false;
-        } else if (pCat !== sel) {
-          return false;
+        if (normSel === 'occasions') {
+          if (normPCat !== 'occasions' && !p.isOccasion && p.condition !== 'used') return false;
+        } else if (normSel === 'location') {
+          if (normPCat !== 'location' && !p.isRental && p.commercialMode !== 'rental' && p.commercialMode !== 'both') return false;
+        } else {
+          if (normPCat !== normSel) return false;
         }
       }
-      if (selectedBrand && p.brand.toLowerCase() !== selectedBrand.toLowerCase()) {
-        return false;
+      if (selectedBrand) {
+        const normSelectedBrand = selectedBrand.toLowerCase().trim();
+        const pBrandNorm = (p.brand || '').toLowerCase().trim();
+        const isMatch = pBrandNorm === normSelectedBrand ||
+                        pBrandNorm.includes(normSelectedBrand) ||
+                        normSelectedBrand.includes(pBrandNorm) ||
+                        p.name.toLowerCase().includes(normSelectedBrand);
+        if (!isMatch) return false;
       }
       if (conditionFilter === 'neuf' && !p.isNew && p.condition !== 'new') return false;
       if (conditionFilter === 'occasion' && !p.isOccasion && p.condition !== 'used') return false;
@@ -170,7 +163,7 @@ export function useProducts() {
         const matchesName = p.name.toLowerCase().includes(q);
         const matchesBrand = p.brand.toLowerCase().includes(q);
         const matchesCat = p.category.toLowerCase().includes(q);
-        const matchesDesc = p.shortDescription.toLowerCase().includes(q);
+        const matchesDesc = (p.shortDescription || '').toLowerCase().includes(q);
         if (!matchesName && !matchesBrand && !matchesCat && !matchesDesc) return false;
       }
       return true;

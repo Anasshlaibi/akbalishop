@@ -3,9 +3,10 @@ import { BRANDS } from '../data/brands';
 import { useShop } from '../context/ShopContext';
 
 export const BrandSection: React.FC = () => {
-  const { setActiveTab, setSelectedBrand } = useShop();
+  const { setActiveTab, setSelectedBrand, resetFilters } = useShop();
 
   const handleBrandClick = (brandName: string) => {
+    resetFilters();
     setSelectedBrand(brandName);
     setActiveTab('shop');
   };

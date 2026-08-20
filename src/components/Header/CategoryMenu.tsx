@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useShop } from '../../context/ShopContext';
-import { CATEGORIES } from '../../data/categories';
+import { CATEGORIES, normalizeCategorySlug, getCategoryCount } from '../../data/categories';
 import { Menu, ChevronDown, Camera, Aperture, Sun, Mic, Video, RefreshCw, Calendar, Sliders, Package, Tag, Sparkles, Film, Star, Zap, Grid, Shield } from 'lucide-react';
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -24,7 +24,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export const CategoryMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { categories, setSelectedCategory, setConditionFilter, setActiveTab, resetFilters } = useShop();
+  const { categories, products, setSelectedCategory, setConditionFilter, setActiveTab, resetFilters } = useShop();
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -37,17 +37,18 @@ export const CategoryMenu: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleSelectCategory = (categoryId: string) => {
+  const handleSelectCategory = (categorySlug: string) => {
     resetFilters();
-    if (categoryId === 'occasions') {
+    const normSlug = normalizeCategorySlug(categorySlug);
+    if (normSlug === 'occasions') {
       setConditionFilter('occasion');
       setSelectedCategory(null);
-    } else if (categoryId === 'rental') {
+    } else if (normSlug === 'location') {
       setConditionFilter('location');
       setSelectedCategory(null);
     } else {
       setConditionFilter('all');
-      setSelectedCategory(categoryId);
+      setSelectedCategory(normSlug);
     }
     setActiveTab('shop');
     setIsOpen(false);
@@ -75,7 +76,7 @@ export const CategoryMenu: React.FC = () => {
             {(categories || CATEGORIES).map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => handleSelectCategory(cat.id)}
+                onClick={() => handleSelectCategory(cat.slug)}
                 className="w-full px-4 py-2.5 flex items-center space-x-3 text-xs font-bold text-slate-700 hover:bg-amber-50 hover:text-amber-700 transition-colors text-left border-b border-gray-50 last:border-0"
               >
                 <span className="p-1.5 rounded-lg bg-amber-100/70 text-amber-700 flex-shrink-0">
@@ -83,7 +84,7 @@ export const CategoryMenu: React.FC = () => {
                 </span>
                 <span className="flex-1 truncate">{cat.name}</span>
                 <span className="text-[10px] font-extrabold text-slate-400 px-1.5 py-0.5 rounded-md bg-slate-100">
-                  {cat.itemCount}
+                  {getCategoryCount(cat.slug, products)}
                 </span>
               </button>
             ))}

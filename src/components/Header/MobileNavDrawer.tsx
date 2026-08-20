@@ -1,6 +1,6 @@
 import React from 'react';
 import { useShop } from '../../context/ShopContext';
-import { CATEGORIES } from '../../data/categories';
+import { CATEGORIES, normalizeCategorySlug, getCategoryCount } from '../../data/categories';
 import { X, Search, Phone, ChevronRight, MessageCircle, MapPin } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 
@@ -11,6 +11,7 @@ interface MobileNavDrawerProps {
 
 export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({ isOpen, onClose }) => {
   const { 
+    products,
     setActiveTab, 
     setSelectedCategory, 
     setConditionFilter, 
@@ -23,7 +24,7 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({ isOpen, onClos
   const handleCategorySelect = (categorySlug?: string, condition?: 'occasion' | 'location') => {
     resetFilters();
     setActiveTab('shop');
-    if (categorySlug) setSelectedCategory(categorySlug);
+    if (categorySlug) setSelectedCategory(normalizeCategorySlug(categorySlug));
     if (condition) setConditionFilter(condition);
     onClose();
   };
@@ -99,7 +100,7 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({ isOpen, onClos
                 className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-left text-xs font-medium text-slate-700 hover:text-amber-600 hover:bg-amber-50"
               >
                 <span>{cat.name}</span>
-                <span className="text-[10px] bg-slate-100 px-2 py-0.5 rounded-full text-slate-500 font-semibold">{cat.itemCount}</span>
+                <span className="text-[10px] bg-slate-100 px-2 py-0.5 rounded-full text-slate-500 font-semibold">{getCategoryCount(cat.slug, products)}</span>
               </button>
             ))}
 

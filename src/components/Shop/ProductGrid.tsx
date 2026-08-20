@@ -1,12 +1,13 @@
 import React from 'react';
 import { useShop, SortOption } from '../../context/ShopContext';
 import { ProductCard } from '../ProductCard';
-import { CATEGORIES } from '../../data/categories';
+import { CATEGORIES, normalizeCategorySlug } from '../../data/categories';
 import { Grid, List, SlidersHorizontal, ArrowUpDown, SearchX } from 'lucide-react';
 
 export const ProductGrid: React.FC = () => {
   const {
     products,
+    filteredProducts,
     selectedCategory,
     selectedBrand,
     conditionFilter,
@@ -22,37 +23,7 @@ export const ProductGrid: React.FC = () => {
   // Public storefront products (excluding soft-deactivated is_active === false)
   const activeProducts = products.filter(p => p.isActive !== false);
 
-  // Filter products based on search, category, brand, condition
-  const filteredProducts = activeProducts.filter(product => {
-    // Search query filter
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      const matchName = product.name.toLowerCase().includes(q);
-      const matchBrand = product.brand.toLowerCase().includes(q);
-      const matchCat = product.category.toLowerCase().includes(q);
-      const matchDesc = product.shortDescription?.toLowerCase().includes(q) || false;
-      if (!matchName && !matchBrand && !matchCat && !matchDesc) return false;
-    }
-
-    // Category filter
-    if (selectedCategory) {
-      if (product.category.toLowerCase() !== selectedCategory.toLowerCase()) return false;
-    }
-
-    // Brand filter
-    if (selectedBrand) {
-      if (product.brand.toLowerCase() !== selectedBrand.toLowerCase()) return false;
-    }
-
-    // Condition filter
-    if (conditionFilter === 'neuf' && !product.isNew && product.condition !== 'new') return false;
-    if (conditionFilter === 'occasion' && !product.isOccasion && product.condition !== 'used') return false;
-    if (conditionFilter === 'location' && !product.isRental && product.commercialMode !== 'rental' && product.commercialMode !== 'both') return false;
-
-    return true;
-  });
-
-  // Sort products
+  // Use filteredProducts directly from ShopContext
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortBy === 'price-asc') return a.price - b.price;
     if (sortBy === 'price-desc') return b.price - a.price;
@@ -61,7 +32,8 @@ export const ProductGrid: React.FC = () => {
   });
 
   // Get active category object for title
-  const activeCategoryObj = CATEGORIES.find(c => c.slug === selectedCategory);
+  const normSelCategory = selectedCategory ? normalizeCategorySlug(selectedCategory) : null;
+  const activeCategoryObj = CATEGORIES.find(c => c.slug === normSelCategory);
 
   return (
     <div className="flex-1 space-y-6">

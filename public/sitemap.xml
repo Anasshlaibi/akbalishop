@@ -6,690 +6,1893 @@
           http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://akablishop.ma/</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://akablishop.ma/?tab=shop</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?tab=rental</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?tab=contact</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://akablishop.ma/?category=cameras</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://akablishop.ma/?category=objectifs</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?category=lenses</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://akablishop.ma/?category=eclairage</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?category=audio</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://akablishop.ma/?category=stabilisateurs</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://akablishop.ma/?category=accessoires</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?category=location</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://akablishop.ma/?category=occasions</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://akablishop.ma/?category=location</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?brand=sony</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?brand=canon</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?brand=nikon</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?brand=godox</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?brand=dji</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?brand=rode</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?brand=7artisans</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?brand=gopro</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?brand=insta360</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?brand=kfconcept</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=allbum-photo</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/album-photo-special-instax-mini-993658.webp</image:loc>
-      <image:title>Album Photo Spécial Instax Mini - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Album Photo Spécial Instax Mini (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=battery-canon-lp-e6</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/batterie-canon-lp-e6n-pour-boitiers-eos-812587.webp</image:loc>
-      <image:title>Batterie Canon LP-E6N pour Boîtiers EOS - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Batterie Canon LP-E6N pour Boîtiers EOS (Canon) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=battery-pd-to-fz100</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/adaptateur-alimentation-pd-vers-sony-np-fz100-902623.webp</image:loc>
-      <image:title>ZGCINE – USB-C PD to FZ100 Dummy Battery for SONY – PD-FZ100 For SONY - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer ZGCINE – USB-C PD to FZ100 Dummy Battery for SONY – PD-FZ100 For SONY (K&amp;F) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=battery-sony-fz100</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/batterie-originale-sony-np-fz100-pour-alpha-fx-965001.webp</image:loc>
-      <image:title>Batterie Originale Sony NP-FZ100 pour Alpha &amp; FX - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Batterie Originale Sony NP-FZ100 pour Alpha &amp; FX (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=battery-sony-np-f770</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/batterie-sony-np-f770-li-ion-pour-eclairage-moniteurs-763183.webp</image:loc>
-      <image:title>Batterie Sony NP-F770 Li-ion pour Éclairage &amp; Moniteurs - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Batterie Sony NP-F770 Li-ion pour Éclairage &amp; Moniteurs (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=battery-x4-insta360</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/batterie-rechargeable-d-origine-insta360-x4-084486.webp</image:loc>
-      <image:title>Insta360 Batterie Rechargeable X4 – 2290 mAh - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Insta360 Batterie Rechargeable X4 – 2290 mAh (Insta360) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=battons-de-nettoyage-capteur</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/batons-swabs-de-nettoyage-pour-capteur-plein-format-10-pcs-514222.webp</image:loc>
-      <image:title>Bâtons Swabs de Nettoyage pour Capteur Plein Format (10 pcs) - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Bâtons Swabs de Nettoyage pour Capteur Plein Format (10 pcs) (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=bouchonne-boitier-c</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/bouchon-de-boitier-canon-monture-ef-rf-030242.webp</image:loc>
-      <image:title>Bouchon de Boîtier Canon (Monture EF/RF) - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Bouchon de Boîtier Canon (Monture EF/RF) (Canon) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=bouchonne-boitier-n</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/bouchon-de-boitier-nikon-monture-f-z-068265.webp</image:loc>
-      <image:title>Bouchon de Boîtier Nikon (Monture F/Z) - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Bouchon de Boîtier Nikon (Monture F/Z) (Nikon) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=cable-hdmi-8k</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/cable-hdmi-2-1-ultra-high-speed-8k-60hz-4k-120hz-211437.webp</image:loc>
-      <image:title>Câble HDMI 2.1 Ultra High Speed 8K 60Hz / 4K 120Hz - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Câble HDMI 2.1 Ultra High Speed 8K 60Hz / 4K 120Hz (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=camera-dc8200</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/camera-numerique-compacte-mini-dc8200-120625.webp</image:loc>
-      <image:title>Caméra Numérique Compacte Mini DC8200 - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Caméra Numérique Compacte Mini DC8200 (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=camera-degital-c1</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/camera-numerique-mini-c1-rupture-271605.webp</image:loc>
-      <image:title>Caméra Numérique Mini C1 (Rupture) - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Caméra Numérique Mini C1 (Rupture) (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=camera-degital-dc5200</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/camera-numerique-mini-dc5200-rupture-188389.webp</image:loc>
-      <image:title>Caméra Numérique Mini DC5200 (Rupture) - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Caméra Numérique Mini DC5200 (Rupture) (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=camera-degital-dc9200</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/camera-numerique-compacte-mini-dc9200-001193.webp</image:loc>
-      <image:title>Caméra Numérique Compacte Mini DC9200 - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Caméra Numérique Compacte Mini DC9200 (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=cleaning-kit</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/kit-de-nettoyage-appareil-photo-156064.webp</image:loc>
-      <image:title>Kit de nettoyage appareil photo - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Kit de nettoyage appareil photo (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=fast-charge-x4</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/station-de-charge-rapide-quadruple-fast-charge-x4-018099.webp</image:loc>
-      <image:title>Station de Charge Rapide Quadruple Fast Charge x4 - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Station de Charge Rapide Quadruple Fast Charge x4 (insta360) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=fast-charge-x5</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/station-de-charge-rapide-quintuple-fast-charge-x5-361730.webp</image:loc>
-      <image:title>Station de Charge Rapide Quintuple Fast Charge x5 - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Station de Charge Rapide Quintuple Fast Charge x5 (Insta360) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=fond-papier</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/fond-papier-studio-roule-2-72m-x-11m-445452.webp</image:loc>
-      <image:title>Fond Papier Studio Roulé 2.72m x 11m - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Fond Papier Studio Roulé 2.72m x 11m (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=godox-sl60w-led-light</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/godox-sl60w-projecteur-led-studio-60w-616842.webp</image:loc>
-      <image:title>Godox SL60W Projecteur LED Studio 60W - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Godox SL60W Projecteur LED Studio 60W (Godox) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=lens-cap-insta360</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/insta360-capuchon-d-objectif-430076.webp</image:loc>
-      <image:title>Insta360 capuchon d’objectif - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Insta360 capuchon d’objectif (Insta360) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=lexar-128-v30</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/carte-memoire-lexar-128gb-255mb-s-v30-sdxc-111689.webp</image:loc>
-      <image:title>Carte Mémoire Lexar 128GB 205mb/s V30 SDXC - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Carte Mémoire Lexar 128GB 205mb/s V30 SDXC (Lexar) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=lexar-256-silver</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sandisk-extreme-pro-sd-256go-200mb-s-v30-u3-626016.webp</image:loc>
-      <image:title>SANDISK Extreme Pro SD 256Go-200MB/s V30 U3 - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer SANDISK Extreme Pro SD 256Go-200MB/s V30 U3 (Lexar) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=lexar-64-v30</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://yahyaouishop.com/wp-content/uploads/2026/08/Hollyland-Lark-A1-Combo-with-USB-C-RX-Lightning-RX-Charging-Case-yahyaoui-yahyaouishop.com-casablanca-maarif.avif</image:loc>
-      <image:title>Hollyland Lark A1 Combo with USB-C RX + Lightning RX + Charging Case - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Hollyland Lark A1 Combo with USB-C RX + Lightning RX + Charging Case (Hollyland) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=lexar-64-v60-gold</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/carte-memoire-lexar-professional-64gb-v60-gold-1800x-559717.webp</image:loc>
-      <image:title>Carte Mémoire Lexar Professional 64GB V60 GOLD 1800x - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Carte Mémoire Lexar Professional 64GB V60 GOLD 1800x (Lexar) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=mini-bras-magique</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/mini-bras-magique-articule-magic-arm-1-4-558137.webp</image:loc>
-      <image:title>Mini Bras Magique Articulé Magic Arm 1/4&quot; - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Mini Bras Magique Articulé Magic Arm 1/4&quot; (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=nd-filtre-sony-62mm</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-osmo-pocket-4-standard-combo-715230.webp</image:loc>
-      <image:title>DJI OSMO POCKET 4 STANDARD COMBO - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer DJI OSMO POCKET 4 STANDARD COMBO (DJI) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=nd-filtre-sony-77mm</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/insta360-mic-pro-duo-wireless-system-878629.webp</image:loc>
-      <image:title>Insta360 Mic Pro Duo Wireless System - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Insta360 Mic Pro Duo Wireless System (Insta360) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=nd-filtre-sony-82mm</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/kf-concept-filtre-variable-slim-nano-x-ndx-82mm-nd2-a-nd400-806312.webp</image:loc>
-      <image:title>KF CONCEPT filtre variable slim NANO-X NDX 82MM – ND2 À ND400 - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer KF CONCEPT filtre variable slim NANO-X NDX 82MM – ND2 À ND400 (K&amp;F Concept) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=nicefoto-softbox-70cm</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/softbox-parabolique-nicefoto-70cm-monture-bowens-823320.webp</image:loc>
-      <image:title>Softbox Parabolique NiceFoto 70cm Monture Bowens - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Softbox Parabolique NiceFoto 70cm Monture Bowens (Godox) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=papier-instax-mini</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
-      <image:title>Pack de Films Fujifilm Instax Mini (10/20 Vues) - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Pack de Films Fujifilm Instax Mini (10/20 Vues) (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=pochette-carte-memoire</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/pochette-etui-de-protection-pour-cartes-memoire-sd-cfexpress-281826.webp</image:loc>
-      <image:title>Pochette Étui de Protection pour Cartes Mémoire SD &amp; CFexpress - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Pochette Étui de Protection pour Cartes Mémoire SD &amp; CFexpress (AKABLISHOP) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=prod-1786546021266</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/objectif-24-70-f4-zeiss-601535.webp</image:loc>
-      <image:title>objectif 24-70 f4 zeiss - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer objectif 24-70 f4 zeiss (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=prod-1786577947999</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/pack-instax-mini-12-film-album-pochette-926827.webp</image:loc>
-      <image:title>Pack Instax Mini 12 + Film + Album + Pochette - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Pack Instax Mini 12 + Film + Album + Pochette (Pack Instax Mini 12 + Film + Album + Pochette) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=prod-1786663825627</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-osmo-pocket-3-creator-combo-814790.webp</image:loc>
-      <image:title>DJI Osmo Pocket 3 Creator Combo - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer DJI Osmo Pocket 3 Creator Combo (DJI) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=prod-1786663870450</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-alpha-7-iv-boitier-nu-neuf-868210.webp</image:loc>
-      <image:title>Sony alpha 7 IV – Boitier NU (Neuf) - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Sony alpha 7 IV – Boitier NU (Neuf) (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=prod-1786663909701</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-alpha-7-mark-v-boitier-nu-899103.webp</image:loc>
-      <image:title>SONY ALPHA 7 MARK V – Bôitier Nu - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer SONY ALPHA 7 MARK V – Bôitier Nu (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=prod-1786663946956</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-zv-e10-ii-943773.webp</image:loc>
-      <image:title>SONY ZV-E10 II - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer SONY ZV-E10 II (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=prod-1786663983275</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-fx30-digital-cinema-camera-981504.webp</image:loc>
-      <image:title>Sony FX30 Digital Cinema Camera - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Sony FX30 Digital Cinema Camera (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=prod-1786664025928</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-a7r-v-5-mirrorless-camera-023621.webp</image:loc>
-      <image:title>Sony a7R V (5) – Mirrorless Camera - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Sony a7R V (5) – Mirrorless Camera (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=rode-wireless-pro</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/r-de-wireless-pro-systeme-micro-hf-sans-fil-475329.webp</image:loc>
-      <image:title>RØDE Wireless GO II - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer RØDE Wireless GO II (Røde) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=sandisk-128</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/carte-memoire-sandisk-extreme-pro-128gb-sdxc-387059.webp</image:loc>
-      <image:title>Carte Mémoire SanDisk Extreme PRO 128GB SDXC - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Carte Mémoire SanDisk Extreme PRO 128GB SDXC (SanDisk) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=sandisk-64</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/carte-memoire-sandisk-extreme-64gb-sdxc-170mb-s-336237.webp</image:loc>
-      <image:title>Carte Mémoire SanDisk Extreme 64GB SDXC 170MB/s - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Carte Mémoire SanDisk Extreme 64GB SDXC 170MB/s (SanDisk) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://akablishop.ma/?product=sony-a7s-iii-occasion</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://akablishop.ma/wp-content/uploads/Sony-a7S-III-%E2%80%93-Boitier-nu-Bon-etat-300x300.png</image:loc>
-      <image:title>Sony a7S III – Boitier nu (Bon Occasion) - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Sony a7S III – Boitier nu (Bon Occasion) (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
-    </image:image>
+    <loc>https://akablishop.ma/?tab=contact</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://akablishop.ma/?product=sony-fe-24-70mm-f28-gm-ii</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-fe-24-70mm-f-2-8-gm-ii-069094.webp</image:loc>
-      <image:title>Sony FE 24-70mm f/2.8 GM II - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Sony FE 24-70mm f/2.8 GM II (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-fe-24-70mm-f-2-8-gm-ii-460216.webp</image:loc>
+      <image:title>Sony Sony FE 24-70mm f/2.8 GM II - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Sony FE 24-70mm f/2.8 GM II (Sony) au meilleur prix au Maroc (21 200 DH) chez AKABLISHOP Marrakech. Zoom transstandard professionnel léger G M</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/AkabliShop-Lens.webp</image:loc>
+      <image:title>Sony Sony FE 24-70mm f/2.8 GM II vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Sony FE 24-70mm f/2.8 GM II (Sony) au meilleur prix au Maroc (21 200 DH) chez AKABLISHOP Marrakech. Zoom transstandard professionnel léger G M</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://akablishop.ma/?product=sony-fx3-cinema</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://akablishop.ma/wp-content/uploads/sony_ilme_fx3_fx3_cinema_camera_1624226-300x300.jpg</image:loc>
-      <image:title>Sony FX3 Caméra Cinéma - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Sony FX3 Caméra Cinéma (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
+      <image:title>Sony Sony FX3 Caméra Cinéma - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Sony FX3 Caméra Cinéma (Sony) au meilleur prix au Maroc (42 500 DH) chez AKABLISHOP Marrakech. Caméra Cinéma compacte Plein Format 4K 120p ave</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://akablishop.ma/?product=sony-fx6-cinema</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://akablishop.ma/?product=lexar-256-silver</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <image:image>
-      <image:loc>https://akablishop.ma/wp-content/uploads/SONY-FX6-jpg-300x300.webp</image:loc>
-      <image:title>Sony FX6 – Caméra Cinéma - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Sony FX6 – Caméra Cinéma (Sony) à Marrakech, Maroc au meilleur prix.</image:caption>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sandisk-extreme-pro-sd-256go-200mb-s-v30-u3-626016.webp</image:loc>
+      <image:title>SanDisk SANDISK Extreme Pro SD 256Go-200MB/s V30 U3 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez SANDISK Extreme Pro SD 256Go-200MB/s V30 U3 (SanDisk) au meilleur prix au Maroc (520 DH) chez AKABLISHOP Marrakech. Carte haute capacité 256 G</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>SanDisk SANDISK Extreme Pro SD 256Go-200MB/s V30 U3 vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez SANDISK Extreme Pro SD 256Go-200MB/s V30 U3 (SanDisk) au meilleur prix au Maroc (520 DH) chez AKABLISHOP Marrakech. Carte haute capacité 256 G</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://akablishop.ma/?product=stand-camera-daction</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://akablishop.ma/?product=sandisk-128</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/manfrotto-pixi-mtpiximii-b-trepied-mini-324669.webp</image:loc>
-      <image:title>Manfrotto PIXI MTPIXIMII-B Trépied Mini - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Manfrotto PIXI MTPIXIMII-B Trépied Mini (GoPro) à Marrakech, Maroc au meilleur prix.</image:caption>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/carte-memoire-sandisk-extreme-pro-128gb-sdxc-387059.webp</image:loc>
+      <image:title>SanDisk Carte Mémoire SanDisk Extreme PRO 128GB SDXC - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Carte Mémoire SanDisk Extreme PRO 128GB SDXC (SanDisk) au meilleur prix au Maroc (420 DH) chez AKABLISHOP Marrakech. Actuellement en rupture d</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>SanDisk Carte Mémoire SanDisk Extreme PRO 128GB SDXC vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Carte Mémoire SanDisk Extreme PRO 128GB SDXC (SanDisk) au meilleur prix au Maroc (420 DH) chez AKABLISHOP Marrakech. Actuellement en rupture d</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://akablishop.ma/?product=stand-rode</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://akablishop.ma/?product=fast-charge-x4</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <image:image>
-      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/support-stand-de-bureau-pour-microphone-r-de-398794.webp</image:loc>
-      <image:title>Support Stand de Bureau pour Microphone Røde - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Support Stand de Bureau pour Microphone Røde (Røde) à Marrakech, Maroc au meilleur prix.</image:caption>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/station-de-charge-rapide-quadruple-fast-charge-x4-018099.webp</image:loc>
+      <image:title>Insta360 Station de Charge Rapide Quadruple Fast Charge x4 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Station de Charge Rapide Quadruple Fast Charge x4 (Insta360) au meilleur prix au Maroc (720 DH) chez AKABLISHOP Marrakech. Charge simultanée u</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-85-300x266.png</image:loc>
+      <image:title>Insta360 Station de Charge Rapide Quadruple Fast Charge x4 vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Station de Charge Rapide Quadruple Fast Charge x4 (Insta360) au meilleur prix au Maroc (720 DH) chez AKABLISHOP Marrakech. Charge simultanée u</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://akablishop.ma/?product=ulanzi-lce-rgb</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/ulanzi-vl110-rgb-tube-light-714244.webp</image:loc>
-      <image:title>ULANZI VL110 RGB TUBE LIGHT - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer ULANZI VL110 RGB TUBE LIGHT (Godox) à Marrakech, Maroc au meilleur prix.</image:caption>
+      <image:title>Godox ULANZI VL110 RGB TUBE LIGHT - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez ULANZI VL110 RGB TUBE LIGHT (Godox) au meilleur prix au Maroc (900 DH) chez AKABLISHOP Marrakech. Bâton lumineux LED RGB portable pour arrière</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-85-300x266.png</image:loc>
+      <image:title>Godox ULANZI VL110 RGB TUBE LIGHT vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez ULANZI VL110 RGB TUBE LIGHT (Godox) au meilleur prix au Maroc (900 DH) chez AKABLISHOP Marrakech. Bâton lumineux LED RGB portable pour arrière</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=battery-sony-fz100</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/batterie-originale-sony-np-fz100-pour-alpha-fx-965001.webp</image:loc>
+      <image:title>Sony Batterie Originale Sony NP-FZ100 pour Alpha &amp; FX - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Batterie Originale Sony NP-FZ100 pour Alpha &amp; FX (Sony) au meilleur prix au Maroc (500 DH) chez AKABLISHOP Marrakech. Batterie InfoLITHIUM sér</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/AkabliShop-Head.webp</image:loc>
+      <image:title>Sony Batterie Originale Sony NP-FZ100 pour Alpha &amp; FX vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Batterie Originale Sony NP-FZ100 pour Alpha &amp; FX (Sony) au meilleur prix au Maroc (500 DH) chez AKABLISHOP Marrakech. Batterie InfoLITHIUM sér</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786546021266</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/objectif-24-70-f4-zeiss-601535.webp</image:loc>
+      <image:title>Sony objectif 24-70 f4 zeiss - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez objectif 24-70 f4 zeiss par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 6 800 DH.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/Lente-Sony-FE-16-35mm-f_2_8-GM-II-E-Mount-SEL1635GM2.webp</image:loc>
+      <image:title>Sony objectif 24-70 f4 zeiss vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez objectif 24-70 f4 zeiss par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 6 800 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=battery-pd-to-fz100</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/adaptateur-alimentation-pd-vers-sony-np-fz100-902623.webp</image:loc>
+      <image:title>Sony ZGCINE – USB-C PD to FZ100 Dummy Battery for SONY – PD-FZ100 For SONY - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez ZGCINE – USB-C PD to FZ100 Dummy Battery for SONY – PD-FZ100 For SONY (Sony) au meilleur prix au Maroc (550 DH) chez AKABLISHOP Marrakech. Bat</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/AkabliShop-Head.webp</image:loc>
+      <image:title>Sony ZGCINE – USB-C PD to FZ100 Dummy Battery for SONY – PD-FZ100 For SONY vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez ZGCINE – USB-C PD to FZ100 Dummy Battery for SONY – PD-FZ100 For SONY (Sony) au meilleur prix au Maroc (550 DH) chez AKABLISHOP Marrakech. Bat</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=nd-filtre-sony-82mm</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/kf-concept-filtre-variable-slim-nano-x-ndx-82mm-nd2-a-nd400-806312.webp</image:loc>
+      <image:title>K&amp;F Concept KF CONCEPT filtre variable slim NANO-X NDX 82MM – ND2 À ND400 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez KF CONCEPT filtre variable slim NANO-X NDX 82MM – ND2 À ND400 (K&amp;F Concept) au meilleur prix au Maroc (750 DH) chez AKABLISHOP Marrakech. Le K</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/AkabliShop-Lens.webp</image:loc>
+      <image:title>K&amp;F Concept KF CONCEPT filtre variable slim NANO-X NDX 82MM – ND2 À ND400 vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez KF CONCEPT filtre variable slim NANO-X NDX 82MM – ND2 À ND400 (K&amp;F Concept) au meilleur prix au Maroc (750 DH) chez AKABLISHOP Marrakech. Le K</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=rode-wireless-pro</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/r-de-wireless-pro-systeme-micro-hf-sans-fil-475329.webp</image:loc>
+      <image:title>Røde RØDE Wireless GO II - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez RØDE Wireless GO II (Røde) au meilleur prix au Maroc (3 500 DH) chez AKABLISHOP Marrakech. Système de microphone sans fil compact à 2 canaux a</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-86-300x266.png</image:loc>
+      <image:title>Røde RØDE Wireless GO II vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez RØDE Wireless GO II (Røde) au meilleur prix au Maroc (3 500 DH) chez AKABLISHOP Marrakech. Système de microphone sans fil compact à 2 canaux a</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=camera-dc8200</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/camera-numerique-compacte-mini-dc8200-120625.webp</image:loc>
+      <image:title>AKABLISHOP Caméra Numérique Compacte Mini DC8200 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Caméra Numérique Compacte Mini DC8200 (AKABLISHOP) au meilleur prix au Maroc (1 500 DH) chez AKABLISHOP Marrakech. Appareil photo numérique co</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>AKABLISHOP Caméra Numérique Compacte Mini DC8200 vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Caméra Numérique Compacte Mini DC8200 (AKABLISHOP) au meilleur prix au Maroc (1 500 DH) chez AKABLISHOP Marrakech. Appareil photo numérique co</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=camera-degital-c1</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/camera-numerique-mini-c1-rupture-271605.webp</image:loc>
+      <image:title>AKABLISHOP Caméra Numérique Mini C1 (Rupture) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Caméra Numérique Mini C1 (Rupture) (AKABLISHOP) au meilleur prix au Maroc (1 500 DH) chez AKABLISHOP Marrakech. En stock Livraison rapide part</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>AKABLISHOP Caméra Numérique Mini C1 (Rupture) vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Caméra Numérique Mini C1 (Rupture) (AKABLISHOP) au meilleur prix au Maroc (1 500 DH) chez AKABLISHOP Marrakech. En stock Livraison rapide part</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786663825627</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-osmo-pocket-3-creator-combo-814790.webp</image:loc>
+      <image:title>DJI DJI Osmo Pocket 3 Creator Combo - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez DJI Osmo Pocket 3 Creator Combo (DJI) au meilleur prix au Maroc (7 900 DH) chez AKABLISHOP Marrakech. Le DJI Osmo Pocket 3 Creator Combo est u</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786663946956</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-zv-e10-ii-943773.webp</image:loc>
+      <image:title>Sony SONY ZV-E10 II - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez SONY ZV-E10 II par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 13 000 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786664705128</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/tamron-28-75mm-f2-8-di-iii-vxd-g2-sony-fe-703581.webp</image:loc>
+      <image:title>Sony Tamron 28-75mm F2.8 Di III VXD G2 Sony FE - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Tamron 28-75mm F2.8 Di III VXD G2 Sony FE par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786664531363</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-fe-50mm-f1-2-g-master-529762.webp</image:loc>
+      <image:title>Sony SONY FE 50mm f1.2 G Master - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez SONY FE 50mm f1.2 G Master par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 24 000 </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786788912112</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/hollyland-lark-m2s-902776.webp</image:loc>
+      <image:title>Hollyland Hollyland LARK M2S - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Hollyland LARK M2S (Hollyland) au meilleur prix au Maroc (1 450 DH) chez AKABLISHOP Marrakech. Le Hollyland LARK M2S Ultimate Combo est un sys</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786664882281</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-fe-100-400mm-f4-5-5-6-g-master-oss-880813.webp</image:loc>
+      <image:title>Sony SONY FE 100-400mm f4.5-5.6 G Master OSS - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez SONY FE 100-400mm f4.5-5.6 G Master OSS par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au pr</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786885798092</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/projecteur-led-godox-ml100r-110-w-rgbww-783249.webp</image:loc>
+      <image:title>Godox Projecteur LED Godox ML100R (110 W RGBWW) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Projecteur LED Godox ML100R (110 W RGBWW) (Godox) au meilleur prix au Maroc (3 200 DH) chez AKABLISHOP Marrakech. Projecteur LED Godox ML100R </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786789573089</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/tolifo-pt-15-bi-colour-led-556818.webp</image:loc>
+      <image:title>Godox TOLIFO PT-15 Bi-Colour LED - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez TOLIFO PT-15 Bi-Colour LED (Godox) au meilleur prix au Maroc (800 DH) chez AKABLISHOP Marrakech. La TOLIFO PT-15 Bi-Colour LED est une torche </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786789133200</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/rode-podmic-microphone-dynamique-de-podcast-131364.webp</image:loc>
+      <image:title>Røde Rode PodMic – Microphone dynamique de podcast - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Rode PodMic – Microphone dynamique de podcast par Røde chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786885974080</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/systeme-rail-studio-967916.webp</image:loc>
+      <image:title>Godox Système Rail Studio - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Système Rail Studio (Godox) au meilleur prix au Maroc (4 500 DH) chez AKABLISHOP Marrakech. Le Système Rail Studio Sky Track Top est une solut</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786886100234</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/support-montage-mural-avec-enrouleur-pour-4-fonds-avec-contrepoids-092952.webp</image:loc>
+      <image:title>Sony Support Montage Mural avec Enrouleur pour 4 Fonds avec Contrepoids - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Support Montage Mural avec Enrouleur pour 4 Fonds avec Contrepoids (Sony) au meilleur prix au Maroc (1 200 DH) chez AKABLISHOP Marrakech. Le S</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786886195469</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/canon-eos-c50-7k-full-frame-188923.webp</image:loc>
+      <image:title>Canon Canon EOS C50 7K Full-Frame - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Canon EOS C50 7K Full-Frame (Canon) au meilleur prix au Maroc (44 500 DH) chez AKABLISHOP Marrakech. Le Canon EOS C50 7K Full-Frame est un pui</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786886437977</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/canon-d-cam-eos-r7-rf-s18-150-is-stm-434846.webp</image:loc>
+      <image:title>Canon CANON D.CAM EOS R7 + RF-S18-150 IS STM - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez CANON D.CAM EOS R7 + RF-S18-150 IS STM (Canon) au meilleur prix au Maroc (15 500 DH) chez AKABLISHOP Marrakech. Idéal pour les amateurs de pho</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786886626928</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/canon-eos-r100-rf-s-18-45mm-f4-5-6-3-is-stm-sac-photo-carte-sd-64-go-620996.webp</image:loc>
+      <image:title>Canon Canon EOS R100 + RF-S 18-45mm f4.5-6.3 IS STM + Sac photo + carte SD 64 go - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Canon EOS R100 + RF-S 18-45mm f4.5-6.3 IS STM + Sac photo + carte SD 64 go (Canon) au meilleur prix au Maroc (6 800 DH) chez AKABLISHOP Marrak</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786886766133</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/nikon-z6iii-full-frame-mirrorless-camera-763382.webp</image:loc>
+      <image:title>Nikon Nikon Z6III Full-frame Mirrorless Camera - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Nikon Z6III Full-frame Mirrorless Camera (Nikon) au meilleur prix au Maroc (23 000 DH) chez AKABLISHOP Marrakech. Nikon Z6III Full-frame Mirro</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786887210811</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/insta360-x3-camera-360-5-7k-pack-standard-type-c-ue-208671.webp</image:loc>
+      <image:title>Insta360 Insta360 X3 caméra 360 5,7K – Pack Standard (Type‑C UE) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Insta360 X3 caméra 360 5,7K – Pack Standard (Type‑C UE) par Insta360 chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel cer</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786887571152</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/hollyland-venusliv-air-camera-de-streaming-24-7-558832.webp</image:loc>
+      <image:title>Hollyland Hollyland VenusLiv Air – Caméra de Streaming 24/7 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Hollyland VenusLiv Air – Caméra de Streaming 24/7 (Hollyland) au meilleur prix au Maroc (5 500 DH) chez AKABLISHOP Marrakech. Hollyland VenusL</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786887694011</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/atem-mini-pro-686161.webp</image:loc>
+      <image:title>AKABLISHOP ATEM Mini Pro - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez ATEM Mini Pro (AKABLISHOP) au meilleur prix au Maroc (5 000 DH) chez AKABLISHOP Marrakech. L’ATEM Mini Pro est un mélangeur de streaming en di</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786967994167</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/kit-softbox-3-pieces-avec-lampes-992325.webp</image:loc>
+      <image:title>AKABLISHOP Kit Softbox 3 Pièces avec lampes - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Kit Softbox 3 Pièces avec lampes par AKABLISHOP chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au pri</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786886839619</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/nikon-zr-6k-camera-cinema-fusion-nikon-red-objectif-50mm-f-1-4-834582.webp</image:loc>
+      <image:title>Nikon Nikon ZR 6K Caméra Cinéma – Fusion Nikon × RED + Objectif 50mm f/1.4 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Nikon ZR 6K Caméra Cinéma – Fusion Nikon × RED + Objectif 50mm f/1.4 (Nikon) au meilleur prix au Maroc (23 500 DH) chez AKABLISHOP Marrakech. </image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/nikon-zr-6k-camera-cinema-fusion-nikon-red-objectif-50mm-f-1-4-807842.webp</image:loc>
+      <image:title>Nikon Nikon ZR 6K Caméra Cinéma – Fusion Nikon × RED + Objectif 50mm f/1.4 vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Nikon ZR 6K Caméra Cinéma – Fusion Nikon × RED + Objectif 50mm f/1.4 (Nikon) au meilleur prix au Maroc (23 500 DH) chez AKABLISHOP Marrakech. </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786888077499</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/jmary-mt-49-076230.webp</image:loc>
+      <image:title>Sony Jmary MT-49 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Jmary MT-49 par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 350 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786888246569</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/stand-avenger-combo-245232.webp</image:loc>
+      <image:title>AKABLISHOP STAND AVENGER COMBO - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez STAND AVENGER COMBO par AKABLISHOP chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 2 600 DH</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=7artisans-spectrum-50mm-t20-sony-e</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-spectrum-50mm-t2-0-objectif-cinema-monture-sony-e-833802.webp</image:loc>
+      <image:title>Sony 7Artisans Spectrum 50mm T2.0 Objectif Cinéma (Monture Sony E) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans Spectrum 50mm T2.0 Objectif Cinéma (Monture Sony E) (Sony) au meilleur prix au Maroc (4 800 DH) chez AKABLISHOP Marrakech. Objectif </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=7artisans-af-40mm-f25-sony-e</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-af-40mm-f2-5-compact-autofocus-monture-sony-e-951451.webp</image:loc>
+      <image:title>Sony 7Artisans AF 40mm F2.5 Compact Autofocus (Monture Sony E) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans AF 40mm F2.5 Compact Autofocus (Monture Sony E) (Sony) au meilleur prix au Maroc (2 300 DH) chez AKABLISHOP Marrakech. Objectif Auto</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=7artisans-77mm-true-color-vnd</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-filtre-variable-nd-true-color-77mm-vnd-6-a-9-stops-501473.webp</image:loc>
+      <image:title>7Artisans 7Artisans Filtre Variable ND True Color 77mm (VND 6 à 9 Stops) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans Filtre Variable ND True Color 77mm (VND 6 à 9 Stops) (7Artisans) au meilleur prix au Maroc (950 DH) chez AKABLISHOP Marrakech. Filtr</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=7artisans-af-24mm-f18-sony-e</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-af-24mm-f1-8-grand-angle-monture-sony-e-738009.webp</image:loc>
+      <image:title>Sony 7Artisans AF 24mm F1.8 Grand Angle (Monture Sony E) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans AF 24mm F1.8 Grand Angle (Monture Sony E) (Sony) au meilleur prix au Maroc (3 600 DH) chez AKABLISHOP Marrakech. Grand angle Autofoc</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786967196649</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/manfrotto-pixi-mtpiximii-b-trepied-mini-194565.webp</image:loc>
+      <image:title>AKABLISHOP Manfrotto PIXI MTPIXIMII-B Trépied Mini - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Manfrotto PIXI MTPIXIMII-B Trépied Mini par AKABLISHOP chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786967739115</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/trepied-weifeng-wf-727-alliage-d-aluminium-professionnel-735001.webp</image:loc>
+      <image:title>AKABLISHOP Trépied Weifeng WF-727 Alliage D’aluminium Professionnel - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Trépied Weifeng WF-727 Alliage D’aluminium Professionnel par AKABLISHOP chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=7artisans-50mm-f12-nikon-z</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-50mm-f1-2-objectif-ultra-lumineux-monture-nikon-z-918784.webp</image:loc>
+      <image:title>Nikon 7Artisans 50mm F1.2 Objectif Ultra-Lumineux (Monture Nikon Z) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans 50mm F1.2 Objectif Ultra-Lumineux (Monture Nikon Z) (Nikon) au meilleur prix au Maroc (2 200 DH) chez AKABLISHOP Marrakech. Objectif</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012204309</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-rs4-mini-combo-201883.webp</image:loc>
+      <image:title>DJI DJI RS4 MINI COMBO - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez DJI RS4 MINI COMBO par DJI chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 4 000 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786968226132</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/nicefoto-120cm-octabox-224287.webp</image:loc>
+      <image:title>AKABLISHOP NICEFOTO 120CM OCTABOX - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez NICEFOTO 120CM OCTABOX par AKABLISHOP chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 1 600</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012145948</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-rs4-pro-combo-143358.webp</image:loc>
+      <image:title>DJI DJI RS4 Pro Combo - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez DJI RS4 Pro Combo par DJI chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 12 150 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012540659</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-osmo-mobile-8p-creator-combo-538514.webp</image:loc>
+      <image:title>DJI DJI Osmo Mobile 8P – Creator Combo - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez DJI Osmo Mobile 8P – Creator Combo par DJI chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012718253</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/flash-godox-v100-715302.webp</image:loc>
+      <image:title>Godox Flash Godox V100 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Flash Godox V100 par Godox chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 3 600 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012681282</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/godox-flash-ttl-v480-679482.webp</image:loc>
+      <image:title>Godox Godox Flash TTL V480 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Godox Flash TTL V480 (Godox) au meilleur prix au Maroc (2 000 DH) chez AKABLISHOP Marrakech. Le Godox Flash TTL V480 pour Nikon est un flash c</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012867854</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/godox-x3-865296.webp</image:loc>
+      <image:title>Godox GODOX X3 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez GODOX X3 par Godox chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 1 300 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012628531</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/godox-sk400-ii-pack-complet-625719.webp</image:loc>
+      <image:title>Godox Godox SK400 ii Pack complet - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Godox SK400 ii Pack complet par Godox chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 5 300</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787227033815</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/68-inch-carbon-fiber-travel-camera-tripod-with-monopod-030622.webp</image:loc>
+      <image:title>K&amp;F Concept 68-Inch Carbon Fiber Travel Camera Tripod with Monopod - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 68-Inch Carbon Fiber Travel Camera Tripod with Monopod (K&amp;F Concept) au meilleur prix au Maroc (1 200 DH) chez AKABLISHOP Marrakech. Lightweig</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787226590951</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/nd2-400-82mm-variable-neutral-density-filter-nano-xcel-578368.webp</image:loc>
+      <image:title>K&amp;F Concept ND2-400 82mm Variable Neutral Density Filter Nano-Xcel - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez ND2-400 82mm Variable Neutral Density Filter Nano-Xcel (K&amp;F Concept) au meilleur prix au Maroc (1 400 DH) chez AKABLISHOP Marrakech. Japanese </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786887317592</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-osmo-360-adventure-combo-305129.webp</image:loc>
+      <image:title>DJI DJI Osmo 360 ADVENTURE COMBO - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez DJI Osmo 360 ADVENTURE COMBO (DJI) au meilleur prix au Maroc (7 200 DH) chez AKABLISHOP Marrakech. Le DJI Osmo 360 ADVENTURE COMBO est une cam</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=7artisans-pl-4-in-1-adapter</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-adaptateur-cinema-pl-4-en-1-montures-sony-e-leica-l-canon-rf-nikon-z-615316.webp</image:loc>
+      <image:title>Sony 7Artisans Adaptateur Cinéma PL 4-en-1 (Montures Sony E / Leica L / Canon RF / Nikon Z) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans Adaptateur Cinéma PL 4-en-1 (Montures Sony E / Leica L / Canon RF / Nikon Z) (Sony) au meilleur prix au Maroc (3 200 DH) chez AKABLI</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=lexar-128-v30</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/carte-memoire-lexar-128gb-255mb-s-v30-sdxc-111689.webp</image:loc>
+      <image:title>Lexar Carte Mémoire Lexar 128GB 205mb/s V30 SDXC - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Carte Mémoire Lexar 128GB 205mb/s V30 SDXC (Lexar) au meilleur prix au Maroc (500 DH) chez AKABLISHOP Marrakech. Capacité 128 Go idéale pour l</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>Lexar Carte Mémoire Lexar 128GB 205mb/s V30 SDXC vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Carte Mémoire Lexar 128GB 205mb/s V30 SDXC (Lexar) au meilleur prix au Maroc (500 DH) chez AKABLISHOP Marrakech. Capacité 128 Go idéale pour l</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=sandisk-64</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/carte-memoire-sandisk-extreme-64gb-sdxc-170mb-s-336237.webp</image:loc>
+      <image:title>SanDisk Carte Mémoire SanDisk Extreme 64GB SDXC 170MB/s - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Carte Mémoire SanDisk Extreme 64GB SDXC 170MB/s (SanDisk) au meilleur prix au Maroc (250 DH) chez AKABLISHOP Marrakech. Carte robuste résistan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>SanDisk Carte Mémoire SanDisk Extreme 64GB SDXC 170MB/s vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Carte Mémoire SanDisk Extreme 64GB SDXC 170MB/s (SanDisk) au meilleur prix au Maroc (250 DH) chez AKABLISHOP Marrakech. Carte robuste résistan</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=7artisans-af-135mm-f18-nikon-z</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-af-135mm-f1-8-monture-nikon-z-472532.webp</image:loc>
+      <image:title>Nikon 7Artisans AF 135mm F1.8 (Monture Nikon Z) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans AF 135mm F1.8 (Monture Nikon Z) (Nikon) au meilleur prix au Maroc (7 500 DH) chez AKABLISHOP Marrakech. Objectif téléobjectif portra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-af-135mm-f1-8-monture-nikon-z-472427.webp</image:loc>
+      <image:title>Nikon 7Artisans AF 135mm F1.8 (Monture Nikon Z) vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans AF 135mm F1.8 (Monture Nikon Z) (Nikon) au meilleur prix au Maroc (7 500 DH) chez AKABLISHOP Marrakech. Objectif téléobjectif portra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-af-135mm-f1-8-monture-nikon-z-470507.webp</image:loc>
+      <image:title>Nikon 7Artisans AF 135mm F1.8 (Monture Nikon Z) vue 3 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans AF 135mm F1.8 (Monture Nikon Z) (Nikon) au meilleur prix au Maroc (7 500 DH) chez AKABLISHOP Marrakech. Objectif téléobjectif portra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-af-135mm-f1-8-monture-nikon-z-470417.webp</image:loc>
+      <image:title>Nikon 7Artisans AF 135mm F1.8 (Monture Nikon Z) vue 4 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans AF 135mm F1.8 (Monture Nikon Z) (Nikon) au meilleur prix au Maroc (7 500 DH) chez AKABLISHOP Marrakech. Objectif téléobjectif portra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-af-135mm-f1-8-monture-nikon-z-470624.webp</image:loc>
+      <image:title>Nikon 7Artisans AF 135mm F1.8 (Monture Nikon Z) vue 5 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans AF 135mm F1.8 (Monture Nikon Z) (Nikon) au meilleur prix au Maroc (7 500 DH) chez AKABLISHOP Marrakech. Objectif téléobjectif portra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-af-135mm-f1-8-monture-nikon-z-470741.webp</image:loc>
+      <image:title>Nikon 7Artisans AF 135mm F1.8 (Monture Nikon Z) vue 6 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans AF 135mm F1.8 (Monture Nikon Z) (Nikon) au meilleur prix au Maroc (7 500 DH) chez AKABLISHOP Marrakech. Objectif téléobjectif portra</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=godox-sl60w-led-light</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/godox-sl60w-projecteur-led-studio-60w-616842.webp</image:loc>
+      <image:title>Godox Godox SL60W Projecteur LED Studio 60W - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Godox SL60W Projecteur LED Studio 60W (Godox) au meilleur prix au Maroc (2 000 DH) chez AKABLISHOP Marrakech. Source de lumière continue LED 6</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-85-300x266.png</image:loc>
+      <image:title>Godox Godox SL60W Projecteur LED Studio 60W vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Godox SL60W Projecteur LED Studio 60W (Godox) au meilleur prix au Maroc (2 000 DH) chez AKABLISHOP Marrakech. Source de lumière continue LED 6</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=lexar-64-v30</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yahyaouishop.com/wp-content/uploads/2026/08/Hollyland-Lark-A1-Combo-with-USB-C-RX-Lightning-RX-Charging-Case-yahyaoui-yahyaouishop.com-casablanca-maarif.avif</image:loc>
+      <image:title>Hollyland Hollyland Lark A1 Combo with USB-C RX + Lightning RX + Charging Case - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Hollyland Lark A1 Combo with USB-C RX + Lightning RX + Charging Case (Hollyland) au meilleur prix au Maroc (650 DH) chez AKABLISHOP Marrakech.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>Hollyland Hollyland Lark A1 Combo with USB-C RX + Lightning RX + Charging Case vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Hollyland Lark A1 Combo with USB-C RX + Lightning RX + Charging Case (Hollyland) au meilleur prix au Maroc (650 DH) chez AKABLISHOP Marrakech.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=lexar-64-v60-gold</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/carte-memoire-lexar-professional-64gb-v60-gold-1800x-559717.webp</image:loc>
+      <image:title>Lexar Carte Mémoire Lexar Professional 64GB V60 GOLD 1800x - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Carte Mémoire Lexar Professional 64GB V60 GOLD 1800x (Lexar) au meilleur prix au Maroc (299 DH) chez AKABLISHOP Marrakech. Carte SDXC UHS-II V</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>Lexar Carte Mémoire Lexar Professional 64GB V60 GOLD 1800x vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Carte Mémoire Lexar Professional 64GB V60 GOLD 1800x (Lexar) au meilleur prix au Maroc (299 DH) chez AKABLISHOP Marrakech. Carte SDXC UHS-II V</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=sony-a7s-iii-occasion</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-a7s-iii-boitier-nu-359149.webp</image:loc>
+      <image:title>Sony Sony a7S III – Boitier nu - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Sony a7S III – Boitier nu (Sony) au meilleur prix au Maroc (33 500 DH) chez AKABLISHOP Marrakech. Boîtier Hybride Plein Format 4K 120p en très</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/Sony-a7S-III-%E2%80%93-Boitier-nu-Bon-etat-300x300.png</image:loc>
+      <image:title>Sony Sony a7S III – Boitier nu vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Sony a7S III – Boitier nu (Sony) au meilleur prix au Maroc (33 500 DH) chez AKABLISHOP Marrakech. Boîtier Hybride Plein Format 4K 120p en très</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=camera-degital-dc9200</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/camera-numerique-compacte-mini-dc9200-001193.webp</image:loc>
+      <image:title>AKABLISHOP Caméra Numérique Compacte Mini DC9200 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Caméra Numérique Compacte Mini DC9200 (AKABLISHOP) au meilleur prix au Maroc (1 850 DH) chez AKABLISHOP Marrakech. Mini appareil photo numériq</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>AKABLISHOP Caméra Numérique Compacte Mini DC9200 vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Caméra Numérique Compacte Mini DC9200 (AKABLISHOP) au meilleur prix au Maroc (1 850 DH) chez AKABLISHOP Marrakech. Mini appareil photo numériq</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=allbum-photo</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/album-photo-special-instax-mini-993658.webp</image:loc>
+      <image:title>AKABLISHOP Album Photo Spécial Instax Mini - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Album Photo Spécial Instax Mini (AKABLISHOP) au meilleur prix au Maroc (140 DH) chez AKABLISHOP Marrakech. Album de rangement élégant pouvant </image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>AKABLISHOP Album Photo Spécial Instax Mini vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Album Photo Spécial Instax Mini (AKABLISHOP) au meilleur prix au Maroc (140 DH) chez AKABLISHOP Marrakech. Album de rangement élégant pouvant </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=cleaning-kit</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/kit-de-nettoyage-appareil-photo-156064.webp</image:loc>
+      <image:title>AKABLISHOP Kit de nettoyage appareil photo - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Kit de nettoyage appareil photo (AKABLISHOP) au meilleur prix au Maroc (200 DH) chez AKABLISHOP Marrakech. Kit complet : soufflette dépoussiér</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>AKABLISHOP Kit de nettoyage appareil photo vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Kit de nettoyage appareil photo (AKABLISHOP) au meilleur prix au Maroc (200 DH) chez AKABLISHOP Marrakech. Kit complet : soufflette dépoussiér</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=stand-rode</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/support-stand-de-bureau-pour-microphone-r-de-398794.webp</image:loc>
+      <image:title>Røde Support Stand de Bureau pour Microphone Røde - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Support Stand de Bureau pour Microphone Røde (Røde) au meilleur prix au Maroc (400 DH) chez AKABLISHOP Marrakech. Pied de table lourd anti-vib</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-86-300x266.png</image:loc>
+      <image:title>Røde Support Stand de Bureau pour Microphone Røde vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Support Stand de Bureau pour Microphone Røde (Røde) au meilleur prix au Maroc (400 DH) chez AKABLISHOP Marrakech. Pied de table lourd anti-vib</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://akablishop.ma/?product=ulanzi-vl49-rgb</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/mini-eclairage-led-studio-ulanzi-vl49-rgb-660468.webp</image:loc>
-      <image:title>Mini Éclairage LED Studio Ulanzi VL49 RGB - AKABLISHOP Marrakech Maroc</image:title>
-      <image:caption>Acheter ou louer Mini Éclairage LED Studio Ulanzi VL49 RGB (Godox) à Marrakech, Maroc au meilleur prix.</image:caption>
+      <image:title>Godox Mini Éclairage LED Studio Ulanzi VL49 RGB - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Mini Éclairage LED Studio Ulanzi VL49 RGB (Godox) au meilleur prix au Maroc (500 DH) chez AKABLISHOP Marrakech. Torche LED RGB 360° rechargeab</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-85-300x266.png</image:loc>
+      <image:title>Godox Mini Éclairage LED Studio Ulanzi VL49 RGB vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Mini Éclairage LED Studio Ulanzi VL49 RGB (Godox) au meilleur prix au Maroc (500 DH) chez AKABLISHOP Marrakech. Torche LED RGB 360° rechargeab</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=sony-fx6-cinema</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/SONY-FX6-jpg-300x300.webp</image:loc>
+      <image:title>Sony Sony FX6 – Caméra Cinéma - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Sony FX6 – Caméra Cinéma (Sony) au meilleur prix au Maroc (66 000 DH) chez AKABLISHOP Marrakech. Caméra Cinéma Plein Format 4K Cinema Line ave</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=camera-degital-dc5200</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/camera-numerique-mini-dc5200-rupture-188389.webp</image:loc>
+      <image:title>AKABLISHOP Caméra Numérique Mini DC5200 (Rupture) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Caméra Numérique Mini DC5200 (Rupture) (AKABLISHOP) au meilleur prix au Maroc (900 DH) chez AKABLISHOP Marrakech. Mini caméra numérique. Livra</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=battery-canon-lp-e6</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/batterie-canon-lp-e6n-pour-boitiers-eos-812587.webp</image:loc>
+      <image:title>Canon Batterie Canon LP-E6N pour Boîtiers EOS - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Batterie Canon LP-E6N pour Boîtiers EOS (Canon) au meilleur prix au Maroc (540 DH) chez AKABLISHOP Marrakech. Batterie rechargeable Li-ion com</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/AkabliShop-Head.webp</image:loc>
+      <image:title>Canon Batterie Canon LP-E6N pour Boîtiers EOS vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Batterie Canon LP-E6N pour Boîtiers EOS (Canon) au meilleur prix au Maroc (540 DH) chez AKABLISHOP Marrakech. Batterie rechargeable Li-ion com</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=battery-sony-np-f770</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/batterie-sony-np-f770-li-ion-pour-eclairage-moniteurs-763183.webp</image:loc>
+      <image:title>Sony Batterie Sony NP-F770 Li-ion pour Éclairage &amp; Moniteurs - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Batterie Sony NP-F770 Li-ion pour Éclairage &amp; Moniteurs (Sony) au meilleur prix au Maroc (350 DH) chez AKABLISHOP Marrakech. Batterie haute ca</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-85-300x266.png</image:loc>
+      <image:title>Sony Batterie Sony NP-F770 Li-ion pour Éclairage &amp; Moniteurs vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Batterie Sony NP-F770 Li-ion pour Éclairage &amp; Moniteurs (Sony) au meilleur prix au Maroc (350 DH) chez AKABLISHOP Marrakech. Batterie haute ca</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=battery-x4-insta360</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/batterie-rechargeable-d-origine-insta360-x4-084486.webp</image:loc>
+      <image:title>Insta360 Insta360 Batterie Rechargeable X4 – 2290 mAh - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Insta360 Batterie Rechargeable X4 – 2290 mAh (Insta360) au meilleur prix au Maroc (750 DH) chez AKABLISHOP Marrakech. Batterie 2290 mAh pour c</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>Insta360 Insta360 Batterie Rechargeable X4 – 2290 mAh vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Insta360 Batterie Rechargeable X4 – 2290 mAh (Insta360) au meilleur prix au Maroc (750 DH) chez AKABLISHOP Marrakech. Batterie 2290 mAh pour c</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=pochette-carte-memoire</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/pochette-etui-de-protection-pour-cartes-memoire-sd-cfexpress-281826.webp</image:loc>
+      <image:title>AKABLISHOP Pochette Étui de Protection pour Cartes Mémoire SD &amp; CFexpress - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Pochette Étui de Protection pour Cartes Mémoire SD &amp; CFexpress (AKABLISHOP) au meilleur prix au Maroc (120 DH) chez AKABLISHOP Marrakech. Étui</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>AKABLISHOP Pochette Étui de Protection pour Cartes Mémoire SD &amp; CFexpress vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Pochette Étui de Protection pour Cartes Mémoire SD &amp; CFexpress (AKABLISHOP) au meilleur prix au Maroc (120 DH) chez AKABLISHOP Marrakech. Étui</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=nd-filtre-sony-62mm</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-osmo-pocket-4-standard-combo-715230.webp</image:loc>
+      <image:title>DJI DJI OSMO POCKET 4 STANDARD COMBO - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez DJI OSMO POCKET 4 STANDARD COMBO (DJI) au meilleur prix au Maroc (6 500 DH) chez AKABLISHOP Marrakech. Capturez des vidéos 4K/240fps époustouf</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/AkabliShop-Lens.webp</image:loc>
+      <image:title>DJI DJI OSMO POCKET 4 STANDARD COMBO vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez DJI OSMO POCKET 4 STANDARD COMBO (DJI) au meilleur prix au Maroc (6 500 DH) chez AKABLISHOP Marrakech. Capturez des vidéos 4K/240fps époustouf</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=lens-cap-insta360</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/insta360-capuchon-d-objectif-430076.webp</image:loc>
+      <image:title>Insta360 Insta360 capuchon d’objectif - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Insta360 capuchon d’objectif (Insta360) au meilleur prix au Maroc (100 DH) chez AKABLISHOP Marrakech. Protection en silicone sur-mesure pour l</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>Insta360 Insta360 capuchon d’objectif vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Insta360 capuchon d’objectif (Insta360) au meilleur prix au Maroc (100 DH) chez AKABLISHOP Marrakech. Protection en silicone sur-mesure pour l</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=bouchonne-boitier-n</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/bouchon-de-boitier-nikon-monture-f-z-068265.webp</image:loc>
+      <image:title>Nikon Bouchon de Boîtier Nikon (Monture F/Z) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Bouchon de Boîtier Nikon (Monture F/Z) (Nikon) au meilleur prix au Maroc (100 DH) chez AKABLISHOP Marrakech. Bouchon de protection d'origine p</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/NIKON-Z7-MARK-II-jpg-300x300.webp</image:loc>
+      <image:title>Nikon Bouchon de Boîtier Nikon (Monture F/Z) vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Bouchon de Boîtier Nikon (Monture F/Z) (Nikon) au meilleur prix au Maroc (100 DH) chez AKABLISHOP Marrakech. Bouchon de protection d'origine p</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=stand-camera-daction</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/manfrotto-pixi-mtpiximii-b-trepied-mini-324669.webp</image:loc>
+      <image:title>GoPro Manfrotto PIXI MTPIXIMII-B Trépied Mini - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Manfrotto PIXI MTPIXIMII-B Trépied Mini (GoPro) au meilleur prix au Maroc (350 DH) chez AKABLISHOP Marrakech. Mini trépied télescopique adapta</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>GoPro Manfrotto PIXI MTPIXIMII-B Trépied Mini vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Manfrotto PIXI MTPIXIMII-B Trépied Mini (GoPro) au meilleur prix au Maroc (350 DH) chez AKABLISHOP Marrakech. Mini trépied télescopique adapta</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=bouchonne-boitier-c</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/bouchon-de-boitier-canon-monture-ef-rf-030242.webp</image:loc>
+      <image:title>Canon Bouchon de Boîtier Canon (Monture EF/RF) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Bouchon de Boîtier Canon (Monture EF/RF) (Canon) au meilleur prix au Maroc (110 DH) chez AKABLISHOP Marrakech. Bouchon de protection pour boît</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/AkabliShop-Head.webp</image:loc>
+      <image:title>Canon Bouchon de Boîtier Canon (Monture EF/RF) vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Bouchon de Boîtier Canon (Monture EF/RF) (Canon) au meilleur prix au Maroc (110 DH) chez AKABLISHOP Marrakech. Bouchon de protection pour boît</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=fast-charge-x5</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/station-de-charge-rapide-quintuple-fast-charge-x5-361730.webp</image:loc>
+      <image:title>Insta360 Station de Charge Rapide Quintuple Fast Charge x5 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Station de Charge Rapide Quintuple Fast Charge x5 (Insta360) au meilleur prix au Maroc (730 DH) chez AKABLISHOP Marrakech. Chargeur profession</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-85-300x266.png</image:loc>
+      <image:title>Insta360 Station de Charge Rapide Quintuple Fast Charge x5 vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Station de Charge Rapide Quintuple Fast Charge x5 (Insta360) au meilleur prix au Maroc (730 DH) chez AKABLISHOP Marrakech. Chargeur profession</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=fond-papier</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/fond-papier-studio-roule-2-72m-x-11m-445452.webp</image:loc>
+      <image:title>AKABLISHOP Fond Papier Studio Roulé 2.72m x 11m - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Fond Papier Studio Roulé 2.72m x 11m (AKABLISHOP) au meilleur prix au Maroc (700 DH) chez AKABLISHOP Marrakech. Rouleau de papier de studio ph</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-85-300x266.png</image:loc>
+      <image:title>AKABLISHOP Fond Papier Studio Roulé 2.72m x 11m vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Fond Papier Studio Roulé 2.72m x 11m (AKABLISHOP) au meilleur prix au Maroc (700 DH) chez AKABLISHOP Marrakech. Rouleau de papier de studio ph</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=battons-de-nettoyage-capteur</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/batons-swabs-de-nettoyage-pour-capteur-plein-format-10-pcs-744511.webp</image:loc>
+      <image:title>AKABLISHOP Bâtons Swabs de Nettoyage pour Capteur Plein Format (10 pcs) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Bâtons Swabs de Nettoyage pour Capteur Plein Format (10 pcs) (AKABLISHOP) au meilleur prix au Maroc (140 DH) chez AKABLISHOP Marrakech. Bâtonn</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>AKABLISHOP Bâtons Swabs de Nettoyage pour Capteur Plein Format (10 pcs) vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Bâtons Swabs de Nettoyage pour Capteur Plein Format (10 pcs) (AKABLISHOP) au meilleur prix au Maroc (140 DH) chez AKABLISHOP Marrakech. Bâtonn</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786663870450</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-alpha-7-iv-boitier-nu-neuf-868210.webp</image:loc>
+      <image:title>Sony Sony alpha 7 IV – Boitier NU (Neuf) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Sony alpha 7 IV – Boitier NU (Neuf) par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix d</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=mini-bras-magique</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/mini-bras-magique-articule-magic-arm-1-4-558137.webp</image:loc>
+      <image:title>AKABLISHOP Mini Bras Magique Articulé Magic Arm 1/4" - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Mini Bras Magique Articulé Magic Arm 1/4" (AKABLISHOP) au meilleur prix au Maroc (120 DH) chez AKABLISHOP Marrakech. Bras d'extension orientab</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-87.png</image:loc>
+      <image:title>AKABLISHOP Mini Bras Magique Articulé Magic Arm 1/4" vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Mini Bras Magique Articulé Magic Arm 1/4" (AKABLISHOP) au meilleur prix au Maroc (120 DH) chez AKABLISHOP Marrakech. Bras d'extension orientab</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786664159956</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-a7iii-boitier-nu-neuf-157609.webp</image:loc>
+      <image:title>Sony Sony a7III – Boitier Nu (Neuf) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Sony a7III – Boitier Nu (Neuf) par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 14 </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786664611981</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sigma-24-70mm-f2-8-dg-dn-ii-art-for-sony-610308.webp</image:loc>
+      <image:title>Sony Sigma 24-70mm F2.8 DG DN II ART FOR SONY - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Sigma 24-70mm F2.8 DG DN II ART FOR SONY par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au p</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786664220987</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-fe-70-200-mm-f2-8-gm-oss-214389.webp</image:loc>
+      <image:title>Sony Sony FE 70-200 mm F2.8 GM OSS - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Sony FE 70-200 mm F2.8 GM OSS par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 19 8</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=cable-hdmi-8k</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/cable-hdmi-2-1-ultra-high-speed-8k-60hz-4k-120hz-211437.webp</image:loc>
+      <image:title>AKABLISHOP Câble HDMI 2.1 Ultra High Speed 8K 60Hz / 4K 120Hz - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Câble HDMI 2.1 Ultra High Speed 8K 60Hz / 4K 120Hz (AKABLISHOP) au meilleur prix au Maroc (300 DH) chez AKABLISHOP Marrakech. Câble HDMI tress</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/electronics-store-55.png</image:loc>
+      <image:title>AKABLISHOP Câble HDMI 2.1 Ultra High Speed 8K 60Hz / 4K 120Hz vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Câble HDMI 2.1 Ultra High Speed 8K 60Hz / 4K 120Hz (AKABLISHOP) au meilleur prix au Maroc (300 DH) chez AKABLISHOP Marrakech. Câble HDMI tress</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786663909701</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-alpha-7-mark-v-boitier-nu-899103.webp</image:loc>
+      <image:title>Sony SONY ALPHA 7 MARK V – Bôitier Nu - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez SONY ALPHA 7 MARK V – Bôitier Nu par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 3</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786664025928</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-a7r-v-5-mirrorless-camera-023621.webp</image:loc>
+      <image:title>Sony Sony a7R V (5) – Mirrorless Camera - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Sony a7R V (5) – Mirrorless Camera par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786664647272</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sigma-16-28mm-f2-8-dg-dn-monture-sony-e-644575.webp</image:loc>
+      <image:title>Sony Sigma 16-28mm F2.8 DG DN monture Sony E - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Sigma 16-28mm F2.8 DG DN monture Sony E par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au pr</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786663983275</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-fx30-digital-cinema-camera-981504.webp</image:loc>
+      <image:title>Sony Sony FX30 Digital Cinema Camera - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Sony FX30 Digital Cinema Camera par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 20</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786788857783</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-mic-mini-2-845647.webp</image:loc>
+      <image:title>DJI DJI Mic Mini 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez DJI Mic Mini 2 (DJI) au meilleur prix au Maroc (1 400 DH) chez AKABLISHOP Marrakech. Le DJI Mic Mini 2 Camera Kit (2 TX + 1 RX + Charging Case</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786789467187</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/godox-kit-tl-5-a-5-prises-pour-studio-photo-eclairage-continu-464474.webp</image:loc>
+      <image:title>Godox Godox – Kit TL-5 à 5 prises pour Studio Photo Éclairage continu - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Godox – Kit TL-5 à 5 prises pour Studio Photo Éclairage continu par Godox chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisue</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786885912518</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/godox-fl150s-k2-flexible-led-906103.webp</image:loc>
+      <image:title>Godox Godox FL150S-K2 Flexible LED - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Godox FL150S-K2 Flexible LED (Godox) au meilleur prix au Maroc (13 200 DH) chez AKABLISHOP Marrakech. Le Godox FL150S-K2 Flexible LED est l’ou</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786664485200</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/sony-e-16-55mm-f2-8-g-475790.webp</image:loc>
+      <image:title>Sony Sony E 16-55mm f2.8 G - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Sony E 16-55mm f2.8 G par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 16 500 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786789310180</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/godox-sl60ii-bi-color-lampes-video-led-305435.webp</image:loc>
+      <image:title>Godox Godox SL60II Bi-color Lampes vidéo LED - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Godox SL60II Bi-color Lampes vidéo LED par Godox chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au pr</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786885658708</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/magic-arm-7-646379.webp</image:loc>
+      <image:title>Sony Magic Arm 7″ - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Magic Arm 7″ (Sony) au meilleur prix au Maroc (250 DH) chez AKABLISHOP Marrakech. Le Magic Arm 7″ HOSHI est un bras articulé robuste et réglab</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786789198574</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-mic-mini-2s-2-tx-1-rx-charging-case-191876.webp</image:loc>
+      <image:title>DJI DJI Mic Mini 2S (2 TX + 1 RX + Charging Case) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez DJI Mic Mini 2S (2 TX + 1 RX + Charging Case) par DJI chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786788976833</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/hollyland-lark-m2-combo-974578.webp</image:loc>
+      <image:title>Hollyland Hollyland Lark M2 Combo - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Hollyland Lark M2 Combo par Hollyland chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 1 380</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786789364112</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/godox-kit-tl-5-a-5-prises-pour-studio-photo-eclairage-continu-361207.webp</image:loc>
+      <image:title>Godox Godox – Kit TL-5 à 5 prises pour Studio Photo Éclairage continu - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Godox – Kit TL-5 à 5 prises pour Studio Photo Éclairage continu par Godox chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisue</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=nd-filtre-sony-77mm</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/insta360-mic-pro-duo-wireless-system-878629.webp</image:loc>
+      <image:title>Insta360 Insta360 Mic Pro Duo Wireless System - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Insta360 Mic Pro Duo Wireless System (Insta360) au meilleur prix au Maroc (2 800 DH) chez AKABLISHOP Marrakech. Le Insta360 Mic Pro Duo Wirele</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://akablishop.ma/wp-content/uploads/AkabliShop-Lens.webp</image:loc>
+      <image:title>Insta360 Insta360 Mic Pro Duo Wireless System vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Insta360 Mic Pro Duo Wireless System (Insta360) au meilleur prix au Maroc (2 800 DH) chez AKABLISHOP Marrakech. Le Insta360 Mic Pro Duo Wirele</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786885727117</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/godox-litemons-la200r-rgb-led-monolight-blanc-717292.webp</image:loc>
+      <image:title>Godox Godox Litemons LA200R RGB LED Monolight Blanc - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Godox Litemons LA200R RGB LED Monolight Blanc (Godox) au meilleur prix au Maroc (3 700 DH) chez AKABLISHOP Marrakech. Le Godox Litemons LA200R</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786885851770</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/puluz-minibox-photo-studio-light-850423.webp</image:loc>
+      <image:title>Godox PULUZ MINIBOX -PHOTO STUDIO LIGHT - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez PULUZ MINIBOX -PHOTO STUDIO LIGHT par Godox chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786886050853</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/reflecteur-120x180cm-030891.webp</image:loc>
+      <image:title>AKABLISHOP Réflecteur 120x180cm - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Réflecteur 120x180cm (AKABLISHOP) au meilleur prix au Maroc (800 DH) chez AKABLISHOP Marrakech. Le Réflecteur 120x180cm est un disque pliable </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786886381726</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/camescope-canon-xa60b-361656.webp</image:loc>
+      <image:title>Canon Caméscope Canon XA60B - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Caméscope Canon XA60B (Canon) au meilleur prix au Maroc (13 000 DH) chez AKABLISHOP Marrakech. Le Caméscope Canon XA60B est un caméscope profe</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786887040469</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/insta360-x5-camera-360-8k-pack-essentiel-026990.webp</image:loc>
+      <image:title>Insta360 Insta360 X5 caméra 360 8K – Pack Essentiel - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Insta360 X5 caméra 360 8K – Pack Essentiel (Insta360) au meilleur prix au Maroc (7 800 DH) chez AKABLISHOP Marrakech. Caméra 360 8K avec capte</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786886142358</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/reflecteur-de-studio-incurve-134589.webp</image:loc>
+      <image:title>Godox réflecteur de studio incurvé - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez réflecteur de studio incurvé (Godox) au meilleur prix au Maroc (1 450 DH) chez AKABLISHOP Marrakech. Le réflecteur de studio incurvé est parfa</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786886315072</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/canon-eos-r8-rf24-50mm-f4-5-6-3-is-stm-309593.webp</image:loc>
+      <image:title>Canon Canon EOS R8 + RF24-50mm F4.5-6.3 IS STM - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Canon EOS R8 + RF24-50mm F4.5-6.3 IS STM (Canon) au meilleur prix au Maroc (20 000 DH) chez AKABLISHOP Marrakech. L’Appareil photo hybride Can</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786886509356</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/product-489634.webp</image:loc>
+      <image:title>Canon Canon EOS R50 + objectif RF-S 18-45mm F4.5-6.3 IS STM – Createur de contenu Kit - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Canon EOS R50 + objectif RF-S 18-45mm F4.5-6.3 IS STM – Createur de contenu Kit (Canon) au meilleur prix au Maroc (8 500 DH) chez AKABLISHOP M</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786887413808</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/insta360-link-2c-webcam-ia-4k-edition-standard-blanc-arctique-405956.webp</image:loc>
+      <image:title>Insta360 Insta360 Link 2C webcam IA 4K – Édition Standard (Blanc Arctique) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Insta360 Link 2C webcam IA 4K – Édition Standard (Blanc Arctique) (Insta360) au meilleur prix au Maroc (1 450 DH) chez AKABLISHOP Marrakech. W</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786886257081</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/canon-hybride-eos-r6-mark-ii-boitier-250960.webp</image:loc>
+      <image:title>Canon Canon hybride EOS R6 Mark II -Boitier - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Canon hybride EOS R6 Mark II -Boitier (Canon) au meilleur prix au Maroc (22 500 DH) chez AKABLISHOP Marrakech. Canon Hybride EOS R6 Mark II -B</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786886688424</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/canon-eos-r100-objectif-rf-s-18-45mm-f4-5-6-3-is-stm-680812.webp</image:loc>
+      <image:title>Canon Canon EOS R100 + objectif RF-S 18-45mm F4.5-6.3 IS STM - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Canon EOS R100 + objectif RF-S 18-45mm F4.5-6.3 IS STM (Canon) au meilleur prix au Maroc (6 500 DH) chez AKABLISHOP Marrakech. Capturez des so</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786887254599</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/insta360-x4-camera-360-8k-pack-standard-252466.webp</image:loc>
+      <image:title>Insta360 Insta360 X4 caméra 360 8K – Pack Standard - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Insta360 X4 caméra 360 8K – Pack Standard par Insta360 chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786887630419</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/godox-flash-trigger-x3pro-nikon-626966.webp</image:loc>
+      <image:title>Godox Godox Flash Trigger X3Pro Nikon - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Godox Flash Trigger X3Pro Nikon (Godox) au meilleur prix au Maroc (1 000 DH) chez AKABLISHOP Marrakech. Le Godox Flash Trigger X3Pro Nikon est</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786887748571</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/atem-mini-pro-iso-746868.webp</image:loc>
+      <image:title>AKABLISHOP Atem mini pro ISO - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Atem mini pro ISO par AKABLISHOP chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 6 000 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786887971358</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/c-stand-reglable-pour-photographie-studio-970190.webp</image:loc>
+      <image:title>AKABLISHOP C-Stand Réglable pour Photographie Studio - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez C-Stand Réglable pour Photographie Studio par AKABLISHOP chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Mar</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=7artisans-af-35mm-f18-sony-e</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-af-35mm-f1-8-plein-format-monture-sony-e-051720.webp</image:loc>
+      <image:title>Sony 7Artisans AF 35mm F1.8 Plein Format (Monture Sony E) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans AF 35mm F1.8 Plein Format (Monture Sony E) (Sony) au meilleur prix au Maroc (3 400 DH) chez AKABLISHOP Marrakech. Optique 35mm F1.8 </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=7artisans-55mm-black-mist-1-8</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-filtre-diffusion-black-mist-55mm-densite-1-8-402680.webp</image:loc>
+      <image:title>7Artisans 7Artisans Filtre Diffusion Black Mist 55mm (Densité 1/8) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans Filtre Diffusion Black Mist 55mm (Densité 1/8) (7Artisans) au meilleur prix au Maroc (450 DH) chez AKABLISHOP Marrakech. Filtre de d</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786887837934</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/objectif-sony-24-240mm-f3-5-f6-5-836022.webp</image:loc>
+      <image:title>Sony Objectif sony 24-240mm F3.5 F6.5 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Objectif sony 24-240mm F3.5 F6.5 par Sony chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 4</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786888166271</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/trepied-wf-717-professionnel-en-alliage-d-aluminium-163661.webp</image:loc>
+      <image:title>AKABLISHOP Trépied WF 717 professionnel en alliage d’aluminium - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Trépied WF 717 professionnel en alliage d’aluminium (AKABLISHOP) au meilleur prix au Maroc (1 500 DH) chez AKABLISHOP Marrakech. Le Trépied WF</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786888198394</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/product-975684.webp</image:loc>
+      <image:title>Fujifilm instax mini 12 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez instax mini 12 par Fujifilm chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 1 100 DH.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/product-990553.webp</image:loc>
+      <image:title>Fujifilm instax mini 12 vue 2 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez instax mini 12 par Fujifilm chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 1 100 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=7artisans-35mm-f14-mk3-canon-rf</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-35mm-f1-4-mark-iii-plein-format-monture-canon-rf-104423.webp</image:loc>
+      <image:title>Canon 7Artisans 35mm F1.4 Mark III Plein Format (Monture Canon RF) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans 35mm F1.4 Mark III Plein Format (Monture Canon RF) (Canon) au meilleur prix au Maroc (3 200 DH) chez AKABLISHOP Marrakech. Troisième</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786967946453</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/softbox-nicefoto-90cm-944334.webp</image:loc>
+      <image:title>AKABLISHOP Softbox Nicefoto 90cm - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Softbox Nicefoto 90cm par AKABLISHOP chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 1 400 </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786888121318</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/k-f-concept-dslr-camera-aluminum-tripod-kf09-089v1-118210.webp</image:loc>
+      <image:title>K&amp;F Concept K&amp;F Concept – DSLR Camera Aluminum Tripod – KF09.089V1 - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez K&amp;F Concept – DSLR Camera Aluminum Tripod – KF09.089V1 par K&amp;F Concept chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel c</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=7artisans-af-adapter-ef-z</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-bague-d-adaptation-autofocus-canon-ef-vers-nikon-z-ef-z-660058.webp</image:loc>
+      <image:title>Canon 7Artisans Bague d'Adaptation Autofocus Canon EF vers Nikon Z (EF-Z) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans Bague d'Adaptation Autofocus Canon EF vers Nikon Z (EF-Z) (Canon) au meilleur prix au Maroc (2 200 DH) chez AKABLISHOP Marrakech. Ba</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786967584455</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/manfrotto-mini-treipied-clamp-575248.webp</image:loc>
+      <image:title>AKABLISHOP Manfrotto Mini Tréipied &amp; Clamp - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Manfrotto Mini Tréipied &amp; Clamp (AKABLISHOP) au meilleur prix au Maroc (430 DH) chez AKABLISHOP Marrakech. Le Manfrotto Mini Tréipied &amp; Clamp </image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=7artisans-af-50mm-f18-nikon-z</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-af-50mm-f1-8-plein-format-monture-nikon-z-708988.webp</image:loc>
+      <image:title>Nikon 7Artisans AF 50mm F1.8 Plein Format (Monture Nikon Z) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans AF 50mm F1.8 Plein Format (Monture Nikon Z) (Nikon) au meilleur prix au Maroc (2 900 DH) chez AKABLISHOP Marrakech. L'incontournable</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786967667758</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/trepied-j288-cm-662779.webp</image:loc>
+      <image:title>AKABLISHOP Trépied J288 CM - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Trépied J288 CM par AKABLISHOP chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 600 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786888291519</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/manfrotto-element-mmelmiia5bk-aluminium-monopod-277150.webp</image:loc>
+      <image:title>AKABLISHOP Manfrotto Element MMELMIIA5BK Aluminium Monopod - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Manfrotto Element MMELMIIA5BK Aluminium Monopod (AKABLISHOP) au meilleur prix au Maroc (500 DH) chez AKABLISHOP Marrakech. Points forts / Feat</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012286660</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-rs-5-combo-stabilisteur-284072.webp</image:loc>
+      <image:title>DJI DJI RS 5 COMBO – Stabilisteur - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez DJI RS 5 COMBO – Stabilisteur par DJI chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 7 900</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786967791994</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/jmary-kp-2274-multifonctionnel-professional-tripod-790247.webp</image:loc>
+      <image:title>AKABLISHOP Jmary KP-2274 Multifonctionnel Professional Tripod - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Jmary KP-2274 Multifonctionnel Professional Tripod par AKABLISHOP chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certif</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=7artisans-af-35mm-f18-nikon-z</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-af-35mm-f1-8-plein-format-monture-nikon-z-989275.webp</image:loc>
+      <image:title>Nikon 7Artisans AF 35mm F1.8 Plein Format (Monture Nikon Z) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans AF 35mm F1.8 Plein Format (Monture Nikon Z) (Nikon) au meilleur prix au Maroc (3 400 DH) chez AKABLISHOP Marrakech. Objectif polyval</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786968268066</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/godox-cs65d-portable-softbox-65cm-266401.webp</image:loc>
+      <image:title>Godox Godox CS65D Portable Softbox 65cm - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Godox CS65D Portable Softbox 65cm par Godox chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012096116</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-rs4-pro-092793.webp</image:loc>
+      <image:title>DJI DJI RS4 Pro - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez DJI RS4 Pro par DJI chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 9 900 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786967867735</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/manfrotto-tripod-mk290xta3-3w-290-xtra-aluminium-866005.webp</image:loc>
+      <image:title>AKABLISHOP Manfrotto Tripod MK290XTA3-3W 290 Xtra Aluminium - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Manfrotto Tripod MK290XTA3-3W 290 Xtra Aluminium par AKABLISHOP chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786968050945</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/nicefoto-softbox-parabolique-70cm-048427.webp</image:loc>
+      <image:title>AKABLISHOP NiceFoto Softbox Parabolique 70cm - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez NiceFoto Softbox Parabolique 70cm par AKABLISHOP chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au pr</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012480657</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-osmo-mobile-8p-standard-combo-479142.webp</image:loc>
+      <image:title>DJI DJI OSMO MOBILE 8P – Standard Combo - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez DJI OSMO MOBILE 8P – Standard Combo par DJI chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012047893</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-rs4-mini-045852.webp</image:loc>
+      <image:title>DJI Dji RS4 MINI - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Dji RS4 MINI par DJI chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 3 400 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012243507</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-rs4-mini-combo-241020.webp</image:loc>
+      <image:title>DJI DJI RS4 MINI COMBO - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez DJI RS4 MINI COMBO par DJI chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 5 500 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012414338</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-rs4-combo-411827.webp</image:loc>
+      <image:title>DJI DJI RS4 COMBO - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez DJI RS4 COMBO par DJI chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 6 700 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786577947999</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/pack-instax-mini-12-film-album-pochette-926827.webp</image:loc>
+      <image:title>AKABLISHOP Pack Instax Mini 12 + Film + Album + Pochette - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez Pack Instax Mini 12 + Film + Album + Pochette (AKABLISHOP) au meilleur prix au Maroc (1 750 DH) chez AKABLISHOP Marrakech. Pack Instax Mini 12</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012761065</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/godox-v1-pro-758527.webp</image:loc>
+      <image:title>Godox Godox V1 Pro - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Godox V1 Pro par Godox chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 2 900 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012912202</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/godox-flash-exterieur-ad600pro-ttl-909620.webp</image:loc>
+      <image:title>Godox Godox flash Extérieur AD600Pro TTL - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Godox flash Extérieur AD600Pro TTL par Godox chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix d</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=7artisans-spectrum-35mm-t20-nikon-z</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/7artisans-spectrum-35mm-t2-0-objectif-cinema-monture-nikon-z-798708.webp</image:loc>
+      <image:title>Nikon 7Artisans Spectrum 35mm T2.0 Objectif Cinéma (Monture Nikon Z) - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Achetez 7Artisans Spectrum 35mm T2.0 Objectif Cinéma (Monture Nikon Z) (Nikon) au meilleur prix au Maroc (4 800 DH) chez AKABLISHOP Marrakech. Objecti</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012813021</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/flash-godox-ad400-pro-810576.webp</image:loc>
+      <image:title>Godox Flash GODOX AD400 Pro - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez Flash GODOX AD400 Pro par Godox chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 7 000 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1787012327033</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/dji-rs-5-stabilisateur-324895.webp</image:loc>
+      <image:title>DJI DJI RS 5 Stabilisateur - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez DJI RS 5 Stabilisateur par DJI chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovisuel certifié au Maroc au prix de 6 700 DH.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://akablishop.ma/?product=prod-1786789509646</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rnngcrvefxfbbnamkfkc.supabase.co/storage/v1/object/public/products/products/k-f-concept-lampe-led-rgb-portable-polyvalente-et-compacte-507183.webp</image:loc>
+      <image:title>K&amp;F Concept K&amp;F CONCEPT lampe led RGB portable – polyvalente et compacte - Matériel Audiovisuel Professionnel Marrakech Maroc</image:title>
+      <image:caption>Découvrez K&amp;F CONCEPT lampe led RGB portable – polyvalente et compacte par K&amp;F Concept chez AKABLISHOP Marrakech. Vente &amp; location de matériel audiovi</image:caption>
     </image:image>
   </url>
 </urlset>

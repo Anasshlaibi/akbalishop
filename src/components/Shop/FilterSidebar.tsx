@@ -1,11 +1,13 @@
 import React from 'react';
 import { useShop, ConditionFilter } from '../../context/ShopContext';
-import { CATEGORIES } from '../../data/categories';
+import { CATEGORIES, normalizeCategorySlug, getCategoryCount } from '../../data/categories';
 import { BRANDS } from '../../data/brands';
 import { Filter, RotateCcw, Check, Sparkles, RefreshCw, Calendar, Tag } from 'lucide-react';
 
 export const FilterSidebar: React.FC = () => {
   const {
+    products,
+    availableBrands,
     selectedCategory,
     setSelectedCategory,
     selectedBrand,
@@ -80,7 +82,9 @@ export const FilterSidebar: React.FC = () => {
           </button>
 
           {CATEGORIES.map(cat => {
-            const active = selectedCategory === cat.slug;
+            const normSel = selectedCategory ? normalizeCategorySlug(selectedCategory) : null;
+            const active = normSel === cat.slug;
+            const count = getCategoryCount(cat.slug, products);
             return (
               <button
                 key={cat.id}
@@ -92,7 +96,7 @@ export const FilterSidebar: React.FC = () => {
                 }`}
               >
                 <span>{cat.name}</span>
-                <span className="text-[10px] bg-slate-100 px-2 py-0.5 rounded-full text-slate-500 font-semibold">{cat.itemCount}</span>
+                <span className="text-[10px] bg-slate-100 px-2 py-0.5 rounded-full text-slate-500 font-semibold">{count}</span>
               </button>
             );
           })}
@@ -102,7 +106,7 @@ export const FilterSidebar: React.FC = () => {
       {/* Brand Selection Filter */}
       <div className="space-y-2 pt-2 border-t border-gray-100">
         <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Marque</h4>
-        <div className="space-y-1">
+        <div className="space-y-1 max-h-60 overflow-y-auto pr-1">
           <button
             onClick={() => setSelectedBrand(null)}
             className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all ${
@@ -114,20 +118,20 @@ export const FilterSidebar: React.FC = () => {
             <span>Toutes les marques</span>
           </button>
 
-          {BRANDS.map(b => {
-            const active = selectedBrand === b.name;
+          {(availableBrands || []).map((b: { brand: string; count: number }) => {
+            const active = selectedBrand === b.brand;
             return (
               <button
-                key={b.id}
-                onClick={() => setSelectedBrand(active ? null : b.name)}
+                key={b.brand}
+                onClick={() => setSelectedBrand(active ? null : b.brand)}
                 className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                   active
                     ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold'
                     : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
-                <span>{b.name}</span>
-                {active && <Check className="w-3.5 h-3.5 text-amber-600" />}
+                <span>{b.brand}</span>
+                <span className="text-[10px] bg-slate-100 px-2 py-0.5 rounded-full text-slate-500 font-semibold">{b.count}</span>
               </button>
             );
           })}

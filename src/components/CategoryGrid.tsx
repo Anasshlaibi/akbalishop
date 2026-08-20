@@ -1,5 +1,5 @@
 import React from 'react';
-import { CATEGORIES, Category } from '../data/categories';
+import { CATEGORIES, Category, normalizeCategorySlug, getCategoryCount } from '../data/categories';
 import { useShop } from '../context/ShopContext';
 import { Camera, Aperture, Sun, Mic, Video, RefreshCw, Calendar, Sliders, ArrowRight } from 'lucide-react';
 
@@ -15,17 +15,18 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 export const CategoryGrid: React.FC = () => {
-  const { setActiveTab, setSelectedCategory, setConditionFilter, resetFilters } = useShop();
+  const { products, setActiveTab, setSelectedCategory, setConditionFilter, resetFilters } = useShop();
 
   const handleCategoryClick = (cat: Category) => {
     resetFilters();
     setActiveTab('shop');
-    if (cat.slug === 'occasions') {
+    const norm = normalizeCategorySlug(cat.slug);
+    if (norm === 'occasions') {
       setConditionFilter('occasion');
-    } else if (cat.slug === 'location') {
+    } else if (norm === 'location') {
       setConditionFilter('location');
     } else {
-      setSelectedCategory(cat.slug);
+      setSelectedCategory(norm);
     }
   };
 
@@ -71,7 +72,7 @@ export const CategoryGrid: React.FC = () => {
                     {iconMap[cat.iconName] || <Camera className="w-5 h-5" />}
                   </div>
                   <span className="text-[11px] font-semibold text-gray-400 bg-dark-surface px-2.5 py-1 rounded-full border border-white/5">
-                    {cat.itemCount} produits
+                    {getCategoryCount(cat.slug, products)} produits
                   </span>
                 </div>
 

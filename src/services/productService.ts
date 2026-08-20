@@ -1,3 +1,4 @@
+import { normalizeCategorySlug } from '../data/categories';
 import { enrichProductWithSeo } from '../utils/seoGenerator';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { Product } from '../types';
@@ -57,40 +58,7 @@ class ProductService {
   }
 
   public toValidPostgresCategory(cat: string): string {
-    if (!cat) return 'cameras';
-    const trimmed = cat.trim();
-    
-    if (VALID_POSTGRES_CATEGORIES.includes(trimmed)) {
-      return trimmed;
-    }
-
-    const lower = trimmed.toLowerCase();
-    const match = VALID_POSTGRES_CATEGORIES.find(c => c.toLowerCase() === lower);
-    if (match) return match;
-
-    if (lower.includes('camera') || lower.includes('caméra') || lower.includes('instax') || lower.includes('boitier') || lower.includes('boîtier')) {
-      return 'cameras';
-    }
-    if (lower.includes('obj') || lower.includes('lens')) {
-      return 'objectifs';
-    }
-    if (lower.includes('audio') || lower.includes('mic') || lower.includes('son')) {
-      return 'audio';
-    }
-    if (lower.includes('eclair') || lower.includes('éclair') || lower.includes('light') || lower.includes('led') || lower.includes('flash')) {
-      return 'eclairage';
-    }
-    if (lower.includes('stabilis') || lower.includes('gimbal') || lower.includes('ronin')) {
-      return 'stabilisateurs';
-    }
-    if (lower.includes('locat') || lower.includes('rent')) {
-      return 'location';
-    }
-    if (lower.includes('occas') || lower.includes('used')) {
-      return 'occasions';
-    }
-
-    return 'accessoires';
+    return normalizeCategorySlug(cat);
   }
 
   public mapRowToProduct(row: any): Product {
@@ -134,7 +102,7 @@ class ProductService {
     }
 
     // Preserve custom category name if saved in specs
-    const displayCategory = specs.__custom_category || String(row.category || 'cameras');
+    const displayCategory = normalizeCategorySlug(row.category || specs.__custom_category || 'cameras');
 
     const rawProduct: Product = {
       id: String(row.id),

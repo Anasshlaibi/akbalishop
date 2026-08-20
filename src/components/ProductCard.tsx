@@ -1,3 +1,4 @@
+import { generateSeoAltText } from '../utils/seoGenerator';
 import React from 'react';
 import { Product } from '../data/products';
 import { useCart } from '../context/CartContext';
@@ -36,7 +37,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
           onClick={handleCardClick}
           className="relative w-full sm:w-40 h-36 rounded-xl bg-slate-50 p-3 border border-gray-100 flex items-center justify-center cursor-pointer overflow-hidden flex-shrink-0"
         >
-          <img src={product.image} alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />
+          <img src={product.image} alt={generateSeoAltText(product)} loading="lazy" decoding="async" className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />
           {product.isOccasion && (
             <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-amber-100 border border-amber-300 text-amber-800 text-[10px] font-bold">Occasion</span>
           )}

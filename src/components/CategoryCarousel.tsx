@@ -1,5 +1,5 @@
 import React from 'react';
-import { CATEGORIES, Category } from '../data/categories';
+import { CATEGORIES, Category, normalizeCategorySlug, getCategoryCount } from '../data/categories';
 import { useShop } from '../context/ShopContext';
 
 export const CategoryCarousel: React.FC = () => {
@@ -10,29 +10,17 @@ export const CategoryCarousel: React.FC = () => {
   const handleCategoryClick = (cat: Category) => {
     resetFilters();
     setActiveTab('shop');
-    if (cat.slug === 'occasions') {
+    const norm = normalizeCategorySlug(cat.slug);
+    if (norm === 'occasions') {
       setConditionFilter('occasion');
-    } else if (cat.slug === 'location') {
+    } else if (norm === 'location') {
       setConditionFilter('location');
     } else {
-      setSelectedCategory(cat.slug);
+      setSelectedCategory(norm);
     }
   };
 
-  const getCategoryCount = (slug: string): number => {
-    if (slug === 'occasions') {
-      return activeProducts.filter(p => p.isOccasion || p.condition === 'used').length;
-    }
-    if (slug === 'location') {
-      return activeProducts.filter(p => p.isRental || p.commercialMode === 'rental' || p.commercialMode === 'both').length;
-    }
-    return activeProducts.filter(p => {
-      const pCat = p.category.toLowerCase();
-      if (slug === 'objectifs' && (pCat === 'objectifs' || pCat === 'lens' || pCat === 'lenses')) return true;
-      if (slug === 'cameras' && (pCat === 'cameras' || pCat === 'appareils-photo')) return true;
-      return pCat === slug.toLowerCase();
-    }).length;
-  };
+  
 
   return (
     <section className="py-6 bg-slate-50 border-b border-gray-200">
@@ -41,7 +29,7 @@ export const CategoryCarousel: React.FC = () => {
         {/* Horizontal Category Cards List */}
         <div className="flex items-center space-x-3 overflow-x-auto pb-3 pt-1 scrollbar-none">
           {(categories || CATEGORIES).map((cat) => {
-            const count = getCategoryCount(cat.slug);
+            const count = getCategoryCount(cat.slug, products);
             return (
               <div
                 key={cat.id}

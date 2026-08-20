@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useMemo } from 'react';
 import { Product, ConditionFilter, SortOption, Order, OrderStatus } from '../types';
-import { CATEGORIES, Category } from '../data/categories';
+import { CATEGORIES, Category, normalizeCategorySlug } from '../data/categories';
 import { useCategories } from '../hooks/useCategories';
 import { useProducts } from '../hooks/useProducts';
 import { useOrders } from '../hooks/useOrders';
@@ -14,11 +14,13 @@ interface ShopContextType {
   addCategory: (categoryData: Partial<Category>) => void;
   updateCategory: (id: string, updated: Partial<Category>) => void;
   products: Product[];
+  filteredProducts: Product[];
   activeTab: ActiveTab;
   setActiveTab: (tab: ActiveTab) => void;
   selectedCategory: string | null;
   setSelectedCategory: (cat: string | null) => void;
   selectedBrand: string | null;
+  availableBrands: { brand: string; count: number }[];
   setSelectedBrand: (brand: string | null) => void;
   conditionFilter: ConditionFilter;
   setConditionFilter: (cond: ConditionFilter) => void;
@@ -76,6 +78,26 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
 
+  // Initial URL params sync (e.g., ?category=stabilisateurs or ?tab=shop)
+  React.useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const catParam = params.get('category');
+      const tabParam = params.get('tab');
+
+      if (catParam) {
+        const normCat = normalizeCategorySlug(catParam);
+        productState.setSelectedCategory(normCat);
+        setActiveTab('shop');
+      } else if (tabParam === 'shop' || tabParam === 'rental' || tabParam === 'contact') {
+        setActiveTab(tabParam as ActiveTab);
+      }
+    } catch (e) {
+      console.warn('URL params parsing error:', e);
+    }
+  }, []);
+
+
   // Derived selected product from synchronized products state
   const selectedProduct = useMemo(() => {
     if (!selectedProductId) return null;
@@ -129,11 +151,13 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
       addCategory,
       updateCategory,
       products: productState.products,
+      filteredProducts: productState.filteredProducts,
       activeTab,
       setActiveTab,
       selectedCategory: productState.selectedCategory,
       setSelectedCategory: productState.setSelectedCategory,
       selectedBrand: productState.selectedBrand,
+      availableBrands: productState.availableBrands,
       setSelectedBrand: productState.setSelectedBrand,
       conditionFilter: productState.conditionFilter,
       setConditionFilter: productState.setConditionFilter,

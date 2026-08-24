@@ -1,9 +1,10 @@
 import { generateSeoAltText } from '../../utils/seoGenerator';
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Product } from '../../types';
 import { useCart } from '../../context/CartContext';
 import { useShop } from '../../context/ShopContext';
 import { ProductCard } from '../ProductCard';
+import { recommendationEngine } from '../../services/recommendationEngine';
 import { 
   ShoppingBag, 
   MessageCircle, 
@@ -19,7 +20,11 @@ import {
   Box,
   FileText,
   Sliders,
-  MessageSquare
+  MessageSquare,
+  Sparkles,
+  Layers,
+  Cpu,
+  Zap
 } from 'lucide-react';
 
 interface ProductDetailProps {
@@ -37,15 +42,15 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   }, [product.id, product.image]);
   const [quantity, setQuantity] = useState(1);
   const [activeTabSection, setActiveTabSection] = useState<'desc' | 'specs' | 'box' | 'reviews'>('desc');
+  const [recTab, setRecTab] = useState<'compatible' | 'accessories' | 'bundle' | 'similar'>('compatible');
   const [copied, setCopied] = useState(false);
 
   const isLiked = isInWishlist(product.id);
 
-  // Filter related active products from Supabase catalog
-  const activeProducts = products.filter(p => p.isActive !== false);
-  const relatedProducts = activeProducts.filter(
-    p => p.id !== product.id && (p.category.toLowerCase() === product.category.toLowerCase() || p.brand.toLowerCase() === product.brand.toLowerCase())
-  ).slice(0, 4);
+  // Compute domain-aware smart recommendation sets
+  const recommendations = useMemo(() => {
+    return recommendationEngine.getProductRecommendations(product, products);
+  }, [product, products]);
 
   const handleWhatsAppOrder = () => {
     const message = encodeURIComponent(
@@ -54,15 +59,22 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
     window.open(`https://wa.me/212701896033?text=${message}`, '_blank');
   };
 
+  const shareUrl = useMemo(() => {
+    const targetId = product.slug || product.id;
+    const origin = window.location.origin;
+    const path = window.location.pathname;
+    return `${origin}${path}?product=${encodeURIComponent(targetId)}`;
+  }, [product.id, product.slug]);
+
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
         title: product.name,
         text: `Découvrez ${product.name} chez AKABLISHOP Maroc`,
-        url: window.location.href,
+        url: shareUrl,
       }).catch(() => {});
     } else {
-      navigator.clipboard.writeText(window.location.href);
+      navigator.clipboard.writeText(shareUrl);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
@@ -384,14 +396,88 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
 
         </div>
 
-        {/* Related Products Carousel Grid */}
-        {relatedProducts.length > 0 && (
+        {/* INTELLIGENT RECOMMENDATION SECTIONS */}
+        {(recommendations.compatibleWith.length > 0 || recommendations.recommendedAccessories.length > 0 || recommendations.similarProducts.length > 0) && (
           <div className="pt-12 border-t border-gray-200 space-y-6">
-            <h3 className="text-xl font-bold font-display text-slate-900">Produits Similaires Recommandés</h3>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200 pb-4">
+              <div>
+                <span className="text-[10px] uppercase font-bold text-amber-700 tracking-wider flex items-center space-x-1">
+                  <Sparkles className="w-3 h-3 text-amber-600 inline mr-1" />
+                  <span>Moteur d'Intelligence AKABLISHOP</span>
+                </span>
+                <h3 className="text-xl font-extrabold font-display text-slate-900">Recommandations & Compatibilité</h3>
+              </div>
+
+              {/* Recommendation Strategy Tabs */}
+              <div className="flex items-center space-x-2 overflow-x-auto pb-1">
+                {recommendations.compatibleWith.length > 0 && (
+                  <button
+                    onClick={() => setRecTab('compatible')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 whitespace-nowrap ${
+                      recTab === 'compatible' ? 'bg-amber-600 text-white shadow-sm' : 'bg-white border border-gray-200 text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    <Cpu className="w-3.5 h-3.5" />
+                    <span>Compatible Avec ({recommendations.compatibleWith.length})</span>
+                  </button>
+                )}
+
+                {recommendations.recommendedAccessories.length > 0 && (
+                  <button
+                    onClick={() => setRecTab('accessories')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 whitespace-nowrap ${
+                      recTab === 'accessories' ? 'bg-amber-600 text-white shadow-sm' : 'bg-white border border-gray-200 text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    <Layers className="w-3.5 h-3.5" />
+                    <span>Accessoires Recommandés ({recommendations.recommendedAccessories.length})</span>
+                  </button>
+                )}
+
+                {recommendations.frequentlyBoughtTogether.length > 0 && (
+                  <button
+                    onClick={() => setRecTab('bundle')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 whitespace-nowrap ${
+                      recTab === 'bundle' ? 'bg-amber-600 text-white shadow-sm' : 'bg-white border border-gray-200 text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    <Zap className="w-3.5 h-3.5" />
+                    <span>Achetés Ensemble</span>
+                  </button>
+                )}
+
+                {recommendations.similarProducts.length > 0 && (
+                  <button
+                    onClick={() => setRecTab('similar')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 whitespace-nowrap ${
+                      recTab === 'similar' ? 'bg-amber-600 text-white shadow-sm' : 'bg-white border border-gray-200 text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    <span>Similaires & Alternatives</span>
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Recommendation Tab Content Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {relatedProducts.map(rel => (
-                <ProductCard key={rel.id} product={rel} />
+              {recTab === 'compatible' && recommendations.compatibleWith.map(rec => (
+                <ProductCard key={rec.id} product={rec} />
               ))}
+
+              {recTab === 'accessories' && recommendations.recommendedAccessories.map(rec => (
+                <ProductCard key={rec.id} product={rec} />
+              ))}
+
+              {recTab === 'bundle' && recommendations.frequentlyBoughtTogether.map(rec => (
+                <ProductCard key={rec.id} product={rec} />
+              ))}
+
+              {recTab === 'similar' && (
+                (recommendations.similarProducts.length > 0 ? recommendations.similarProducts : recommendations.alternatives).map(rec => (
+                  <ProductCard key={rec.id} product={rec} />
+                ))
+              )}
             </div>
           </div>
         )}

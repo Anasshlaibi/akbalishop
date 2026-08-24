@@ -78,24 +78,79 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
 
-  // Initial URL params sync (e.g., ?category=stabilisateurs or ?tab=shop)
+  // Initial URL params sync (e.g., ?product=sony-fx3-cinema or ?category=stabilisateurs or ?tab=shop)
   React.useEffect(() => {
     try {
       const params = new URLSearchParams(window.location.search);
+      const prodParam = params.get('product') || params.get('id') || params.get('p') || params.get('slug');
       const catParam = params.get('category');
       const tabParam = params.get('tab');
 
-      if (catParam) {
+      if (prodParam) {
+        setSelectedProductId(prodParam);
+        setActiveTab('product');
+      } else if (catParam) {
         const normCat = normalizeCategorySlug(catParam);
         productState.setSelectedCategory(normCat);
         setActiveTab('shop');
-      } else if (tabParam === 'shop' || tabParam === 'rental' || tabParam === 'contact') {
+      } else if (tabParam === 'shop' || tabParam === 'rental' || tabParam === 'contact' || tabParam === 'about') {
         setActiveTab(tabParam as ActiveTab);
       }
     } catch (e) {
       console.warn('URL params parsing error:', e);
     }
+
+    const handlePopState = () => {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const prodParam = params.get('product') || params.get('id') || params.get('p') || params.get('slug');
+        if (prodParam) {
+          setSelectedProductId(prodParam);
+          setActiveTab('product');
+        } else {
+          setSelectedProductId(null);
+          const tabParam = params.get('tab');
+          if (tabParam) setActiveTab(tabParam as ActiveTab);
+          else setActiveTab('home');
+        }
+      } catch (e) {
+        console.warn('Popstate error:', e);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, []);
+
+  // Sync browser URL search params with active tab & selected product
+  React.useEffect(() => {
+    try {
+      const url = new URL(window.location.href);
+      if (activeTab === 'product' && selectedProductId) {
+        url.searchParams.set('product', selectedProductId);
+        url.searchParams.delete('category');
+        url.searchParams.delete('tab');
+      } else {
+        url.searchParams.delete('product');
+        url.searchParams.delete('id');
+        url.searchParams.delete('p');
+        url.searchParams.delete('slug');
+        if (productState.selectedCategory && activeTab === 'shop') {
+          url.searchParams.set('category', productState.selectedCategory);
+          url.searchParams.delete('tab');
+        } else if (activeTab && activeTab !== 'home') {
+          url.searchParams.set('tab', activeTab);
+          url.searchParams.delete('category');
+        } else {
+          url.searchParams.delete('tab');
+          url.searchParams.delete('category');
+        }
+      }
+      window.history.replaceState({}, '', url.pathname + url.search + url.hash);
+    } catch (e) {
+      console.warn('URL sync error:', e);
+    }
+  }, [activeTab, selectedProductId, productState.selectedCategory]);
 
 
   // Derived selected product from synchronized products state

@@ -2,6 +2,7 @@ import { CATEGORIES, normalizeCategorySlug, getCategoryCount } from '../data/cat
 import { useState, useEffect, useMemo } from 'react';
 import { Product, ConditionFilter, SortOption } from '../types';
 import { productService, MutationResult } from '../services/productService';
+import { intelligentSearchService } from '../services/intelligentSearchService';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { Database } from '../types/database.types';
 
@@ -132,7 +133,16 @@ export function useProducts() {
   }, [activeProducts]);
 
   const filteredProducts = useMemo(() => {
-    return activeProducts.filter(p => {
+    let list = activeProducts;
+
+    // 1. Intelligent Search Filter & Rank if searchQuery is present
+    if (searchQuery.trim()) {
+      const searchResults = intelligentSearchService.searchProducts(searchQuery, list);
+      list = searchResults.map(r => r.product);
+    }
+
+    // 2. Apply Category, Brand, and Condition Filters
+    return list.filter(p => {
       if (selectedCategory) {
         const normSel = normalizeCategorySlug(selectedCategory);
         const normPCat = normalizeCategorySlug(p.category);
@@ -158,19 +168,12 @@ export function useProducts() {
       if (conditionFilter === 'occasion' && !p.isOccasion && p.condition !== 'used') return false;
       if (conditionFilter === 'location' && !p.isRental && p.commercialMode !== 'rental' && p.commercialMode !== 'both') return false;
 
-      if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase();
-        const matchesName = p.name.toLowerCase().includes(q);
-        const matchesBrand = p.brand.toLowerCase().includes(q);
-        const matchesCat = p.category.toLowerCase().includes(q);
-        const matchesDesc = (p.shortDescription || '').toLowerCase().includes(q);
-        if (!matchesName && !matchesBrand && !matchesCat && !matchesDesc) return false;
-      }
       return true;
     }).sort((a, b) => {
       if (sortBy === 'price-asc') return a.price - b.price;
       if (sortBy === 'price-desc') return b.price - a.price;
       if (sortBy === 'rating') return b.rating - a.rating;
+      // Keep intelligent search score order if searchQuery is active
       return 0;
     });
   }, [activeProducts, selectedCategory, selectedBrand, conditionFilter, searchQuery, sortBy]);

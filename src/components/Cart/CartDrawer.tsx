@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useCart } from '../../context/CartContext';
 import { useShop } from '../../context/ShopContext';
-import { X, Trash2, ShoppingBag, ArrowRight, Truck, ShieldCheck, Check } from 'lucide-react';
+import { recommendationEngine } from '../../services/recommendationEngine';
+import { X, Trash2, ShoppingBag, ArrowRight, Truck, ShieldCheck, Check, Plus, Sparkles } from 'lucide-react';
 
 export const CartDrawer: React.FC = () => {
   const { 
@@ -10,10 +11,15 @@ export const CartDrawer: React.FC = () => {
     setIsCartOpen, 
     updateQuantity, 
     removeFromCart, 
+    addToCart,
     subtotal, 
     freeShippingThreshold 
   } = useCart();
-  const { setIsCheckoutOpen } = useShop();
+  const { products, setIsCheckoutOpen } = useShop();
+
+  const cartKitRecommendations = useMemo(() => {
+    return recommendationEngine.getCartKitRecommendations(cart, products);
+  }, [cart, products]);
 
   if (!isCartOpen) return null;
 
@@ -26,7 +32,7 @@ export const CartDrawer: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
+    <div className="fixed inset-0 z-50 overflow-hidden font-sans">
       {/* Backdrop */}
       <div 
         className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
@@ -76,53 +82,89 @@ export const CartDrawer: React.FC = () => {
           {/* Cart Item List */}
           <div className="flex-1 overflow-y-auto p-6 space-y-4">
             {cart.length > 0 ? (
-              cart.map(item => (
-                <div 
-                  key={item.product.id} 
-                  className="p-3.5 rounded-2xl bg-white border border-gray-200 flex items-center gap-3.5 relative group shadow-sm"
-                >
-                  <img 
-                    src={item.product.image} 
-                    alt={item.product.name} 
-                    className="w-16 h-16 rounded-xl object-contain bg-slate-50 p-1.5 border border-gray-100 flex-shrink-0"
-                  />
+              <>
+                <div className="space-y-3">
+                  {cart.map(item => (
+                    <div 
+                      key={item.product.id} 
+                      className="p-3.5 rounded-2xl bg-white border border-gray-200 flex items-center gap-3.5 relative group shadow-sm"
+                    >
+                      <img 
+                        src={item.product.image} 
+                        alt={item.product.name} 
+                        className="w-16 h-16 rounded-xl object-contain bg-slate-50 p-1.5 border border-gray-100 flex-shrink-0"
+                      />
 
-                  <div className="flex-1 min-w-0">
-                    <span className="text-[10px] uppercase font-bold text-amber-700">{item.product.brand}</span>
-                    <h4 className="text-xs font-bold text-slate-900 truncate">{item.product.name}</h4>
-                    <div className="text-xs font-extrabold text-slate-900 mt-1">
-                      {item.product.price.toLocaleString('fr-FR')} <span className="text-[10px] text-amber-700">DH</span>
+                      <div className="flex-1 min-w-0">
+                        <span className="text-[10px] uppercase font-bold text-amber-700">{item.product.brand}</span>
+                        <h4 className="text-xs font-bold text-slate-900 truncate">{item.product.name}</h4>
+                        <div className="text-xs font-extrabold text-slate-900 mt-1">
+                          {item.product.price.toLocaleString('fr-FR')} <span className="text-[10px] text-amber-700">DH</span>
+                        </div>
+
+                        {/* Quantity Controls */}
+                        <div className="flex items-center space-x-2 mt-2">
+                          <div className="flex items-center bg-slate-100 border border-gray-200 rounded-lg">
+                            <button
+                              onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
+                              className="w-6 h-6 text-slate-700 hover:text-slate-900 flex items-center justify-center font-bold text-xs"
+                            >
+                              -
+                            </button>
+                            <span className="w-6 text-center text-xs font-bold text-slate-900">{item.quantity}</span>
+                            <button
+                              onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
+                              className="w-6 h-6 text-slate-700 hover:text-slate-900 flex items-center justify-center font-bold text-xs"
+                            >
+                              +
+                            </button>
+                          </div>
+
+                          <button
+                            onClick={() => removeFromCart(item.product.id)}
+                            className="p-1 text-slate-400 hover:text-rose-600 transition-colors"
+                            title="Supprimer du panier"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Smart Cart Kit Recommendations */}
+                {cartKitRecommendations.length > 0 && (
+                  <div className="pt-4 mt-6 border-t border-gray-200 space-y-3">
+                    <div className="flex items-center space-x-1 text-xs text-amber-800 font-bold uppercase tracking-wider">
+                      <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                      <span>Complétez votre Kit Tournage</span>
                     </div>
 
-                    {/* Quantity Controls */}
-                    <div className="flex items-center space-x-2 mt-2">
-                      <div className="flex items-center bg-slate-100 border border-gray-200 rounded-lg">
-                        <button
-                          onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
-                          className="w-6 h-6 text-slate-700 hover:text-slate-900 flex items-center justify-center font-bold text-xs"
-                        >
-                          -
-                        </button>
-                        <span className="w-6 text-center text-xs font-bold text-slate-900">{item.quantity}</span>
-                        <button
-                          onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                          className="w-6 h-6 text-slate-700 hover:text-slate-900 flex items-center justify-center font-bold text-xs"
-                        >
-                          +
-                        </button>
-                      </div>
+                    <div className="space-y-2">
+                      {cartKitRecommendations.map(rec => (
+                        <div key={rec.id} className="p-2.5 rounded-xl bg-amber-50/50 border border-amber-200 flex items-center justify-between text-xs shadow-sm">
+                          <div className="flex items-center space-x-2.5 min-w-0 pr-2">
+                            <img src={rec.image} alt={rec.name} className="w-10 h-10 rounded-lg object-contain bg-white p-1 border flex-shrink-0" />
+                            <div className="min-w-0">
+                              <h5 className="font-bold text-slate-900 truncate text-[11px]">{rec.name}</h5>
+                              <span className="text-[10px] text-amber-700 font-extrabold">{rec.price.toLocaleString('fr-FR')} DH</span>
+                            </div>
+                          </div>
 
-                      <button
-                        onClick={() => removeFromCart(item.product.id)}
-                        className="p-1 text-slate-400 hover:text-rose-600 transition-colors"
-                        title="Supprimer du panier"
-                      >
-                        <Trash2 className="w-3.5 h-3.5" />
-                      </button>
+                          <button
+                            onClick={() => addToCart(rec, 1)}
+                            className="px-2.5 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-[11px] font-bold flex items-center space-x-1 flex-shrink-0 shadow-sm"
+                          >
+                            <Plus className="w-3 h-3" />
+                            <span>Ajouter</span>
+                          </button>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                </div>
-              ))
+                )}
+              </>
             ) : (
               <div className="text-center py-16 space-y-4">
                 <ShoppingBag className="w-12 h-12 text-slate-300 mx-auto" />

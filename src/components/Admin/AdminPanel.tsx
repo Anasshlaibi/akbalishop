@@ -4,6 +4,7 @@ import { Product } from '../../types';
 import { ProductEditorModal } from './ProductEditorModal';
 import { CategoryEditorModal } from './CategoryEditorModal';
 import { Category } from '../../data/categories';
+import { intelligentSearchService, SearchAnalyticsItem } from '../../services/intelligentSearchService';
 import { 
   Package, 
   Plus, 
@@ -18,7 +19,11 @@ import {
   XCircle,
   AlertCircle,
   LogOut,
-  Key
+  Key,
+  BarChart2,
+  Sparkles,
+  TrendingUp,
+  RefreshCw
 } from 'lucide-react';
 
 const ADMIN_STORAGE_KEY = 'akabli_admin_session_v1';
@@ -39,7 +44,7 @@ export const AdminPanel: React.FC = () => {
   const [authError, setAuthError] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
   
-  const [adminTab, setAdminTab] = useState<'products' | 'categories'>('products');
+  const [adminTab, setAdminTab] = useState<'products' | 'categories' | 'search'>('products');
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
   const [isCategoryEditorOpen, setIsCategoryEditorOpen] = useState(false);
   const [isCreateCategoryMode, setIsCreateCategoryMode] = useState(false);
@@ -48,6 +53,19 @@ export const AdminPanel: React.FC = () => {
   
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+
+  // Search Analytics Data State
+  const [analyticsData, setAnalyticsData] = useState<{ topSearches: SearchAnalyticsItem[]; zeroResults: SearchAnalyticsItem[] }>({
+    topSearches: [],
+    zeroResults: []
+  });
+
+  useEffect(() => {
+    if (adminTab === 'search') {
+      const data = intelligentSearchService.getSearchAnalytics();
+      setAnalyticsData(data);
+    }
+  }, [adminTab]);
 
   // Synchronize authentication status with storage
   const handleLogin = (e: React.FormEvent) => {
@@ -150,33 +168,32 @@ export const AdminPanel: React.FC = () => {
                     authError ? 'border-rose-500 focus:border-rose-500 bg-rose-950/20' : 'border-slate-700 focus:border-amber-500'
                   }`}
                 />
-                <Key className="w-4 h-4 absolute left-3.5 top-3.5 text-slate-500" />
+                <Key className="w-5 h-5 text-slate-500 absolute left-3 top-3.5" />
               </div>
               {authError && (
-                <p className="text-rose-400 text-xs font-semibold mt-2 flex items-center space-x-1">
-                  <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
-                  <span>Mot de passe incorrect</span>
+                <p className="text-rose-400 text-xs mt-1.5 flex items-center">
+                  <AlertCircle className="w-3.5 h-3.5 inline mr-1" /> Mot de passe incorrect.
                 </p>
               )}
             </div>
 
-            <div className="flex items-center justify-between pt-1">
-              <label className="flex items-center space-x-2 text-xs font-medium text-slate-400 cursor-pointer">
+            <div className="flex items-center justify-between text-xs text-slate-400">
+              <label className="flex items-center space-x-2 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={rememberMe}
                   onChange={(e) => setRememberMe(e.target.checked)}
-                  className="rounded border-slate-700 text-amber-500 focus:ring-amber-500 bg-slate-900"
+                  className="rounded bg-slate-900 border-slate-700 text-amber-500 focus:ring-amber-500"
                 />
-                <span>Mémoriser la session sur cet appareil</span>
+                <span>Se souvenir de moi</span>
               </label>
             </div>
 
             <button
               type="submit"
-              className="w-full py-3 bg-amber-500 hover:bg-amber-600 font-extrabold text-slate-950 text-sm rounded-xl transition-all shadow-lg hover:shadow-amber-500/20"
+              className="w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-colors shadow-lg shadow-amber-500/20 mt-2"
             >
-              Déverrouiller le Panneau Admin
+              Se Connecter
             </button>
           </form>
         </div>
@@ -196,7 +213,7 @@ export const AdminPanel: React.FC = () => {
               </span>
             </div>
             <h1 className="text-xl font-black text-white tracking-tight mt-1">Panneau d'Administration AKABLISHOP</h1>
-            <p className="text-xs text-slate-400 mt-0.5">Gérez vos équipements & photos de catégories en direct</p>
+            <p className="text-xs text-slate-400 mt-0.5">Gérez vos équipements, recherche intelligente & suggestions</p>
           </div>
 
           <div className="flex items-center space-x-3">
@@ -216,7 +233,15 @@ export const AdminPanel: React.FC = () => {
                   adminTab === 'categories' ? 'bg-amber-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'
                 }`}
               >
-                🏷️ Catégories & Images ({categories ? categories.length : 8})
+                🏷️ Catégories ({categories ? categories.length : 8})
+              </button>
+              <button
+                onClick={() => setAdminTab('search')}
+                className={`px-4 py-2 rounded-xl transition-all ${
+                  adminTab === 'search' ? 'bg-amber-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                🔍 Recherche & Analytics
               </button>
             </div>
 
@@ -230,7 +255,7 @@ export const AdminPanel: React.FC = () => {
 
             <button
               onClick={handleLogout}
-              className="p-2 bg-slate-800 hover:bg-rose-950 text-slate-400 hover:text-rose-400 rounded-xl border border-slate-700 transition-colors"
+              className="p-2 bg-rose-950/30 hover:bg-rose-900/50 text-rose-400 rounded-xl border border-rose-800/40 transition-colors"
               title="Déconnexion"
             >
               <LogOut className="w-4 h-4" />
@@ -239,145 +264,152 @@ export const AdminPanel: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Content */}
+      {/* Main Body */}
       <div className="max-w-7xl mx-auto p-6 space-y-6">
-        {/* CATEGORY MANAGEMENT GRID */}
-        {adminTab === 'categories' && (
+
+        {/* SEARCH ANALYTICS TAB */}
+        {adminTab === 'search' && (
           <div className="space-y-6">
-            <div className="flex items-center justify-between bg-slate-900 border border-slate-800 rounded-2xl p-4">
-              <div className="flex items-center justify-between w-full">
-                <div>
-                  <h3 className="text-sm font-bold text-white">Gestion des Catégories, Images & Icônes</h3>
-                  <p className="text-xs text-slate-400">Modifiez les visuels de vos catégories ou ajoutez une nouvelle catégorie.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
+                <div className="flex items-center justify-between text-xs text-slate-400 font-bold uppercase tracking-wider">
+                  <span>Recherches Enregistrées</span>
+                  <BarChart2 className="w-4 h-4 text-amber-500" />
                 </div>
-                <button 
-                  onClick={() => { setEditingCategory(null); setIsCreateCategoryMode(true); setIsCategoryEditorOpen(true); }} 
-                  className="px-4 py-2 bg-amber-500 hover:bg-amber-600 font-bold text-xs text-slate-950 rounded-xl flex items-center space-x-1.5 shadow-md transition-all"
-                >
-                  <Plus className="w-4 h-4" />
-                  <span>+ Nouvelle Catégorie</span>
-                </button>
+                <div className="text-3xl font-black text-white">{analyticsData.topSearches.reduce((acc, i) => acc + i.count, 0)}</div>
+                <p className="text-[11px] text-slate-500">Total des requêtes clients saisies</p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
+                <div className="flex items-center justify-between text-xs text-slate-400 font-bold uppercase tracking-wider">
+                  <span>Recherches Sans Résultat</span>
+                  <AlertCircle className="w-4 h-4 text-rose-400" />
+                </div>
+                <div className="text-3xl font-black text-rose-400">{analyticsData.zeroResults.length}</div>
+                <p className="text-[11px] text-slate-500">Mots-clés sans produit correspondant</p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
+                <div className="flex items-center justify-between text-xs text-slate-400 font-bold uppercase tracking-wider">
+                  <span>Moteur Intelligent</span>
+                  <Sparkles className="w-4 h-4 text-emerald-400" />
+                </div>
+                <div className="text-xl font-black text-emerald-400">Actif (Fuzzy + Specs)</div>
+                <p className="text-[11px] text-slate-500">Normalisation 70-200, f/2.8 & Montures</p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {(categories || []).map(cat => {
-                const count = products.filter(p => p.category.toLowerCase() === cat.slug.toLowerCase() || p.category.toLowerCase() === cat.name.toLowerCase()).length;
-                return (
-                  <div key={cat.id} className="bg-slate-900 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center text-center space-y-3 transition-all shadow-lg group">
-                    <div className="w-24 h-24 rounded-2xl bg-slate-800 border border-slate-700 p-2 flex items-center justify-center overflow-hidden relative">
-                      <img src={cat.image} alt={cat.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform" />
-                    </div>
-                    <div className="min-w-0 w-full">
-                      <h4 className="font-bold text-white text-sm truncate">{cat.name}</h4>
-                      <p className="text-[10px] text-amber-400 font-semibold uppercase">{count} produits associés</p>
-                    </div>
-                    <button
-                      onClick={() => {
-                        setEditingCategory(cat);
-                        setIsCreateCategoryMode(false);
-                        setIsCategoryEditorOpen(true);
-                      }}
-                      className="w-full py-2 px-3 bg-slate-800 hover:bg-amber-500 hover:text-slate-950 font-bold text-xs text-slate-200 rounded-xl transition-colors flex items-center justify-center space-x-1.5 border border-slate-700"
-                    >
-                      <Edit className="w-3.5 h-3.5" />
-                      <span>Modifier & Image</span>
-                    </button>
-                  </div>
-                );
-              })}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Top Searched Terms */}
+              <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+                <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center space-x-2">
+                  <TrendingUp className="w-4 h-4 text-amber-500" />
+                  <span>Top Mots-Clés Recherchés</span>
+                </h3>
+                <div className="space-y-2">
+                  {analyticsData.topSearches.length > 0 ? (
+                    analyticsData.topSearches.map((item, i) => (
+                      <div key={i} className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between text-xs">
+                        <div className="font-bold text-amber-400 font-mono">"{item.query}"</div>
+                        <div className="flex items-center space-x-3 text-slate-400">
+                          <span className="px-2 py-0.5 rounded bg-slate-800 font-extrabold text-white">{item.count} recherche(s)</span>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-xs text-slate-500 py-4 text-center">Aucune donnée de recherche encore enregistrée.</p>
+                  )}
+                </div>
+              </div>
+
+              {/* Zero Result Queries */}
+              <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+                <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center space-x-2 text-rose-400">
+                  <AlertCircle className="w-4 h-4" />
+                  <span>Recherches à 0 Résultat (À ajouter)</span>
+                </h3>
+                <div className="space-y-2">
+                  {analyticsData.zeroResults.length > 0 ? (
+                    analyticsData.zeroResults.map((item, i) => (
+                      <div key={i} className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between text-xs">
+                        <div className="font-bold text-rose-400 font-mono">"{item.query}"</div>
+                        <span className="text-[10px] text-slate-500">Ajoutez un synonyme ou produit</span>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-xs text-slate-500 py-4 text-center">Toutes les recherches ont retourné des produits !</p>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         )}
 
+        {/* PRODUCTS MANAGEMENT TAB */}
         {adminTab === 'products' && (
           <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-900 border border-slate-800 p-4 rounded-2xl">
-              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto flex-1">
-                <div className="relative flex-1">
-                  <Search className="w-4 h-4 absolute left-3.5 top-3 text-slate-500" />
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center space-x-3 w-full sm:w-auto">
+                <div className="relative flex-1 sm:w-80">
+                  <Search className="w-4 h-4 text-slate-500 absolute left-3 top-3" />
                   <input
                     type="text"
-                    placeholder="Rechercher par nom ou marque..."
+                    placeholder="Filtrer par nom ou marque..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500"
+                    className="w-full pl-9 pr-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500"
                   />
                 </div>
-
-                <select
-                  value={categoryFilter}
-                  onChange={(e) => setCategoryFilter(e.target.value)}
-                  className="px-4 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white focus:outline-none focus:border-amber-500 font-semibold"
-                >
-                  <option value="all">Toutes les catégories</option>
-                  {categories.map(c => (
-                    <option key={c.id} value={c.slug}>{c.name}</option>
-                  ))}
-                </select>
               </div>
 
               <button
                 onClick={handleCreateProduct}
-                className="w-full sm:w-auto px-4 py-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold rounded-xl text-xs flex items-center justify-center space-x-2 shadow-lg transition-all"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-md transition-colors flex items-center justify-center space-x-2"
               >
                 <Plus className="w-4 h-4" />
                 <span>Nouveau Produit</span>
               </button>
             </div>
 
-            {/* Table */}
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+            <div className="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden shadow-xl">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300">
-                  <thead className="bg-slate-800/50 text-slate-400 font-semibold uppercase tracking-wider border-b border-slate-800">
+                  <thead className="bg-slate-950 text-slate-400 font-bold uppercase tracking-wider text-[10px] border-b border-slate-800">
                     <tr>
                       <th className="px-4 py-3">Produit</th>
-                      <th className="px-4 py-3">Catégorie</th>
-                      <th className="px-4 py-3">Prix Vente</th>
-                      <th className="px-4 py-3">Prix Location</th>
-                      <th className="px-4 py-3">Stock</th>
+                      <th className="px-4 py-3">Marque / Catégorie</th>
+                      <th className="px-4 py-3 text-right">Prix (DH)</th>
+                      <th className="px-4 py-3 text-center">Stock</th>
+                      <th className="px-4 py-3 text-center">Statut</th>
                       <th className="px-4 py-3 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800/60 font-medium">
-                    {filteredProducts.map(product => (
-                      <tr key={product.id} className="hover:bg-slate-800/40 transition-colors">
-                        <td className="px-4 py-3">
-                          <div className="flex items-center space-x-3">
-                            <img 
-                              src={product.image} 
-                              alt={product.name} 
-                              className="w-10 h-10 rounded-lg object-cover bg-slate-800 border border-slate-700"
-                            />
-                            <div>
-                              <div className="font-bold text-white text-sm">{product.name}</div>
-                              <div className="text-[10px] text-slate-400">{product.brand} • ID: {product.id}</div>
-                            </div>
-                          </div>
+                  <tbody className="divide-y divide-slate-800">
+                    {filteredProducts.map((product) => (
+                      <tr key={product.id} className="hover:bg-slate-800/50 transition-colors">
+                        <td className="px-4 py-3 flex items-center space-x-3">
+                          <img src={product.image} alt={product.name} className="w-10 h-10 rounded-lg object-contain bg-slate-950 p-1 border border-slate-800 flex-shrink-0" />
+                          <span className="font-bold text-white truncate max-w-xs">{product.name}</span>
                         </td>
                         <td className="px-4 py-3">
-                          <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-800 text-amber-400 border border-amber-500/20 uppercase">
-                            {product.category}
+                          <div className="font-semibold text-amber-400 uppercase text-[10px]">{product.brand}</div>
+                          <div className="text-slate-400 capitalize">{product.category}</div>
+                        </td>
+                        <td className="px-4 py-3 text-right font-extrabold text-white">
+                          {product.price.toLocaleString('fr-FR')} DH
+                        </td>
+                        <td className="px-4 py-3 text-center">
+                          <span className={`px-2 py-0.5 rounded text-[10px] font-extrabold ${
+                            product.inStock ? 'bg-emerald-950 text-emerald-400 border border-emerald-800' : 'bg-rose-950 text-rose-400 border border-rose-800'
+                          }`}>
+                            {product.inStock ? 'En Stock' : 'Rupture'}
                           </span>
                         </td>
-                        <td className="px-4 py-3 font-bold text-white">
-                          {product.price.toLocaleString()} DH
-                        </td>
-                        <td className="px-4 py-3 text-slate-400">
-                          {product.rentalPricePerDay ? `${product.rentalPricePerDay.toLocaleString()} DH/j` : '-'}
-                        </td>
-                        <td className="px-4 py-3">
-                          {product.inStock ? (
-                            <span className="inline-flex items-center text-emerald-400 text-[11px] font-bold space-x-1">
-                              <CheckCircle className="w-3.5 h-3.5" />
-                              <span>En stock</span>
-                            </span>
+                        <td className="px-4 py-3 text-center">
+                          {product.isActive !== false ? (
+                            <span className="text-emerald-400 font-bold text-[10px]">Actif</span>
                           ) : (
-                            <span className="inline-flex items-center text-rose-400 text-[11px] font-bold space-x-1">
-                              <XCircle className="w-3.5 h-3.5" />
-                              <span>Rupture</span>
-                            </span>
+                            <span className="text-slate-500 font-bold text-[10px]">Inactif</span>
                           )}
                         </td>
                         <td className="px-4 py-3 text-right">

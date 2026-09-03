@@ -1,12 +1,12 @@
 import React, { createContext, useContext, useState, useMemo } from 'react';
-import { Product, ConditionFilter, SortOption, Order, OrderStatus } from '../types';
+import { Product, ConditionFilter, SortOption, Order, OrderStatus, HeroSlide } from '../types';
 import { CATEGORIES, Category, normalizeCategorySlug } from '../data/categories';
 import { useCategories } from '../hooks/useCategories';
 import { useProducts } from '../hooks/useProducts';
 import { useOrders } from '../hooks/useOrders';
 import { MutationResult } from '../services/productService';
 
-export type { ConditionFilter, SortOption, Product, Order };
+export type { ConditionFilter, SortOption, Product, Order, HeroSlide };
 export type ActiveTab = 'home' | 'shop' | 'product' | 'contact' | 'about' | 'rental';
 
 interface ShopContextType {
@@ -15,6 +15,14 @@ interface ShopContextType {
   updateCategory: (id: string, updated: Partial<Category>) => void;
   products: Product[];
   filteredProducts: Product[];
+
+  // Hero Slides & Banners Management
+  slides: HeroSlide[];
+  addSlide: (slide: Partial<HeroSlide>) => void;
+  updateSlide: (id: string, updated: Partial<HeroSlide>) => void;
+  deleteSlide: (id: string) => void;
+  reorderSlides: (slides: HeroSlide[]) => void;
+
   activeTab: ActiveTab;
   setActiveTab: (tab: ActiveTab) => void;
   selectedCategory: string | null;
@@ -207,6 +215,11 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
       updateCategory,
       products: productState.products,
       filteredProducts: productState.filteredProducts,
+      slides: productState.slides,
+      addSlide: productState.addSlide,
+      updateSlide: productState.updateSlide,
+      deleteSlide: productState.deleteSlide,
+      reorderSlides: productState.reorderSlides,
       activeTab,
       setActiveTab,
       selectedCategory: productState.selectedCategory,
@@ -246,6 +259,7 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
     </ShopContext.Provider>
   );
 };
+
 
 export const useShop = () => {
   const context = useContext(ShopContext);

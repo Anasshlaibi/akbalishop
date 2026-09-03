@@ -1,6 +1,6 @@
 import { CATEGORIES, normalizeCategorySlug, getCategoryCount } from '../data/categories';
 import { useState, useEffect, useMemo } from 'react';
-import { Product, ConditionFilter, SortOption } from '../types';
+import { Product, ConditionFilter, SortOption, HeroSlide, getStoredSlides, saveStoredSlides } from '../types';
 import { productService, MutationResult } from '../services/productService';
 import { intelligentSearchService } from '../services/intelligentSearchService';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
@@ -15,6 +15,55 @@ export function useProducts() {
   const [conditionFilter, setConditionFilter] = useState<ConditionFilter>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<SortOption>('featured');
+
+  // Hero Slides State
+  const [slides, setSlides] = useState<HeroSlide[]>(() => getStoredSlides());
+
+  const addSlide = (slideData: Partial<HeroSlide>) => {
+    const newSlide: HeroSlide = {
+      id: `slide-${Date.now()}`,
+      type: slideData.type || 'main',
+      badge: slideData.badge || 'PROMO EXCLUSIVE',
+      title: slideData.title || 'Nouveau Produit en Vedette',
+      subtitle: slideData.subtitle || '',
+      price: slideData.price || '0 DH',
+      oldPrice: slideData.oldPrice || undefined,
+      image: slideData.image || '/wp-content/uploads/SONY-FX6-jpg-300x300.webp',
+      ctaText: slideData.ctaText || 'Profiter de l\'offre',
+      productId: slideData.productId || undefined,
+      stockBadge: slideData.stockBadge || 'Stock Marrakech',
+      isActive: slideData.isActive !== false,
+      sortOrder: slideData.sortOrder || slides.length + 1
+    };
+
+    setSlides(prev => {
+      const next = [...prev, newSlide];
+      saveStoredSlides(next);
+      return next;
+    });
+  };
+
+  const updateSlide = (id: string, updatedFields: Partial<HeroSlide>) => {
+    setSlides(prev => {
+      const next = prev.map(s => (s.id === id ? { ...s, ...updatedFields, updatedAt: new Date().toISOString() } : s));
+      saveStoredSlides(next);
+      return next;
+    });
+  };
+
+  const deleteSlide = (id: string) => {
+    setSlides(prev => {
+      const next = prev.filter(s => s.id !== id);
+      saveStoredSlides(next);
+      return next;
+    });
+  };
+
+  const reorderSlides = (newSlides: HeroSlide[]) => {
+    const updated = newSlides.map((s, idx) => ({ ...s, sortOrder: idx + 1 }));
+    setSlides(updated);
+    saveStoredSlides(updated);
+  };
 
   const refreshProducts = async () => {
     setIsLoading(true);
@@ -192,6 +241,11 @@ export function useProducts() {
     filteredProducts,
     isLoading,
     error,
+    slides,
+    addSlide,
+    updateSlide,
+    deleteSlide,
+    reorderSlides,
     selectedCategory,
     setSelectedCategory,
     selectedBrand,
@@ -212,3 +266,4 @@ export function useProducts() {
     resetFilters
   };
 }
+

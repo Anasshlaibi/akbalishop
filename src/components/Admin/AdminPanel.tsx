@@ -3,6 +3,8 @@ import { useShop } from '../../context/ShopContext';
 import { Product } from '../../types';
 import { ProductEditorModal } from './ProductEditorModal';
 import { CategoryEditorModal } from './CategoryEditorModal';
+import { SlideEditorModal } from './SlideEditorModal';
+import { HeroSlide } from '../../types';
 import { Category } from '../../data/categories';
 import { intelligentSearchService, SearchAnalyticsItem } from '../../services/intelligentSearchService';
 import { 
@@ -29,7 +31,7 @@ import {
 const ADMIN_STORAGE_KEY = 'akabli_admin_session_v1';
 
 export const AdminPanel: React.FC = () => {
-  const { products, addProduct, updateProduct, deleteProduct, categories, addCategory, updateCategory, isAdminOpen, setIsAdminOpen } = useShop();
+  const { products, addProduct, updateProduct, deleteProduct, categories, addCategory, updateCategory, slides, addSlide, updateSlide, deleteSlide, reorderSlides, isAdminOpen, setIsAdminOpen } = useShop();
 
   // All React Hooks MUST be called unconditionally at the top level
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
@@ -44,7 +46,7 @@ export const AdminPanel: React.FC = () => {
   const [authError, setAuthError] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
   
-  const [adminTab, setAdminTab] = useState<'products' | 'categories' | 'search'>('products');
+  const [adminTab, setAdminTab] = useState<'products' | 'categories' | 'search' | 'slides'>('products');
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
   const [isCategoryEditorOpen, setIsCategoryEditorOpen] = useState(false);
   const [isCreateCategoryMode, setIsCreateCategoryMode] = useState(false);
@@ -53,6 +55,9 @@ export const AdminPanel: React.FC = () => {
   
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+  const [slidesTabFilter, setSlidesTabFilter] = useState<'all' | 'main' | 'secondary'>('all');
+  const [isSlideEditorOpen, setIsSlideEditorOpen] = useState(false);
+  const [editingSlide, setEditingSlide] = useState<HeroSlide | null>(null);
 
   // Search Analytics Data State
   const [analyticsData, setAnalyticsData] = useState<{ topSearches: SearchAnalyticsItem[]; zeroResults: SearchAnalyticsItem[] }>({
@@ -234,6 +239,14 @@ export const AdminPanel: React.FC = () => {
                 }`}
               >
                 🏷️ Catégories ({categories ? categories.length : 8})
+              </button>
+              <button
+                onClick={() => setAdminTab('slides')}
+                className={'px-4 py-2 rounded-xl transition-all ' + (
+                  adminTab === 'slides' ? 'bg-amber-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'
+                )}
+              >
+                🖼️ Slides & Offres ({slides ? slides.length : 6})
               </button>
               <button
                 onClick={() => setAdminTab('search')}

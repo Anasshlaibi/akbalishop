@@ -224,6 +224,7 @@ class ProductService {
 
       const map = new Map<string, Product>();
       data.forEach((row: any) => {
+        if (row.id === '__hero_slides_config__') return;
         const prod = this.mapRowToProduct(row);
         map.set(prod.id, prod);
       });
@@ -487,59 +488,62 @@ class ProductService {
   async fetchCloudSlides(): Promise<any[] | null> {
     if (!isSupabaseConfigured || !supabase) return null;
     try {
-      const { data, error } = await supabase.from('hero_slides').select('*').order('sort_order', { ascending: true });
-      if (error || !data || data.length === 0) return null;
-      return data.map((row: any) => ({
-        id: row.id,
-        type: row.type || 'main',
-        badge: row.badge || '',
-        title: row.title || '',
-        subtitle: row.subtitle || '',
-        price: row.price || '',
-        oldPrice: row.old_price || undefined,
-        image: row.image || '',
-        ctaText: row.cta_text || '',
-        productId: row.product_id || undefined,
-        stockBadge: row.stock_badge || undefined,
-        isActive: row.is_active !== false,
-        sortOrder: row.sort_order || 0
-      }));
+      const { data, error } = await supabase
+        .from('products')
+        .select('description')
+        .eq('id', '__hero_slides_config__')
+        .maybeSingle();
+
+      if (error || !data || !data.description) return null;
+      const parsed = JSON.parse(data.description);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+      return null;
     } catch {
       return null;
     }
   }
 
-  async saveCloudSlide(slide: any): Promise<void> {
+  async saveCloudSlides(slides: any[]): Promise<void> {
     if (!isSupabaseConfigured || !supabase) return;
     try {
-      await supabase.from('hero_slides').upsert({
-        id: slide.id,
-        type: slide.type,
-        badge: slide.badge,
-        title: slide.title,
-        subtitle: slide.subtitle,
-        price: slide.price,
-        old_price: slide.oldPrice,
-        image: slide.image,
-        cta_text: slide.ctaText,
-        product_id: slide.productId,
-        stock_badge: slide.stockBadge,
-        is_active: slide.isActive,
-        sort_order: slide.sortOrder,
+      await supabase.from('products').upsert({
+        id: '__hero_slides_config__',
+        slug: '__hero_slides_config__',
+        name: '[CONFIG] Hero Slides',
+        brand: 'AKABLISHOP',
+        category: 'cameras',
+        price: 0,
+        rating: 5,
+        review_count: 0,
+        in_stock: false,
+        image: '/wp-content/uploads/SONY-FX6-jpg-300x300.webp',
+        description: JSON.stringify(slides),
         updated_at: new Date().toISOString()
       });
     } catch (e) {
-      console.warn('Supabase slide upsert error:', e);
+      console.warn('Supabase slides save error:', e);
     }
   }
 
-  async deleteCloudSlide(id: string): Promise<void> {
-    if (!isSupabaseConfigured || !supabase) return;
-    try {
-      await supabase.from('hero_slides').delete().eq('id', id);
-    } catch (e) {
-      console.warn('Supabase slide delete error:', e);
+  async saveCloudSlide(slide: any): Promise<void> {
+    const current = await this.fetchCloudSlides();
+    const slides = current || [];
+    const index = slides.findIndex((s: any) => s.id === slide.id);
+    if (index >= 0) {
+      slides[index] = { ...slides[index], ...slide };
+    } else {
+      slides.push(slide);
     }
+    await this.saveCloudSlides(slides);
+  }
+
+  async deleteCloudSlide(id: string): Promise<void> {
+    const current = await this.fetchCloudSlides();
+    if (!current) return;
+    const slides = current.filter((s: any) => s.id !== id);
+    await this.saveCloudSlides(slides);
   }
 
 }

@@ -79,23 +79,21 @@ export function useProducts() {
     setSlides(prev => {
       const next = [...prev, newSlide];
       saveStoredSlides(next);
-      productService.saveCloudSlide(newSlide);
+      productService.saveCloudSlides(next);
       return next;
     });
   };
 
     const updateSlide = (id: string, updatedFields: Partial<HeroSlide>) => {
     setSlides(prev => {
-      let updatedObj: HeroSlide | null = null;
       const next = prev.map(s => {
         if (s.id === id) {
-          updatedObj = { ...s, ...updatedFields, updatedAt: new Date().toISOString() };
-          return updatedObj;
+          return { ...s, ...updatedFields, updatedAt: new Date().toISOString() };
         }
         return s;
       });
       saveStoredSlides(next);
-      if (updatedObj) productService.saveCloudSlide(updatedObj);
+      productService.saveCloudSlides(next);
       return next;
     });
   };
@@ -104,7 +102,7 @@ export function useProducts() {
     setSlides(prev => {
       const next = prev.filter(s => s.id !== id);
       saveStoredSlides(next);
-      productService.deleteCloudSlide(id);
+      productService.saveCloudSlides(next);
       return next;
     });
   };
@@ -113,6 +111,7 @@ export function useProducts() {
     const updated = newSlides.map((s, idx) => ({ ...s, sortOrder: idx + 1 }));
     setSlides(updated);
     saveStoredSlides(updated);
+    productService.saveCloudSlides(updated);
   };
 
   const refreshProducts = async () => {

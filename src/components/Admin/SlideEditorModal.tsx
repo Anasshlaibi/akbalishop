@@ -76,16 +76,18 @@ export const SlideEditorModal: React.FC<SlideEditorModalProps> = ({
   }, [slide, isOpen]);
 
   // When a product is selected from dropdown, prefill values
-  const handleProductSelect = (selectedProdId: string) => {
+    const handleProductSelect = (selectedProdId: string) => {
     setProductId(selectedProdId);
     if (!selectedProdId) return;
 
-    const prod = products.find(p => p.id === selectedProdId);
+    const prod = products.find(p => p.id === selectedProdId || p.slug === selectedProdId);
     if (prod) {
       setTitle(prod.name);
       setPrice(prod.price.toLocaleString('fr-FR') + ' DH');
       if (prod.oldPrice) {
         setOldPrice(prod.oldPrice.toLocaleString('fr-FR') + ' DH');
+      } else {
+        setOldPrice('');
       }
       if (prod.image) {
         setImage(prod.image);
@@ -96,6 +98,7 @@ export const SlideEditorModal: React.FC<SlideEditorModalProps> = ({
       if (prod.brand) {
         setBadge(prod.brand.toUpperCase() + ' • EN VEDETTE');
       }
+      setCtaText(type === 'main' ? 'Découvrir ' + prod.name.slice(0, 18) : 'Profiter de l\'offre');
     }
   };
 

@@ -16,16 +16,26 @@ export const HeroCarousel: React.FC = () => {
     
     return activeMain.map(slide => {
       const linkedProduct = slide.productId ? products.find(p => p.id === slide.productId || p.slug === slide.productId) : null;
+
+      const title = slide.title || linkedProduct?.name || 'Nouveau Produit en Vedette';
+      const image = slide.image || linkedProduct?.image || '/wp-content/uploads/SONY-FX6-jpg-300x300.webp';
+      const price = slide.price || (linkedProduct ? (linkedProduct.price.toLocaleString('fr-FR') + ' DH') : '');
+      const oldPrice = slide.oldPrice || (linkedProduct?.oldPrice ? (linkedProduct.oldPrice.toLocaleString('fr-FR') + ' DH') : undefined);
+      const subtitle = slide.subtitle || linkedProduct?.shortDescription || '';
+      const badge = slide.badge || (linkedProduct ? (linkedProduct.brand.toUpperCase() + ' • EN VEDETTE') : 'PROMO EXCLUSIVE');
+      const ctaText = slide.ctaText || (linkedProduct ? ('Découvrir ' + linkedProduct.name.slice(0, 20)) : 'Commander');
+      const stockBadge = slide.stockBadge || 'Stock Marrakech';
+
       return {
         id: slide.id,
-        badge: slide.badge || 'PROMO EXCLUSIVE',
-        title: slide.title,
-        subtitle: slide.subtitle || linkedProduct?.shortDescription || '',
-        price: slide.price || (linkedProduct ? (linkedProduct.price.toLocaleString('fr-FR') + ' DH') : ''),
-        oldPrice: slide.oldPrice || (linkedProduct?.oldPrice ? (linkedProduct.oldPrice.toLocaleString('fr-FR') + ' DH') : undefined),
-        image: slide.image || linkedProduct?.image || '/wp-content/uploads/SONY-FX6-jpg-300x300.webp',
-        ctaText: slide.ctaText || 'Commander le Kit Cinéma',
-        stockBadge: slide.stockBadge || 'Stock Marrakech',
+        badge,
+        title,
+        subtitle,
+        price,
+        oldPrice,
+        image,
+        ctaText,
+        stockBadge,
         product: linkedProduct
       };
     });
@@ -38,14 +48,22 @@ export const HeroCarousel: React.FC = () => {
 
     return activeSec.map(slide => {
       const linkedProduct = slide.productId ? products.find(p => p.id === slide.productId || p.slug === slide.productId) : null;
+
+      const title = slide.title || linkedProduct?.name || 'Offre Spéciale';
+      const image = slide.image || linkedProduct?.image || '/wp-content/uploads/AkabliShop-Lens.webp';
+      const price = slide.price || (linkedProduct ? (linkedProduct.price.toLocaleString('fr-FR') + ' DH') : '');
+      const oldPrice = slide.oldPrice || (linkedProduct?.oldPrice ? (linkedProduct.oldPrice.toLocaleString('fr-FR') + ' DH') : undefined);
+      const badge = slide.badge || (linkedProduct ? (linkedProduct.brand.toUpperCase() + ' • OFFRE') : 'OFFRE SPÉCIALE');
+      const ctaText = slide.ctaText || 'Profiter de l\'offre';
+
       return {
         id: slide.id,
-        badge: slide.badge || 'OFFRE SPÉCIALE',
-        title: slide.title,
-        price: slide.price || (linkedProduct ? (linkedProduct.price.toLocaleString('fr-FR') + ' DH') : ''),
-        oldPrice: slide.oldPrice || (linkedProduct?.oldPrice ? (linkedProduct.oldPrice.toLocaleString('fr-FR') + ' DH') : undefined),
-        image: slide.image || linkedProduct?.image || '/wp-content/uploads/AkabliShop-Lens.webp',
-        ctaText: slide.ctaText || 'Profiter de l\'offre',
+        badge,
+        title,
+        price,
+        oldPrice,
+        image,
+        ctaText,
         product: linkedProduct
       };
     });

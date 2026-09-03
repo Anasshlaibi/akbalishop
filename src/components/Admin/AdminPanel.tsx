@@ -577,6 +577,20 @@ export const AdminPanel: React.FC = () => {
           </div>
         )}
 
+        
+        <SlideEditorModal
+          isOpen={isSlideEditorOpen}
+          slide={editingSlide}
+          onClose={() => setIsSlideEditorOpen(false)}
+          onSave={(slideData) => {
+            if (editingSlide) {
+              updateSlide(editingSlide.id, slideData);
+            } else {
+              addSlide(slideData);
+            }
+          }}
+        />
+
         <CategoryEditorModal
           isOpen={isCategoryEditorOpen}
           category={editingCategory}

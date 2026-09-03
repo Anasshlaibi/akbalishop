@@ -1,86 +1,55 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useShop } from '../context/ShopContext';
 import { ShoppingBag, Zap, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const HeroCarousel: React.FC = () => {
-  const { products, setActiveTab, setSelectedProduct, resetFilters } = useShop();
+  const { slides, products, setActiveTab, setSelectedProduct, resetFilters } = useShop();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Find dynamic products from Supabase/ShopContext
-  const fx6Product = products && products.length > 0 ? (products.find(p => p.id === 'sony-fx6-cinema') || products[0]) : null;
-  const nikonProduct = products && products.length > 0 ? (products.find(p => p.id === 'nikon-z7-mark-ii') || products[1] || products[0]) : null;
-  const a7sProduct = products && products.length > 0 ? (products.find(p => p.id === 'sony-a7s-iii-occasion') || products[2] || products[0]) : null;
+  // Compute active main slides from context slides or fallback
+  const mainSlides = useMemo(() => {
+    const activeMain = (slides || []).filter(s => s.type === 'main' && s.isActive !== false);
+    if (activeMain.length === 0) return [];
+    
+    return activeMain.map(slide => {
+      const linkedProduct = slide.productId ? products.find(p => p.id === slide.productId || p.slug === slide.productId) : null;
+      return {
+        id: slide.id,
+        badge: slide.badge || 'PROMO EXCLUSIVE',
+        title: slide.title,
+        subtitle: slide.subtitle || linkedProduct?.shortDescription || '',
+        price: slide.price || (linkedProduct ? (linkedProduct.price.toLocaleString('fr-FR') + ' DH') : ''),
+        oldPrice: slide.oldPrice || (linkedProduct?.oldPrice ? (linkedProduct.oldPrice.toLocaleString('fr-FR') + ' DH') : undefined),
+        image: slide.image || linkedProduct?.image || '/wp-content/uploads/SONY-FX6-jpg-300x300.webp',
+        ctaText: slide.ctaText || 'Commander le Kit Cinéma',
+        stockBadge: slide.stockBadge || 'Stock Marrakech',
+        product: linkedProduct
+      };
+    });
+  }, [slides, products]);
 
-  const mainSlides = [
-    {
-      id: fx6Product?.id || 'sony-fx6-cinema',
-      badge: 'CINEMA LINE • EN VEDETTE',
-      title: fx6Product?.name || 'Sony FX6 – Caméra Cinéma 4K',
-      subtitle: fx6Product?.shortDescription || 'Capteur plein format Exmor R 10.2 MP, 15+ stops dynamique et filtre ND variable.',
-      price: fx6Product ? `${fx6Product.price.toLocaleString('fr-FR')} DH` : '73.000 DH',
-      oldPrice: fx6Product?.oldPrice ? `${fx6Product.oldPrice.toLocaleString('fr-FR')} DH` : undefined,
-      image: fx6Product?.image || '/wp-content/uploads/SONY-FX6-jpg-300x300.webp',
-      ctaText: 'Commander le Kit Cinéma',
-      product: fx6Product
-    },
-    {
-      id: nikonProduct?.id || 'nikon-z7-mark-ii',
-      badge: 'HYBRIDE PLEIN FORMAT',
-      title: nikonProduct?.name || 'NIKON Z 7II Boîtier Nu 45.7 MP',
-      subtitle: nikonProduct?.shortDescription || 'Double processeur EXPEED 6, vidéo 4K 60p et système AF haute précision.',
-      price: nikonProduct ? `${nikonProduct.price.toLocaleString('fr-FR')} DH` : '38.400 DH',
-      oldPrice: nikonProduct?.oldPrice ? `${nikonProduct.oldPrice.toLocaleString('fr-FR')} DH` : undefined,
-      image: nikonProduct?.image || '/wp-content/uploads/NIKON-Z7-MARK-II-jpg-300x300.webp',
-      ctaText: 'Découvrir l\'Offre Nikon',
-      product: nikonProduct
-    },
-    {
-      id: a7sProduct?.id || 'sony-a7s-iii-occasion',
-      badge: 'SECONDE MAIN CERTIFIÉE',
-      title: a7sProduct?.name || 'Sony a7S III – Boîtier Nu (Bon Occasion)',
-      subtitle: a7sProduct?.shortDescription || 'Capteur 12.1 MP 4K 120p, révisé dans nos ateliers avec garantie 6 mois AKABLISHOP.',
-      price: a7sProduct ? `${a7sProduct.price.toLocaleString('fr-FR')} DH` : '31.200 DH',
-      oldPrice: a7sProduct?.oldPrice ? `${a7sProduct.oldPrice.toLocaleString('fr-FR')} DH` : undefined,
-      image: a7sProduct?.image || '/wp-content/uploads/Sony-a7S-III-%E2%80%93-Boitier-nu-Bon-etat-300x300.png',
-      ctaText: 'Voir l\'Occasion Certifiée',
-      product: a7sProduct
-    }
-  ];
+  // Compute active secondary promotional banners
+  const secondaryBanners = useMemo(() => {
+    const activeSec = (slides || []).filter(s => s.type === 'secondary' && s.isActive !== false);
+    if (activeSec.length === 0) return [];
 
-  // Secondary dynamic banners
-  const lensProduct = products && products.length > 0 ? (products.find(p => p.id === 'sony-fe-24-70mm-f28-gm-ii') || products[3] || products[0]) : null;
-  const godoxProduct = products && products.length > 0 ? (products.find(p => p.id === 'godox-sl60w-led-light') || products[4] || products[0]) : null;
-  const rodeProduct = products && products.length > 0 ? (products.find(p => p.id === 'rode-wireless-pro') || products[5] || products[0]) : null;
-
-  const secondaryBanners = [
-    {
-      badge: 'OBJECTIF G MASTER',
-      title: lensProduct?.name || 'Sony FE 24-70mm f/2.8 GM II',
-      price: lensProduct ? `${lensProduct.price.toLocaleString('fr-FR')} DH` : '24.500 DH',
-      oldPrice: lensProduct?.oldPrice ? `${lensProduct.oldPrice.toLocaleString('fr-FR')} DH` : undefined,
-      image: lensProduct?.image || '/wp-content/uploads/AkabliShop-Lens.webp',
-      product: lensProduct
-    },
-    {
-      badge: 'ÉCLAIRAGE STUDIO',
-      title: godoxProduct?.name || 'Godox SL60W Projecteur LED',
-      price: godoxProduct ? `${godoxProduct.price.toLocaleString('fr-FR')} DH` : '1.850 DH',
-      oldPrice: godoxProduct?.oldPrice ? `${godoxProduct.oldPrice.toLocaleString('fr-FR')} DH` : undefined,
-      image: godoxProduct?.image || '/wp-content/uploads/electronics-store-85-300x266.png',
-      product: godoxProduct
-    },
-    {
-      badge: 'SON SANS FIL 32-BIT',
-      title: rodeProduct?.name || 'Røde Wireless PRO Kit',
-      price: rodeProduct ? `${rodeProduct.price.toLocaleString('fr-FR')} DH` : '5.200 DH',
-      oldPrice: rodeProduct?.oldPrice ? `${rodeProduct.oldPrice.toLocaleString('fr-FR')} DH` : undefined,
-      image: rodeProduct?.image || '/wp-content/uploads/electronics-store-86-300x266.png',
-      product: rodeProduct
-    }
-  ];
+    return activeSec.map(slide => {
+      const linkedProduct = slide.productId ? products.find(p => p.id === slide.productId || p.slug === slide.productId) : null;
+      return {
+        id: slide.id,
+        badge: slide.badge || 'OFFRE SPÉCIALE',
+        title: slide.title,
+        price: slide.price || (linkedProduct ? (linkedProduct.price.toLocaleString('fr-FR') + ' DH') : ''),
+        oldPrice: slide.oldPrice || (linkedProduct?.oldPrice ? (linkedProduct.oldPrice.toLocaleString('fr-FR') + ' DH') : undefined),
+        image: slide.image || linkedProduct?.image || '/wp-content/uploads/AkabliShop-Lens.webp',
+        ctaText: slide.ctaText || 'Profiter de l\'offre',
+        product: linkedProduct
+      };
+    });
+  }, [slides, products]);
 
   const handleSlideChange = (newIndex: number) => {
     if (newIndex === currentIndex) return;
@@ -90,15 +59,17 @@ export const HeroCarousel: React.FC = () => {
   };
 
   const nextSlide = () => {
+    if (mainSlides.length === 0) return;
     handleSlideChange((currentIndex + 1) % mainSlides.length);
   };
 
   const prevSlide = () => {
+    if (mainSlides.length === 0) return;
     handleSlideChange((currentIndex - 1 + mainSlides.length) % mainSlides.length);
   };
 
   useEffect(() => {
-    if (!isPaused) {
+    if (!isPaused && mainSlides.length > 1) {
       timerRef.current = setInterval(nextSlide, 5000);
     }
     return () => {
@@ -118,7 +89,7 @@ export const HeroCarousel: React.FC = () => {
   };
 
   const currentSlide = mainSlides[currentIndex] || mainSlides[0];
-  const secondaryBanner = secondaryBanners[currentIndex] || secondaryBanners[0];
+  const secondaryBanner = secondaryBanners[currentIndex % (secondaryBanners.length || 1)] || secondaryBanners[0];
 
   return (
     <section 
@@ -139,9 +110,9 @@ export const HeroCarousel: React.FC = () => {
 
             {/* Slide Body Content */}
             {currentSlide && (
-              <div className={`grid grid-cols-1 sm:grid-cols-12 gap-6 items-center relative z-10 my-auto transition-all duration-500 ease-out ${
+              <div className={'grid grid-cols-1 sm:grid-cols-12 gap-6 items-center relative z-10 my-auto transition-all duration-500 ease-out ' + (
                 isAnimating ? 'opacity-0 scale-[0.98] translate-y-2' : 'opacity-100 scale-100 translate-y-0'
-              }`}>
+              )}>
                 
                 {/* Text Area */}
                 <div className="sm:col-span-7 space-y-3.5 text-left">
@@ -154,9 +125,11 @@ export const HeroCarousel: React.FC = () => {
                     {currentSlide.title}
                   </h2>
 
-                  <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                    {currentSlide.subtitle}
-                  </p>
+                  {currentSlide.subtitle && (
+                    <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                      {currentSlide.subtitle}
+                    </p>
+                  )}
 
                   {/* Price Display */}
                   <div className="flex items-baseline space-x-3 pt-1">
@@ -195,7 +168,7 @@ export const HeroCarousel: React.FC = () => {
                       className="w-full h-full object-contain group-hover:scale-108 transition-transform duration-500"
                     />
                     <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded-md bg-white border border-gray-200 text-[9px] text-amber-700 font-bold shadow-sm">
-                      Stock Marrakech
+                      {currentSlide.stockBadge || 'Stock Marrakech'}
                     </span>
                   </div>
                 </div>
@@ -212,12 +185,12 @@ export const HeroCarousel: React.FC = () => {
                   <button
                     key={idx}
                     onClick={() => handleSlideChange(idx)}
-                    className={`h-2 rounded-full transition-all ${
+                    className={'h-2 rounded-full transition-all ' + (
                       currentIndex === idx 
                         ? 'w-6 bg-amber-600' 
                         : 'w-2 bg-slate-200 hover:bg-slate-300'
-                    }`}
-                    aria-label={`Aller au slide ${idx + 1}`}
+                    )}
+                    aria-label={'Aller au slide ' + (idx + 1)}
                   />
                 ))}
               </div>
@@ -279,7 +252,7 @@ export const HeroCarousel: React.FC = () => {
 
               {/* Bottom Link Action */}
               <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-amber-700 relative z-10">
-                <span>Profiter de l'offre</span>
+                <span>{secondaryBanner.ctaText || "Profiter de l'offre"}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>

@@ -84,10 +84,18 @@ export function useProducts() {
     });
   };
 
-  const updateSlide = (id: string, updatedFields: Partial<HeroSlide>) => {
+    const updateSlide = (id: string, updatedFields: Partial<HeroSlide>) => {
     setSlides(prev => {
-      const next = prev.map(s => (s.id === id ? { ...s, ...updatedFields, updatedAt: new Date().toISOString() } : s));
+      let updatedObj: HeroSlide | null = null;
+      const next = prev.map(s => {
+        if (s.id === id) {
+          updatedObj = { ...s, ...updatedFields, updatedAt: new Date().toISOString() };
+          return updatedObj;
+        }
+        return s;
+      });
       saveStoredSlides(next);
+      if (updatedObj) productService.saveCloudSlide(updatedObj);
       return next;
     });
   };
@@ -96,6 +104,7 @@ export function useProducts() {
     setSlides(prev => {
       const next = prev.filter(s => s.id !== id);
       saveStoredSlides(next);
+      productService.deleteCloudSlide(id);
       return next;
     });
   };

@@ -358,6 +358,131 @@ export const AdminPanel: React.FC = () => {
           </div>
         )}
 
+        
+        {/* SLIDES & HERO BANNERS MANAGEMENT TAB */}
+        {adminTab === 'slides' && (
+          <div className="space-y-6">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => setSlidesTabFilter('all')}
+                  className={'px-3 py-1.5 rounded-xl text-xs font-bold transition-all ' + (
+                    slidesTabFilter === 'all' ? 'bg-amber-500 text-slate-950' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white'
+                  )}
+                >
+                  Tous ({(slides || []).length})
+                </button>
+                <button
+                  onClick={() => setSlidesTabFilter('main')}
+                  className={'px-3 py-1.5 rounded-xl text-xs font-bold transition-all ' + (
+                    slidesTabFilter === 'main' ? 'bg-amber-500 text-slate-950' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white'
+                  )}
+                >
+                  Carrousel Principal ({(slides || []).filter(s => s.type === 'main').length})
+                </button>
+                <button
+                  onClick={() => setSlidesTabFilter('secondary')}
+                  className={'px-3 py-1.5 rounded-xl text-xs font-bold transition-all ' + (
+                    slidesTabFilter === 'secondary' ? 'bg-amber-500 text-slate-950' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white'
+                  )}
+                >
+                  Bannières Droite ({(slides || []).filter(s => s.type === 'secondary').length})
+                </button>
+              </div>
+
+              <button
+                onClick={() => { setEditingSlide(null); setIsSlideEditorOpen(true); }}
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-md transition-colors flex items-center justify-center space-x-2"
+              >
+                <Plus className="w-4 h-4" />
+                <span>Nouveau Slide / Bannière</span>
+              </button>
+            </div>
+
+            {/* Slides Cards List */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {(slides || [])
+                .filter(s => slidesTabFilter === 'all' || s.type === slidesTabFilter)
+                .map((slide, idx) => {
+                  const linkedProd = slide.productId ? products.find(p => p.id === slide.productId) : null;
+                  return (
+                    <div key={slide.id} className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-4 flex flex-col justify-between hover:border-slate-700 transition-all shadow-lg">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex items-start space-x-3.5">
+                          <img
+                            src={slide.image}
+                            alt={slide.title}
+                            className="w-16 h-16 rounded-xl object-contain bg-slate-950 p-1.5 border border-slate-800 flex-shrink-0"
+                          />
+                          <div className="space-y-1">
+                            <div className="flex items-center space-x-2">
+                              <span className={'px-2 py-0.5 rounded text-[9px] font-black uppercase ' + (
+                                slide.type === 'main' ? 'bg-amber-500/10 border border-amber-500/20 text-amber-400' : 'bg-blue-500/10 border border-blue-500/20 text-blue-400'
+                              )}>
+                                {slide.type === 'main' ? 'Carrousel Principal' : 'Bannière Droite'}
+                              </span>
+                              <span className="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[9px] font-bold">
+                                {slide.badge}
+                              </span>
+                            </div>
+
+                            <h4 className="font-bold text-white text-sm line-clamp-1">{slide.title}</h4>
+                            
+                            {slide.subtitle && (
+                              <p className="text-xs text-slate-400 line-clamp-1">{slide.subtitle}</p>
+                            )}
+
+                            <div className="flex items-center space-x-2 text-xs pt-0.5">
+                              <span className="font-extrabold text-amber-400">{slide.price}</span>
+                              {slide.oldPrice && (
+                                <span className="text-slate-500 line-through text-[10px]">{slide.oldPrice}</span>
+                              )}
+                              {linkedProd && (
+                                <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 text-[9px] font-bold border border-emerald-800/50">
+                                  📦 Lié: {linkedProd.name.slice(0, 20)}...
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <div className="flex items-center space-x-2">
+                          <span className={'px-2 py-0.5 rounded text-[10px] font-bold ' + (
+                            slide.isActive !== false ? 'bg-emerald-950 text-emerald-400' : 'bg-slate-800 text-slate-500'
+                          )}>
+                            {slide.isActive !== false ? '● Actif' : '○ Masqué'}
+                          </span>
+                          <span className="text-slate-500 text-[10px]">Pos: #{idx + 1}</span>
+                        </div>
+
+                        <div className="flex items-center space-x-2">
+                          <button
+                            onClick={() => { setEditingSlide(slide); setIsSlideEditorOpen(true); }}
+                            className="p-1.5 bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-300 rounded-lg transition-colors flex items-center space-x-1 px-2.5 font-bold text-[11px]"
+                          >
+                            <Edit className="w-3.5 h-3.5" />
+                            <span>Éditer</span>
+                          </button>
+                          <button
+                            onClick={() => {
+                              if (window.confirm('Supprimer ce slide ?')) deleteSlide(slide.id);
+                            }}
+                            className="p-1.5 bg-slate-800 hover:bg-rose-500 hover:text-white text-slate-400 rounded-lg transition-colors"
+                            title="Supprimer"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+        )}
+
         {/* PRODUCTS MANAGEMENT TAB */}
         {adminTab === 'products' && (
           <div className="space-y-6">

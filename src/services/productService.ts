@@ -484,6 +484,64 @@ class ProductService {
       return fallbackCategories;
     }
   }
+  async fetchCloudSlides(): Promise<any[] | null> {
+    if (!isSupabaseConfigured || !supabase) return null;
+    try {
+      const { data, error } = await supabase.from('hero_slides').select('*').order('sort_order', { ascending: true });
+      if (error || !data || data.length === 0) return null;
+      return data.map((row: any) => ({
+        id: row.id,
+        type: row.type || 'main',
+        badge: row.badge || '',
+        title: row.title || '',
+        subtitle: row.subtitle || '',
+        price: row.price || '',
+        oldPrice: row.old_price || undefined,
+        image: row.image || '',
+        ctaText: row.cta_text || '',
+        productId: row.product_id || undefined,
+        stockBadge: row.stock_badge || undefined,
+        isActive: row.is_active !== false,
+        sortOrder: row.sort_order || 0
+      }));
+    } catch {
+      return null;
+    }
+  }
+
+  async saveCloudSlide(slide: any): Promise<void> {
+    if (!isSupabaseConfigured || !supabase) return;
+    try {
+      await supabase.from('hero_slides').upsert({
+        id: slide.id,
+        type: slide.type,
+        badge: slide.badge,
+        title: slide.title,
+        subtitle: slide.subtitle,
+        price: slide.price,
+        old_price: slide.oldPrice,
+        image: slide.image,
+        cta_text: slide.ctaText,
+        product_id: slide.productId,
+        stock_badge: slide.stockBadge,
+        is_active: slide.isActive,
+        sort_order: slide.sortOrder,
+        updated_at: new Date().toISOString()
+      });
+    } catch (e) {
+      console.warn('Supabase slide upsert error:', e);
+    }
+  }
+
+  async deleteCloudSlide(id: string): Promise<void> {
+    if (!isSupabaseConfigured || !supabase) return;
+    try {
+      await supabase.from('hero_slides').delete().eq('id', id);
+    } catch (e) {
+      console.warn('Supabase slide delete error:', e);
+    }
+  }
+
 }
 
 export const productService = new ProductService();

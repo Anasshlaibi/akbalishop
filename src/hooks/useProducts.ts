@@ -19,6 +19,46 @@ export function useProducts() {
   // Hero Slides State
   const [slides, setSlides] = useState<HeroSlide[]>(() => getStoredSlides());
 
+  // Sync Cloud Slides on Mount & Realtime
+  useEffect(() => {
+    productService.fetchCloudSlides().then(cloudSlides => {
+      if (cloudSlides && cloudSlides.length > 0) {
+        setSlides(cloudSlides);
+        saveStoredSlides(cloudSlides);
+      }
+    });
+
+    if (!isSupabaseConfigured || !supabase) return;
+    const client = supabase;
+    const channelId = `slide_rt_${Math.random().toString(36).substring(2, 9)}`;
+
+    let channel: any;
+    try {
+      channel = client
+        .channel(channelId)
+        .on(
+          'postgres_changes',
+          { event: '*', schema: 'public', table: 'hero_slides' },
+          () => {
+            productService.fetchCloudSlides().then(fresh => {
+              if (fresh && fresh.length > 0) {
+                setSlides(fresh);
+                saveStoredSlides(fresh);
+              }
+            });
+          }
+        )
+        .subscribe();
+    } catch (err) {
+      console.warn('Slide realtime error:', err);
+    }
+
+    return () => {
+      if (channel) client.removeChannel(channel);
+    };
+  }, []);
+
+
   const addSlide = (slideData: Partial<HeroSlide>) => {
     const newSlide: HeroSlide = {
       id: `slide-${Date.now()}`,
@@ -39,6 +79,7 @@ export function useProducts() {
     setSlides(prev => {
       const next = [...prev, newSlide];
       saveStoredSlides(next);
+      productService.saveCloudSlide(newSlide);
       return next;
     });
   };

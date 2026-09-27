@@ -36,7 +36,7 @@ export const BrandStory: React.FC = () => {
               <div className="flex flex-wrap gap-4 pt-2 text-xs text-slate-600">
                 <div className="flex items-center space-x-1.5">
                   <MapPin className="w-4 h-4 text-amber-600" />
-                  <span>Showroom Marrakech (Lot Afaq 1 Saada)</span>
+                  <span>Showroom Marrakech (31.614086, -8.066086)</span>
                 </div>
                 <div className="flex items-center space-x-1.5">
                   <ShieldCheck className="w-4 h-4 text-amber-600" />

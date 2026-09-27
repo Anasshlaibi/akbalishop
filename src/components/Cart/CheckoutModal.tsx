@@ -99,7 +99,7 @@ export const CheckoutModal: React.FC = () => {
                   {[
                     { id: 'cod', label: 'Paiement à la livraison', sub: 'Espèces à la réception', icon: Truck },
                     { id: 'bank', label: 'Virement bancaire', sub: 'RIB fourni après validation', icon: CreditCard },
-                    { id: 'pickup', label: 'Retrait Showroom', sub: 'Lot Afaq 1 Saada, Marrakech', icon: Building2 }
+                    { id: 'pickup', label: 'Retrait Showroom', sub: '31.614086, -8.066086, Marrakech', icon: Building2 }
                   ].map(method => {
                     const Icon = method.icon;
                     const active = paymentMethod === method.id;

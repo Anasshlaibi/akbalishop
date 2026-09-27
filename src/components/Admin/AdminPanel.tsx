@@ -55,7 +55,7 @@ export const AdminPanel: React.FC = () => {
   
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
-  const [slidesTabFilter, setSlidesTabFilter] = useState<'all' | 'main' | 'secondary'>('all');
+  const [slidesTabFilter, setSlidesTabFilter] = useState<'all' | 'main' | 'secondary' | 'announcement'>('all');
   const [isSlideEditorOpen, setIsSlideEditorOpen] = useState(false);
   const [editingSlide, setEditingSlide] = useState<HeroSlide | null>(null);
 
@@ -388,6 +388,14 @@ export const AdminPanel: React.FC = () => {
                 >
                   Bannières Droite ({(slides || []).filter(s => s.type === 'secondary').length})
                 </button>
+                <button
+                  onClick={() => setSlidesTabFilter('announcement')}
+                  className={'px-3 py-1.5 rounded-xl text-xs font-bold transition-all ' + (
+                    slidesTabFilter === 'announcement' ? 'bg-amber-500 text-slate-950' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white'
+                  )}
+                >
+                  Annonces Haut de Page ({(slides || []).filter(s => s.type === 'announcement').length})
+                </button>
               </div>
 
               <button
@@ -417,9 +425,13 @@ export const AdminPanel: React.FC = () => {
                           <div className="space-y-1">
                             <div className="flex items-center space-x-2">
                               <span className={'px-2 py-0.5 rounded text-[9px] font-black uppercase ' + (
-                                slide.type === 'main' ? 'bg-amber-500/10 border border-amber-500/20 text-amber-400' : 'bg-blue-500/10 border border-blue-500/20 text-blue-400'
+                                slide.type === 'main'
+                                  ? 'bg-amber-500/10 border border-amber-500/20 text-amber-400'
+                                  : slide.type === 'announcement'
+                                    ? 'bg-fuchsia-500/10 border border-fuchsia-500/20 text-fuchsia-400'
+                                    : 'bg-blue-500/10 border border-blue-500/20 text-blue-400'
                               )}>
-                                {slide.type === 'main' ? 'Carrousel Principal' : 'Bannière Droite'}
+                                {slide.type === 'main' ? 'Carrousel Principal' : slide.type === 'announcement' ? 'Annonce Haut de Page' : 'Bannière Droite'}
                               </span>
                               <span className="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[9px] font-bold">
                                 {slide.badge}

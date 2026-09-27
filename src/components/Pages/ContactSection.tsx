@@ -67,7 +67,7 @@ function generatePDF(data: DevisData, ref: string) {
   doc.text(doc.splitTextToSize(data.project, 172), 19, afterDetails + 12);
   doc.setFillColor(15, 23, 42); doc.rect(0, 272, 210, 25, 'F');
   doc.setTextColor(148, 163, 184); doc.setFontSize(8); doc.setFont('helvetica', 'normal');
-  doc.text('AKABLISHOP — Lot Afaq 1 Saada, Marrakech, Maroc', 105, 281, { align: 'center' });
+  doc.text("AKABLISHOP — 31°36'50.7\"N, 8°03'57.9\"W, Marrakech, Maroc", 105, 281, { align: 'center' });
   doc.text('Lundi–Samedi : 09h00–19h30  |  akablishop.ma', 105, 288, { align: 'center' });
   doc.save(`Devis_AKABLISHOP_${ref}.pdf`);
 }
@@ -167,7 +167,7 @@ export const ContactSection: React.FC = () => {
           </a>
 
           {/* Navigate */}
-          <a href="https://maps.app.goo.gl/91F4FCEdXLrTiGmg7" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.google.com/maps?q=31.614086,-8.066086" target="_blank" rel="noopener noreferrer"
             className="group flex flex-col items-center gap-2 p-4 rounded-2xl border-2 border-gray-200 hover:border-rose-400 hover:bg-rose-50 transition-all cursor-pointer"
           >
             <div className="w-12 h-12 rounded-2xl bg-rose-100 group-hover:bg-rose-500 text-rose-600 group-hover:text-white flex items-center justify-center transition-all shadow-sm">
@@ -193,7 +193,7 @@ export const ContactSection: React.FC = () => {
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
               <iframe
                 title="AKABLISHOP Showroom Marrakech"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.644645410812!2d-8.114818722926973!3d31.643578641041906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafe9003898617d%3A0x8f046b20c42b2805!2sAkabli%20Shop!5e0!3m2!1sfr!2sma!4v1786457585338!5m2!1sfr!2sma"
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3397.7216467166845!2d-8.068660724384689!3d31.614086174171206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM2JzUwLjciTiA4wrAwMyc1Ny45Ilc!5e0!3m2!1sen!2sma!4v1790509519925!5m2!1sen!2sma"
                 width="100%"
                 height="320"
                 style={{ border: 0 }}
@@ -213,7 +213,7 @@ export const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Adresse</span>
-                    <span className="text-xs font-semibold text-slate-800 leading-snug">Lot Afaq 1 Saada, Marrakech, Maroc</span>
+                    <span className="text-xs font-semibold text-slate-800 leading-snug">31°36'50.7&quot;N, 8°03'57.9&quot;W, Marrakech, Maroc</span>
                   </div>
                 </div>
 

@@ -13,7 +13,8 @@ import {
   Zap, 
   DollarSign, 
   Layers,
-  AlertCircle
+  AlertCircle,
+  Megaphone
 } from 'lucide-react';
 
 interface SlideEditorModalProps {
@@ -98,7 +99,7 @@ export const SlideEditorModal: React.FC<SlideEditorModalProps> = ({
       if (prod.brand) {
         setBadge(prod.brand.toUpperCase() + ' • EN VEDETTE');
       }
-      setCtaText(type === 'main' ? 'Découvrir ' + prod.name.slice(0, 18) : 'Profiter de l\'offre');
+      setCtaText(type === 'main' ? 'Découvrir ' + prod.name.slice(0, 18) : type === 'announcement' ? 'Découvrir maintenant' : 'Profiter de l\'offre');
     }
   };
 
@@ -132,13 +133,13 @@ export const SlideEditorModal: React.FC<SlideEditorModalProps> = ({
 
     onSave({
       type,
-      badge: badge.trim() || (type === 'main' ? 'CINEMA LINE • EN VEDETTE' : 'OFFRE SPÉCIALE'),
+      badge: badge.trim() || (type === 'main' ? 'CINEMA LINE • EN VEDETTE' : type === 'announcement' ? 'NOUVEAUTÉ' : 'OFFRE SPÉCIALE'),
       title: title.trim(),
-      subtitle: type === 'main' ? subtitle.trim() : undefined,
+      subtitle: type === 'main' || type === 'announcement' ? subtitle.trim() : undefined,
       price: price.trim(),
       oldPrice: oldPrice.trim() || undefined,
       image: image.trim() || '/wp-content/uploads/SONY-FX6-jpg-300x300.webp',
-      ctaText: ctaText.trim() || (type === 'main' ? 'Commander le Kit' : "Profiter de l'offre"),
+      ctaText: ctaText.trim() || (type === 'main' ? 'Commander le Kit' : type === 'announcement' ? 'Découvrir maintenant' : "Profiter de l'offre"),
       productId: productId || undefined,
       stockBadge: stockBadge.trim() || undefined,
       isActive
@@ -182,7 +183,7 @@ export const SlideEditorModal: React.FC<SlideEditorModalProps> = ({
               <label className="block text-xs font-bold text-slate-300 mb-1.5 uppercase tracking-wider">
                 Emplacement sur la Page
               </label>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
                 <button
                   type="button"
                   onClick={() => setType('main')}
@@ -207,6 +208,19 @@ export const SlideEditorModal: React.FC<SlideEditorModalProps> = ({
                 >
                   <Tag className="w-4 h-4" />
                   <span>Bannière Droite (30%)</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setType('announcement')}
+                  className={'p-3 rounded-xl border text-xs font-bold flex flex-col items-center justify-center space-y-1 transition-all ' + (
+                    type === 'announcement'
+                      ? 'bg-amber-500/20 border-amber-500 text-amber-400 shadow-md'
+                      : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700'
+                  )}
+                >
+                  <Megaphone className="w-4 h-4" />
+                  <span>Annonce Haut de Page</span>
                 </button>
               </div>
             </div>
@@ -306,7 +320,7 @@ export const SlideEditorModal: React.FC<SlideEditorModalProps> = ({
             </div>
           </div>
 
-          {type === 'main' && (
+          {(type === 'main' || type === 'announcement') && (
             <div>
               <label className="block text-xs font-bold text-slate-300 mb-1">Sous-Titre / Description Courte</label>
               <textarea
@@ -320,6 +334,7 @@ export const SlideEditorModal: React.FC<SlideEditorModalProps> = ({
           )}
 
           {/* Prices & Action Button */}
+          {type !== 'announcement' && (
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
               <label className="block text-xs font-bold text-slate-300 mb-1">Prix Affiché</label>
@@ -354,8 +369,23 @@ export const SlideEditorModal: React.FC<SlideEditorModalProps> = ({
               />
             </div>
           </div>
+          )}
+
+          {type === 'announcement' && (
+            <div>
+              <label className="block text-xs font-bold text-slate-300 mb-1">Texte du bouton</label>
+              <input
+                type="text"
+                placeholder="Ex: Découvrir maintenant"
+                value={ctaText}
+                onChange={(e) => setCtaText(e.target.value)}
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white focus:outline-none focus:border-amber-500"
+              />
+            </div>
+          )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            {type !== 'announcement' && (
             <div>
               <label className="block text-xs font-bold text-slate-300 mb-1">Étiquette Stock / Garantie</label>
               <input
@@ -366,6 +396,7 @@ export const SlideEditorModal: React.FC<SlideEditorModalProps> = ({
                 className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white focus:outline-none focus:border-amber-500"
               />
             </div>
+            )}
 
             <div className="flex items-center space-x-3 pt-6">
               <label className="flex items-center space-x-2 cursor-pointer">

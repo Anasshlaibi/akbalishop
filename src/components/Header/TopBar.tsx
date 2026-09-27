@@ -22,7 +22,7 @@ export const TopBar: React.FC = () => {
           </a>
           <span className="hidden lg:flex items-center space-x-1.5 text-gray-400">
             <MapPin className="w-3.5 h-3.5 text-brand-amber" />
-            <span>Lot Afaq 1 Saada, Marrakech - Maroc</span>
+            <span>31.614086, -8.066086 - Marrakech, Maroc</span>
           </span>
         </div>
 

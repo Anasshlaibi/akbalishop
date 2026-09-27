@@ -4,6 +4,7 @@ import { CartProvider } from './context/CartContext';
 import { Header } from './components/Header/Header';
 import { MobileNavDrawer } from './components/Header/MobileNavDrawer';
 import { HeroCarousel } from './components/HeroCarousel';
+import { AnnouncementShowcase } from './components/AnnouncementShowcase';
 import { CategoryCarousel } from './components/CategoryCarousel';
 import { FeaturedProducts } from './components/FeaturedProducts';
 import { BrandSection } from './components/BrandSection';
@@ -60,6 +61,7 @@ const AppContent: React.FC = () => {
         {activeTab === 'home' && (
           <>
             {/* Kamerty E-Commerce 10-Step Layout */}
+            <AnnouncementShowcase />
             <HeroCarousel />
             <CategoryCarousel />
             <FeaturedProducts />

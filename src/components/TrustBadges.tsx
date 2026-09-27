@@ -53,7 +53,7 @@ export const TrustBadges: React.FC = () => {
             </div>
             <h3 className="text-base font-bold text-slate-900">Showroom à Marrakech</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Venez tester le matériel sur place : Lot Afaq 1 Saada, Marrakech. Équipe passionnée à votre service.
+              Venez tester le matériel sur place : 31.614086, -8.066086, Marrakech. Équipe passionnée à votre service.
             </p>
           </div>
 

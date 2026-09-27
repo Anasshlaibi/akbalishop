@@ -96,7 +96,7 @@ export interface Brand {
   seoNoindex?: boolean;
 }
 
-export type SlideType = 'main' | 'secondary';
+export type SlideType = 'main' | 'secondary' | 'announcement';
 
 export interface HeroSlide {
   id: string;
@@ -200,6 +200,30 @@ export const DEFAULT_SLIDES: HeroSlide[] = [
     productId: 'rode-wireless-pro',
     isActive: true,
     sortOrder: 3
+  },
+  {
+    id: 'announcement-lenses',
+    type: 'announcement',
+    badge: 'NOUVEAUTÉS',
+    title: 'Les dernières nouveautés photo & cinéma',
+    subtitle: 'Découvrez les nouveaux arrivages sélectionnés par AKABLISHOP.',
+    price: '',
+    image: '/wp-content/uploads/2025/04/AkabliShop-Head.webp',
+    ctaText: 'Découvrir maintenant',
+    isActive: true,
+    sortOrder: 1
+  },
+  {
+    id: 'announcement-canon',
+    type: 'announcement',
+    badge: 'OFFRE DU MOMENT',
+    title: 'Équipez votre prochain tournage',
+    subtitle: 'Caméras, objectifs et accessoires disponibles à Marrakech.',
+    price: '',
+    image: '/wp-content/uploads/AkabliShop-Canon.webp',
+    ctaText: 'Voir les offres',
+    isActive: true,
+    sortOrder: 2
   }
 ];
 
@@ -211,7 +235,10 @@ export function getStoredSlides(): HeroSlide[] {
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed;
+        const hasAnnouncements = parsed.some((slide: HeroSlide) => slide.type === 'announcement');
+        return hasAnnouncements
+          ? parsed
+          : [...parsed, ...DEFAULT_SLIDES.filter(slide => slide.type === 'announcement')];
       }
     }
   } catch (err) {

@@ -140,7 +140,7 @@ export const Footer: React.FC = () => {
             <div className="space-y-2.5 text-slate-400">
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
-                <span>Lot Afaq 1 Saada, Marrakech, Maroc</span>
+                <span>31°36'50.7&quot;N, 8°03'57.9&quot;W, Marrakech, Maroc</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-amber-500 flex-shrink-0" />

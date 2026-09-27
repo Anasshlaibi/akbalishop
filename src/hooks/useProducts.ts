@@ -1,10 +1,15 @@
 import { CATEGORIES, normalizeCategorySlug, getCategoryCount } from '../data/categories';
 import { useState, useEffect, useMemo } from 'react';
-import { Product, ConditionFilter, SortOption, HeroSlide, getStoredSlides, saveStoredSlides } from '../types';
+import { Product, ConditionFilter, SortOption, HeroSlide, DEFAULT_SLIDES, getStoredSlides, saveStoredSlides } from '../types';
 import { productService, MutationResult } from '../services/productService';
 import { intelligentSearchService } from '../services/intelligentSearchService';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { Database } from '../types/database.types';
+
+const withDefaultAnnouncements = (slides: HeroSlide[]): HeroSlide[] =>
+  slides.some(slide => slide.type === 'announcement')
+    ? slides
+    : [...slides, ...DEFAULT_SLIDES.filter(slide => slide.type === 'announcement')];
 
 export function useProducts() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -23,8 +28,9 @@ export function useProducts() {
   useEffect(() => {
     productService.fetchCloudSlides().then(cloudSlides => {
       if (cloudSlides && cloudSlides.length > 0) {
-        setSlides(cloudSlides);
-        saveStoredSlides(cloudSlides);
+        const nextSlides = withDefaultAnnouncements(cloudSlides);
+        setSlides(nextSlides);
+        saveStoredSlides(nextSlides);
       }
     });
 
@@ -42,8 +48,9 @@ export function useProducts() {
           () => {
             productService.fetchCloudSlides().then(fresh => {
               if (fresh && fresh.length > 0) {
-                setSlides(fresh);
-                saveStoredSlides(fresh);
+                const nextSlides = withDefaultAnnouncements(fresh);
+                setSlides(nextSlides);
+                saveStoredSlides(nextSlides);
               }
             });
           }

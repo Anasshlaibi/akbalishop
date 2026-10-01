@@ -12,9 +12,10 @@ interface ProductCardProps {
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'grid' }) => {
   const { addToCart, toggleWishlist, isInWishlist } = useCart();
-  const { setQuickViewProduct, setSelectedProduct, setActiveTab } = useShop();
+  const { setQuickViewProduct, setSelectedProduct, setActiveTab, conditionFilter, selectedCategory } = useShop();
 
   const isLiked = isInWishlist(product.id);
+  const isRentalMode = conditionFilter === 'location' || selectedCategory === 'location';
 
   const handleCardClick = () => {
     setSelectedProduct(product);
@@ -22,7 +23,19 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleRentalWhatsApp = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const rentalPriceStr = product.rentalPricePerDay
+      ? `${product.rentalPricePerDay.toLocaleString('fr-FR')} DH / jour`
+      : 'Sur devis';
+    const message = encodeURIComponent(
+      `Bonjour AKABLISHOP, je souhaite louer le matériel suivant :\n\n*${product.name}*\nTarif indicatif : ${rentalPriceStr}\n\nEst-il disponible pour mes dates ? Merci.`
+    );
+    window.open(`https://wa.me/212701896033?text=${message}`, '_blank');
+  };
+
   const calculateDiscount = () => {
+    if (isRentalMode) return null;
     if (!product.oldPrice || product.oldPrice <= product.price) return null;
     const percentage = Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100);
     return percentage;
@@ -38,8 +51,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
           className="relative w-full sm:w-40 h-36 rounded-xl bg-slate-50 p-3 border border-gray-100 flex items-center justify-center cursor-pointer overflow-hidden flex-shrink-0"
         >
           <img src={product.image} alt={generateSeoAltText(product)} loading="lazy" decoding="async" className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />
-          {product.isOccasion && (
+          {product.isOccasion && !isRentalMode && (
             <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-amber-100 border border-amber-300 text-amber-800 text-[10px] font-bold">Occasion</span>
+          )}
+          {(isRentalMode || (product.isRental && !product.isOccasion)) && (
+            <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-[10px] font-bold flex items-center gap-1">
+              <Calendar className="w-2.5 h-2.5" /><span>Location</span>
+            </span>
           )}
         </div>
 
@@ -58,20 +76,51 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
 
         <div className="w-full sm:w-auto flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-3 border-t sm:border-t-0 pt-3 sm:pt-0 flex-shrink-0">
           <div className="text-left sm:text-right">
-            <div className="text-base font-extrabold text-slate-900">{product.price.toLocaleString('fr-FR')} <span className="text-xs font-semibold text-amber-700">DH</span></div>
-            {product.oldPrice && <div className="text-xs text-slate-400 line-through">{product.oldPrice.toLocaleString('fr-FR')} DH</div>}
+            {isRentalMode ? (
+              <div>
+                {product.rentalPricePerDay ? (
+                  <>
+                    <div className="text-base font-extrabold text-emerald-600">
+                      {product.rentalPricePerDay.toLocaleString('fr-FR')} <span className="text-xs font-semibold text-slate-600">DH / jour</span>
+                    </div>
+                    <div className="text-[10px] text-slate-400 font-medium">Tarif journalier</div>
+                  </>
+                ) : (
+                  <>
+                    <div className="text-base font-extrabold text-emerald-600">Sur devis</div>
+                    <div className="text-[10px] text-slate-400 font-medium">Prix sur demande</div>
+                  </>
+                )}
+              </div>
+            ) : (
+              <div>
+                <div className="text-base font-extrabold text-slate-900">{product.price.toLocaleString('fr-FR')} <span className="text-xs font-semibold text-amber-700">DH</span></div>
+                {product.oldPrice && <div className="text-xs text-slate-400 line-through">{product.oldPrice.toLocaleString('fr-FR')} DH</div>}
+              </div>
+            )}
           </div>
           <div className="flex items-center gap-2">
             <button onClick={() => toggleWishlist(product.id)} className={`p-2.5 rounded-xl border transition-all touch-manipulation ${isLiked ? 'bg-rose-50 border-rose-200 text-rose-600' : 'bg-slate-100 border-gray-200 text-slate-500'}`}>
               <Heart className="w-4 h-4 fill-current" />
             </button>
-            <button
-              onClick={() => addToCart(product)}
-              className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-xs shadow-md hover:brightness-110 active:scale-95 flex items-center gap-1.5 transition-all touch-manipulation"
-            >
-              <ShoppingBag className="w-3.5 h-3.5" />
-              <span>Ajouter</span>
-            </button>
+            {isRentalMode ? (
+              <button
+                onClick={handleRentalWhatsApp}
+                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-bold text-xs shadow-md hover:brightness-110 active:scale-95 flex items-center gap-1.5 transition-all touch-manipulation"
+                title="Demander un devis location"
+              >
+                <Calendar className="w-3.5 h-3.5" />
+                <span>Louer</span>
+              </button>
+            ) : (
+              <button
+                onClick={() => addToCart(product)}
+                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-xs shadow-md hover:brightness-110 active:scale-95 flex items-center gap-1.5 transition-all touch-manipulation"
+              >
+                <ShoppingBag className="w-3.5 h-3.5" />
+                <span>Ajouter</span>
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -89,12 +138,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
               -{discount}%
             </span>
           )}
-          {product.isOccasion && (
+          {product.isOccasion && !isRentalMode && (
             <span className="px-1.5 py-0.5 rounded-md bg-amber-500 text-white text-[9px] font-bold shadow-sm flex items-center gap-1">
               <RefreshCw className="w-2 h-2" /><span>Occasion</span>
             </span>
           )}
-          {product.isRental && !product.isOccasion && (
+          {(isRentalMode || (product.isRental && !product.isOccasion)) && (
             <span className="px-1.5 py-0.5 rounded-md bg-emerald-600 text-white text-[9px] font-bold shadow-sm flex items-center gap-1">
               <Calendar className="w-2 h-2" /><span>Location</span>
             </span>
@@ -152,26 +201,61 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
           </h3>
         </div>
 
-        {/* Price + Add to Cart */}
+        {/* Price + Action Button */}
         <div className="pt-2 border-t border-gray-100 flex items-center justify-between gap-1.5">
-          <div className="min-w-0">
-            <div className="text-sm font-extrabold text-slate-900 leading-tight">
-              {product.price.toLocaleString('fr-FR')} <span className="text-[10px] font-semibold text-amber-700">DH</span>
+          {isRentalMode ? (
+            <div className="min-w-0">
+              {product.rentalPricePerDay ? (
+                <>
+                  <div className="text-sm font-extrabold text-emerald-600 leading-tight">
+                    {product.rentalPricePerDay.toLocaleString('fr-FR')} <span className="text-[10px] font-semibold text-slate-600">DH/j</span>
+                  </div>
+                  <div className="text-[9px] text-slate-400 font-medium leading-none mt-0.5">
+                    Tarif par jour
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="text-sm font-extrabold text-emerald-600 leading-tight">
+                    Sur devis
+                  </div>
+                  <div className="text-[9px] text-slate-400 font-medium leading-none mt-0.5">
+                    Demander tarif
+                  </div>
+                </>
+              )}
             </div>
-            {product.oldPrice && (
-              <div className="text-[10px] text-slate-400 line-through leading-none mt-0.5">
-                {product.oldPrice.toLocaleString('fr-FR')} DH
+          ) : (
+            <div className="min-w-0">
+              <div className="text-sm font-extrabold text-slate-900 leading-tight">
+                {product.price.toLocaleString('fr-FR')} <span className="text-[10px] font-semibold text-amber-700">DH</span>
               </div>
-            )}
-          </div>
+              {product.oldPrice && (
+                <div className="text-[10px] text-slate-400 line-through leading-none mt-0.5">
+                  {product.oldPrice.toLocaleString('fr-FR')} DH
+                </div>
+              )}
+            </div>
+          )}
 
-          <button
-            onClick={() => addToCart(product)}
-            className="p-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-white font-extrabold shadow-md hover:brightness-110 active:scale-95 transition-all touch-manipulation flex-shrink-0"
-            aria-label="Ajouter au panier"
-          >
-            <ShoppingBag className="w-4 h-4" />
-          </button>
+          {isRentalMode ? (
+            <button
+              onClick={handleRentalWhatsApp}
+              className="p-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-extrabold shadow-md hover:brightness-110 active:scale-95 transition-all touch-manipulation flex-shrink-0"
+              aria-label="Demander un devis location"
+              title="Demander un devis location"
+            >
+              <Calendar className="w-4 h-4" />
+            </button>
+          ) : (
+            <button
+              onClick={() => addToCart(product)}
+              className="p-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-white font-extrabold shadow-md hover:brightness-110 active:scale-95 transition-all touch-manipulation flex-shrink-0"
+              aria-label="Ajouter au panier"
+            >
+              <ShoppingBag className="w-4 h-4" />
+            </button>
+          )}
         </div>
       </div>
     </div>

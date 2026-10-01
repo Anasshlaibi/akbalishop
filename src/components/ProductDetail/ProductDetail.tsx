@@ -52,6 +52,16 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
     return recommendationEngine.getProductRecommendations(product, products);
   }, [product, products]);
 
+  const handleWhatsAppRental = () => {
+    const rentalPriceStr = product.rentalPricePerDay
+      ? `${product.rentalPricePerDay.toLocaleString('fr-FR')} DH / jour`
+      : 'Sur devis';
+    const message = encodeURIComponent(
+      `Bonjour AKABLISHOP, je souhaite louer le matériel suivant :\n\n*${product.name}*\nTarif indicatif : ${rentalPriceStr}\nQuantité : ${quantity}\n\nMerci de me donner la disponibilité et les conditions de réservation.`
+    );
+    window.open(`https://wa.me/212701896033?text=${message}`, '_blank');
+  };
+
   const handleWhatsAppOrder = () => {
     const message = encodeURIComponent(
       `Bonjour AKABLISHOP, je souhaite commander le produit suivant :\n\n*${product.name}*\nPrix : ${product.price.toLocaleString('fr-FR')} DH\nQuantité : ${quantity}\n\nMerci de me donner les détails de livraison.`
@@ -252,11 +262,21 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
 
                 <button
                   onClick={handleWhatsAppOrder}
-                  className="sm:col-span-5 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs shadow-md active:scale-95 transition-all flex items-center justify-center space-x-2"
+                  className="sm:col-span-5 py-3.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs shadow-md active:scale-95 transition-all flex items-center justify-center space-x-2"
                 >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Commander sur WhatsApp</span>
+                  <MessageCircle className="w-4 h-4 text-emerald-400" />
+                  <span>Acheter via WhatsApp</span>
                 </button>
+
+                {(product.isRental || product.rentalPricePerDay || product.commercialMode === 'rental' || product.commercialMode === 'both') && (
+                  <button
+                    onClick={handleWhatsAppRental}
+                    className="sm:col-span-12 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs uppercase tracking-wide shadow-md active:scale-95 transition-all flex items-center justify-center space-x-2"
+                  >
+                    <Calendar className="w-4 h-4" />
+                    <span>Demander un devis location (WhatsApp)</span>
+                  </button>
+                )}
               </div>
 
               <button

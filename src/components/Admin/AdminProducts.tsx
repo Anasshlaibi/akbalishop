@@ -78,10 +78,15 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({
                   <span className="block text-[10px] text-slate-400 capitalize">{product.category}</span>
                 </td>
                 <td className="p-3.5 font-extrabold text-slate-900">
-                  {product.price.toLocaleString('fr-FR')} DH
-                  {product.rentalPricePerDay && (
-                    <span className="block text-[10px] text-emerald-600 font-medium">
-                      Loc: {product.rentalPricePerDay.toLocaleString('fr-FR')} DH/j
+                  <div>{product.price.toLocaleString('fr-FR')} DH</div>
+                  {product.oldPrice && (
+                    <span className="block text-[10px] text-slate-400 line-through">
+                      Promo: {product.oldPrice.toLocaleString('fr-FR')} DH
+                    </span>
+                  )}
+                  {(product.isRental || product.rentalPricePerDay) && (
+                    <span className="block text-[10px] text-emerald-600 font-bold">
+                      Loc: {product.rentalPricePerDay ? `${product.rentalPricePerDay.toLocaleString('fr-FR')} DH/j` : 'Demander le prix'}
                     </span>
                   )}
                 </td>

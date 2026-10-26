@@ -1,6 +1,7 @@
 import React from 'react';
 import { useShop } from '../../context/ShopContext';
 import { CATEGORIES } from '../../data/categories';
+import { getCategoryPath } from '../../utils/seoGenerator';
 import { Phone, Mail, MapPin, Instagram, MessageCircle, ShieldCheck, Truck, CreditCard, Database } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -100,12 +101,13 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-slate-400">
               {CATEGORIES.slice(0, 6).map(cat => (
                 <li key={cat.id}>
-                  <button 
-                    onClick={() => handleNavClick(cat.slug)}
+                  <a
+                    href={getCategoryPath(cat.slug)}
+                    onClick={(event) => { if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return; event.preventDefault(); handleNavClick(cat.slug); }}
                     className="hover:text-amber-400 transition-colors"
                   >
                     {cat.name}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -116,19 +118,19 @@ export const Footer: React.FC = () => {
             <h4 className="font-bold text-white text-xs uppercase tracking-wider font-display">Navigation</h4>
             <ul className="space-y-2 text-slate-400">
               <li>
-                <button onClick={() => { resetFilters(); setActiveTab('home'); }} className="hover:text-amber-400 transition-colors">Accueil</button>
+                <a href="/" onClick={(event) => { if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return; event.preventDefault(); resetFilters(); setActiveTab('home'); }} className="hover:text-amber-400 transition-colors">Accueil</a>
               </li>
               <li>
-                <button onClick={() => { resetFilters(); setActiveTab('shop'); }} className="hover:text-amber-400 transition-colors">Toute la Boutique</button>
+                <a href={getCategoryPath()} onClick={(event) => { if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return; event.preventDefault(); resetFilters(); setActiveTab('shop'); }} className="hover:text-amber-400 transition-colors">Toute la Boutique</a>
               </li>
               <li>
-                <button onClick={() => handleNavClick(undefined, 'occasion')} className="hover:text-amber-400 transition-colors">Occasions Certifiées</button>
+                <a href={getCategoryPath('occasions')} onClick={(event) => { if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return; event.preventDefault(); handleNavClick('occasions', 'occasion'); }} className="hover:text-amber-400 transition-colors">Occasions</a>
               </li>
               <li>
-                <button onClick={() => handleNavClick(undefined, 'location')} className="hover:text-emerald-400 transition-colors">Location Matériel</button>
+                <a href={getCategoryPath('location')} onClick={(event) => { if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return; event.preventDefault(); handleNavClick('location', 'location'); }} className="hover:text-emerald-400 transition-colors">Location Matériel</a>
               </li>
               <li>
-                <button onClick={() => setActiveTab('contact')} className="hover:text-amber-400 transition-colors">Contact & Showroom</button>
+                <a href="/contact/" onClick={(event) => { if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return; event.preventDefault(); setActiveTab('contact'); }} className="hover:text-amber-400 transition-colors">Contact & Showroom</a>
               </li>
             </ul>
           </div>

@@ -3,6 +3,7 @@ import { useCart } from '../../context/CartContext';
 import { useShop } from '../../context/ShopContext';
 import { recommendationEngine } from '../../services/recommendationEngine';
 import { X, Trash2, ShoppingBag, ArrowRight, Truck, ShieldCheck, Check, Plus, Sparkles } from 'lucide-react';
+import { productAnalyticsItem, trackEvent } from '../../lib/analytics';
 
 export const CartDrawer: React.FC = () => {
   const { 
@@ -27,6 +28,7 @@ export const CartDrawer: React.FC = () => {
   const remainingForFreeShipping = Math.max(0, freeShippingThreshold - subtotal);
 
   const handleCheckoutClick = () => {
+    trackEvent('begin_checkout', { currency: 'MAD', value: subtotal, items: cart.map(item => productAnalyticsItem(item.product, item.quantity)) });
     setIsCartOpen(false);
     setIsCheckoutOpen(true);
   };

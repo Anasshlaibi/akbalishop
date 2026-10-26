@@ -37,6 +37,15 @@ export const CATEGORIES: Category[] = [
     iconName: "Sun"
   },
   {
+    id: "audio",
+    name: "Microphones & Audio",
+    slug: "audio",
+    description: "Microphones et matériel de prise de son pour vidéo et interview.",
+    itemCount: 0,
+    image: "/wp-content/uploads/categories/audio.jpg",
+    iconName: "Mic"
+  },
+  {
     id: "stabilisateurs",
     name: "Stabilisateurs & Gimbals",
     slug: "stabilisateurs",

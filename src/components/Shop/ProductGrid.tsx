@@ -2,11 +2,13 @@ import React from 'react';
 import { useShop, SortOption } from '../../context/ShopContext';
 import { ProductCard } from '../ProductCard';
 import { CATEGORIES, normalizeCategorySlug } from '../../data/categories';
+import localSeo from '../../data/localSeo.json';
 import { Grid, List, SlidersHorizontal, ArrowUpDown, SearchX } from 'lucide-react';
 
 export const ProductGrid: React.FC = () => {
   const {
     products,
+    isProductsLoading,
     filteredProducts,
     selectedCategory,
     selectedBrand,
@@ -27,13 +29,13 @@ export const ProductGrid: React.FC = () => {
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortBy === 'price-asc') return a.price - b.price;
     if (sortBy === 'price-desc') return b.price - a.price;
-    if (sortBy === 'rating') return b.rating - a.rating;
     return 0; // Default featured
   });
 
   // Get active category object for title
   const normSelCategory = selectedCategory ? normalizeCategorySlug(selectedCategory) : null;
   const activeCategoryObj = CATEGORIES.find(c => c.slug === normSelCategory);
+  const localCategory = localSeo.find(category => category.slug === normSelCategory);
 
   return (
     <div className="flex-1 space-y-6">
@@ -57,8 +59,12 @@ export const ProductGrid: React.FC = () => {
             )}
           </div>
           <h1 className="text-xl sm:text-2xl font-extrabold font-display text-slate-900">
-            {activeCategoryObj ? activeCategoryObj.name : selectedBrand ? `Matériel ${selectedBrand}` : 'Catalogue Audiovisuel Pro'}
+            {localCategory ? `${localCategory.name} à Marrakech` : selectedBrand ? `Matériel ${selectedBrand}` : 'Matériel photo et vidéo à Marrakech'}
           </h1>
+          <p className="text-sm text-slate-600 mt-2 max-w-2xl leading-relaxed">
+            {localCategory?.description || 'Explorez le catalogue AKABLISHOP de matériel photo et vidéo à Marrakech. Contactez notre équipe pour confirmer la disponibilité et organiser un retrait au showroom.'}
+          </p>
+          {localCategory && <p className="text-xs text-slate-500 mt-2 max-w-2xl leading-relaxed">{localCategory.detail}</p>}
           <p className="text-xs text-slate-500 mt-0.5 font-medium">
             {sortedProducts.length} {sortedProducts.length === 1 ? 'produit disponible' : 'produits disponibles'}
           </p>
@@ -87,7 +93,6 @@ export const ProductGrid: React.FC = () => {
               <option value="featured" className="bg-white text-slate-900">Trier par : En Vedette</option>
               <option value="price-asc" className="bg-white text-slate-900">Prix : Croissant</option>
               <option value="price-desc" className="bg-white text-slate-900">Prix : Décroissant</option>
-              <option value="rating" className="bg-white text-slate-900">Meilleures Notes</option>
             </select>
           </div>
 
@@ -117,7 +122,11 @@ export const ProductGrid: React.FC = () => {
       </div>
 
       {/* Product List / Grid Render */}
-      {sortedProducts.length > 0 ? (
+      {isProductsLoading ? (
+        <div role="status" className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6" aria-label="Chargement des produits">
+          {Array.from({ length: 8 }, (_, index) => <div key={index} className="aspect-[4/5] rounded-lg bg-slate-200 animate-pulse" />)}
+        </div>
+      ) : sortedProducts.length > 0 ? (
         <div className={
           viewMode === 'grid'
             ? "grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"

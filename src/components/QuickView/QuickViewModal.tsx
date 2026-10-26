@@ -1,7 +1,7 @@
 import React from 'react';
 import { useShop } from '../../context/ShopContext';
 import { useCart } from '../../context/CartContext';
-import { X, ShoppingBag, Star, ArrowRight, Calendar } from 'lucide-react';
+import { X, ShoppingBag, ArrowRight, Calendar } from 'lucide-react';
 
 export const QuickViewModal: React.FC = () => {
   const { quickViewProduct, setQuickViewProduct, setSelectedProduct, setActiveTab, conditionFilter, selectedCategory } = useShop();
@@ -68,15 +68,6 @@ export const QuickViewModal: React.FC = () => {
               <h3 className="text-xl font-extrabold text-slate-900 font-display mt-0.5">{quickViewProduct.name}</h3>
             </div>
 
-            <div className="flex items-center space-x-2 text-amber-500 text-xs">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className={`w-3.5 h-3.5 ${i < Math.floor(quickViewProduct.rating) ? 'fill-amber-400' : 'text-slate-300'}`} />
-                ))}
-              </div>
-              <span className="font-bold text-slate-900">{quickViewProduct.rating}</span>
-              <span className="text-slate-500">({quickViewProduct.reviewCount} avis)</span>
-            </div>
 
             {isRentalMode && (conditionFilter === 'location' || selectedCategory === 'location') ? (
               <div>

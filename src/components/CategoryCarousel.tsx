@@ -1,22 +1,22 @@
 import React from 'react';
 import { CATEGORIES, Category, normalizeCategorySlug, getCategoryCount } from '../data/categories';
 import { useShop } from '../context/ShopContext';
+import { getCategoryPath } from '../utils/seoGenerator';
 
 export const CategoryCarousel: React.FC = () => {
   const { products, categories, setActiveTab, setSelectedCategory, setConditionFilter, resetFilters } = useShop();
 
-  const activeProducts = products.filter(p => p.isActive !== false);
-
-  const handleCategoryClick = (cat: Category) => {
+  const handleCategoryClick = (event: React.MouseEvent<HTMLAnchorElement>, cat: Category) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
     resetFilters();
     setActiveTab('shop');
     const norm = normalizeCategorySlug(cat.slug);
+    setSelectedCategory(norm);
     if (norm === 'occasions') {
       setConditionFilter('occasion');
     } else if (norm === 'location') {
       setConditionFilter('location');
-    } else {
-      setSelectedCategory(norm);
     }
   };
 
@@ -31,9 +31,10 @@ export const CategoryCarousel: React.FC = () => {
           {(categories || CATEGORIES).map((cat) => {
             const count = getCategoryCount(cat.slug, products);
             return (
-              <div
+              <a
                 key={cat.id}
-                onClick={() => handleCategoryClick(cat)}
+                href={getCategoryPath(cat.slug)}
+                onClick={(event) => handleCategoryClick(event, cat)}
                 className="group flex-shrink-0 w-36 sm:w-40 rounded-2xl bg-white border border-gray-200 hover:border-amber-500 hover:shadow-md p-3 cursor-pointer transition-all duration-300 flex flex-col items-center text-center shadow-sm"
               >
                 {/* Category Image Box */}
@@ -55,7 +56,7 @@ export const CategoryCarousel: React.FC = () => {
                 <span className="text-[10px] text-slate-500 font-medium">
                   {count} {count === 1 ? 'produit' : 'produits'}
                 </span>
-              </div>
+              </a>
             );
           })}
         </div>

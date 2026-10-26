@@ -1,9 +1,9 @@
-import { generateSeoAltText } from '../utils/seoGenerator';
+import { generateSeoAltText, getProductPath } from '../utils/seoGenerator';
 import React from 'react';
 import { Product } from '../data/products';
 import { useCart } from '../context/CartContext';
 import { useShop } from '../context/ShopContext';
-import { ShoppingBag, Eye, Heart, Star, RefreshCw, Calendar } from 'lucide-react';
+import { ShoppingBag, Eye, Heart, RefreshCw, Calendar } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
@@ -21,6 +21,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
     setSelectedProduct(product);
     setActiveTab('product');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  const openProduct = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    handleCardClick();
   };
 
   const handleRentalWhatsApp = (e: React.MouseEvent) => {
@@ -46,8 +51,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
   if (layout === 'list') {
     return (
       <div className="group rounded-2xl bg-white border border-gray-200 hover:border-amber-400 hover:shadow-md transition-all p-4 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-        <div
-          onClick={handleCardClick}
+        <a
+          href={getProductPath(product)}
+          onClick={openProduct}
           className="relative w-full sm:w-40 h-36 rounded-xl bg-slate-50 p-3 border border-gray-100 flex items-center justify-center cursor-pointer overflow-hidden flex-shrink-0"
         >
           <img src={product.image} alt={generateSeoAltText(product)} loading="lazy" decoding="async" className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />
@@ -59,19 +65,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
               <Calendar className="w-2.5 h-2.5" /><span>Location</span>
             </span>
           )}
-        </div>
+        </a>
 
         <div className="flex-1 space-y-1.5 text-left">
           <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider">{product.brand}</span>
-          <h3 onClick={handleCardClick} className="text-sm font-bold text-slate-900 hover:text-amber-600 cursor-pointer transition-colors line-clamp-2 leading-snug">
-            {product.name}
+          <h3 className="text-sm font-bold text-slate-900 hover:text-amber-600 transition-colors line-clamp-2 leading-snug">
+            <a href={getProductPath(product)} onClick={openProduct}>{product.name}</a>
           </h3>
           <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed hidden sm:block">{product.shortDescription}</p>
-          <div className="flex items-center space-x-1 text-amber-500 text-xs">
-            <Star className="w-3 h-3 fill-amber-400" />
-            <span className="font-bold text-slate-700">{product.rating}</span>
-            <span className="text-slate-400">({product.reviewCount})</span>
-          </div>
         </div>
 
         <div className="w-full sm:w-auto flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-3 border-t sm:border-t-0 pt-3 sm:pt-0 flex-shrink-0">
@@ -162,15 +163,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
 
       {/* Product Image */}
       <div
-        onClick={handleCardClick}
         className="relative aspect-square w-full bg-slate-50 p-3 flex items-center justify-center cursor-pointer overflow-hidden border-b border-gray-100"
       >
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-          loading="lazy"
-        />
+        <a href={getProductPath(product)} onClick={openProduct} className="w-full h-full flex items-center justify-center">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+        </a>
 
         {/* Quick View — hidden on mobile (tap = navigate), shown on hover desktop */}
         <button
@@ -187,17 +189,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
         <div>
           <div className="flex items-center justify-between mb-0.5">
             <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider truncate">{product.brand}</span>
-            <div className="flex items-center gap-0.5 text-amber-500 flex-shrink-0">
-              <Star className="w-2.5 h-2.5 fill-amber-400" />
-              <span className="text-[10px] font-semibold text-slate-700">{product.rating}</span>
-            </div>
           </div>
 
-          <h3
-            onClick={handleCardClick}
-            className="text-xs sm:text-sm font-bold text-slate-900 hover:text-amber-600 cursor-pointer transition-colors line-clamp-2 leading-snug"
-          >
-            {product.name}
+          <h3 className="text-xs sm:text-sm font-bold text-slate-900 hover:text-amber-600 transition-colors line-clamp-2 leading-snug">
+            <a href={getProductPath(product)} onClick={openProduct}>{product.name}</a>
           </h3>
         </div>
 

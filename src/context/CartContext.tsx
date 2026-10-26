@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Product } from '../types';
 import { useShop } from './ShopContext';
+import { productAnalyticsItem, trackEvent } from '../lib/analytics';
 
 export interface CartItem {
   product: Product;
@@ -103,6 +104,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return [...validPrev, { product: liveProduct, quantity }];
     });
     setIsCartOpen(true);
+    trackEvent('add_to_cart', { currency: 'MAD', value: liveProduct.price * quantity, items: [productAnalyticsItem(liveProduct, quantity)] });
   };
 
   const removeFromCart = (productId: string) => {

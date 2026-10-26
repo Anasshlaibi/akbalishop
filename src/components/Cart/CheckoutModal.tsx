@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { trackEvent } from '../../lib/analytics';
 import { useShop } from '../../context/ShopContext';
 import { useCart } from '../../context/CartContext';
 import { X, Check, Truck, Building2, CreditCard, MessageCircle } from 'lucide-react';
@@ -56,6 +57,7 @@ export const CheckoutModal: React.FC = () => {
       `*Mode de paiement:* ${paymentMethod === 'cod' ? 'Paiement à la livraison' : paymentMethod === 'bank' ? 'Virement bancaire' : 'Retrait Showroom Marrakech'}`
     );
     window.open(`https://wa.me/212701896033?text=${message}`, '_blank');
+    trackEvent('generate_lead', { method: 'whatsapp_checkout', currency: 'MAD', value: subtotal });
     clearCart();
     setIsCheckoutOpen(false);
     setIsOrderComplete(false);

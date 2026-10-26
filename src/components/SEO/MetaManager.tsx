@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { useShop } from '../../context/ShopContext';
-import { enrichProductWithSeo, SITE_DOMAIN } from '../../utils/seoGenerator';
+import { enrichProductWithSeo, getCategoryPath, SITE_DOMAIN } from '../../utils/seoGenerator';
 import { CATEGORIES, normalizeCategorySlug } from '../../data/categories';
+import localSeo from '../../data/localSeo.json';
 
 export const MetaManager: React.FC = () => {
   const { activeTab, selectedProduct, selectedCategory, selectedBrand } = useShop();
 
   useEffect(() => {
+    if (activeTab === 'product' && !selectedProduct) return;
     const updateMetaTag = (selector: string, attr: string, value: string) => {
       let element = document.querySelector(selector);
       if (!element) {
@@ -27,8 +29,27 @@ export const MetaManager: React.FC = () => {
       }
       if (element) element.setAttribute(attr, value);
     };
+    const updatePageMeta = (title: string, description: string, canonical: string) => {
+      document.title = title;
+      updateMetaTag('meta[name="description"]', 'content', description);
+      updateMetaTag('meta[name="robots"]', 'content', 'index, follow');
+      updateMetaTag('link[rel="canonical"]', 'href', canonical);
+      updateMetaTag('meta[property="og:type"]', 'content', 'website');
+      updateMetaTag('meta[property="og:title"]', 'content', title);
+      updateMetaTag('meta[property="og:description"]', 'content', description);
+      updateMetaTag('meta[property="og:url"]', 'content', canonical);
+      updateMetaTag('meta[property="og:image"]', 'content', `${SITE_DOMAIN}/wp-content/uploads/AkabliShop-Head.webp`);
+      updateMetaTag('meta[name="twitter:title"]', 'content', title);
+      updateMetaTag('meta[name="twitter:description"]', 'content', description);
+      updateMetaTag('meta[name="twitter:url"]', 'content', canonical);
+      updateMetaTag('meta[name="twitter:image"]', 'content', `${SITE_DOMAIN}/wp-content/uploads/AkabliShop-Head.webp`);
+      document.getElementById('dynamic-product-jsonld')?.remove();
+      document.getElementById('dynamic-breadcrumb-jsonld')?.remove();
+      document.getElementById('prerender-product-jsonld')?.remove();
+    };
 
     if (activeTab === 'product' && selectedProduct) {
+      document.getElementById('prerender-product-jsonld')?.remove();
       const p = enrichProductWithSeo(selectedProduct);
 
       // 1. Title, Meta Description & Canonical
@@ -77,41 +98,16 @@ export const MetaManager: React.FC = () => {
           '@type': 'Brand',
           'name': p.brand || 'AKABLISHOP'
         },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': p.rating || 5.0,
-          'reviewCount': Math.max(p.reviewCount || 12, 5)
-        },
         'offers': {
           '@type': 'Offer',
           'url': p.canonicalUrl || window.location.href,
           'priceCurrency': 'MAD',
           'price': p.price,
-          'priceValidUntil': '2027-12-31',
           'itemCondition': p.isOccasion ? 'https://schema.org/UsedCondition' : 'https://schema.org/NewCondition',
           'availability': p.inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
           'seller': {
             '@type': 'Organization',
             'name': 'AKABLISHOP Marrakech'
-          },
-          'hasMerchantReturnPolicy': {
-            '@type': 'MerchantReturnPolicy',
-            'applicableCountry': 'MA',
-            'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
-            'merchantReturnDays': 7,
-            'returnMethod': 'https://schema.org/ReturnByMail'
-          },
-          'shippingDetails': {
-            '@type': 'OfferShippingDetails',
-            'shippingRate': {
-              '@type': 'MonetaryAmount',
-              'value': 0,
-              'currency': 'MAD'
-            },
-            'shippingDestination': {
-              '@type': 'DefinedRegion',
-              'addressCountry': 'MA'
-            }
           }
         }
       };
@@ -140,7 +136,7 @@ export const MetaManager: React.FC = () => {
             '@type': 'ListItem',
             'position': 2,
             'name': p.category,
-            'item': `${SITE_DOMAIN}/?category=${encodeURIComponent(p.category)}`
+            'item': `${SITE_DOMAIN}${getCategoryPath(normalizeCategorySlug(p.category))}`
           },
           {
             '@type': 'ListItem',
@@ -157,22 +153,16 @@ export const MetaManager: React.FC = () => {
     } else if (activeTab === 'shop') {
       const normCat = selectedCategory ? normalizeCategorySlug(selectedCategory) : null;
       const catObj = CATEGORIES.find(c => c.slug === normCat);
-      const categoryName = catObj ? catObj.name : selectedBrand ? `Matériel ${selectedBrand}` : 'Boutique Audiovisuel Pro';
-      
-      document.title = `${categoryName} - Vente & Location Marrakech | AKABLISHOP Maroc`;
-      updateMetaTag('meta[name="description"]', 'content', `Achetez et louez votre matériel ${categoryName} au meilleur prix au Maroc chez AKABLISHOP Marrakech. Boîtiers, objectifs, éclairage studio et gimbals.`);
-      updateMetaTag('meta[name="keywords"]', 'content', `${categoryName}, matériel photo Marrakech, AKABLISHOP, matériel vidéo Maroc`);
-      updateMetaTag('meta[name="robots"]', 'content', 'index, follow');
-      updateMetaTag('link[rel="canonical"]', 'href', `${SITE_DOMAIN}/?tab=shop${normCat ? `&category=${normCat}` : ''}`);
+      const localCategory = localSeo.find(category => category.slug === normCat);
+      const title = localCategory?.title || 'Matériel photo et vidéo à Marrakech | AKABLISHOP';
+      const description = localCategory?.description || 'Explorez les caméras, objectifs, éclairages et accessoires photo et vidéo du catalogue AKABLISHOP à Marrakech.';
+      updatePageMeta(title, description, `${SITE_DOMAIN}${getCategoryPath(catObj ? normCat : null)}`);
+      updateMetaTag('meta[name="keywords"]', 'content', localCategory ? `${localCategory.name}, Marrakech, AKABLISHOP` : 'matériel audiovisuel Marrakech, AKABLISHOP');
 
     } else if (activeTab === 'contact') {
-      document.title = `Contact & Magasin Audiovisuel à Marrakech | AKABLISHOP Maroc`;
-      updateMetaTag('meta[name="description"]', 'content', `Contactez AKABLISHOP à Marrakech. Magasin spécialisé en vente & location de matériel audiovisuel pro. Devis gratuit et livraison rapide partout au Maroc.`);
-      updateMetaTag('link[rel="canonical"]', 'href', `${SITE_DOMAIN}/?tab=contact`);
+      updatePageMeta('Contact et showroom photo vidéo à Marrakech | AKABLISHOP', 'Contactez AKABLISHOP à Marrakech pour la vente et la location de matériel photo et vidéo. Appelez, écrivez ou demandez un devis pour votre équipement.', `${SITE_DOMAIN}/contact/`);
     } else {
-      document.title = `AKABLISHOP | Vente & Location Matériel Audiovisuel Marrakech Maroc`;
-      updateMetaTag('meta[name="description"]', 'content', `Leader du matériel audiovisuel à Marrakech et au Maroc. Caméras hybrides Sony & Canon, objectifs optiques, éclairage studio Godox et gimbals DJI.`);
-      updateMetaTag('link[rel="canonical"]', 'href', SITE_DOMAIN);
+      updatePageMeta('AKABLISHOP | Matériel photo et vidéo à Marrakech', 'AKABLISHOP propose caméras, objectifs, éclairages et accessoires photo et vidéo à Marrakech, avec vente et location selon les produits.', `${SITE_DOMAIN}/`);
     }
   }, [activeTab, selectedProduct, selectedCategory, selectedBrand]);
 

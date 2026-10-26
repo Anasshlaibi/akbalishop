@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "cameras",
+    "name": "Caméras et appareils photo",
+    "title": "Caméras et appareils photo à Marrakech | AKABLISHOP",
+    "description": "Découvrez les caméras cinéma et appareils photo du catalogue AKABLISHOP à Marrakech. Comparez les modèles et contactez le showroom pour confirmer disponibilité et retrait.",
+    "detail": "Boîtiers hybrides, caméras cinéma et accessoires de prise de vue pour vos projets photo et vidéo. Consultez les fiches produit pour choisir un modèle adapté à votre tournage."
+  },
+  {
+    "slug": "objectifs",
+    "name": "Objectifs photo et cinéma",
+    "title": "Objectifs photo et cinéma à Marrakech | AKABLISHOP",
+    "description": "Parcourez les objectifs photo et cinéma proposés par AKABLISHOP à Marrakech. Vérifiez la monture et les caractéristiques de chaque produit avant de commander.",
+    "detail": "Focales fixes, zooms et optiques cinéma pour différentes montures. Les fiches précisent les caractéristiques disponibles afin de préparer votre équipement."
+  },
+  {
+    "slug": "eclairage",
+    "name": "Éclairage photo et vidéo",
+    "title": "Éclairage photo et vidéo à Marrakech | AKABLISHOP",
+    "description": "Explorez les éclairages LED, flashs et accessoires de studio AKABLISHOP à Marrakech. Consultez les produits et demandez conseil pour votre installation.",
+    "detail": "Solutions d'éclairage pour portrait, interview, vidéo et studio : sources lumineuses et accessoires compatibles selon les références du catalogue."
+  },
+  {
+    "slug": "audio",
+    "name": "Microphones et audio",
+    "title": "Microphones et audio à Marrakech | AKABLISHOP",
+    "description": "Retrouvez les microphones et équipements audio du catalogue AKABLISHOP à Marrakech pour tournage, interview et création de contenu.",
+    "detail": "Microphones sans fil et accessoires de prise de son pour la vidéo. Consultez les fiches produit pour vérifier les connexions et les usages."
+  },
+  {
+    "slug": "stabilisateurs",
+    "name": "Stabilisateurs et gimbals",
+    "title": "Stabilisateurs et gimbals à Marrakech | AKABLISHOP",
+    "description": "Comparez les stabilisateurs et gimbals disponibles dans le catalogue AKABLISHOP à Marrakech pour caméra et création vidéo.",
+    "detail": "Équipement de stabilisation pour prises de vue mobiles. Vérifiez la charge utile et la compatibilité de votre boîtier sur chaque fiche."
+  },
+  {
+    "slug": "accessoires",
+    "name": "Accessoires photo et vidéo",
+    "title": "Accessoires photo et vidéo à Marrakech | AKABLISHOP",
+    "description": "Batteries, cartes mémoire, filtres et autres accessoires photo et vidéo du catalogue AKABLISHOP à Marrakech.",
+    "detail": "Complétez votre kit avec les accessoires présents dans le catalogue. Vérifiez la compatibilité de chaque référence avant de commander."
+  },
+  {
+    "slug": "occasions",
+    "name": "Matériel photo et vidéo d'occasion",
+    "title": "Matériel photo et vidéo d'occasion à Marrakech | AKABLISHOP",
+    "description": "Consultez les caméras, objectifs et autres équipements d'occasion proposés par AKABLISHOP à Marrakech. Confirmez l'état et la disponibilité avant achat.",
+    "detail": "Chaque occasion dépend du stock du moment. Consultez la fiche de l'article et contactez l'équipe pour demander des précisions sur son état."
+  },
+  {
+    "slug": "location",
+    "name": "Location de matériel audiovisuel",
+    "title": "Location de matériel audiovisuel à Marrakech | AKABLISHOP",
+    "description": "Explorez les caméras, objectifs et équipements proposés à la location par AKABLISHOP à Marrakech. Demandez un devis pour vos dates de tournage.",
+    "detail": "Préparez votre tournage en comparant le matériel disponible à la location. Les tarifs et les dates doivent être confirmés avec l'équipe avant réservation."
+  }
+]

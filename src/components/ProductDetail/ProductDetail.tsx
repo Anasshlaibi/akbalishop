@@ -1,4 +1,4 @@
-import { generateSeoAltText } from '../../utils/seoGenerator';
+import { generateSeoAltText, getProductPath } from '../../utils/seoGenerator';
 import React, { useState, useMemo } from 'react';
 import { Product } from '../../types';
 import { useCart } from '../../context/CartContext';
@@ -9,7 +9,6 @@ import {
   ShoppingBag, 
   MessageCircle, 
   Heart, 
-  Star, 
   ShieldCheck, 
   Truck, 
   RefreshCw, 
@@ -20,7 +19,6 @@ import {
   Box,
   FileText,
   Sliders,
-  MessageSquare,
   Sparkles,
   Layers,
   Cpu,
@@ -41,7 +39,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
     setActiveImage(product.image);
   }, [product.id, product.image]);
   const [quantity, setQuantity] = useState(1);
-  const [activeTabSection, setActiveTabSection] = useState<'desc' | 'specs' | 'box' | 'reviews'>('desc');
+  const [activeTabSection, setActiveTabSection] = useState<'desc' | 'specs' | 'box'>('desc');
   const [recTab, setRecTab] = useState<'compatible' | 'accessories' | 'bundle' | 'similar'>('compatible');
   const [copied, setCopied] = useState(false);
 
@@ -70,10 +68,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   };
 
   const shareUrl = useMemo(() => {
-    const targetId = product.slug || product.id;
-    const origin = window.location.origin;
-    const path = window.location.pathname;
-    return `${origin}${path}?product=${encodeURIComponent(targetId)}`;
+    return `${window.location.origin}${getProductPath(product)}`;
   }, [product.id, product.slug]);
 
   const handleShare = () => {
@@ -179,26 +174,11 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                 {product.seoH1 || product.name}</h1>
             </div>
 
-            {/* Ratings & Stock Status */}
+            {/* Stock Status */}
             <div className="flex items-center space-x-4 border-y border-gray-200 py-3 text-xs">
-              <div className="flex items-center space-x-1.5 text-amber-500">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'fill-amber-400' : 'text-slate-300'}`} 
-                    />
-                  ))}
-                </div>
-                <span className="font-bold text-slate-900 ml-1">{product.rating}</span>
-                <span className="text-slate-400">({product.reviewCount} avis certifiés)</span>
-              </div>
-
-              <span className="text-gray-300">|</span>
-
-              <div className="flex items-center space-x-1.5 text-emerald-700 font-bold">
-                <Check className="w-4 h-4" />
-                <span>En Stock à Marrakech</span>
+              <div className={`flex items-center space-x-1.5 font-bold ${product.inStock ? 'text-emerald-700' : 'text-slate-500'}`}>
+                {product.inStock && <Check className="w-4 h-4" />}
+                <span>{product.inStock ? 'En stock à Marrakech' : 'Disponibilité à confirmer'}</span>
               </div>
             </div>
 
@@ -314,7 +294,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
 
         </div>
 
-        {/* BOTTOM: Detailed Tabs (Description, Specifications, Box Content, Reviews) */}
+        {/* BOTTOM: Detailed Tabs */}
         <div className="pt-8 border-t border-gray-200">
           
           {/* Tabs Selector */}
@@ -322,8 +302,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
             {[
               { id: 'desc', label: 'Description Détaillée', icon: FileText },
               { id: 'specs', label: 'Spécifications Techniques', icon: Sliders },
-              { id: 'box', label: 'Contenu du Coffret', icon: Box },
-              { id: 'reviews', label: `Avis Clients (${product.reviewCount})`, icon: MessageSquare }
+              { id: 'box', label: 'Contenu du Coffret', icon: Box }
             ].map(tab => {
               const Icon = tab.icon;
               const active = activeTabSection === tab.id;
@@ -386,32 +365,6 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
               </div>
             )}
 
-            {activeTabSection === 'reviews' && (
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-bold text-slate-900">Avis et Évaluations Clients</h3>
-                  <span className="text-xs text-amber-600 font-bold">★ {product.rating} / 5</span>
-                </div>
-
-                <div className="space-y-4">
-                  {[
-                    { name: 'Youssef B.', date: 'Il y a 3 jours', comment: 'Matériel commandé à Marrakech et livré le lendemain à Casablanca. Emballage irréprochable et caméra 100% conforme !', rating: 5 },
-                    { name: 'Mehdi K.', date: 'Il y a 1 semaine', comment: 'Excellente équipe AKABLISHOP, conseils précieux pour le choix du kit optique Sony. Je recommande vivement !', rating: 5 }
-                  ].map((rev, i) => (
-                    <div key={i} className="p-4 rounded-xl bg-white border border-gray-200 space-y-2 text-xs shadow-sm">
-                      <div className="flex items-center justify-between">
-                        <span className="font-bold text-slate-900">{rev.name}</span>
-                        <span className="text-slate-400 text-[10px]">{rev.date}</span>
-                      </div>
-                      <div className="flex text-amber-500">
-                        {[...Array(rev.rating)].map((_, idx) => <Star key={idx} className="w-3 h-3 fill-amber-400" />)}
-                      </div>
-                      <p className="text-slate-700">{rev.comment}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
 
         </div>

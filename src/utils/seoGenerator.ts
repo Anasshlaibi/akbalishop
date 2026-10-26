@@ -1,6 +1,14 @@
 import { Product } from '../types';
 
-export const SITE_DOMAIN = 'https://akablishop.ma';
+export const SITE_DOMAIN = 'https://www.akablishop.ma';
+
+export function getProductPath(product: Partial<Product>): string {
+  return `/produits/${encodeURIComponent(product.slug || product.id || '')}/`;
+}
+
+export function getCategoryPath(slug?: string | null): string {
+  return slug ? `/marrakech/${encodeURIComponent(slug)}/` : '/marrakech/';
+}
 
 export function normalizeText(text?: string): string {
   if (!text) return '';
@@ -8,58 +16,22 @@ export function normalizeText(text?: string): string {
 }
 
 export function generateSeoTitle(product: Partial<Product>): string {
-  if (product.seoTitle && product.seoTitle.trim()) {
-    return normalizeText(product.seoTitle);
-  }
-
   const name = normalizeText(product.name || 'Produit Audiovisuel');
-  const brand = normalizeText(product.brand || 'AKABLISHOP');
-  const category = (product.category || '').toLowerCase();
-  
-  const startsWithBrand = name.toLowerCase().startsWith(brand.toLowerCase());
-  const displayName = startsWithBrand ? name : `${brand} ${name}`;
-
-  if (category.includes('camera') || category.includes('appareil')) {
-    return `${displayName} – Caméra & Boîtier Plein Format | Prix au Maroc | AKABLISHOP`;
-  }
-  if (category.includes('obj') || category.includes('lens')) {
-    return `${displayName} – Objectif Photo & Cinéma | Prix au Maroc | AKABLISHOP`;
-  }
-  if (category.includes('eclair') || category.includes('light')) {
-    return `${displayName} – Éclairage Studio Photo & Vidéo au Maroc | AKABLISHOP`;
-  }
-  if (category.includes('audio') || category.includes('mic') || category.includes('son')) {
-    return `${displayName} – Microphone Professionnel Photo & Vidéo au Maroc | AKABLISHOP`;
-  }
-  if (category.includes('stabilis') || category.includes('gimbal')) {
-    return `${displayName} – Stabilisateur Gimbal 3 Axes au Maroc | AKABLISHOP`;
-  }
-  if (category.includes('occas') || product.isOccasion) {
-    return `${displayName} – Occasion Révisée Garantie au Maroc | AKABLISHOP`;
-  }
-  if (category.includes('locat') || product.isRental) {
-    return `${displayName} – Location Matériel Tournage Marrakech Maroc | AKABLISHOP`;
-  }
-
-  return `${displayName} – Matériel Audiovisuel Professionnel au Maroc | AKABLISHOP`;
+  const editorialTitle = normalizeText(product.seoTitle);
+  if (editorialTitle && editorialTitle.length <= 70) return editorialTitle;
+  return `${name} | AKABLISHOP Marrakech`;
 }
 
 export function generateSeoDescription(product: Partial<Product>): string {
-  if (product.seoDescription && product.seoDescription.trim()) {
-    return normalizeText(product.seoDescription);
-  }
-
   const name = normalizeText(product.name || 'Matériel Audiovisuel');
-  const brand = normalizeText(product.brand || 'AKABLISHOP');
-  const priceFormatted = product.price ? `${product.price.toLocaleString('fr-FR')} DH` : 'Meilleur prix';
   const descSnippet = normalizeText(product.shortDescription || product.description || '');
-  const cleanSnippet = descSnippet.length > 90 ? descSnippet.slice(0, 90) + '...' : descSnippet;
+  const cleanSnippet = descSnippet.length > 130 ? descSnippet.slice(0, 127).trimEnd() + '...' : descSnippet;
 
   if (cleanSnippet) {
-    return `Achetez ${name} (${brand}) au meilleur prix au Maroc (${priceFormatted}) chez AKABLISHOP Marrakech. ${cleanSnippet} Livraison sécurisée.`;
+    return `${name} chez AKABLISHOP à Marrakech. ${cleanSnippet}`;
   }
 
-  return `Découvrez ${name} par ${brand} chez AKABLISHOP Marrakech. Vente & location de matériel audiovisuel certifié au Maroc au prix de ${priceFormatted}.`;
+  return `Découvrez ${name} chez AKABLISHOP à Marrakech. Contactez-nous pour connaître la disponibilité et les modalités de retrait.`;
 }
 
 export function generateSeoH1(product: Partial<Product>): string {
@@ -103,11 +75,7 @@ export function generateSeoAltText(product: Partial<Product>, index = 0): string
 }
 
 export function generateCanonicalUrl(product: Partial<Product>): string {
-  if (product.canonicalUrl && product.canonicalUrl.trim()) {
-    return normalizeText(product.canonicalUrl);
-  }
-  const idOrSlug = product.slug || product.id || '';
-  return `${SITE_DOMAIN}/?product=${idOrSlug}`;
+  return `${SITE_DOMAIN}${getProductPath(product)}`;
 }
 
 export function generateOpenGraph(product: Partial<Product>) {

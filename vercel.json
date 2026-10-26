@@ -13,7 +13,7 @@
     },
     {
       "source": "/index.php/softstore",
-      "destination": "/?tab=shop",
+      "destination": "/marrakech/",
       "permanent": true
     },
     {
@@ -23,62 +23,62 @@
     },
     {
       "source": "/category/cameras",
-      "destination": "/?category=cameras",
+      "destination": "/marrakech/cameras/",
       "permanent": true
     },
     {
       "source": "/category/objectifs",
-      "destination": "/?category=objectifs",
+      "destination": "/marrakech/objectifs/",
       "permanent": true
     },
     {
       "source": "/category/lenses",
-      "destination": "/?category=objectifs",
+      "destination": "/marrakech/objectifs/",
       "permanent": true
     },
     {
       "source": "/category/eclairage",
-      "destination": "/?category=eclairage",
+      "destination": "/marrakech/eclairage/",
       "permanent": true
     },
     {
       "source": "/category/lighting",
-      "destination": "/?category=eclairage",
+      "destination": "/marrakech/eclairage/",
       "permanent": true
     },
     {
       "source": "/category/audio",
-      "destination": "/?tab=shop",
+      "destination": "/marrakech/audio/",
       "permanent": true
     },
     {
       "source": "/category/stabilisateurs",
-      "destination": "/?category=stabilisateurs",
+      "destination": "/marrakech/stabilisateurs/",
       "permanent": true
     },
     {
       "source": "/category/stabilizers",
-      "destination": "/?category=stabilisateurs",
+      "destination": "/marrakech/stabilisateurs/",
       "permanent": true
     },
     {
       "source": "/category/accessoires",
-      "destination": "/?category=accessoires",
+      "destination": "/marrakech/accessoires/",
       "permanent": true
     },
     {
       "source": "/category/accessories",
-      "destination": "/?category=accessoires",
+      "destination": "/marrakech/accessoires/",
       "permanent": true
     },
     {
       "source": "/category/occasions",
-      "destination": "/?category=occasions",
+      "destination": "/marrakech/occasions/",
       "permanent": true
     },
     {
       "source": "/category/location",
-      "destination": "/?category=location",
+      "destination": "/marrakech/location/",
       "permanent": true
     },
     {
@@ -123,22 +123,22 @@
     },
     {
       "source": "/contact-us",
-      "destination": "/?tab=contact",
+      "destination": "/contact/",
       "permanent": true
     },
     {
       "source": "/contact",
-      "destination": "/?tab=contact",
+      "destination": "/contact/",
       "permanent": true
     },
     {
       "source": "/boutique",
-      "destination": "/?tab=shop",
+      "destination": "/marrakech/",
       "permanent": true
     },
     {
       "source": "/location-materiel",
-      "destination": "/?tab=rental",
+      "destination": "/marrakech/location/",
       "permanent": true
     }
   ]

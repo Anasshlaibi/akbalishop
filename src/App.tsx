@@ -25,9 +25,19 @@ import { Footer } from './components/Footer/Footer';
 import { MobileBottomBar } from './components/MobileBottomBar';
 
 import { MetaManager } from './components/SEO/MetaManager';
+import { initAnalytics, productAnalyticsItem, trackEvent } from './lib/analytics';
 
 const AppContent: React.FC = () => {
-  const { activeTab, selectedProduct, setIsAdminOpen } = useShop();
+  const { activeTab, selectedProduct, isProductsLoading, setIsAdminOpen } = useShop();
+
+  React.useEffect(() => { initAnalytics(); }, []);
+  React.useEffect(() => {
+    if (activeTab === 'product' && !selectedProduct) return;
+    trackEvent('page_view', { page_location: window.location.href, page_title: document.title });
+    if (activeTab === 'product' && selectedProduct) {
+      trackEvent('view_item', { currency: 'MAD', value: selectedProduct.price, items: [productAnalyticsItem(selectedProduct)] });
+    }
+  }, [activeTab, selectedProduct?.id]);
 
   React.useEffect(() => {
     const checkAdminAccess = () => {
@@ -88,6 +98,11 @@ const AppContent: React.FC = () => {
 
         {activeTab === 'product' && selectedProduct && (
           <ProductDetail product={selectedProduct} />
+        )}
+        {activeTab === 'product' && !selectedProduct && (
+          <div className="max-w-7xl mx-auto px-4 py-16" role="status">
+            {isProductsLoading ? 'Chargement du produit...' : <><h1 className="text-xl font-bold">Produit introuvable</h1><a href="/marrakech/" className="text-amber-700 underline">Voir le catalogue</a></>}
+          </div>
         )}
 
         {activeTab === 'contact' && (

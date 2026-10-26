@@ -5,6 +5,7 @@ import { useCategories } from '../hooks/useCategories';
 import { useProducts } from '../hooks/useProducts';
 import { useOrders } from '../hooks/useOrders';
 import { MutationResult } from '../services/productService';
+import { getCategoryPath, getProductPath } from '../utils/seoGenerator';
 
 export type { ConditionFilter, SortOption, Product, Order, HeroSlide };
 export type ActiveTab = 'home' | 'shop' | 'product' | 'contact' | 'about' | 'rental';
@@ -14,6 +15,7 @@ interface ShopContextType {
   addCategory: (categoryData: Partial<Category>) => void;
   updateCategory: (id: string, updated: Partial<Category>) => void;
   products: Product[];
+  isProductsLoading: boolean;
   filteredProducts: Product[];
 
   // Hero Slides & Banners Management
@@ -74,35 +76,63 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const productState = useProducts();
   const orderState = useOrders(productState.products);
 
-  const [activeTab, setActiveTab] = useState<ActiveTab>('home');
+  const initialProduct = () => {
+    const pathMatch = window.location.pathname.match(/^\/produits\/([^/]+)\/?$/);
+    const params = new URLSearchParams(window.location.search);
+    return pathMatch ? decodeURIComponent(pathMatch[1]) : params.get('product') || params.get('id') || params.get('p') || params.get('slug');
+  };
+  const categoryFromPath = () => {
+    const match = window.location.pathname.match(/^\/marrakech\/([^/]+)\/?$/);
+    return match ? normalizeCategorySlug(decodeURIComponent(match[1])) : null;
+  };
+  const [activeTab, setActiveTab] = useState<ActiveTab>(() => {
+    if (initialProduct()) return 'product';
+    if (window.location.pathname.startsWith('/marrakech/')) return 'shop';
+    if (window.location.pathname === '/contact/') return 'contact';
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('category')) return 'shop';
+    const tab = params.get('tab');
+    return tab === 'shop' || tab === 'rental' || tab === 'contact' || tab === 'about' ? tab : 'home';
+  });
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   
   // Store target IDs to ensure selected & quickView products always resolve dynamically from productState.products
-  const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(initialProduct);
   const [quickViewProductId, setQuickViewProductId] = useState<string | null>(null);
 
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const skipInitialUrlSync = React.useRef(true);
 
   // Initial URL params sync (e.g., ?product=sony-fx3-cinema or ?category=stabilisateurs or ?tab=shop)
   React.useEffect(() => {
     try {
       const params = new URLSearchParams(window.location.search);
-      const prodParam = params.get('product') || params.get('id') || params.get('p') || params.get('slug');
-      const catParam = params.get('category');
+      const prodParam = initialProduct();
+      const catParam = categoryFromPath() || params.get('category');
       const tabParam = params.get('tab');
 
       if (prodParam) {
+        if (!window.location.pathname.startsWith('/produits/')) {
+          window.history.replaceState({}, '', getProductPath({ id: prodParam }));
+        }
         setSelectedProductId(prodParam);
         setActiveTab('product');
       } else if (catParam) {
         const normCat = normalizeCategorySlug(catParam);
         productState.setSelectedCategory(normCat);
         setActiveTab('shop');
+        if (window.location.pathname === '/') window.history.replaceState({}, '', getCategoryPath(normCat));
+      } else if (window.location.pathname === '/marrakech/') {
+        setActiveTab('shop');
+      } else if (window.location.pathname === '/contact/') {
+        setActiveTab('contact');
       } else if (tabParam === 'shop' || tabParam === 'rental' || tabParam === 'contact' || tabParam === 'about') {
         setActiveTab(tabParam as ActiveTab);
+        if (tabParam === 'shop') window.history.replaceState({}, '', getCategoryPath());
+        if (tabParam === 'contact') window.history.replaceState({}, '', '/contact/');
       }
     } catch (e) {
       console.warn('URL params parsing error:', e);
@@ -111,15 +141,16 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const handlePopState = () => {
       try {
         const params = new URLSearchParams(window.location.search);
-        const prodParam = params.get('product') || params.get('id') || params.get('p') || params.get('slug');
+        const prodParam = initialProduct();
         if (prodParam) {
           setSelectedProductId(prodParam);
           setActiveTab('product');
         } else {
           setSelectedProductId(null);
+          const catParam = categoryFromPath() || params.get('category');
+          productState.setSelectedCategory(catParam ? normalizeCategorySlug(catParam) : null);
           const tabParam = params.get('tab');
-          if (tabParam) setActiveTab(tabParam as ActiveTab);
-          else setActiveTab('home');
+          setActiveTab(catParam || window.location.pathname === '/marrakech/' ? 'shop' : window.location.pathname === '/contact/' ? 'contact' : tabParam === 'shop' || tabParam === 'rental' || tabParam === 'contact' || tabParam === 'about' ? tabParam : 'home');
         }
       } catch (e) {
         console.warn('Popstate error:', e);
@@ -132,20 +163,30 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Sync browser URL search params with active tab & selected product
   React.useEffect(() => {
+    if (skipInitialUrlSync.current) {
+      skipInitialUrlSync.current = false;
+      return;
+    }
     try {
       const url = new URL(window.location.href);
       if (activeTab === 'product' && selectedProductId) {
-        url.searchParams.set('product', selectedProductId);
+        const product = productState.products.find(p => p.id === selectedProductId || p.slug === selectedProductId);
+        url.pathname = getProductPath(product || { id: selectedProductId });
+        url.searchParams.delete('product');
         url.searchParams.delete('category');
         url.searchParams.delete('tab');
       } else {
+        url.pathname = activeTab === 'shop' ? getCategoryPath(productState.selectedCategory) : activeTab === 'contact' ? '/contact/' : '/';
         url.searchParams.delete('product');
         url.searchParams.delete('id');
         url.searchParams.delete('p');
         url.searchParams.delete('slug');
         if (productState.selectedCategory && activeTab === 'shop') {
-          url.searchParams.set('category', productState.selectedCategory);
+          url.searchParams.delete('category');
           url.searchParams.delete('tab');
+        } else if (activeTab === 'shop' || activeTab === 'contact') {
+          url.searchParams.delete('tab');
+          url.searchParams.delete('category');
         } else if (activeTab && activeTab !== 'home') {
           url.searchParams.set('tab', activeTab);
           url.searchParams.delete('category');
@@ -154,11 +195,14 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
           url.searchParams.delete('category');
         }
       }
-      window.history.replaceState({}, '', url.pathname + url.search + url.hash);
+      const target = url.pathname + url.search + url.hash;
+      if (target !== window.location.pathname + window.location.search + window.location.hash) {
+        window.history.pushState({}, '', target);
+      }
     } catch (e) {
       console.warn('URL sync error:', e);
     }
-  }, [activeTab, selectedProductId, productState.selectedCategory]);
+  }, [activeTab, selectedProductId, productState.selectedCategory, productState.products]);
 
 
   // Derived selected product from synchronized products state
@@ -214,6 +258,7 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
       addCategory,
       updateCategory,
       products: productState.products,
+      isProductsLoading: productState.isLoading,
       filteredProducts: productState.filteredProducts,
       slides: productState.slides,
       addSlide: productState.addSlide,
